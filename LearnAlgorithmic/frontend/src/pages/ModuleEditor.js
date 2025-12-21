@@ -1,6 +1,11 @@
 import React, { useState, useEffect } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
 import axios from 'axios';
+import Header from '../components/Header';
+import Footer from '../components/Footer';
+import Notification from '../components/Notification';
+import ConfirmDialog from '../components/ConfirmDialog';
+import { useNotification } from '../hooks/useNotification';
 
 const ModuleEditor = () => {
   const { moduleId } = useParams();
@@ -11,6 +16,7 @@ const ModuleEditor = () => {
     description: '',
     order: 1,
   });
+  const { notification, confirmDialog, showSuccess, showError, hideNotification, confirm } = useNotification();
 
   useEffect(() => {
     if (moduleId && moduleId !== 'new') {
@@ -34,7 +40,7 @@ const ModuleEditor = () => {
       });
     } catch (error) {
       console.error('Erreur:', error);
-      alert('Erreur lors du chargement du module');
+      showError('Erreur de chargement', 'Erreur lors du chargement du module');
     }
   };
 
@@ -62,24 +68,27 @@ const ModuleEditor = () => {
         headers: { Authorization: `Bearer ${token}` },
       });
 
-      alert(
-        moduleId === 'new'
-          ? 'Module créé avec succès !'
-          : 'Module modifié avec succès !'
+      showSuccess(
+        moduleId === 'new' ? 'Module créé !' : 'Module modifié !',
+        moduleId === 'new' ? 'Le module a été créé avec succès' : 'Les modifications ont été enregistrées'
       );
-      navigate('/admin');
+      setTimeout(() => navigate('/admin'), 1500);
     } catch (error) {
       console.error('Erreur:', error);
-      alert('Erreur lors de la sauvegarde');
+      showError('Erreur de sauvegarde', 'Impossible de sauvegarder le module');
     } finally {
       setLoading(false);
     }
   };
 
   const handleDelete = async () => {
-    if (!window.confirm('Êtes-vous sûr de vouloir supprimer ce module ?')) {
-      return;
-    }
+    const confirmed = await confirm(
+      'Supprimer ce module ?',
+      'Cette action est irréversible. Toutes les leçons associées seront également supprimées.',
+      { type: 'danger', confirmText: 'Supprimer', cancelText: 'Annuler' }
+    );
+
+    if (!confirmed) return;
 
     try {
       const token = localStorage.getItem('access_token');
@@ -89,45 +98,35 @@ const ModuleEditor = () => {
           headers: { Authorization: `Bearer ${token}` },
         }
       );
-      alert('Module supprimé avec succès !');
-      navigate('/admin');
+      showSuccess('Module supprimé !', 'Le module a été supprimé avec succès');
+      setTimeout(() => navigate('/admin'), 1500);
     } catch (error) {
       console.error('Erreur:', error);
-      alert('Erreur lors de la suppression');
+      showError('Erreur de suppression', 'Impossible de supprimer le module');
     }
   };
 
   return (
-    <div className="min-h-screen bg-gray-50">
-      {/* Header */}
-      <header className="bg-white shadow-sm">
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-6">
+    <div className="min-h-screen bg-gray-50 flex flex-col">
+      <Header>
+        <div className="flex items-center space-x-3">
           <button
             onClick={() => navigate('/admin')}
-            className="flex items-center text-primary-600 hover:text-primary-700 mb-4"
+            className="flex items-center text-primary-600 hover:text-primary-700 text-sm font-medium"
           >
-            <svg
-              className="w-5 h-5 mr-2"
-              fill="none"
-              stroke="currentColor"
-              viewBox="0 0 24 24"
-            >
-              <path
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                strokeWidth={2}
-                d="M15 19l-7-7 7-7"
-              />
+            <svg className="w-4 h-4 mr-1.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
             </svg>
-            Retour à l'admin
+            Admin
           </button>
-          <h1 className="text-3xl font-bold text-gray-900">
+          <div className="border-l border-gray-300 h-4"></div>
+          <h1 className="text-sm font-bold text-gray-900">
             {moduleId === 'new' ? '➕ Nouveau Module' : '✏️ Modifier le Module'}
           </h1>
         </div>
-      </header>
+      </Header>
 
-      <main className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+      <main className="w-full px-4 sm:px-6 lg:px-8 py-6">
         <form onSubmit={handleSubmit} className="card">
           {/* Titre */}
           <div className="mb-6">
@@ -217,6 +216,31 @@ const ModuleEditor = () => {
           </div>
         </form>
       </main>
+
+      <Footer />
+
+      {notification && (
+        <Notification
+          type={notification.type}
+          title={notification.title}
+          message={notification.message}
+          onClose={hideNotification}
+          autoClose={notification.autoClose}
+          duration={notification.duration}
+        />
+      )}
+
+      {confirmDialog && (
+        <ConfirmDialog
+          title={confirmDialog.title}
+          message={confirmDialog.message}
+          type={confirmDialog.type}
+          confirmText={confirmDialog.confirmText}
+          cancelText={confirmDialog.cancelText}
+          onConfirm={confirmDialog.onConfirm}
+          onCancel={confirmDialog.onCancel}
+        />
+      )}
     </div>
   );
 };

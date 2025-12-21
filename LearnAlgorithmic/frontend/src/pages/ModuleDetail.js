@@ -1,6 +1,9 @@
 import React, { useState, useEffect } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
 import { moduleService } from '../services/api';
+import Notification from '../components/Notification';
+import Header from '../components/Header';
+import Footer from '../components/Footer';
 
 const ModuleDetail = () => {
   const { moduleId } = useParams();
@@ -9,6 +12,8 @@ const ModuleDetail = () => {
   const [lessons, setLessons] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState('');
+  const [marking, setMarking] = useState(false);
+  const [notification, setNotification] = useState(null);
 
   useEffect(() => {
     loadModuleAndLessons();
@@ -37,6 +42,58 @@ const ModuleDetail = () => {
       return <span className="badge badge-warning">En cours</span>;
     }
     return <span className="badge bg-gray-200 text-gray-700">Non commencé</span>;
+  };
+
+  const handleMarkComplete = async () => {
+    setMarking(true);
+    try {
+      const result = await moduleService.markComplete(moduleId);
+
+      if (result.success) {
+        // Succès - Afficher une belle notification
+        setNotification({
+          type: 'success',
+          title: 'Félicitations ! 🎉',
+          message: result.message,
+          onClose: () => {
+            setNotification(null);
+            // Rediriger vers la page des modules après fermeture de la notification
+            navigate('/modules');
+          },
+        });
+      }
+    } catch (err) {
+      // Erreur - Afficher les détails
+      const errorData = err.response?.data;
+
+      if (errorData && errorData.incomplete_lessons) {
+        const details = errorData.incomplete_lessons.map((lesson) => ({
+          title: lesson.lesson_title,
+          scores: {
+            quiz: lesson.quiz_score,
+            exercise: lesson.exercise_score,
+            combined: lesson.combined_score,
+          },
+        }));
+
+        setNotification({
+          type: 'error',
+          title: 'Module incomplet',
+          message: `${errorData.completed_lessons}/${errorData.total_lessons} leçons complétées. Vous devez terminer toutes les leçons avec un score minimum de 50/100.`,
+          details: details,
+          onClose: () => setNotification(null),
+        });
+      } else {
+        setNotification({
+          type: 'error',
+          title: 'Erreur',
+          message: errorData?.error || 'Erreur lors du marquage du module',
+          onClose: () => setNotification(null),
+        });
+      }
+    } finally {
+      setMarking(false);
+    }
   };
 
   if (loading) {
@@ -76,35 +133,31 @@ const ModuleDetail = () => {
   }
 
   return (
-    <div className="min-h-screen bg-gray-50">
-      {/* Header */}
-      <header className="bg-white shadow-sm">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6">
-          <div className="flex items-center justify-between">
-            <button
-              onClick={() => navigate('/modules')}
-              className="flex items-center text-primary-600 hover:text-primary-700"
-            >
-              <svg
-                className="w-5 h-5 mr-2"
-                fill="none"
-                stroke="currentColor"
-                viewBox="0 0 24 24"
-              >
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth={2}
-                  d="M15 19l-7-7 7-7"
-                />
-              </svg>
-              Retour aux modules
-            </button>
-          </div>
-        </div>
-      </header>
+    <div className="min-h-screen bg-gray-50 flex flex-col">
+      {/* Notification */}
+      {notification && (
+        <Notification
+          type={notification.type}
+          title={notification.title}
+          message={notification.message}
+          details={notification.details}
+          onClose={notification.onClose}
+        />
+      )}
 
-      <main className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+      <Header>
+        <button
+          onClick={() => navigate('/modules')}
+          className="flex items-center text-primary-600 hover:text-primary-700 text-sm font-medium"
+        >
+          <svg className="w-4 h-4 mr-1.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
+          </svg>
+          Retour aux modules
+        </button>
+      </Header>
+
+      <main className="w-full px-4 sm:px-6 lg:px-8 py-6">
         {/* En-tête du module */}
         <div className="card mb-8 bg-gradient-to-r from-primary-500 to-primary-600 text-white">
           <div className="flex items-start justify-between mb-4">
@@ -239,6 +292,22 @@ const ModuleDetail = () => {
           ))}
         </div>
 
+        {/* Bouton Marquer comme terminé */}
+        {!module?.is_completed && (
+          <div className="mt-8">
+            <button
+              onClick={handleMarkComplete}
+              disabled={marking}
+              className="w-full btn-primary py-4 text-lg font-semibold disabled:opacity-50 disabled:cursor-not-allowed"
+            >
+              {marking ? 'Vérification en cours...' : '✓ Marquer ce module comme terminé'}
+            </button>
+            <p className="text-sm text-gray-600 text-center mt-2">
+              Cliquez ici une fois toutes les leçons complétées pour débloquer le module suivant
+            </p>
+          </div>
+        )}
+
         {/* Instructions */}
         <div className="mt-8 card bg-blue-50 border-2 border-blue-200">
           <h3 className="text-lg font-bold text-blue-900 mb-3">
@@ -264,12 +333,14 @@ const ModuleDetail = () => {
             <li className="flex items-start">
               <span className="text-primary-600 mr-2">•</span>
               <span>
-                Validez toutes les leçons du module pour débloquer le module suivant
+                Validez toutes les leçons puis cliquez sur "Marquer comme terminé"
               </span>
             </li>
           </ul>
         </div>
       </main>
+
+      <Footer />
     </div>
   );
 };

@@ -2,6 +2,10 @@ import React, { useState, useEffect } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
 import { lessonService, quizService, exerciseService } from '../services/api';
 import AlgorithmSimulation from '../components/AlgorithmSimulation';
+import Header from '../components/Header';
+import Footer from '../components/Footer';
+import Notification from '../components/Notification';
+import { useNotification } from '../hooks/useNotification';
 
 const LessonDetail = () => {
   const { lessonId } = useParams();
@@ -14,6 +18,7 @@ const LessonDetail = () => {
   const [exerciseCode, setExerciseCode] = useState('');
   const [exerciseResults, setExerciseResults] = useState(null);
   const [submitting, setSubmitting] = useState(false);
+  const { notification, showSuccess, showError, hideNotification } = useNotification();
 
   useEffect(() => {
     loadLesson();
@@ -47,15 +52,15 @@ const LessonDetail = () => {
     try {
       const results = await quizService.submit(quizId, quizAnswers);
       setQuizResults(results);
-      
+
       if (results.passed) {
-        alert(`✅ Quiz réussi ! Score: ${results.percentage}%`);
+        showSuccess('Quiz réussi !', `Score: ${results.percentage}%`);
       } else {
-        alert(`❌ Score insuffisant: ${results.percentage}%. Minimum requis: 50%`);
+        showError('Score insuffisant', `Votre score: ${results.percentage}%. Minimum requis: 50%`);
       }
     } catch (error) {
       console.error('Erreur:', error);
-      alert('Erreur lors de la soumission du quiz');
+      showError('Erreur', 'Erreur lors de la soumission du quiz');
     } finally {
       setSubmitting(false);
     }
@@ -66,15 +71,15 @@ const LessonDetail = () => {
     try {
       const results = await exerciseService.submit(exerciseId, exerciseCode);
       setExerciseResults(results);
-      
+
       if (results.passed) {
-        alert(`✅ Exercice réussi ! Score: ${results.score}%`);
+        showSuccess('Exercice réussi !', `Score: ${results.score}%`);
       } else {
-        alert(`❌ Score insuffisant: ${results.score}%. Minimum requis: 50%`);
+        showError('Score insuffisant', `Votre score: ${results.score}%. Minimum requis: 50%`);
       }
     } catch (error) {
       console.error('Erreur:', error);
-      alert('Erreur lors de la soumission');
+      showError('Erreur', 'Erreur lors de la soumission');
     } finally {
       setSubmitting(false);
     }
@@ -89,25 +94,27 @@ const LessonDetail = () => {
   }
 
   return (
-    <div className="min-h-screen bg-gray-50">
-      {/* Header */}
-      <header className="bg-white shadow-sm">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6">
+    <div className="min-h-screen bg-gray-50 flex flex-col">
+      <Header>
+        <div className="flex items-center space-x-3">
           <button
             onClick={() => navigate(-1)}
-            className="flex items-center text-primary-600 hover:text-primary-700 mb-4"
+            className="flex items-center text-primary-600 hover:text-primary-700 text-sm font-medium"
           >
-            <svg className="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <svg className="w-4 h-4 mr-1.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
             </svg>
             Retour
           </button>
-          <h1 className="text-3xl font-bold text-gray-900">{lesson?.title}</h1>
-          <p className="text-gray-600 mt-2">{lesson?.description}</p>
+          <div className="border-l border-gray-300 h-4"></div>
+          <div>
+            <h1 className="text-sm font-bold text-gray-900">{lesson?.title}</h1>
+            <p className="text-xs text-gray-600">{lesson?.description}</p>
+          </div>
         </div>
-      </header>
+      </Header>
 
-      <main className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+      <main className="w-full px-4 sm:px-6 lg:px-8 py-6">
         {/* Onglets */}
         <div className="flex space-x-4 mb-6 border-b">
           {['content', 'quiz', 'exercises'].map((tab) => (
@@ -310,6 +317,19 @@ const LessonDetail = () => {
           </div>
         )}
       </main>
+
+      <Footer />
+
+      {notification && (
+        <Notification
+          type={notification.type}
+          title={notification.title}
+          message={notification.message}
+          onClose={hideNotification}
+          autoClose={notification.autoClose}
+          duration={notification.duration}
+        />
+      )}
     </div>
   );
 };

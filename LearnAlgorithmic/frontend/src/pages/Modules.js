@@ -1,12 +1,12 @@
 import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { moduleService } from '../services/api';
-import { useAuth } from '../context/AuthContext';
+import Header from '../components/Header';
+import Footer from '../components/Footer';
 
 const Modules = () => {
   const [modules, setModules] = useState([]);
   const [loading, setLoading] = useState(true);
-  const { user, logout } = useAuth();
   const navigate = useNavigate();
 
   useEffect(() => {
@@ -57,36 +57,19 @@ const Modules = () => {
   }
 
   return (
-    <div className="min-h-screen bg-gray-50">
-      {/* Header */}
-      <header className="bg-white shadow-sm">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6">
-          <div className="flex justify-between items-center">
-            <div>
-              <h1 className="text-3xl font-bold text-primary-700">
-                Mes Modules
-              </h1>
-              <p className="text-gray-600 mt-1">
-                Progressez à votre rythme dans l'apprentissage de
-                l'algorithmique
-              </p>
-            </div>
-            <div className="flex items-center space-x-4">
-              <button
-                onClick={() => navigate('/dashboard')}
-                className="btn-secondary"
-              >
-                Tableau de bord
-              </button>
-              <button onClick={logout} className="btn-secondary text-red-600">
-                Déconnexion
-              </button>
-            </div>
-          </div>
+    <div className="min-h-screen bg-gray-50 flex flex-col">
+      <Header>
+        <div>
+          <h1 className="text-lg font-bold text-primary-700">
+            Mes Modules
+          </h1>
+          <p className="text-gray-600 text-xs">
+            Progressez à votre rythme dans l'apprentissage de l'algorithmique
+          </p>
         </div>
-      </header>
+      </Header>
 
-      <main className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+      <main className="w-full px-4 sm:px-6 lg:px-8 py-6">
         {/* Progression globale */}
         <div className="card mb-8 bg-gradient-to-r from-primary-500 to-primary-600 text-white">
           <div className="flex items-center justify-between mb-4">
@@ -303,6 +286,8 @@ const Modules = () => {
           </ul>
         </div>
       </main>
+
+      <Footer />
     </div>
   );
 };

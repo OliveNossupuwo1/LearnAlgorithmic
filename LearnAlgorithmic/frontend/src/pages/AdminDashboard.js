@@ -1,8 +1,11 @@
 import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { moduleService } from '../services/api';
-import { useAuth } from '../context/AuthContext';
 import axios from 'axios';
+import Header from '../components/Header';
+import Footer from '../components/Footer';
+import Notification from '../components/Notification';
+import { useNotification } from '../hooks/useNotification';
 
 const AdminDashboard = () => {
   const [stats, setStats] = useState(null);
@@ -10,8 +13,8 @@ const AdminDashboard = () => {
   const [quizzes, setQuizzes] = useState([]);
   const [exercises, setExercises] = useState([]);
   const [loading, setLoading] = useState(true);
-  const { user, logout } = useAuth();
   const navigate = useNavigate();
+  const { notification, showError, hideNotification } = useNotification();
 
   useEffect(() => {
     loadData();
@@ -83,7 +86,7 @@ const AdminDashboard = () => {
       
     } catch (error) {
       console.error('❌ Erreur globale:', error);
-      alert('Erreur lors du chargement des données: ' + error.message);
+      showError('Erreur de chargement', 'Erreur lors du chargement des données: ' + error.message);
     } finally {
       setLoading(false);
     }
@@ -98,36 +101,22 @@ const AdminDashboard = () => {
   }
 
   return (
-    <div className="min-h-screen bg-gray-50">
-      {/* Header */}
-      <header className="bg-gradient-to-r from-primary-600 to-primary-700 text-white shadow-lg">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6">
-          <div className="flex justify-between items-center">
-            <div>
-              <h1 className="text-3xl font-bold">👑 Administration</h1>
-              <p className="text-primary-100 mt-1">
-                Gérer le contenu de LearnAlgorithmic
-              </p>
-            </div>
-            <div className="flex items-center space-x-4">
-              <button
-                onClick={() => navigate('/dashboard')}
-                className="bg-white text-primary-600 px-4 py-2 rounded-lg font-semibold hover:bg-primary-50"
-              >
-                Retour au site
-              </button>
-              <button
-                onClick={logout}
-                className="bg-red-600 text-white px-4 py-2 rounded-lg font-semibold hover:bg-red-700"
-              >
-                Déconnexion
-              </button>
-            </div>
+    <div className="min-h-screen bg-gray-50 flex flex-col">
+      <Header>
+        <div className="flex items-center space-x-3">
+          <div className="bg-purple-100 text-purple-800 px-2.5 py-1 rounded-lg font-bold text-xs">
+            👑 ADMIN
           </div>
+          <button
+            onClick={() => navigate('/dashboard')}
+            className="bg-white text-primary-600 px-4 py-1.5 rounded-lg text-sm font-semibold hover:bg-primary-50"
+          >
+            Retour au site
+          </button>
         </div>
-      </header>
+      </Header>
 
-      <main className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+      <main className="w-full px-4 sm:px-6 lg:px-8 py-6">
         {/* Statistiques */}
         <div className="grid grid-cols-1 md:grid-cols-4 gap-6 mb-8">
           {/* Total Modules */}
@@ -512,6 +501,19 @@ const AdminDashboard = () => {
           </div>
         </div>
       </main>
+
+      <Footer />
+
+      {notification && (
+        <Notification
+          type={notification.type}
+          title={notification.title}
+          message={notification.message}
+          onClose={hideNotification}
+          autoClose={notification.autoClose}
+          duration={notification.duration}
+        />
+      )}
     </div>
   );
 };

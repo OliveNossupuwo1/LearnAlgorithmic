@@ -1,6 +1,11 @@
 import React, { useState, useEffect } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
 import axios from 'axios';
+import Header from '../components/Header';
+import Footer from '../components/Footer';
+import Notification from '../components/Notification';
+import ConfirmDialog from '../components/ConfirmDialog';
+import { useNotification } from '../hooks/useNotification';
 
 const QuizEditor = () => {
   const { quizId } = useParams();
@@ -13,6 +18,7 @@ const QuizEditor = () => {
     passing_score: 50,
   });
   const [questions, setQuestions] = useState([]);
+  const { notification, confirmDialog, showSuccess, showError, hideNotification, confirm } = useNotification();
 
   useEffect(() => {
     loadLessons();
@@ -36,6 +42,7 @@ const QuizEditor = () => {
       }
     } catch (error) {
       console.error('❌ Erreur:', error);
+      showError('Erreur de chargement', 'Erreur lors du chargement des leçons');
     }
   };
 
@@ -54,6 +61,7 @@ const QuizEditor = () => {
       setQuestions(response.data.questions || []);
     } catch (error) {
       console.error('Erreur:', error);
+      showError('Erreur de chargement', 'Erreur lors du chargement du quiz');
     }
   };
 
@@ -85,8 +93,14 @@ const QuizEditor = () => {
     setQuestions(updated);
   };
 
-  const removeQuestion = (index) => {
-    if (window.confirm('Supprimer cette question ?')) {
+  const removeQuestion = async (index) => {
+    const confirmed = await confirm(
+      'Supprimer cette question ?',
+      'Cette question et tous ses choix de réponses seront supprimés.',
+      { type: 'warning', confirmText: 'Supprimer', cancelText: 'Annuler' }
+    );
+
+    if (confirmed) {
       setQuestions(questions.filter((_, i) => i !== index));
     }
   };
@@ -139,60 +153,67 @@ const QuizEditor = () => {
         headers: { Authorization: `Bearer ${token}` },
       });
 
-      alert(
-        quizId === 'new'
-          ? 'Quiz créé avec succès !'
-          : 'Quiz modifié avec succès !'
+      showSuccess(
+        quizId === 'new' ? 'Quiz créé !' : 'Quiz modifié !',
+        quizId === 'new' ? 'Le quiz a été créé avec succès' : 'Les modifications ont été enregistrées'
       );
-      navigate('/admin');
+      setTimeout(() => navigate('/admin'), 1500);
     } catch (error) {
       console.error('Erreur:', error);
-      alert(`Erreur: ${error.response?.data?.detail || error.message}`);
+      showError(
+        'Erreur de sauvegarde',
+        `Impossible de sauvegarder le quiz: ${error.response?.data?.detail || error.message}`
+      );
     } finally {
       setLoading(false);
     }
   };
   const handleDelete = async () => {
-  if (!window.confirm('Êtes-vous sûr de vouloir supprimer ce quiz ?')) {
-    return;
-  }
-
-  try {
-    const token = localStorage.getItem('access_token');
-    await axios.delete(
-      `http://localhost:8000/api/admin/quizzes/${quizId}/`,
-      {
-        headers: { Authorization: `Bearer ${token}` },
-      }
+    const confirmed = await confirm(
+      'Supprimer ce quiz ?',
+      'Cette action est irréversible. Le quiz et toutes ses questions seront supprimés.',
+      { type: 'danger', confirmText: 'Supprimer', cancelText: 'Annuler' }
     );
-    alert('Quiz supprimé avec succès !');
-    navigate('/admin');
-  } catch (error) {
-    console.error('Erreur:', error);
-    alert('Erreur lors de la suppression');
-  }
-};
+
+    if (!confirmed) return;
+
+    try {
+      const token = localStorage.getItem('access_token');
+      await axios.delete(
+        `http://localhost:8000/api/admin/quizzes/${quizId}/`,
+        {
+          headers: { Authorization: `Bearer ${token}` },
+        }
+      );
+      showSuccess('Quiz supprimé !', 'Le quiz a été supprimé avec succès');
+      setTimeout(() => navigate('/admin'), 1500);
+    } catch (error) {
+      console.error('Erreur:', error);
+      showError('Erreur de suppression', 'Impossible de supprimer le quiz');
+    }
+  };
 
   return (
-    <div className="min-h-screen bg-gray-50">
-      <header className="bg-white shadow-sm">
-        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-6">
+    <div className="min-h-screen bg-gray-50 flex flex-col">
+      <Header>
+        <div className="flex items-center space-x-3">
           <button
             onClick={() => navigate('/admin')}
-            className="flex items-center text-primary-600 hover:text-primary-700 mb-4"
+            className="flex items-center text-primary-600 hover:text-primary-700 text-sm font-medium"
           >
-            <svg className="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <svg className="w-4 h-4 mr-1.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
             </svg>
-            Retour à l'admin
+            Admin
           </button>
-          <h1 className="text-3xl font-bold text-gray-900">
+          <div className="border-l border-gray-300 h-4"></div>
+          <h1 className="text-sm font-bold text-gray-900">
             {quizId === 'new' ? '➕ Nouveau Quiz' : '✏️ Modifier le Quiz'}
           </h1>
         </div>
-      </header>
+      </Header>
 
-      <main className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+      <main className="w-full px-4 sm:px-6 lg:px-8 py-6">
         <form onSubmit={handleSubmit}>
           {/* Informations du quiz */}
           <div className="card mb-6">
@@ -416,6 +437,31 @@ const QuizEditor = () => {
           </div>
         </form>
       </main>
+
+      <Footer />
+
+      {notification && (
+        <Notification
+          type={notification.type}
+          title={notification.title}
+          message={notification.message}
+          onClose={hideNotification}
+          autoClose={notification.autoClose}
+          duration={notification.duration}
+        />
+      )}
+
+      {confirmDialog && (
+        <ConfirmDialog
+          title={confirmDialog.title}
+          message={confirmDialog.message}
+          type={confirmDialog.type}
+          confirmText={confirmDialog.confirmText}
+          cancelText={confirmDialog.cancelText}
+          onConfirm={confirmDialog.onConfirm}
+          onCancel={confirmDialog.onCancel}
+        />
+      )}
     </div>
   );
 };

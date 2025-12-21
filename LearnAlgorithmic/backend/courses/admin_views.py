@@ -73,18 +73,22 @@ def lesson_detail(request, pk):
         lesson = Lesson.objects.get(pk=pk)
     except Lesson.DoesNotExist:
         return Response(status=status.HTTP_404_NOT_FOUND)
-    
+
     if request.method == 'GET':
         serializer = LessonSerializer(lesson)
         return Response(serializer.data)
-    
+
     elif request.method == 'PUT':
-        serializer = LessonSerializer(lesson, data=request.data)
+        print("=== DEBUG: Lesson Update ===")
+        print(f"Lesson ID: {pk}")
+        print(f"Request data: {request.data}")
+        serializer = LessonSerializer(lesson, data=request.data, partial=True)
         if serializer.is_valid():
             serializer.save()
             return Response(serializer.data)
+        print(f"Serializer errors: {serializer.errors}")
         return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
-    
+
     elif request.method == 'DELETE':
         lesson.delete()
         return Response(status=status.HTTP_204_NO_CONTENT)
@@ -181,11 +185,37 @@ def quiz_detail(request, pk):
         })
     
     elif request.method == 'PUT':
+        data = request.data
+
         # Mettre à jour le quiz
-        quiz.title = request.data.get('title', quiz.title)
-        quiz.passing_score = request.data.get('passing_score', quiz.passing_score)
+        quiz.title = data.get('title', quiz.title)
+        quiz.passing_score = data.get('passing_score', quiz.passing_score)
+        quiz.lesson_id = data.get('lesson', quiz.lesson_id)
         quiz.save()
-        
+
+        # Supprimer les anciennes questions
+        quiz.questions.all().delete()
+
+        # Créer les nouvelles questions
+        for q_data in data.get('questions', []):
+            question = QuizQuestion.objects.create(
+                quiz=quiz,
+                question_text=q_data['question_text'],
+                question_type=q_data['question_type'],
+                points=q_data.get('points', 20),
+                order=q_data.get('order', 1),
+                explanation=q_data.get('explanation', '')
+            )
+
+            # Créer les choix
+            for c_index, c_data in enumerate(q_data.get('choices', [])):
+                QuizChoice.objects.create(
+                    question=question,
+                    choice_text=c_data['choice_text'],
+                    is_correct=c_data.get('is_correct', False),
+                    order=c_index + 1
+                )
+
         return Response({'message': 'Quiz mis à jour avec succès'})
     
     elif request.method == 'DELETE':

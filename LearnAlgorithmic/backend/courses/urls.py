@@ -41,7 +41,10 @@ urlpatterns = [
     # Quiz et Exercices
     path('quiz/submit/', submit_quiz, name='submit-quiz'),
     path('exercise/submit/', submit_exercise, name='submit-exercise'),
-    
+
+    # Modules
+    path('modules/<int:module_id>/mark-complete/', mark_module_complete, name='mark-module-complete'),
+
     # Dashboard et progression
     path('dashboard/stats/', dashboard_stats, name='dashboard-stats'),
     path('progress/', user_progress_view, name='user-progress'),

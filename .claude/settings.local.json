@@ -1,0 +1,7 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(python debug_modules.py:*)"
+    ]
+  }
+}

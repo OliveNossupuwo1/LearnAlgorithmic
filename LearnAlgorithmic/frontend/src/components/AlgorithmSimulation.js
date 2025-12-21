@@ -1,6 +1,7 @@
 import React, { useState, useEffect, useRef } from 'react';
 import './AlgorithmSimulation.css';
 import CartoonVisualization from './CartoonVisualization';
+import VariablesVisualization from './VariablesVisualization';
 
 const AlgorithmSimulation = ({ simulation }) => {
   const [currentStep, setCurrentStep] = useState(0);
@@ -92,6 +93,9 @@ const AlgorithmSimulation = ({ simulation }) => {
             {/* Rendu de la visualisation selon le type */}
 {visualData.type === 'cartoon' && (
   <CartoonVisualization data={visualData} />
+)}
+{visualData.type === 'variables' && (
+  <VariablesVisualization data={visualData} />
 )}
 {visualData.type === 'array' && (
   <ArrayVisualization data={visualData} />

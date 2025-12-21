@@ -35,8 +35,8 @@ class SimulationStepSerializer(serializers.ModelSerializer):
 
 
 class SimulationSerializer(serializers.ModelSerializer):
-    steps = SimulationStepSerializer(many=True, read_only=True)
-    
+    steps = SimulationStepSerializer(many=True, required=False)
+
     class Meta:
         model = Simulation
         fields = ['id', 'title', 'description', 'algorithm_code', 'order', 'steps']
@@ -100,9 +100,115 @@ class LessonDetailSerializer(serializers.ModelSerializer):
 
 
 class LessonSerializer(serializers.ModelSerializer):
+    concepts = ConceptSerializer(many=True, required=False)
+    examples = ExampleSerializer(many=True, required=False)
+    simulations = SimulationSerializer(many=True, required=False)
+
     class Meta:
         model = Lesson
-        fields = ['id', 'title', 'description', 'order']
+        fields = ['id', 'module', 'title', 'description', 'order', 'video_url',
+                  'video_embed_code', 'concepts', 'examples', 'simulations']
+
+    def create(self, validated_data):
+        concepts_data = validated_data.pop('concepts', [])
+        examples_data = validated_data.pop('examples', [])
+        simulations_data = validated_data.pop('simulations', [])
+
+        lesson = Lesson.objects.create(**validated_data)
+
+        # Créer les concepts
+        for concept_data in concepts_data:
+            # Retirer l'id et isNew si présents
+            concept_data.pop('id', None)
+            concept_data.pop('isNew', None)
+            Concept.objects.create(lesson=lesson, **concept_data)
+
+        # Créer les exemples
+        for example_data in examples_data:
+            # Retirer l'id et isNew si présents
+            example_data.pop('id', None)
+            example_data.pop('isNew', None)
+            Example.objects.create(lesson=lesson, **example_data)
+
+        # Créer les simulations
+        for simulation_data in simulations_data:
+            # Retirer l'id et isNew si présents
+            simulation_data.pop('id', None)
+            simulation_data.pop('isNew', None)
+
+            # Extraire les steps
+            steps_data = simulation_data.pop('steps', [])
+
+            # Créer la simulation
+            simulation = Simulation.objects.create(lesson=lesson, **simulation_data)
+
+            # Créer les steps
+            for step_data in steps_data:
+                step_data.pop('id', None)
+                SimulationStep.objects.create(simulation=simulation, **step_data)
+
+        return lesson
+
+    def update(self, instance, validated_data):
+        concepts_data = validated_data.pop('concepts', None)
+        examples_data = validated_data.pop('examples', None)
+        simulations_data = validated_data.pop('simulations', None)
+
+        # Mettre à jour les champs de base
+        # Si module est un objet, extraire son ID
+        module = validated_data.get('module', instance.module)
+        if hasattr(module, 'id'):
+            instance.module = module
+        elif isinstance(module, int):
+            instance.module_id = module
+        else:
+            instance.module = module
+
+        instance.title = validated_data.get('title', instance.title)
+        instance.description = validated_data.get('description', instance.description)
+        instance.order = validated_data.get('order', instance.order)
+        instance.video_url = validated_data.get('video_url', instance.video_url)
+        instance.video_embed_code = validated_data.get('video_embed_code', instance.video_embed_code)
+        instance.save()
+
+        # Mettre à jour les concepts
+        if concepts_data is not None:
+            instance.concepts.all().delete()
+            for concept_data in concepts_data:
+                # Retirer l'id et isNew si présents
+                concept_data.pop('id', None)
+                concept_data.pop('isNew', None)
+                Concept.objects.create(lesson=instance, **concept_data)
+
+        # Mettre à jour les exemples
+        if examples_data is not None:
+            instance.examples.all().delete()
+            for example_data in examples_data:
+                # Retirer l'id et isNew si présents
+                example_data.pop('id', None)
+                example_data.pop('isNew', None)
+                Example.objects.create(lesson=instance, **example_data)
+
+        # Mettre à jour les simulations
+        if simulations_data is not None:
+            instance.simulations.all().delete()
+            for simulation_data in simulations_data:
+                # Retirer l'id et isNew si présents
+                simulation_data.pop('id', None)
+                simulation_data.pop('isNew', None)
+
+                # Extraire les steps
+                steps_data = simulation_data.pop('steps', [])
+
+                # Créer la simulation
+                simulation = Simulation.objects.create(lesson=instance, **simulation_data)
+
+                # Créer les steps
+                for step_data in steps_data:
+                    step_data.pop('id', None)
+                    SimulationStep.objects.create(simulation=simulation, **step_data)
+
+        return instance
 
 
 class ModuleSerializer(serializers.ModelSerializer):

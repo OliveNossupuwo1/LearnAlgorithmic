@@ -8,6 +8,7 @@ import {
 import { AuthProvider, useAuth } from './context/AuthContext';
 
 // Pages
+import Home from './pages/Home';
 import Login from './pages/Login';
 import Register from './pages/Register';
 import Dashboard from './pages/Dashboard';
@@ -52,6 +53,9 @@ const PublicRoute = ({ children }) => {
 function AppRoutes() {
   return (
     <Routes>
+      {/* Page d'accueil - accessible à tous */}
+      <Route path="/" element={<Home />} />
+
       {/* Routes publiques */}
       <Route
         path="/login"
@@ -147,8 +151,7 @@ function AppRoutes() {
 />
 
       {/* Redirection par défaut - EN DERNIER */}
-      <Route path="/" element={<Navigate to="/dashboard" replace />} />
-      <Route path="*" element={<Navigate to="/dashboard" replace />} />
+      <Route path="*" element={<Navigate to="/" replace />} />
     </Routes>
   );
 }

@@ -8,8 +8,11 @@ from django.contrib.auth import authenticate
 from django.db.models import Avg, Count, Q
 from django.utils import timezone
 from datetime import timedelta
+import logging
 from .models import *
 from .serializers import *
+
+logger = logging.getLogger(__name__)
 
 
 class UserRegistrationView(generics.CreateAPIView):
@@ -224,10 +227,13 @@ def submit_quiz(request):
     """Soumettre les réponses d'un quiz"""
     quiz_id = request.data.get('quiz_id')
     answers = request.data.get('answers')  # {question_id: [choice_ids]}
-    
+
+    logger.info(f"[QUIZ SUBMIT] User: {request.user.username}, Quiz ID: {quiz_id}, Answers: {answers}")
+
     try:
         quiz = Quiz.objects.get(id=quiz_id)
     except Quiz.DoesNotExist:
+        logger.error(f"[QUIZ SUBMIT] Quiz {quiz_id} non trouvé")
         return Response({'error': 'Quiz non trouvé'}, status=status.HTTP_404_NOT_FOUND)
     
     # Calculer le score
@@ -308,21 +314,28 @@ def submit_quiz(request):
         user=request.user,
         lesson=quiz.lesson
     )
-    
+
+    logger.info(f"[QUIZ SUBMIT] LessonProgress {'created' if created else 'found'}: Quiz={lesson_progress.quiz_score}%, Exercise={lesson_progress.exercise_score}%, Combined={lesson_progress.combined_score}%")
+
     # Prendre le meilleur score
     if percentage > lesson_progress.quiz_score:
         lesson_progress.quiz_score = percentage
         lesson_progress.calculate_combined_score()
-        
+
+        logger.info(f"[QUIZ SUBMIT] New score: Quiz={lesson_progress.quiz_score}%, Combined={lesson_progress.combined_score}%")
+
         # Vérifier si la leçon est complétée (score >= 50)
         if lesson_progress.combined_score >= 50 and not lesson_progress.is_completed:
             lesson_progress.is_completed = True
             lesson_progress.completion_date = timezone.now()
-            
+
+            logger.info(f"[QUIZ SUBMIT] Lesson completed! Checking module completion for Module {quiz.lesson.module.order}")
+
             # Vérifier si toutes les leçons du module sont complétées
             check_module_completion(request.user, quiz.lesson.module)
-        
+
         lesson_progress.save()
+        logger.info(f"[QUIZ SUBMIT] LessonProgress saved")
     
     return Response({
         'score': earned_points,
@@ -337,6 +350,7 @@ def submit_quiz(request):
 @permission_classes([IsAuthenticated])
 def submit_exercise(request):
     """Soumettre la solution d'un exercice"""
+    logger.info(f"[EXERCISE SUBMIT] User: {request.user.username}")
     exercise_id = request.data.get('exercise_id')
     code_submitted = request.data.get('code')
     
@@ -363,21 +377,29 @@ def submit_exercise(request):
         user=request.user,
         lesson=exercise.lesson
     )
-    
+
+    logger.info(f"[EXERCISE SUBMIT] LessonProgress {'created' if created else 'found'}: Quiz={lesson_progress.quiz_score}%, Exercise={lesson_progress.exercise_score}%, Combined={lesson_progress.combined_score}%")
+    logger.info(f"[EXERCISE SUBMIT] Exercise score: {score}%")
+
     # Prendre le meilleur score
     if score > lesson_progress.exercise_score:
         lesson_progress.exercise_score = score
         lesson_progress.calculate_combined_score()
-        
+
+        logger.info(f"[EXERCISE SUBMIT] New score: Exercise={lesson_progress.exercise_score}%, Combined={lesson_progress.combined_score}%")
+
         # Vérifier si la leçon est complétée
         if lesson_progress.combined_score >= 50 and not lesson_progress.is_completed:
             lesson_progress.is_completed = True
             lesson_progress.completion_date = timezone.now()
-            
+
+            logger.info(f"[EXERCISE SUBMIT] Lesson completed! Checking module completion for Module {exercise.lesson.module.order}")
+
             # Vérifier si toutes les leçons du module sont complétées
             check_module_completion(request.user, exercise.lesson.module)
-        
+
         lesson_progress.save()
+        logger.info(f"[EXERCISE SUBMIT] LessonProgress saved")
     
     return Response({
         'is_correct': is_correct,
@@ -442,34 +464,156 @@ def check_module_completion(user, module):
     """Vérifie si toutes les leçons d'un module sont complétées"""
     lessons = module.lessons.all()
     total_lessons = lessons.count()
-    
+
     completed_lessons = LessonProgress.objects.filter(
         user=user,
         lesson__in=lessons,
         is_completed=True
     ).count()
-    
+
+    logger.info(f"[MODULE COMPLETION] Module {module.order} ({module.title}): {completed_lessons}/{total_lessons} lessons completed")
+
     if completed_lessons == total_lessons:
+        logger.info(f"[MODULE COMPLETION] All lessons completed! Marking Module {module.order} as completed")
+
         # Marquer le module comme complété
         progress, created = UserProgress.objects.get_or_create(
             user=user,
             module=module
         )
-        
+
         if not progress.is_completed:
             progress.is_completed = True
             progress.completion_date = timezone.now()
             progress.save()
-            
+
+            logger.info(f"[MODULE COMPLETION] Module {module.order} marked as completed")
+
             # Débloquer le module suivant
             next_module = Module.objects.filter(order=module.order + 1).first()
             if next_module:
+                logger.info(f"[MODULE COMPLETION] Unlocking next module: Module {next_module.order} ({next_module.title})")
+
                 next_progress, created = UserProgress.objects.get_or_create(
                     user=user,
                     module=next_module
                 )
                 next_progress.is_unlocked = True
                 next_progress.save()
+
+                logger.info(f"[MODULE COMPLETION] Module {next_module.order} unlocked successfully!")
+            else:
+                logger.info(f"[MODULE COMPLETION] No next module found (this was the last module)")
+        else:
+            logger.info(f"[MODULE COMPLETION] Module {module.order} was already completed")
+
+    return completed_lessons == total_lessons
+
+
+@api_view(['POST'])
+@permission_classes([IsAuthenticated])
+def mark_module_complete(request, module_id):
+    """Marquer un module comme terminé si toutes les leçons sont complétées"""
+    try:
+        module = Module.objects.get(id=module_id)
+    except Module.DoesNotExist:
+        return Response({'error': 'Module non trouvé'}, status=status.HTTP_404_NOT_FOUND)
+
+    user = request.user
+
+    # Vérifier si le module est débloqué
+    user_progress = UserProgress.objects.filter(user=user, module=module).first()
+    if not user_progress or not user_progress.is_unlocked:
+        return Response(
+            {'error': 'Ce module n\'est pas encore débloqué'},
+            status=status.HTTP_403_FORBIDDEN
+        )
+
+    # Récupérer toutes les leçons du module
+    lessons = module.lessons.all()
+    total_lessons = lessons.count()
+
+    if total_lessons == 0:
+        return Response(
+            {'error': 'Ce module ne contient aucune leçon'},
+            status=status.HTTP_400_BAD_REQUEST
+        )
+
+    # Vérifier la progression de chaque leçon
+    lesson_progress_list = []
+    incomplete_lessons = []
+
+    for lesson in lessons:
+        lesson_progress = LessonProgress.objects.filter(user=user, lesson=lesson).first()
+
+        if not lesson_progress or not lesson_progress.is_completed:
+            # Leçon non complétée
+            quiz_score = lesson_progress.quiz_score if lesson_progress else 0
+            exercise_score = lesson_progress.exercise_score if lesson_progress else 0
+            combined_score = lesson_progress.combined_score if lesson_progress else 0
+
+            incomplete_lessons.append({
+                'lesson_id': lesson.id,
+                'lesson_title': lesson.title,
+                'quiz_score': quiz_score,
+                'exercise_score': exercise_score,
+                'combined_score': combined_score,
+                'required_score': 50
+            })
+        else:
+            lesson_progress_list.append(lesson_progress)
+
+    completed_lessons = len(lesson_progress_list)
+
+    # Si toutes les leçons sont complétées
+    if completed_lessons == total_lessons:
+        # Marquer le module comme complété
+        user_progress.is_completed = True
+        user_progress.completion_date = timezone.now()
+        user_progress.save()
+
+        logger.info(f"[MARK COMPLETE] Module {module.order} marked as completed by user {user.username}")
+
+        # Débloquer le module suivant
+        next_module = Module.objects.filter(order=module.order + 1).first()
+        if next_module:
+            next_progress, _ = UserProgress.objects.get_or_create(
+                user=user,
+                module=next_module
+            )
+            next_progress.is_unlocked = True
+            next_progress.save()
+
+            logger.info(f"[MARK COMPLETE] Module {next_module.order} unlocked")
+
+            return Response({
+                'success': True,
+                'message': f'Félicitations ! Module "{module.title}" terminé !',
+                'module_completed': True,
+                'next_module': {
+                    'id': next_module.id,
+                    'title': next_module.title,
+                    'order': next_module.order
+                }
+            })
+        else:
+            return Response({
+                'success': True,
+                'message': f'Félicitations ! Module "{module.title}" terminé ! Vous avez complété tous les modules !',
+                'module_completed': True,
+                'next_module': None
+            })
+
+    # Si des leçons ne sont pas complétées
+    else:
+        return Response({
+            'success': False,
+            'message': f'Vous devez terminer toutes les leçons avant de marquer ce module comme terminé.',
+            'module_completed': False,
+            'completed_lessons': completed_lessons,
+            'total_lessons': total_lessons,
+            'incomplete_lessons': incomplete_lessons
+        }, status=status.HTTP_400_BAD_REQUEST)
 
 
 @api_view(['GET'])

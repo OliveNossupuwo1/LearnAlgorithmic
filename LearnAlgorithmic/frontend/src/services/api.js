@@ -104,6 +104,11 @@ export const moduleService = {
     const response = await api.get(`/modules/${moduleId}/lessons/`);
     return response.data;
   },
+
+  markComplete: async (moduleId) => {
+    const response = await api.post(`/modules/${moduleId}/mark-complete/`);
+    return response.data;
+  },
 };
 
 // Services pour les leçons
