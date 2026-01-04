@@ -243,3 +243,23 @@ class ExerciseSubmission(models.Model):
     
     def __str__(self):
         return f"{self.user.username} - {self.exercise.title} ({'Réussi' if self.is_correct else 'Échoué'})"
+
+
+class PasswordResetCode(models.Model):
+    """Stocke les codes de vérification pour la réinitialisation de mot de passe"""
+    user = models.ForeignKey(User, on_delete=models.CASCADE, related_name='password_reset_codes')
+    code = models.CharField(max_length=6)  # Code à 6 chiffres
+    created_at = models.DateTimeField(auto_now_add=True)
+    expires_at = models.DateTimeField()  # Expiration dans 15 minutes
+    is_used = models.BooleanField(default=False)
+
+    class Meta:
+        ordering = ['-created_at']
+
+    def __str__(self):
+        return f"Code pour {self.user.username} - {'Utilisé' if self.is_used else 'Actif'}"
+
+    def is_valid(self):
+        """Vérifie si le code est toujours valide"""
+        from django.utils import timezone
+        return not self.is_used and timezone.now() < self.expires_at

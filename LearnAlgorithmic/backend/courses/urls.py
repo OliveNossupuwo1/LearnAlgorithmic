@@ -35,6 +35,7 @@ urlpatterns = [
     path('auth/refresh/', TokenRefreshView.as_view(), name='token_refresh'),
     path('auth/user/', current_user_view, name='current-user'),
     path('auth/password-reset/', password_reset_request, name='password-reset-request'),
+    path('auth/verify-reset-code/', verify_reset_code, name='verify-reset-code'),
     path('auth/password-reset-confirm/', password_reset_confirm, name='password-reset-confirm'),
     
     # Router URLs

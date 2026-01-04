@@ -92,10 +92,18 @@ export const authService = {
     return response.data;
   },
 
-  passwordResetConfirm: async (uid, token, new_password) => {
+  verifyResetCode: async (email, code) => {
+    const response = await api.post('/auth/verify-reset-code/', {
+      email,
+      code,
+    });
+    return response.data;
+  },
+
+  passwordResetConfirm: async (email, code, new_password) => {
     const response = await api.post('/auth/password-reset-confirm/', {
-      uid,
-      token,
+      email,
+      code,
       new_password,
     });
     return response.data;

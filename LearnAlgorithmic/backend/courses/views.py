@@ -85,12 +85,13 @@ def current_user_view(request):
 
 
 # Password Reset Views
-token_generator = PasswordResetTokenGenerator()
+import random
+from .models import PasswordResetCode
 
 @api_view(['POST'])
 @permission_classes([AllowAny])
 def password_reset_request(request):
-    """Demande de réinitialisation de mot de passe - envoie un email avec le lien"""
+    """Demande de réinitialisation de mot de passe - envoie un code par email"""
     email = request.data.get('email')
 
     if not email:
@@ -104,29 +105,34 @@ def password_reset_request(request):
     if not user:
         # Pour des raisons de sécurité, on retourne toujours le même message
         return Response({
-            'message': 'Si cet email existe, un lien de réinitialisation a été envoyé.'
+            'message': 'Si cet email existe, un code de vérification a été envoyé.'
         })
 
-    # Générer le token et l'UID
-    token = token_generator.make_token(user)
-    uid = urlsafe_base64_encode(force_bytes(user.pk))
+    # Invalider les anciens codes non utilisés
+    PasswordResetCode.objects.filter(user=user, is_used=False).update(is_used=True)
 
-    # Créer le lien de réinitialisation
-    reset_link = f"http://localhost:3000/reset-password/{uid}/{token}"
+    # Générer un code à 6 chiffres
+    code = ''.join([str(random.randint(0, 9)) for _ in range(6)])
 
-    # Envoyer l'email
+    # Créer l'enregistrement avec expiration dans 15 minutes
+    reset_code = PasswordResetCode.objects.create(
+        user=user,
+        code=code,
+        expires_at=timezone.now() + timedelta(minutes=15)
+    )
+
+    # Envoyer l'email avec le code
     try:
         send_mail(
-            subject='Réinitialisation de votre mot de passe - LearnAlgorithmic',
+            subject='Code de vérification - LearnAlgorithmic',
             message=f"""
 Bonjour {user.username},
 
 Vous avez demandé la réinitialisation de votre mot de passe.
 
-Cliquez sur le lien ci-dessous pour créer un nouveau mot de passe :
-{reset_link}
+Votre code de vérification est : {code}
 
-Ce lien est valide pendant 24 heures.
+Ce code est valide pendant 15 minutes.
 
 Si vous n'avez pas demandé cette réinitialisation, ignorez simplement cet email.
 
@@ -144,19 +150,57 @@ L'équipe LearnAlgorithmic
         }, status=status.HTTP_500_INTERNAL_SERVER_ERROR)
 
     return Response({
-        'message': 'Si cet email existe, un lien de réinitialisation a été envoyé.'
+        'message': 'Si cet email existe, un code de vérification a été envoyé.',
+        'email': email  # Renvoyer l'email pour l'utiliser dans l'étape suivante
+    })
+
+
+@api_view(['POST'])
+@permission_classes([AllowAny])
+def verify_reset_code(request):
+    """Vérifie le code de réinitialisation"""
+    email = request.data.get('email')
+    code = request.data.get('code')
+
+    if not all([email, code]):
+        return Response({
+            'error': 'Email et code requis'
+        }, status=status.HTTP_400_BAD_REQUEST)
+
+    # Chercher l'utilisateur
+    user = User.objects.filter(email=email).first()
+    if not user:
+        return Response({
+            'error': 'Code invalide ou expiré'
+        }, status=status.HTTP_400_BAD_REQUEST)
+
+    # Chercher le code
+    reset_code = PasswordResetCode.objects.filter(
+        user=user,
+        code=code,
+        is_used=False
+    ).first()
+
+    if not reset_code or not reset_code.is_valid():
+        return Response({
+            'error': 'Code invalide ou expiré'
+        }, status=status.HTTP_400_BAD_REQUEST)
+
+    return Response({
+        'message': 'Code vérifié avec succès',
+        'valid': True
     })
 
 
 @api_view(['POST'])
 @permission_classes([AllowAny])
 def password_reset_confirm(request):
-    """Confirme la réinitialisation du mot de passe avec le nouveau mot de passe"""
-    uid = request.data.get('uid')
-    token = request.data.get('token')
+    """Réinitialise le mot de passe avec le code vérifié"""
+    email = request.data.get('email')
+    code = request.data.get('code')
     new_password = request.data.get('new_password')
 
-    if not all([uid, token, new_password]):
+    if not all([email, code, new_password]):
         return Response({
             'error': 'Tous les champs sont requis'
         }, status=status.HTTP_400_BAD_REQUEST)
@@ -167,20 +211,28 @@ def password_reset_confirm(request):
             'error': 'Le mot de passe doit contenir au moins 8 caractères'
         }, status=status.HTTP_400_BAD_REQUEST)
 
-    try:
-        # Décoder l'UID
-        user_id = force_str(urlsafe_base64_decode(uid))
-        user = User.objects.get(pk=user_id)
-    except (TypeError, ValueError, OverflowError, User.DoesNotExist):
+    # Chercher l'utilisateur
+    user = User.objects.filter(email=email).first()
+    if not user:
         return Response({
-            'error': 'Lien invalide'
+            'error': 'Code invalide ou expiré'
         }, status=status.HTTP_400_BAD_REQUEST)
 
-    # Vérifier le token
-    if not token_generator.check_token(user, token):
+    # Chercher et valider le code
+    reset_code = PasswordResetCode.objects.filter(
+        user=user,
+        code=code,
+        is_used=False
+    ).first()
+
+    if not reset_code or not reset_code.is_valid():
         return Response({
-            'error': 'Lien invalide ou expiré'
+            'error': 'Code invalide ou expiré'
         }, status=status.HTTP_400_BAD_REQUEST)
+
+    # Marquer le code comme utilisé
+    reset_code.is_used = True
+    reset_code.save()
 
     # Changer le mot de passe
     user.set_password(new_password)
