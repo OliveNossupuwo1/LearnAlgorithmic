@@ -1,48 +1,37 @@
 import React, { useState } from 'react';
-import { Link, useNavigate } from 'react-router-dom';
-import { useAuth } from '../context/AuthContext';
+import { Link } from 'react-router-dom';
+import { authService } from '../services/api';
 
-const Login = () => {
-  const [formData, setFormData] = useState({
-    username: '',
-    password: '',
-  });
-  const [error, setError] = useState('');
+const ForgotPassword = () => {
+  const [email, setEmail] = useState('');
   const [loading, setLoading] = useState(false);
-
-  const { login } = useAuth();
-  const navigate = useNavigate();
-
-  const handleChange = (e) => {
-    setFormData({
-      ...formData,
-      [e.target.name]: e.target.value,
-    });
-  };
+  const [message, setMessage] = useState('');
+  const [error, setError] = useState('');
 
   const handleSubmit = async (e) => {
     e.preventDefault();
     setError('');
+    setMessage('');
     setLoading(true);
 
-    const result = await login(formData);
-
-    if (result.success) {
-      navigate('/dashboard');
-    } else {
-      setError(result.error);
+    try {
+      const response = await authService.passwordResetRequest(email);
+      setMessage(response.message);
+      setEmail(''); // Réinitialiser le champ email
+    } catch (err) {
+      setError(err.response?.data?.error || 'Une erreur est survenue');
+    } finally {
+      setLoading(false);
     }
-
-    setLoading(false);
   };
 
   return (
     <div className="min-h-screen flex items-center justify-center bg-gradient-to-br from-primary-50 to-primary-100 py-12 px-4 sm:px-6 lg:px-8">
       <div className="max-w-md w-full space-y-8">
-        {/* Bouton retour à l'accueil */}
+        {/* Bouton retour */}
         <div className="text-left">
           <Link
-            to="/"
+            to="/login"
             className="inline-flex items-center text-primary-600 hover:text-primary-700 font-medium"
           >
             <svg
@@ -58,7 +47,7 @@ const Login = () => {
                 d="M15 19l-7-7 7-7"
               />
             </svg>
-            Retour à l'accueil
+            Retour à la connexion
           </Link>
         </div>
 
@@ -67,16 +56,10 @@ const Login = () => {
             LearnAlgorithmic
           </h1>
           <h2 className="text-3xl font-extrabold text-gray-900">
-            Connexion
+            Mot de passe oublié
           </h2>
           <p className="mt-2 text-sm text-gray-600">
-            Ou{' '}
-            <Link
-              to="/register"
-              className="font-medium text-primary-600 hover:text-primary-500"
-            >
-              créez un nouveau compte
-            </Link>
+            Entrez votre adresse email et nous vous enverrons un lien pour réinitialiser votre mot de passe.
           </p>
         </div>
 
@@ -88,49 +71,46 @@ const Login = () => {
               </div>
             )}
 
-            <div>
-              <label
-                htmlFor="username"
-                className="block text-sm font-medium text-gray-700 mb-2"
-              >
-                Nom d'utilisateur
-              </label>
-              <input
-                id="username"
-                name="username"
-                type="text"
-                required
-                className="input-field"
-                placeholder="Entrez votre nom d'utilisateur"
-                value={formData.username}
-                onChange={handleChange}
-              />
-            </div>
+            {message && (
+              <div className="bg-green-50 border border-green-400 text-green-700 px-4 py-3 rounded">
+                <div className="flex items-start">
+                  <svg
+                    className="w-5 h-5 mr-2 mt-0.5"
+                    fill="currentColor"
+                    viewBox="0 0 20 20"
+                  >
+                    <path
+                      fillRule="evenodd"
+                      d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
+                      clipRule="evenodd"
+                    />
+                  </svg>
+                  <div>
+                    <p className="font-medium">{message}</p>
+                    <p className="text-sm mt-1">
+                      Vérifiez votre boîte de réception et suivez les instructions dans l'email.
+                    </p>
+                  </div>
+                </div>
+              </div>
+            )}
 
             <div>
-              <div className="flex items-center justify-between mb-2">
-                <label
-                  htmlFor="password"
-                  className="block text-sm font-medium text-gray-700"
-                >
-                  Mot de passe
-                </label>
-                <Link
-                  to="/forgot-password"
-                  className="text-sm font-medium text-primary-600 hover:text-primary-500"
-                >
-                  Mot de passe oublié ?
-                </Link>
-              </div>
+              <label
+                htmlFor="email"
+                className="block text-sm font-medium text-gray-700 mb-2"
+              >
+                Adresse email
+              </label>
               <input
-                id="password"
-                name="password"
-                type="password"
+                id="email"
+                name="email"
+                type="email"
                 required
                 className="input-field"
-                placeholder="Entrez votre mot de passe"
-                value={formData.password}
-                onChange={handleChange}
+                placeholder="exemple@email.com"
+                value={email}
+                onChange={(e) => setEmail(e.target.value)}
               />
             </div>
 
@@ -162,10 +142,10 @@ const Login = () => {
                         d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"
                       ></path>
                     </svg>
-                    Connexion...
+                    Envoi en cours...
                   </span>
                 ) : (
-                  'Se connecter'
+                  'Envoyer le lien de réinitialisation'
                 )}
               </button>
             </div>
@@ -174,7 +154,13 @@ const Login = () => {
 
         <div className="text-center text-sm text-gray-600">
           <p>
-            En vous connectant, vous acceptez nos conditions d'utilisation
+            Vous vous souvenez de votre mot de passe ?{' '}
+            <Link
+              to="/login"
+              className="font-medium text-primary-600 hover:text-primary-500"
+            >
+              Connectez-vous
+            </Link>
           </p>
         </div>
       </div>
@@ -182,4 +168,4 @@ const Login = () => {
   );
 };
 
-export default Login;
+export default ForgotPassword;

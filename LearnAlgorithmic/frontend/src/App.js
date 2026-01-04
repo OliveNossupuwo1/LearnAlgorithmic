@@ -11,6 +11,8 @@ import { AuthProvider, useAuth } from './context/AuthContext';
 import Home from './pages/Home';
 import Login from './pages/Login';
 import Register from './pages/Register';
+import ForgotPassword from './pages/ForgotPassword';
+import ResetPassword from './pages/ResetPassword';
 import Dashboard from './pages/Dashboard';
 import Modules from './pages/Modules';
 import ModuleDetail from './pages/ModuleDetail';
@@ -73,6 +75,8 @@ function AppRoutes() {
           </PublicRoute>
         }
       />
+      <Route path="/forgot-password" element={<ForgotPassword />} />
+      <Route path="/reset-password/:uid/:token" element={<ResetPassword />} />
 
       {/* Routes d'administration - AVANT les autres routes */}
       <Route

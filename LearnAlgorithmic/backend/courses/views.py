@@ -5,6 +5,11 @@ from rest_framework.permissions import IsAuthenticated, AllowAny
 from rest_framework_simplejwt.tokens import RefreshToken
 from django.contrib.auth.models import User
 from django.contrib.auth import authenticate
+from django.contrib.auth.tokens import PasswordResetTokenGenerator
+from django.core.mail import send_mail
+from django.conf import settings
+from django.utils.http import urlsafe_base64_encode, urlsafe_base64_decode
+from django.utils.encoding import force_bytes, force_str
 from django.db.models import Avg, Count, Q
 from django.utils import timezone
 from datetime import timedelta
@@ -77,6 +82,113 @@ def current_user_view(request):
     """Récupère les informations de l'utilisateur connecté"""
     serializer = UserSerializer(request.user)
     return Response(serializer.data)
+
+
+# Password Reset Views
+token_generator = PasswordResetTokenGenerator()
+
+@api_view(['POST'])
+@permission_classes([AllowAny])
+def password_reset_request(request):
+    """Demande de réinitialisation de mot de passe - envoie un email avec le lien"""
+    email = request.data.get('email')
+
+    if not email:
+        return Response({
+            'error': 'Email requis'
+        }, status=status.HTTP_400_BAD_REQUEST)
+
+    # Chercher l'utilisateur par email (prendre le premier si plusieurs)
+    user = User.objects.filter(email=email).first()
+
+    if not user:
+        # Pour des raisons de sécurité, on retourne toujours le même message
+        return Response({
+            'message': 'Si cet email existe, un lien de réinitialisation a été envoyé.'
+        })
+
+    # Générer le token et l'UID
+    token = token_generator.make_token(user)
+    uid = urlsafe_base64_encode(force_bytes(user.pk))
+
+    # Créer le lien de réinitialisation
+    reset_link = f"http://localhost:3000/reset-password/{uid}/{token}"
+
+    # Envoyer l'email
+    try:
+        send_mail(
+            subject='Réinitialisation de votre mot de passe - LearnAlgorithmic',
+            message=f"""
+Bonjour {user.username},
+
+Vous avez demandé la réinitialisation de votre mot de passe.
+
+Cliquez sur le lien ci-dessous pour créer un nouveau mot de passe :
+{reset_link}
+
+Ce lien est valide pendant 24 heures.
+
+Si vous n'avez pas demandé cette réinitialisation, ignorez simplement cet email.
+
+Cordialement,
+L'équipe LearnAlgorithmic
+            """,
+            from_email=settings.DEFAULT_FROM_EMAIL,
+            recipient_list=[user.email],
+            fail_silently=False,
+        )
+    except Exception as e:
+        logger.error(f"Erreur lors de l'envoi de l'email: {e}")
+        return Response({
+            'error': 'Erreur lors de l\'envoi de l\'email'
+        }, status=status.HTTP_500_INTERNAL_SERVER_ERROR)
+
+    return Response({
+        'message': 'Si cet email existe, un lien de réinitialisation a été envoyé.'
+    })
+
+
+@api_view(['POST'])
+@permission_classes([AllowAny])
+def password_reset_confirm(request):
+    """Confirme la réinitialisation du mot de passe avec le nouveau mot de passe"""
+    uid = request.data.get('uid')
+    token = request.data.get('token')
+    new_password = request.data.get('new_password')
+
+    if not all([uid, token, new_password]):
+        return Response({
+            'error': 'Tous les champs sont requis'
+        }, status=status.HTTP_400_BAD_REQUEST)
+
+    # Valider le mot de passe
+    if len(new_password) < 8:
+        return Response({
+            'error': 'Le mot de passe doit contenir au moins 8 caractères'
+        }, status=status.HTTP_400_BAD_REQUEST)
+
+    try:
+        # Décoder l'UID
+        user_id = force_str(urlsafe_base64_decode(uid))
+        user = User.objects.get(pk=user_id)
+    except (TypeError, ValueError, OverflowError, User.DoesNotExist):
+        return Response({
+            'error': 'Lien invalide'
+        }, status=status.HTTP_400_BAD_REQUEST)
+
+    # Vérifier le token
+    if not token_generator.check_token(user, token):
+        return Response({
+            'error': 'Lien invalide ou expiré'
+        }, status=status.HTTP_400_BAD_REQUEST)
+
+    # Changer le mot de passe
+    user.set_password(new_password)
+    user.save()
+
+    return Response({
+        'message': 'Mot de passe réinitialisé avec succès'
+    })
 
 
 class ModuleViewSet(viewsets.ReadOnlyModelViewSet):

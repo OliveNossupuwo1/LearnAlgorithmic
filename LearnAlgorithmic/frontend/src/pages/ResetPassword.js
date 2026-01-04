@@ -1,17 +1,17 @@
 import React, { useState } from 'react';
-import { Link, useNavigate } from 'react-router-dom';
-import { useAuth } from '../context/AuthContext';
+import { Link, useNavigate, useParams } from 'react-router-dom';
+import { authService } from '../services/api';
 
-const Login = () => {
-  const [formData, setFormData] = useState({
-    username: '',
-    password: '',
-  });
-  const [error, setError] = useState('');
-  const [loading, setLoading] = useState(false);
-
-  const { login } = useAuth();
+const ResetPassword = () => {
+  const { uid, token } = useParams();
   const navigate = useNavigate();
+  const [formData, setFormData] = useState({
+    new_password: '',
+    confirm_password: '',
+  });
+  const [loading, setLoading] = useState(false);
+  const [error, setError] = useState('');
+  const [success, setSuccess] = useState(false);
 
   const handleChange = (e) => {
     setFormData({
@@ -25,24 +25,76 @@ const Login = () => {
     setError('');
     setLoading(true);
 
-    const result = await login(formData);
-
-    if (result.success) {
-      navigate('/dashboard');
-    } else {
-      setError(result.error);
+    // Validation
+    if (formData.new_password !== formData.confirm_password) {
+      setError('Les mots de passe ne correspondent pas');
+      setLoading(false);
+      return;
     }
 
-    setLoading(false);
+    if (formData.new_password.length < 8) {
+      setError('Le mot de passe doit contenir au moins 8 caractères');
+      setLoading(false);
+      return;
+    }
+
+    try {
+      await authService.passwordResetConfirm(uid, token, formData.new_password);
+      setSuccess(true);
+
+      // Rediriger vers la page de connexion après 3 secondes
+      setTimeout(() => {
+        navigate('/login');
+      }, 3000);
+    } catch (err) {
+      setError(err.response?.data?.error || 'Une erreur est survenue');
+    } finally {
+      setLoading(false);
+    }
   };
+
+  if (success) {
+    return (
+      <div className="min-h-screen flex items-center justify-center bg-gradient-to-br from-primary-50 to-primary-100 py-12 px-4 sm:px-6 lg:px-8">
+        <div className="max-w-md w-full">
+          <div className="card text-center">
+            <div className="mb-4">
+              <svg
+                className="mx-auto h-16 w-16 text-green-500"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth={2}
+                  d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"
+                />
+              </svg>
+            </div>
+            <h2 className="text-2xl font-bold text-gray-900 mb-2">
+              Mot de passe réinitialisé !
+            </h2>
+            <p className="text-gray-600 mb-4">
+              Votre mot de passe a été réinitialisé avec succès.
+            </p>
+            <p className="text-sm text-gray-500">
+              Redirection vers la page de connexion...
+            </p>
+          </div>
+        </div>
+      </div>
+    );
+  }
 
   return (
     <div className="min-h-screen flex items-center justify-center bg-gradient-to-br from-primary-50 to-primary-100 py-12 px-4 sm:px-6 lg:px-8">
       <div className="max-w-md w-full space-y-8">
-        {/* Bouton retour à l'accueil */}
+        {/* Bouton retour */}
         <div className="text-left">
           <Link
-            to="/"
+            to="/login"
             className="inline-flex items-center text-primary-600 hover:text-primary-700 font-medium"
           >
             <svg
@@ -58,7 +110,7 @@ const Login = () => {
                 d="M15 19l-7-7 7-7"
               />
             </svg>
-            Retour à l'accueil
+            Retour à la connexion
           </Link>
         </div>
 
@@ -67,16 +119,10 @@ const Login = () => {
             LearnAlgorithmic
           </h1>
           <h2 className="text-3xl font-extrabold text-gray-900">
-            Connexion
+            Nouveau mot de passe
           </h2>
           <p className="mt-2 text-sm text-gray-600">
-            Ou{' '}
-            <Link
-              to="/register"
-              className="font-medium text-primary-600 hover:text-primary-500"
-            >
-              créez un nouveau compte
-            </Link>
+            Entrez votre nouveau mot de passe ci-dessous.
           </p>
         </div>
 
@@ -90,47 +136,44 @@ const Login = () => {
 
             <div>
               <label
-                htmlFor="username"
+                htmlFor="new_password"
                 className="block text-sm font-medium text-gray-700 mb-2"
               >
-                Nom d'utilisateur
+                Nouveau mot de passe
               </label>
               <input
-                id="username"
-                name="username"
-                type="text"
-                required
-                className="input-field"
-                placeholder="Entrez votre nom d'utilisateur"
-                value={formData.username}
-                onChange={handleChange}
-              />
-            </div>
-
-            <div>
-              <div className="flex items-center justify-between mb-2">
-                <label
-                  htmlFor="password"
-                  className="block text-sm font-medium text-gray-700"
-                >
-                  Mot de passe
-                </label>
-                <Link
-                  to="/forgot-password"
-                  className="text-sm font-medium text-primary-600 hover:text-primary-500"
-                >
-                  Mot de passe oublié ?
-                </Link>
-              </div>
-              <input
-                id="password"
-                name="password"
+                id="new_password"
+                name="new_password"
                 type="password"
                 required
                 className="input-field"
-                placeholder="Entrez votre mot de passe"
-                value={formData.password}
+                placeholder="Minimum 8 caractères"
+                value={formData.new_password}
                 onChange={handleChange}
+                minLength={8}
+              />
+              <p className="mt-1 text-xs text-gray-500">
+                Le mot de passe doit contenir au moins 8 caractères
+              </p>
+            </div>
+
+            <div>
+              <label
+                htmlFor="confirm_password"
+                className="block text-sm font-medium text-gray-700 mb-2"
+              >
+                Confirmer le mot de passe
+              </label>
+              <input
+                id="confirm_password"
+                name="confirm_password"
+                type="password"
+                required
+                className="input-field"
+                placeholder="Confirmez votre mot de passe"
+                value={formData.confirm_password}
+                onChange={handleChange}
+                minLength={8}
               />
             </div>
 
@@ -162,10 +205,10 @@ const Login = () => {
                         d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"
                       ></path>
                     </svg>
-                    Connexion...
+                    Réinitialisation...
                   </span>
                 ) : (
-                  'Se connecter'
+                  'Réinitialiser le mot de passe'
                 )}
               </button>
             </div>
@@ -174,7 +217,13 @@ const Login = () => {
 
         <div className="text-center text-sm text-gray-600">
           <p>
-            En vous connectant, vous acceptez nos conditions d'utilisation
+            Le lien ne fonctionne pas ?{' '}
+            <Link
+              to="/forgot-password"
+              className="font-medium text-primary-600 hover:text-primary-500"
+            >
+              Demandez un nouveau lien
+            </Link>
           </p>
         </div>
       </div>
@@ -182,4 +231,4 @@ const Login = () => {
   );
 };
 
-export default Login;
+export default ResetPassword;

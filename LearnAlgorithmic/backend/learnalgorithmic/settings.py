@@ -1,6 +1,10 @@
 import os
 from pathlib import Path
 from datetime import timedelta
+from dotenv import load_dotenv
+
+# Charger les variables d'environnement depuis .env
+load_dotenv()
 
 BASE_DIR = Path(__file__).resolve().parent.parent
 
@@ -134,6 +138,26 @@ SIMPLE_JWT = {
 
     'JTI_CLAIM': 'jti',
 }
+
+# Email Configuration
+# En développement: affiche les emails dans la console
+# EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
+
+# Pour envoyer de vrais emails, utilisez SMTP:
+EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+EMAIL_HOST = 'smtp.gmail.com'
+EMAIL_PORT = 587
+EMAIL_USE_TLS = True
+EMAIL_HOST_USER = os.environ.get('EMAIL_HOST_USER', '')  # Votre email Gmail
+EMAIL_HOST_PASSWORD = os.environ.get('EMAIL_HOST_PASSWORD', '')  # Mot de passe d'application Gmail
+DEFAULT_FROM_EMAIL = os.environ.get('EMAIL_HOST_USER', 'noreply@learnalgorithmic.com')
+
+# IMPORTANT: Pour Gmail, vous devez:
+# 1. Activer la validation en 2 étapes sur votre compte Gmail
+# 2. Générer un "mot de passe d'application" depuis https://myaccount.google.com/apppasswords
+# 3. Définir les variables d'environnement:
+#    - EMAIL_HOST_USER=votre-email@gmail.com
+#    - EMAIL_HOST_PASSWORD=votre-mot-de-passe-application
 
 # Configuration du logging pour afficher les logs dans la console
 LOGGING = {

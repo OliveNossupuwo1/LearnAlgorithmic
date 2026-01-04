@@ -86,6 +86,20 @@ export const authService = {
     const response = await api.get('/auth/user/');
     return response.data;
   },
+
+  passwordResetRequest: async (email) => {
+    const response = await api.post('/auth/password-reset/', { email });
+    return response.data;
+  },
+
+  passwordResetConfirm: async (uid, token, new_password) => {
+    const response = await api.post('/auth/password-reset-confirm/', {
+      uid,
+      token,
+      new_password,
+    });
+    return response.data;
+  },
 };
 
 // Services pour les modules

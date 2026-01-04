@@ -106,7 +106,10 @@ const AlgorithmSimulation = ({ simulation }) => {
 {visualData.type === 'search' && (
   <SearchVisualization data={visualData} />
 )}
-{!visualData.type && (
+{!visualData.type && (visualData.variables || visualData.constants) && (
+  <VariablesVisualization data={visualData} />
+)}
+{!visualData.type && !visualData.variables && !visualData.constants && (
   <div className="placeholder-visual">
     <div className="cartoon-character">🤖</div>
     <p>Visualisation en cours...</p>
@@ -134,7 +137,7 @@ const AlgorithmSimulation = ({ simulation }) => {
         <div
           key={idx}
           className={`code-line ${
-            currentStepData?.step_number === idx + 1 ? 'highlighted' : ''
+            visualData?.code_line === idx + 1 ? 'highlighted' : ''
           }`}
         >
           <span className="line-number">{idx + 1}</span>
