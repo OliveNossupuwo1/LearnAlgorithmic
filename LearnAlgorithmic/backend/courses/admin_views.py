@@ -2,9 +2,8 @@ from rest_framework import status
 from rest_framework.decorators import api_view, permission_classes
 from rest_framework.permissions import IsAdminUser
 from rest_framework.response import Response
-from .models import Module, Lesson
+from .models import Module, Lesson, Quiz, QuizQuestion, QuizChoice, Exercise, QuizAttempt, ExerciseSubmission
 from .serializers import ModuleSerializer, LessonSerializer
-from .models import Quiz, QuizQuestion, QuizChoice, Exercise
 
 @api_view(['GET', 'POST'])
 @permission_classes([IsAdminUser])
@@ -453,3 +452,192 @@ def admin_stats(request):
         'total_exercises': total_exercises,
         'recent_activities': recent_activities
     })
+
+@api_view(['GET'])
+@permission_classes([IsAdminUser])
+def users_stats_list(request):
+    """Liste tous les utilisateurs avec leurs statistiques globales"""
+    from django.contrib.auth.models import User
+    from django.db.models import Avg, Max
+    from .models import UserProgress, LessonProgress, QuizAttempt, ExerciseSubmission
+
+    users = User.objects.all().order_by('username')
+    users_stats = []
+
+    for user in users:
+        # Progression des modules
+        total_modules = Module.objects.count()
+        user_progress = UserProgress.objects.filter(user=user)
+        modules_unlocked = user_progress.filter(is_unlocked=True).count()
+        modules_completed = user_progress.filter(is_completed=True).count()
+
+        # Progression des leçons
+        total_lessons = Lesson.objects.count()
+        lesson_progress = LessonProgress.objects.filter(user=user)
+        lessons_completed = lesson_progress.filter(is_completed=True).count()
+
+        # Scores moyens
+        avg_quiz = lesson_progress.aggregate(Avg('quiz_score'))['quiz_score__avg'] or 0
+        avg_exercise = lesson_progress.aggregate(Avg('exercise_score'))['exercise_score__avg'] or 0
+        avg_combined = lesson_progress.aggregate(Avg('combined_score'))['combined_score__avg'] or 0
+
+        # Nombre de tentatives
+        quiz_attempts = QuizAttempt.objects.filter(user=user).count()
+        exercise_submissions = ExerciseSubmission.objects.filter(user=user).count()
+
+        # Dernière activité
+        last_quiz = QuizAttempt.objects.filter(user=user).aggregate(Max('completed_at'))['completed_at__max']
+        last_exercise = ExerciseSubmission.objects.filter(user=user).aggregate(Max('submitted_at'))['submitted_at__max']
+
+        last_activity = None
+        if last_quiz and last_exercise:
+            last_activity = max(last_quiz, last_exercise)
+        elif last_quiz:
+            last_activity = last_quiz
+        elif last_exercise:
+            last_activity = last_exercise
+
+        # Calculer le pourcentage de progression global
+        total_progress = 0
+        if total_lessons > 0:
+            total_progress = (lessons_completed / total_lessons) * 100
+
+        users_stats.append({
+            'user_id': user.id,
+            'username': user.username,
+            'email': user.email,
+            'is_staff': user.is_staff,
+            'date_joined': user.date_joined.isoformat(),
+            'total_progress': round(total_progress, 1),
+            'modules_unlocked': modules_unlocked,
+            'modules_completed': modules_completed,
+            'modules_total': total_modules,
+            'lessons_completed': lessons_completed,
+            'lessons_total': total_lessons,
+            'average_quiz_score': round(avg_quiz, 1),
+            'average_exercise_score': round(avg_exercise, 1),
+            'average_combined_score': round(avg_combined, 1),
+            'quiz_attempts': quiz_attempts,
+            'exercise_submissions': exercise_submissions,
+            'last_activity': last_activity.isoformat() if last_activity else None
+        })
+
+    return Response(users_stats)
+
+
+@api_view(['GET'])
+@permission_classes([IsAdminUser])
+def user_detailed_stats(request, user_id):
+    """Statistiques détaillées d'un utilisateur spécifique"""
+    from django.contrib.auth.models import User
+    from .models import UserProgress, LessonProgress, QuizAttempt, ExerciseSubmission
+
+    try:
+        user = User.objects.get(id=user_id)
+    except User.DoesNotExist:
+        return Response({
+            'error': 'Utilisateur non trouvé'
+        }, status=status.HTTP_404_NOT_FOUND)
+
+    # Informations utilisateur
+    user_info = {
+        'user_id': user.id,
+        'username': user.username,
+        'email': user.email,
+        'first_name': user.first_name,
+        'last_name': user.last_name,
+        'is_staff': user.is_staff,
+        'date_joined': user.date_joined.isoformat(),
+        'last_login': user.last_login.isoformat() if user.last_login else None
+    }
+
+    # Progression par module
+    modules = Module.objects.all().order_by('order')
+    module_progress = []
+
+    for module in modules:
+        user_mod_progress = UserProgress.objects.filter(user=user, module=module).first()
+
+        # Leçons du module
+        lessons = Lesson.objects.filter(module=module).order_by('order')
+        lessons_data = []
+
+        for lesson in lessons:
+            lesson_prog = LessonProgress.objects.filter(user=user, lesson=lesson).first()
+
+            # Nombre de tentatives
+            quiz_attempts_count = 0
+            exercise_attempts_count = 0
+
+            lesson_quiz = lesson.quizzes.first()
+            lesson_exercise = lesson.exercises.first()
+
+            if lesson_quiz:
+                quiz_attempts_count = QuizAttempt.objects.filter(user=user, quiz=lesson_quiz).count()
+
+            if lesson_exercise:
+                exercise_attempts_count = ExerciseSubmission.objects.filter(user=user, exercise=lesson_exercise).count()
+
+            lessons_data.append({
+                'lesson_id': lesson.id,
+                'title': lesson.title,
+                'order': lesson.order,
+                'quiz_score': lesson_prog.quiz_score if lesson_prog else 0,
+                'exercise_score': lesson_prog.exercise_score if lesson_prog else 0,
+                'combined_score': lesson_prog.combined_score if lesson_prog else 0,
+                'is_completed': lesson_prog.is_completed if lesson_prog else False,
+                'completion_date': lesson_prog.completion_date.isoformat() if lesson_prog and lesson_prog.completion_date else None,
+                'quiz_attempts': quiz_attempts_count,
+                'exercise_attempts': exercise_attempts_count,
+                'has_quiz': lesson_quiz is not None,
+                'has_exercise': lesson_exercise is not None
+            })
+
+        module_progress.append({
+            'module_id': module.id,
+            'title': module.title,
+            'order': module.order,
+            'is_unlocked': user_mod_progress.is_unlocked if user_mod_progress else False,
+            'is_completed': user_mod_progress.is_completed if user_mod_progress else False,
+            'completion_date': user_mod_progress.completion_date.isoformat() if user_mod_progress and user_mod_progress.completion_date else None,
+            'lessons': lessons_data
+        })
+
+    # Timeline d'activité (dernières 50 activités)
+    activity_timeline = []
+
+    # Quiz attempts
+    quiz_attempts = QuizAttempt.objects.filter(user=user).select_related('quiz', 'quiz__lesson').order_by('-completed_at')[:25]
+    for attempt in quiz_attempts:
+        activity_timeline.append({
+            'type': 'quiz',
+            'lesson_title': attempt.quiz.lesson.title if attempt.quiz.lesson else 'Quiz sans leçon',
+            'module_title': attempt.quiz.lesson.module.title if attempt.quiz.lesson else 'Module inconnu',
+            'score': attempt.score,
+            'total_points': attempt.total_points,
+            'percentage': attempt.percentage,
+            'date': attempt.completed_at.isoformat()
+        })
+
+    # Exercise submissions
+    exercise_subs = ExerciseSubmission.objects.filter(user=user).select_related('exercise', 'exercise__lesson').order_by('-submitted_at')[:25]
+    for submission in exercise_subs:
+        activity_timeline.append({
+            'type': 'exercise',
+            'lesson_title': submission.exercise.lesson.title if submission.exercise.lesson else 'Exercice sans leçon',
+            'module_title': submission.exercise.lesson.module.title if submission.exercise.lesson else 'Module inconnu',
+            'is_correct': submission.is_correct,
+            'score': submission.score,
+            'date': submission.submitted_at.isoformat()
+        })
+
+    # Trier par date
+    activity_timeline.sort(key=lambda x: x['date'], reverse=True)
+    activity_timeline = activity_timeline[:50]
+
+    return Response({
+        'user_info': user_info,
+        'module_progress': module_progress,
+        'activity_timeline': activity_timeline
+    })
+

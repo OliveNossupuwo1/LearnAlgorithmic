@@ -21,6 +21,8 @@ import ModuleEditor from './pages/ModuleEditor';
 import LessonEditor from './pages/LessonEditor';
 import QuizEditor from './pages/QuizEditor';
 import ExerciseEditor from './pages/ExerciseEditor';
+import UsersListAdmin from './pages/UsersListAdmin';
+import UserStats from './pages/UserStats';
 // Composant de route protégée
 const PrivateRoute = ({ children }) => {
   const { isAuthenticated, loading } = useAuth();
@@ -77,6 +79,22 @@ function AppRoutes() {
       <Route path="/forgot-password" element={<ForgotPassword />} />
 
       {/* Routes d'administration - AVANT les autres routes */}
+      <Route
+        path="/admin/users/:userId/stats"
+        element={
+          <PrivateRoute>
+            <UserStats />
+          </PrivateRoute>
+        }
+      />
+      <Route
+        path="/admin/users"
+        element={
+          <PrivateRoute>
+            <UsersListAdmin />
+          </PrivateRoute>
+        }
+      />
       <Route
         path="/admin/modules/:moduleId"
         element={

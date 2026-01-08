@@ -140,12 +140,16 @@ const AdminDashboard = () => {
           </div>
 
           {/* Utilisateurs */}
-          <div className="card bg-purple-50 border-2 border-purple-200">
+          <div
+            className="card bg-purple-50 border-2 border-purple-200 cursor-pointer hover:bg-purple-100 transition-colors"
+            onClick={() => navigate('/admin/users')}
+          >
             <div className="text-center">
               <p className="text-purple-600 text-sm font-medium">Utilisateurs</p>
               <p className="text-4xl font-bold text-purple-900 mt-2">
                 {stats?.total_users || 0}
               </p>
+              <p className="text-xs text-purple-600 mt-2">Cliquez pour voir les stats</p>
             </div>
           </div>
 

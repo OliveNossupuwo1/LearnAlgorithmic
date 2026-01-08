@@ -7,21 +7,14 @@ from .admin_views import (
     module_detail,
     lesson_list_create,
     lesson_detail,
-)
-from .admin_views import (
-    module_list_create,
-    module_detail,
-    lesson_list_create,
-    lesson_detail,
     quiz_list_create,
     quiz_detail,
     exercise_list_create,
     exercise_detail,
     admin_stats,
-)
-from .admin_views import (
-    # ... autres imports
     all_lessons_list,
+    users_stats_list,
+    user_detailed_stats,
 )
 
 router = DefaultRouter()
@@ -65,4 +58,6 @@ urlpatterns = [
     path('admin/all-lessons/', all_lessons_list, name='admin-all-lessons'),
 
     path('admin/stats/', admin_stats, name='admin-stats'),
+    path('admin/users/stats/', users_stats_list, name='admin-users-stats'),
+    path('admin/users/<int:user_id>/stats/', user_detailed_stats, name='admin-user-detailed-stats'),
 ]
