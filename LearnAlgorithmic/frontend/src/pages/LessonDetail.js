@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
 import { lessonService, quizService, exerciseService } from '../services/api';
 import AlgorithmSimulation from '../components/AlgorithmSimulation';
+import InteractiveSimulation from '../components/InteractiveSimulation';
 import Header from '../components/Header';
 import Footer from '../components/Footer';
 import Notification from '../components/Notification';
@@ -15,9 +16,10 @@ const LessonDetail = () => {
   const [activeTab, setActiveTab] = useState('content');
   const [quizAnswers, setQuizAnswers] = useState({});
   const [quizResults, setQuizResults] = useState(null);
-  const [exerciseCode, setExerciseCode] = useState('');
-  const [exerciseResults, setExerciseResults] = useState(null);
+  const [exerciseCodes, setExerciseCodes] = useState({});
+  const [exerciseResults, setExerciseResults] = useState({});
   const [submitting, setSubmitting] = useState(false);
+  const [attemptsRemaining, setAttemptsRemaining] = useState({});
   const { notification, showSuccess, showError, hideNotification } = useNotification();
 
   useEffect(() => {
@@ -28,6 +30,20 @@ const LessonDetail = () => {
     try {
       const data = await lessonService.getById(lessonId);
       setLesson(data);
+
+      // Charger les tentatives pour chaque exercice
+      if (data.exercises && data.exercises.length > 0) {
+        const attemptsData = {};
+        for (const exercise of data.exercises) {
+          try {
+            const attempts = await exerciseService.getAttempts(exercise.id);
+            attemptsData[exercise.id] = attempts.remaining_attempts;
+          } catch (err) {
+            attemptsData[exercise.id] = 3; // Par défaut si erreur
+          }
+        }
+        setAttemptsRemaining(attemptsData);
+      }
     } catch (error) {
       console.error('Erreur:', error);
     } finally {
@@ -69,19 +85,43 @@ const LessonDetail = () => {
   const submitExercise = async (exerciseId) => {
     setSubmitting(true);
     try {
-      const results = await exerciseService.submit(exerciseId, exerciseCode);
-      setExerciseResults(results);
+      const code = exerciseCodes[exerciseId] || '';
+      const results = await exerciseService.submit(exerciseId, code);
+      setExerciseResults(prev => ({ ...prev, [exerciseId]: results }));
+
+      // Mettre à jour les essais restants depuis le backend
+      const totalFailed = results.total_failed_attempts || 0;
+      const remaining = Math.max(0, 3 - totalFailed);
+      setAttemptsRemaining(prev => ({ ...prev, [exerciseId]: remaining }));
 
       if (results.passed) {
         showSuccess('Exercice réussi !', `Score: ${results.score}%`);
       } else {
-        showError('Score insuffisant', `Votre score: ${results.score}%. Minimum requis: 50%`);
+        if (remaining > 0) {
+          showError('Essai échoué', `Score: ${results.score}%. Il vous reste ${remaining} essai(s).`);
+        } else {
+          showError('Plus d\'essais', `Score: ${results.score}%. Vous avez épuisé vos 3 tentatives.`);
+        }
       }
     } catch (error) {
       console.error('Erreur:', error);
       showError('Erreur', 'Erreur lors de la soumission');
     } finally {
       setSubmitting(false);
+    }
+  };
+
+  const resetExercise = async (exerciseId) => {
+    try {
+      // Réinitialiser les tentatives côté serveur
+      await exerciseService.resetAttempts(exerciseId);
+      setExerciseCodes(prev => ({ ...prev, [exerciseId]: '' }));
+      setExerciseResults(prev => ({ ...prev, [exerciseId]: null }));
+      setAttemptsRemaining(prev => ({ ...prev, [exerciseId]: 3 }));
+      showSuccess('Réinitialisé', 'Vos tentatives ont été réinitialisées. Vous avez 3 nouveaux essais.');
+    } catch (error) {
+      console.error('Erreur lors de la réinitialisation:', error);
+      showError('Erreur', 'Impossible de réinitialiser les tentatives');
     }
   };
 
@@ -192,9 +232,82 @@ const LessonDetail = () => {
                 <h2 className="text-2xl font-bold text-gray-900 mb-4">
                   🎬 Simulations Interactives
                 </h2>
-                {lesson.simulations.map((simulation) => (
-                  <AlgorithmSimulation key={simulation.id} simulation={simulation} />
-                ))}
+                {/* Filtrer pour n'afficher qu'une seule simulation par type */}
+                {(() => {
+                  let hasShownConditional = false;
+                  let hasShownLoopPour = false;
+                  let hasShownLoopTantQue = false;
+                  let hasShownLoopRepeter = false;
+                  let hasShownFunction = false;
+                  let hasShownProcedure = false;
+                  let hasShownVariable = false;
+                  let hasShownConstant = false;
+
+                  return lesson.simulations.filter(simulation => {
+                    const code = simulation.algorithm_code || '';
+                    const codeUpper = code.toUpperCase();
+                    const title = (simulation.title || '').toUpperCase();
+
+                    // Détecter les types de simulation
+                    const isFunction = codeUpper.includes('FONCTION') || codeUpper.includes('RETOURNER') || title.includes('FONCTION');
+                    const isProcedure = (codeUpper.includes('PROCEDURE') || title.includes('PROCEDURE')) && !isFunction;
+                    const isLoopPour = (codeUpper.includes('POUR ') && codeUpper.includes('FIN POUR') || title.includes('POUR')) && !isFunction && !isProcedure;
+                    const isLoopTantQue = (codeUpper.includes('TANT QUE') || title.includes('TANT QUE')) && !isFunction && !isProcedure;
+                    const isLoopRepeter = (codeUpper.includes('REPETER') || title.includes('REPETER')) && !isFunction && !isProcedure;
+                    const isConditional = (codeUpper.includes('SI ') || codeUpper.includes('SINON')) && !isLoopPour && !isLoopTantQue && !isLoopRepeter && !isFunction && !isProcedure;
+                    const isConstant = (codeUpper.includes('CONSTANTE') || title.includes('CONSTANTE')) && !isFunction && !isProcedure && !isLoopPour && !isLoopTantQue && !isLoopRepeter && !isConditional;
+                    const isVariable = title.includes('VARIABLE') && !isConditional && !isLoopPour && !isLoopTantQue && !isLoopRepeter && !isFunction && !isProcedure && !isConstant;
+
+                    // Filtrer les doublons par type
+                    if (isVariable) {
+                      if (hasShownVariable) return false;
+                      hasShownVariable = true;
+                    } else if (isConstant) {
+                      if (hasShownConstant) return false;
+                      hasShownConstant = true;
+                    } else if (isFunction) {
+                      if (hasShownFunction) return false;
+                      hasShownFunction = true;
+                    } else if (isProcedure) {
+                      if (hasShownProcedure) return false;
+                      hasShownProcedure = true;
+                    } else if (isLoopPour) {
+                      if (hasShownLoopPour) return false;
+                      hasShownLoopPour = true;
+                    } else if (isLoopTantQue) {
+                      if (hasShownLoopTantQue) return false;
+                      hasShownLoopTantQue = true;
+                    } else if (isLoopRepeter) {
+                      if (hasShownLoopRepeter) return false;
+                      hasShownLoopRepeter = true;
+                    } else if (isConditional) {
+                      if (hasShownConditional) return false;
+                      hasShownConditional = true;
+                    }
+                    return true;
+                  }).map((simulation) => {
+                    const hasQuestions = simulation.steps?.some(step => step.visual_data?.question);
+                    const code = simulation.algorithm_code || '';
+                    const codeUpper = code.toUpperCase();
+                    const title = (simulation.title || '').toUpperCase();
+
+                    // Détecter si c'est une simulation interactive
+                    const isConditional = codeUpper.includes('SI ') || codeUpper.includes('SINON');
+                    const isLoop = codeUpper.includes('POUR ') || codeUpper.includes('TANT QUE') || codeUpper.includes('REPETER') ||
+                                   title.includes('POUR') || title.includes('TANT QUE') || title.includes('REPETER');
+                    const isFunction = codeUpper.includes('FONCTION') || codeUpper.includes('RETOURNER') || title.includes('FONCTION');
+                    const isProcedure = codeUpper.includes('PROCEDURE') || title.includes('PROCEDURE');
+                    const isVariable = title.includes('VARIABLE');
+                    const isConstant = title.includes('CONSTANTE') || codeUpper.includes('CONSTANTE');
+                    const needsInteractive = hasQuestions || isConditional || isLoop || isFunction || isProcedure || isVariable || isConstant;
+
+                    return needsInteractive ? (
+                      <InteractiveSimulation key={simulation.id} simulation={simulation} />
+                    ) : (
+                      <AlgorithmSimulation key={simulation.id} simulation={simulation} />
+                    );
+                  });
+                })()}
               </div>
             )}
           </div>
@@ -291,25 +404,57 @@ const LessonDetail = () => {
                     <p className="text-yellow-700">{exercise.hints}</p>
                   </div>
                 )}
+                {/* Compteur d'essais */}
+                <div className="mb-4 flex items-center justify-between">
+                  <div className={`px-4 py-2 rounded-lg font-medium ${
+                    (attemptsRemaining[exercise.id] ?? 3) === 3 ? 'bg-green-100 text-green-800' :
+                    (attemptsRemaining[exercise.id] ?? 3) === 2 ? 'bg-yellow-100 text-yellow-800' :
+                    (attemptsRemaining[exercise.id] ?? 3) === 1 ? 'bg-orange-100 text-orange-800' :
+                    'bg-red-100 text-red-800'
+                  }`}>
+                    {(attemptsRemaining[exercise.id] ?? 3) > 0 ? (
+                      <>🎯 Essais restants: <span className="font-bold">{attemptsRemaining[exercise.id] ?? 3}/3</span></>
+                    ) : (
+                      <>❌ Plus d'essais disponibles</>
+                    )}
+                  </div>
+                  {(exerciseResults[exercise.id] || (attemptsRemaining[exercise.id] ?? 3) < 3) && (
+                    <button
+                      onClick={() => resetExercise(exercise.id)}
+                      className="px-4 py-2 bg-gray-200 hover:bg-gray-300 text-gray-700 rounded-lg font-medium transition-colors"
+                    >
+                      🔄 Recommencer
+                    </button>
+                  )}
+                </div>
+
                 <textarea
-                  value={exerciseCode}
-                  onChange={(e) => setExerciseCode(e.target.value)}
+                  value={exerciseCodes[exercise.id] || ''}
+                  onChange={(e) => setExerciseCodes(prev => ({ ...prev, [exercise.id]: e.target.value }))}
                   className="w-full h-64 p-4 border rounded-lg font-mono text-sm"
                   placeholder="Écrivez votre code ici..."
+                  disabled={(attemptsRemaining[exercise.id] ?? 3) <= 0 && !exerciseResults[exercise.id]?.passed}
                 ></textarea>
                 <button
                   onClick={() => submitExercise(exercise.id)}
-                  disabled={submitting}
+                  disabled={submitting || ((attemptsRemaining[exercise.id] ?? 3) <= 0 && !exerciseResults[exercise.id]?.passed)}
                   className="mt-4 btn-primary disabled:opacity-50"
                 >
-                  {submitting ? 'Correction...' : 'Soumettre l\'exercice'}
+                  {submitting ? 'Correction...' : (attemptsRemaining[exercise.id] ?? 3) <= 0 ? 'Plus d\'essais' : 'Soumettre l\'exercice'}
                 </button>
-                {exerciseResults && (
+                {exerciseResults[exercise.id] && (
                   <div className={`mt-4 p-4 rounded-lg ${
-                    exerciseResults.passed ? 'bg-green-100' : 'bg-red-100'
+                    exerciseResults[exercise.id].passed ? 'bg-green-100' : 'bg-red-100'
                   }`}>
-                    <p className="text-xl font-bold mb-2">Score: {exerciseResults.score}%</p>
-                    <pre className="whitespace-pre-wrap text-sm">{exerciseResults.feedback}</pre>
+                    <div className="flex justify-between items-center mb-2">
+                      <p className="text-xl font-bold">Score: {exerciseResults[exercise.id].score}%</p>
+                      {!exerciseResults[exercise.id].passed && exerciseResults[exercise.id].show_correction && (
+                        <span className="text-sm text-red-600 font-medium">
+                          La correction est affichée ci-dessous
+                        </span>
+                      )}
+                    </div>
+                    <pre className="whitespace-pre-wrap text-sm">{exerciseResults[exercise.id].feedback}</pre>
                   </div>
                 )}
               </div>
