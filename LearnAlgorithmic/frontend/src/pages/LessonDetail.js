@@ -8,6 +8,24 @@ import Footer from '../components/Footer';
 import Notification from '../components/Notification';
 import { useNotification } from '../hooks/useNotification';
 
+const getYouTubeEmbedUrl = (url) => {
+  if (!url) return null;
+  let videoId = null;
+  try {
+    const urlObj = new URL(url);
+    if (urlObj.hostname.includes('youtube.com')) {
+      videoId = urlObj.searchParams.get('v');
+    } else if (urlObj.hostname.includes('youtu.be')) {
+      videoId = urlObj.pathname.slice(1);
+    }
+  } catch {
+    const match = url.match(/(?:youtube\.com\/(?:watch\?v=|embed\/)|youtu\.be\/)([a-zA-Z0-9_-]{11})/);
+    if (match) videoId = match[1];
+  }
+  if (!videoId) return null;
+  return `https://www.youtube-nocookie.com/embed/${videoId}?rel=0`;
+};
+
 const LessonDetail = () => {
   const { lessonId } = useParams();
   const navigate = useNavigate();
@@ -178,14 +196,17 @@ const LessonDetail = () => {
         {activeTab === 'content' && (
           <div className="space-y-8 tab-content-enter">
             {/* Vidéo */}
-            {lesson?.video_url && (
+            {lesson?.video_url && getYouTubeEmbedUrl(lesson.video_url) && (
               <div className="card animate-fade-in-up">
                 <h2 className="text-2xl font-bold mb-4">🎥 Vidéo explicative</h2>
                 <div className="aspect-w-16 aspect-h-9">
                   <iframe
-                    src={lesson.video_url.replace('watch?v=', 'embed/')}
+                    src={getYouTubeEmbedUrl(lesson.video_url)}
                     className="w-full h-56 sm:h-72 md:h-96 rounded-lg"
                     allowFullScreen
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                    referrerPolicy="strict-origin-when-cross-origin"
+                    title="Vidéo de la leçon"
                   ></iframe>
                 </div>
               </div>
