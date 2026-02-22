@@ -23,6 +23,7 @@ import QuizEditor from './pages/QuizEditor';
 import ExerciseEditor from './pages/ExerciseEditor';
 import UsersListAdmin from './pages/UsersListAdmin';
 import UserStats from './pages/UserStats';
+import InterpreterPage from './pages/InterpreterPage';
 // Composant de route protégée
 const PrivateRoute = ({ children }) => {
   const { isAuthenticated, loading } = useAuth();
@@ -116,6 +117,16 @@ function AppRoutes() {
         element={
           <PrivateRoute>
             <AdminDashboard />
+          </PrivateRoute>
+        }
+      />
+
+      {/* Interpréteur de pseudo-code */}
+      <Route
+        path="/interpreter"
+        element={
+          <PrivateRoute>
+            <InterpreterPage />
           </PrivateRoute>
         }
       />

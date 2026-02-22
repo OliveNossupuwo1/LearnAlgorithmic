@@ -23,7 +23,7 @@ const ModuleDetail = () => {
     try {
       const moduleData = await moduleService.getById(moduleId);
       const lessonsData = await moduleService.getLessons(moduleId);
-      
+
       setModule(moduleData);
       setLessons(lessonsData);
     } catch (err) {
@@ -36,10 +36,10 @@ const ModuleDetail = () => {
   const getLessonStatusBadge = (lesson) => {
     const progress = lesson.progress;
     if (progress && progress.is_completed) {
-      return <span className="badge badge-success">✓ Complété</span>;
+      return <span className="badge badge-success animate-pop">✓ Complété</span>;
     }
     if (progress && (progress.quiz_score > 0 || progress.exercise_score > 0)) {
-      return <span className="badge badge-warning">En cours</span>;
+      return <span className="badge badge-warning badge-pulse">En cours</span>;
     }
     return <span className="badge bg-gray-200 text-gray-700">Non commencé</span>;
   };
@@ -50,20 +50,17 @@ const ModuleDetail = () => {
       const result = await moduleService.markComplete(moduleId);
 
       if (result.success) {
-        // Succès - Afficher une belle notification
         setNotification({
           type: 'success',
           title: 'Félicitations ! 🎉',
           message: result.message,
           onClose: () => {
             setNotification(null);
-            // Rediriger vers la page des modules après fermeture de la notification
             navigate('/modules');
           },
         });
       }
     } catch (err) {
-      // Erreur - Afficher les détails
       const errorData = err.response?.data;
 
       if (errorData && errorData.incomplete_lessons) {
@@ -107,7 +104,7 @@ const ModuleDetail = () => {
   if (error) {
     return (
       <div className="min-h-screen bg-gray-50 flex items-center justify-center">
-        <div className="card max-w-md">
+        <div className="card max-w-md animate-fade-in-scale">
           <div className="text-center">
             <svg
               className="mx-auto h-12 w-12 text-red-500"
@@ -148,7 +145,7 @@ const ModuleDetail = () => {
       <Header>
         <button
           onClick={() => navigate('/modules')}
-          className="flex items-center text-primary-600 hover:text-primary-700 text-sm font-medium"
+          className="flex items-center text-primary-600 hover:text-primary-700 text-sm font-medium transition-all duration-300 hover:-translate-x-1"
         >
           <svg className="w-4 h-4 mr-1.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
@@ -159,7 +156,7 @@ const ModuleDetail = () => {
 
       <main className="w-full px-4 sm:px-6 lg:px-8 py-6">
         {/* En-tête du module */}
-        <div className="card mb-8 bg-gradient-to-r from-primary-500 to-primary-600 text-white">
+        <div className="card mb-8 bg-gradient-to-r from-primary-500 to-primary-600 text-white animate-fade-in-up">
           <div className="flex items-start justify-between mb-4">
             <div>
               <div className="flex items-center space-x-3 mb-2">
@@ -167,7 +164,7 @@ const ModuleDetail = () => {
                   Module {module?.order}
                 </span>
                 {module?.is_completed && (
-                  <span className="badge bg-green-100 text-green-800">
+                  <span className="badge bg-green-100 text-green-800 celebrate">
                     ✓ Module Terminé
                   </span>
                 )}
@@ -186,9 +183,9 @@ const ModuleDetail = () => {
                 {lessons.length} leçons complétées
               </span>
             </div>
-            <div className="w-full bg-white bg-opacity-30 rounded-full h-3">
+            <div className="w-full bg-white bg-opacity-30 rounded-full h-3 overflow-hidden">
               <div
-                className="bg-white h-3 rounded-full transition-all duration-500"
+                className="bg-white h-3 rounded-full transition-all duration-1000 ease-out"
                 style={{
                   width: `${
                     (lessons.filter((l) => l.progress?.is_completed).length /
@@ -203,14 +200,15 @@ const ModuleDetail = () => {
 
         {/* Liste des leçons */}
         <div className="space-y-4">
-          <h2 className="text-2xl font-bold text-gray-900 mb-6">
+          <h2 className="text-2xl font-bold text-gray-900 mb-6 animate-fade-in-up" style={{ animationDelay: '0.2s' }}>
             Leçons du Module
           </h2>
 
-          {lessons.map((lesson) => (
+          {lessons.map((lesson, index) => (
             <div
               key={lesson.id}
-              className="card hover:shadow-lg transition-shadow cursor-pointer border-2 border-gray-200 hover:border-primary-500"
+              className="card card-glow cursor-pointer border-2 border-gray-200 hover:border-primary-500 animate-fade-in-up"
+              style={{ animationDelay: `${0.3 + index * 0.1}s` }}
               onClick={() => navigate(`/lessons/${lesson.id}`)}
             >
               <div className="flex items-start justify-between">
@@ -230,7 +228,7 @@ const ModuleDetail = () => {
                   {lesson.progress &&
                     (lesson.progress.quiz_score > 0 ||
                       lesson.progress.exercise_score > 0) && (
-                      <div className="flex items-center space-x-6 text-sm">
+                      <div className="flex flex-wrap items-center gap-2 sm:gap-6 text-sm">
                         <div>
                           <span className="text-gray-500">Quiz: </span>
                           <span
@@ -272,7 +270,7 @@ const ModuleDetail = () => {
                 </div>
 
                 {/* Icône de navigation */}
-                <div className="ml-4">
+                <div className="ml-4 transition-transform duration-300 group-hover:translate-x-1">
                   <svg
                     className="w-6 h-6 text-primary-600"
                     fill="none"
@@ -294,7 +292,7 @@ const ModuleDetail = () => {
 
         {/* Bouton Marquer comme terminé */}
         {!module?.is_completed && (
-          <div className="mt-8">
+          <div className="mt-8 animate-fade-in-up" style={{ animationDelay: `${0.3 + lessons.length * 0.1 + 0.1}s` }}>
             <button
               onClick={handleMarkComplete}
               disabled={marking}
@@ -309,7 +307,7 @@ const ModuleDetail = () => {
         )}
 
         {/* Instructions */}
-        <div className="mt-8 card bg-blue-50 border-2 border-blue-200">
+        <div className="mt-8 card bg-blue-50 border-2 border-blue-200 animate-fade-in-up" style={{ animationDelay: '0.8s' }}>
           <h3 className="text-lg font-bold text-blue-900 mb-3">
             💡 Comment progresser ?
           </h3>

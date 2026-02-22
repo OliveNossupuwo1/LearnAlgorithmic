@@ -4,6 +4,9 @@
   padding: 30px;
   box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
   margin: 20px 0;
+  max-width: 100%;
+  overflow: hidden;
+  box-sizing: border-box;
 }
 
 .simulation-header {
@@ -347,13 +350,197 @@
     opacity: 1;
     transform: translateX(-50%) scale(1.2);
   }
-}/* RESPONSIVE */
+}
+
+/* RESPONSIVE */
 @media (max-width: 768px) {
+  .simulation-container {
+    padding: 20px;
+    border-radius: 15px;
+    margin: 10px 0;
+  }
+
+  .simulation-title {
+    font-size: 1.5rem;
+  }
+
+  .simulation-description {
+    font-size: 1rem;
+  }
+
   .simulation-main {
     grid-template-columns: 1fr;
   }
-  
+
   .simulation-controls {
     flex-wrap: wrap;
+    border-radius: 25px;
+    padding: 15px;
+    gap: 10px;
+  }
+
+  .speed-control {
+    margin-left: 0;
+    flex-basis: 100%;
+    justify-content: center;
+  }
+
+  .step-description {
+    padding: 10px;
+  }
+
+  .cartoon-stage {
+    min-height: 250px;
+    padding: 15px;
+  }
+
+  .array-viz {
+    gap: 20px;
+  }
+
+  .array-box {
+    width: 65px;
+    height: 65px;
+  }
+
+  .array-value {
+    font-size: 1.5rem;
+  }
+
+  .code-block {
+    font-size: 0.85rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .simulation-container {
+    padding: 15px;
+    border-radius: 12px;
+  }
+
+  .simulation-header {
+    margin-bottom: 15px;
+  }
+
+  .simulation-title {
+    font-size: 1.25rem;
+  }
+
+  .simulation-description {
+    font-size: 0.9rem;
+  }
+
+  .simulation-controls {
+    padding: 10px;
+    gap: 8px;
+  }
+
+  .control-btn {
+    width: 40px;
+    height: 40px;
+    font-size: 1rem;
+  }
+
+  .play-btn {
+    width: 50px;
+    height: 50px;
+    font-size: 1.25rem;
+  }
+
+  .cartoon-stage {
+    min-height: 200px;
+    padding: 10px;
+  }
+
+  .array-viz {
+    gap: 15px;
+  }
+
+  .array-box {
+    width: 55px;
+    height: 55px;
+  }
+
+  .array-value {
+    font-size: 1.3rem;
+  }
+
+  .code-block {
+    font-size: 0.8rem;
+  }
+
+  .step-badge {
+    font-size: 0.8rem;
+    padding: 3px 10px;
+  }
+
+  .step-text {
+    font-size: 0.95rem;
+  }
+
+  .variables-section {
+    padding: 10px;
+  }
+
+  .variable-item {
+    padding: 6px 10px;
+    font-size: 0.85rem;
+  }
+
+  .array-label {
+    font-size: 0.9rem;
+  }
+
+  .cartoon-character {
+    font-size: 3.5rem;
+  }
+}
+
+@media (max-width: 360px) {
+  .simulation-container {
+    padding: 10px;
+    border-radius: 10px;
+  }
+
+  .simulation-title {
+    font-size: 1.1rem;
+  }
+
+  .simulation-description {
+    font-size: 0.85rem;
+  }
+
+  .array-box {
+    width: 45px;
+    height: 45px;
+    border-radius: 10px;
+  }
+
+  .array-value {
+    font-size: 1.1rem;
+  }
+
+  .array-viz {
+    gap: 10px;
+  }
+
+  .control-btn {
+    width: 36px;
+    height: 36px;
+    font-size: 0.9rem;
+  }
+
+  .play-btn {
+    width: 44px;
+    height: 44px;
+    font-size: 1.1rem;
+  }
+
+  .code-block {
+    font-size: 0.75rem;
+  }
+
+  .cartoon-character {
+    font-size: 3rem;
   }
 }

@@ -37,9 +37,14 @@ urlpatterns = [
     # Quiz et Exercices
     path('quiz/submit/', submit_quiz, name='submit-quiz'),
     path('exercise/submit/', submit_exercise, name='submit-exercise'),
+    path('exercise/reset/', reset_exercise_attempts, name='reset-exercise-attempts'),
+    path('exercise/<int:exercise_id>/attempts/', get_exercise_attempts, name='get-exercise-attempts'),
 
     # Modules
     path('modules/<int:module_id>/mark-complete/', mark_module_complete, name='mark-module-complete'),
+
+    # Interpréteur de pseudo-code
+    path('interpreter/execute/', execute_interpreter, name='execute-interpreter'),
 
     # Dashboard et progression
     path('dashboard/stats/', dashboard_stats, name='dashboard-stats'),

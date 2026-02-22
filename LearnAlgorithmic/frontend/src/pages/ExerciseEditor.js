@@ -18,6 +18,8 @@ const ExerciseEditor = () => {
     title: '',
     description: '',
     problem_statement: '',
+    expected_output: '',
+    solution_code: '',
     hints: '',
     difficulty: 'beginner',
     points: 100,
@@ -228,6 +230,51 @@ const ExerciseEditor = () => {
               className="input-field font-mono text-sm"
               placeholder="Décrivez le problème en détail avec des exemples..."
             ></textarea>
+          </div>
+
+          {/* Sortie attendue */}
+          <div className="mb-6">
+            <label className="block text-sm font-medium text-gray-700 mb-2">
+              Sortie Attendue
+            </label>
+            <textarea
+              name="expected_output"
+              value={formData.expected_output}
+              onChange={handleChange}
+              rows={2}
+              className="input-field font-mono text-sm"
+              placeholder="Ex: 24 (pour un calcul d'âge avec 2024-2000)"
+            ></textarea>
+            <p className="text-xs text-gray-500 mt-1">
+              Le résultat que le programme doit afficher
+            </p>
+          </div>
+
+          {/* Pseudo-code de la solution (CORRECTION) */}
+          <div className="mb-6">
+            <label className="block text-sm font-medium text-gray-700 mb-2">
+              📝 Pseudo-code de la Solution (Correction)
+            </label>
+            <textarea
+              name="solution_code"
+              value={formData.solution_code}
+              onChange={handleChange}
+              rows={12}
+              className="input-field font-mono text-sm bg-green-50 border-green-300"
+              placeholder={`Algorithme CalculAge
+Variables: annee_naissance, annee_actuelle, age : Entier
+Debut
+    Ecrire("Entrer l'année de naissance")
+    Lire(annee_naissance)
+    Ecrire("Entrer l'année actuelle")
+    Lire(annee_actuelle)
+    age ← annee_actuelle - annee_naissance
+    Ecrire("Votre âge est ", age)
+Fin`}
+            ></textarea>
+            <p className="text-xs text-gray-500 mt-1">
+              Ce pseudo-code sera affiché à l'étudiant après 3 tentatives échouées comme correction complète
+            </p>
           </div>
 
           {/* Indices */}

@@ -97,9 +97,9 @@ const UserStats = () => {
             Retour aux utilisateurs
           </Link>
 
-          <div className="flex items-center justify-between">
+          <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3">
             <div>
-              <h1 className="text-3xl font-bold text-gray-900">
+              <h1 className="text-2xl sm:text-3xl font-bold text-gray-900">
                 Statistiques de {user_info.username}
               </h1>
               <p className="text-gray-600 mt-1">{user_info.email}</p>
@@ -113,7 +113,7 @@ const UserStats = () => {
         </div>
 
         {/* Cartes de statistiques globales */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-8">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 mb-8">
           <div className="card">
             <div className="text-sm text-gray-600 mb-1">Progression globale</div>
             <div className="text-3xl font-bold text-primary-600">
@@ -201,7 +201,7 @@ const UserStats = () => {
                             )}
                           </div>
 
-                          <div className="grid grid-cols-2 gap-4 mt-2 text-sm">
+                          <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mt-2 text-sm">
                             {lesson.has_quiz && (
                               <div>
                                 <span className="text-gray-600">Quiz: </span>
@@ -242,12 +242,12 @@ const UserStats = () => {
 
           {/* Timeline d'activité */}
           <div className="lg:col-span-1">
-            <div className="card sticky top-4">
+            <div className="card lg:sticky lg:top-4">
               <h2 className="text-xl font-bold text-gray-900 mb-4">
                 Activité Récente
               </h2>
 
-              <div className="space-y-3 max-h-[600px] overflow-y-auto">
+              <div className="space-y-3 max-h-[400px] lg:max-h-[600px] overflow-y-auto">
                 {activity_timeline.length === 0 ? (
                   <p className="text-gray-500 text-center py-4">
                     Aucune activité récente

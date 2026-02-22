@@ -4,6 +4,9 @@
   gap: 1.5rem;
   padding: 1rem;
   min-height: 400px;
+  max-width: 100%;
+  overflow: hidden;
+  box-sizing: border-box;
 }
 
 .memory-zone {
@@ -38,7 +41,8 @@
   transition: all 0.3s ease;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
   width: 280px;
-  flex-shrink: 0;
+  min-width: 0;
+  flex-shrink: 1;
 }
 
 .variable-box.box-red {
@@ -397,6 +401,137 @@
 
 @media (max-width: 640px) {
   .variables-grid {
-    grid-template-columns: 1fr;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .variable-box {
+    width: 100%;
+    max-width: 300px;
+  }
+
+  .operation-display,
+  .message-display,
+  .error-display {
+    flex-direction: column;
+    text-align: center;
+    gap: 0.5rem;
+  }
+
+  .output-content {
+    font-size: 1rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .variables-visualization {
+    padding: 0.5rem;
+    gap: 1rem;
+    min-height: 300px;
+  }
+
+  .memory-zone {
+    padding: 1rem;
+  }
+
+  .memory-title {
+    font-size: 1.1rem;
+  }
+
+  .variable-box {
+    width: 100%;
+    max-width: 280px;
+  }
+
+  .variable-header {
+    padding: 0.5rem;
+    font-size: 0.8rem;
+  }
+
+  .variable-name-display .name {
+    font-size: 1rem;
+  }
+
+  .value {
+    font-size: 1.1rem;
+  }
+
+  .operation-icon,
+  .message-icon,
+  .error-icon {
+    font-size: 1.5rem;
+  }
+
+  .operation-text,
+  .message-text,
+  .error-text {
+    font-size: 1rem;
+  }
+
+  .output-display {
+    padding: 1rem;
+  }
+
+  .types-legend {
+    padding: 0.75rem;
+  }
+
+  .legend-items {
+    gap: 0.5rem;
+  }
+
+  .legend-item {
+    font-size: 0.8rem;
+  }
+}
+
+@media (max-width: 360px) {
+  .variables-visualization {
+    padding: 0.25rem;
+    gap: 0.75rem;
+    min-height: 250px;
+  }
+
+  .memory-zone {
+    padding: 0.75rem;
+  }
+
+  .memory-title {
+    font-size: 1rem;
+    margin-bottom: 1rem;
+  }
+
+  .variable-box {
+    max-width: 250px;
+  }
+
+  .variable-header {
+    padding: 0.4rem;
+    font-size: 0.75rem;
+  }
+
+  .variable-name-display .name {
+    font-size: 0.9rem;
+  }
+
+  .value {
+    font-size: 1rem;
+  }
+
+  .operation-display,
+  .message-display,
+  .error-display {
+    padding: 0.75rem 1rem;
+  }
+
+  .operation-text,
+  .message-text,
+  .error-text {
+    font-size: 0.9rem;
+  }
+
+  .output-content {
+    font-size: 0.9rem;
+    padding: 0.75rem;
   }
 }

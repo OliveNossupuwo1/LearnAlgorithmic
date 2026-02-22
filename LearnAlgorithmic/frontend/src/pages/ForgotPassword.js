@@ -109,10 +109,10 @@ const ForgotPassword = () => {
         </div>
 
         <div className="text-center">
-          <h1 className="text-5xl font-bold text-primary-700 mb-2">
+          <h1 className="text-3xl sm:text-5xl font-bold text-primary-700 mb-2">
             LearnAlgorithmic
           </h1>
-          <h2 className="text-3xl font-extrabold text-gray-900">
+          <h2 className="text-2xl sm:text-3xl font-extrabold text-gray-900">
             {step === 1 && 'Mot de passe oublié'}
             {step === 2 && 'Code de vérification'}
             {step === 3 && 'Nouveau mot de passe'}
@@ -197,7 +197,7 @@ const ForgotPassword = () => {
                   type="text"
                   required
                   maxLength={6}
-                  className="input-field text-center text-2xl tracking-widest"
+                  className="input-field text-center text-xl sm:text-2xl tracking-widest"
                   placeholder="000000"
                   value={code}
                   onChange={(e) => setCode(e.target.value.replace(/\D/g, ''))}
@@ -207,7 +207,7 @@ const ForgotPassword = () => {
                 </p>
               </div>
 
-              <div className="flex gap-3">
+              <div className="flex flex-col sm:flex-row gap-3">
                 <button
                   type="button"
                   onClick={() => setStep(1)}

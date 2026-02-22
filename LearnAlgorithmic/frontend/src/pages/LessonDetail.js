@@ -139,7 +139,7 @@ const LessonDetail = () => {
         <div className="flex items-center space-x-3">
           <button
             onClick={() => navigate(-1)}
-            className="flex items-center text-primary-600 hover:text-primary-700 text-sm font-medium"
+            className="flex items-center text-primary-600 hover:text-primary-700 text-sm font-medium transition-all duration-300 hover:-translate-x-1"
           >
             <svg className="w-4 h-4 mr-1.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
@@ -156,15 +156,15 @@ const LessonDetail = () => {
 
       <main className="w-full px-4 sm:px-6 lg:px-8 py-6">
         {/* Onglets */}
-        <div className="flex space-x-4 mb-6 border-b">
+        <div className="flex space-x-4 mb-6 border-b overflow-x-auto">
           {['content', 'quiz', 'exercises'].map((tab) => (
             <button
               key={tab}
               onClick={() => setActiveTab(tab)}
-              className={`px-4 py-2 font-medium border-b-2 transition-colors ${
+              className={`px-4 py-2 font-medium border-b-2 transition-all duration-300 flex-shrink-0 whitespace-nowrap ${
                 activeTab === tab
-                  ? 'border-primary-600 text-primary-600'
-                  : 'border-transparent text-gray-600 hover:text-gray-900'
+                  ? 'border-primary-600 text-primary-600 scale-105'
+                  : 'border-transparent text-gray-600 hover:text-gray-900 hover:border-gray-300'
               }`}
             >
               {tab === 'content' && '📚 Contenu'}
@@ -176,15 +176,15 @@ const LessonDetail = () => {
 
         {/* Contenu */}
         {activeTab === 'content' && (
-          <div className="space-y-8">
+          <div className="space-y-8 tab-content-enter">
             {/* Vidéo */}
             {lesson?.video_url && (
-              <div className="card">
+              <div className="card animate-fade-in-up">
                 <h2 className="text-2xl font-bold mb-4">🎥 Vidéo explicative</h2>
                 <div className="aspect-w-16 aspect-h-9">
                   <iframe
                     src={lesson.video_url.replace('watch?v=', 'embed/')}
-                    className="w-full h-96 rounded-lg"
+                    className="w-full h-56 sm:h-72 md:h-96 rounded-lg"
                     allowFullScreen
                   ></iframe>
                 </div>
@@ -193,11 +193,11 @@ const LessonDetail = () => {
 
             {/* Concepts */}
             {lesson?.concepts?.length > 0 && (
-              <div className="card">
+              <div className="card animate-fade-in-up" style={{ animationDelay: '0.1s' }}>
                 <h2 className="text-2xl font-bold mb-4">📖 Concepts clés</h2>
                 <div className="space-y-4">
-                  {lesson.concepts.map((concept) => (
-                    <div key={concept.id} className="border-l-4 border-primary-500 pl-4">
+                  {lesson.concepts.map((concept, i) => (
+                    <div key={concept.id} className="border-l-4 border-primary-500 pl-4 animate-fade-in-up" style={{ animationDelay: `${0.2 + i * 0.1}s` }}>
                       <h3 className="text-xl font-semibold text-gray-900 mb-2">
                         {concept.title}
                       </h3>
@@ -211,11 +211,11 @@ const LessonDetail = () => {
 
             {/* Exemples */}
             {lesson?.examples?.length > 0 && (
-              <div className="card">
+              <div className="card animate-fade-in-up" style={{ animationDelay: '0.3s' }}>
                 <h2 className="text-2xl font-bold mb-4">💡 Exemples</h2>
                 <div className="space-y-6">
-                  {lesson.examples.map((example) => (
-                    <div key={example.id}>
+                  {lesson.examples.map((example, i) => (
+                    <div key={example.id} className="animate-fade-in-up" style={{ animationDelay: `${0.4 + i * 0.1}s` }}>
                       <h3 className="text-xl font-semibold mb-2">{example.title}</h3>
                       <p className="text-gray-700 mb-3">{example.description}</p>
                       <pre className="code-block mb-3">{example.code}</pre>
@@ -228,7 +228,7 @@ const LessonDetail = () => {
 
             {/* Simulations */}
             {lesson?.simulations && lesson.simulations.length > 0 && (
-              <div className="mt-8">
+              <div className="mt-8 animate-fade-in-up overflow-hidden" style={{ animationDelay: '0.5s' }}>
                 <h2 className="text-2xl font-bold text-gray-900 mb-4">
                   🎬 Simulations Interactives
                 </h2>
@@ -315,13 +315,13 @@ const LessonDetail = () => {
 
         {/* Quiz */}
         {activeTab === 'quiz' && lesson?.quizzes?.length > 0 && (
-          <div className="space-y-6">
+          <div className="space-y-6 tab-content-enter">
             {lesson.quizzes.map((quiz) => (
-              <div key={quiz.id} className="card">
+              <div key={quiz.id} className="card animate-fade-in-up">
                 <h2 className="text-2xl font-bold mb-6">{quiz.title}</h2>
                 <div className="space-y-6">
-                  {quiz.questions.map((question) => (
-                    <div key={question.id} className="border-b pb-6">
+                  {quiz.questions.map((question, qIndex) => (
+                    <div key={question.id} className="border-b pb-6 animate-fade-in-up" style={{ animationDelay: `${qIndex * 0.1}s` }}>
                       <p className="font-medium text-lg mb-4">{question.question_text}</p>
                       <div className="space-y-2">
                         {question.choices.map((choice) => (
@@ -329,6 +329,12 @@ const LessonDetail = () => {
                             key={choice.id}
                             className={`quiz-option block ${
                               quizAnswers[question.id]?.includes(choice.id) ? 'selected' : ''
+                            } ${
+                              quizResults?.detailed_results?.find((r) => r.question_id === question.id)
+                                ? quizResults.detailed_results.find((r) => r.question_id === question.id).is_correct
+                                  ? 'correct'
+                                  : quizAnswers[question.id]?.includes(choice.id) ? 'incorrect' : ''
+                                : ''
                             }`}
                           >
                             <input
@@ -349,7 +355,7 @@ const LessonDetail = () => {
                         ))}
                       </div>
                       {quizResults?.detailed_results?.find((r) => r.question_id === question.id) && (
-                        <div className={`mt-3 p-3 rounded ${
+                        <div className={`mt-3 p-3 rounded animate-slide-in ${
                           quizResults.detailed_results.find((r) => r.question_id === question.id).is_correct
                             ? 'bg-green-50 text-green-800'
                             : 'bg-red-50 text-red-800'
@@ -372,11 +378,19 @@ const LessonDetail = () => {
                   disabled={submitting}
                   className="mt-6 btn-primary disabled:opacity-50"
                 >
-                  {submitting ? 'Correction...' : 'Soumettre le quiz'}
+                  {submitting ? (
+                    <span className="flex items-center justify-center">
+                      <svg className="animate-spin -ml-1 mr-3 h-5 w-5 text-white" fill="none" viewBox="0 0 24 24">
+                        <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4"></circle>
+                        <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
+                      </svg>
+                      Correction...
+                    </span>
+                  ) : 'Soumettre le quiz'}
                 </button>
                 {quizResults && (
-                  <div className={`mt-4 p-4 rounded-lg ${
-                    quizResults.passed ? 'bg-green-100' : 'bg-red-100'
+                  <div className={`mt-4 p-4 rounded-lg animate-slide-in ${
+                    quizResults.passed ? 'bg-green-100 celebrate' : 'bg-red-100'
                   }`}>
                     <p className="text-xl font-bold">
                       Score: {quizResults.percentage}% ({quizResults.score}/{quizResults.total_points})
@@ -390,23 +404,23 @@ const LessonDetail = () => {
 
         {/* Exercices */}
         {activeTab === 'exercises' && lesson?.exercises?.length > 0 && (
-          <div className="space-y-6">
-            {lesson.exercises.map((exercise) => (
-              <div key={exercise.id} className="card">
+          <div className="space-y-6 tab-content-enter">
+            {lesson.exercises.map((exercise, exIndex) => (
+              <div key={exercise.id} className="card animate-fade-in-up" style={{ animationDelay: `${exIndex * 0.15}s` }}>
                 <h2 className="text-2xl font-bold mb-4">{exercise.title}</h2>
                 <p className="text-gray-700 mb-4">{exercise.description}</p>
                 <div className="bg-blue-50 p-4 rounded-lg mb-4">
                   <pre className="whitespace-pre-wrap">{exercise.problem_statement}</pre>
                 </div>
                 {exercise.hints && (
-                  <div className="bg-yellow-50 p-4 rounded-lg mb-4">
+                  <div className="bg-yellow-50 p-4 rounded-lg mb-4 animate-fade-in-up" style={{ animationDelay: '0.2s' }}>
                     <p className="text-sm font-medium text-yellow-800">💡 Indice:</p>
                     <p className="text-yellow-700">{exercise.hints}</p>
                   </div>
                 )}
                 {/* Compteur d'essais */}
-                <div className="mb-4 flex items-center justify-between">
-                  <div className={`px-4 py-2 rounded-lg font-medium ${
+                <div className="mb-4 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-2">
+                  <div className={`px-4 py-2 rounded-lg font-medium transition-all duration-300 ${
                     (attemptsRemaining[exercise.id] ?? 3) === 3 ? 'bg-green-100 text-green-800' :
                     (attemptsRemaining[exercise.id] ?? 3) === 2 ? 'bg-yellow-100 text-yellow-800' :
                     (attemptsRemaining[exercise.id] ?? 3) === 1 ? 'bg-orange-100 text-orange-800' :
@@ -421,7 +435,7 @@ const LessonDetail = () => {
                   {(exerciseResults[exercise.id] || (attemptsRemaining[exercise.id] ?? 3) < 3) && (
                     <button
                       onClick={() => resetExercise(exercise.id)}
-                      className="px-4 py-2 bg-gray-200 hover:bg-gray-300 text-gray-700 rounded-lg font-medium transition-colors"
+                      className="px-4 py-2 bg-gray-200 hover:bg-gray-300 text-gray-700 rounded-lg font-medium transition-all duration-300 hover:shadow-md hover:-translate-y-0.5"
                     >
                       🔄 Recommencer
                     </button>
@@ -431,7 +445,7 @@ const LessonDetail = () => {
                 <textarea
                   value={exerciseCodes[exercise.id] || ''}
                   onChange={(e) => setExerciseCodes(prev => ({ ...prev, [exercise.id]: e.target.value }))}
-                  className="w-full h-64 p-4 border rounded-lg font-mono text-sm"
+                  className="w-full h-48 sm:h-64 p-4 border rounded-lg font-mono text-sm focus:ring-2 focus:ring-primary-500 focus:border-transparent focus:shadow-lg focus:shadow-primary-500/10 transition-all duration-300"
                   placeholder="Écrivez votre code ici..."
                   disabled={(attemptsRemaining[exercise.id] ?? 3) <= 0 && !exerciseResults[exercise.id]?.passed}
                 ></textarea>
@@ -440,10 +454,18 @@ const LessonDetail = () => {
                   disabled={submitting || ((attemptsRemaining[exercise.id] ?? 3) <= 0 && !exerciseResults[exercise.id]?.passed)}
                   className="mt-4 btn-primary disabled:opacity-50"
                 >
-                  {submitting ? 'Correction...' : (attemptsRemaining[exercise.id] ?? 3) <= 0 ? 'Plus d\'essais' : 'Soumettre l\'exercice'}
+                  {submitting ? (
+                    <span className="flex items-center justify-center">
+                      <svg className="animate-spin -ml-1 mr-3 h-5 w-5 text-white" fill="none" viewBox="0 0 24 24">
+                        <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4"></circle>
+                        <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
+                      </svg>
+                      Correction...
+                    </span>
+                  ) : (attemptsRemaining[exercise.id] ?? 3) <= 0 ? 'Plus d\'essais' : 'Soumettre l\'exercice'}
                 </button>
                 {exerciseResults[exercise.id] && (
-                  <div className={`mt-4 p-4 rounded-lg ${
+                  <div className={`mt-4 p-4 rounded-lg animate-slide-in ${
                     exerciseResults[exercise.id].passed ? 'bg-green-100' : 'bg-red-100'
                   }`}>
                     <div className="flex justify-between items-center mb-2">

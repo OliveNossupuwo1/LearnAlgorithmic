@@ -26,9 +26,9 @@ const Modules = () => {
 
   const getModuleStatusBadge = (module) => {
     if (module.is_completed) {
-      return <span className="badge badge-success">✓ Terminé</span>;
+      return <span className="badge badge-success animate-bounce-in">✓ Terminé</span>;
     } else if (module.is_unlocked) {
-      return <span className="badge badge-warning">En cours</span>;
+      return <span className="badge badge-warning badge-pulse">En cours</span>;
     } else {
       return <span className="badge badge-locked">🔒 Verrouillé</span>;
     }
@@ -71,21 +71,21 @@ const Modules = () => {
 
       <main className="w-full px-4 sm:px-6 lg:px-8 py-6">
         {/* Progression globale */}
-        <div className="card mb-8 bg-gradient-to-r from-primary-500 to-primary-600 text-white">
-          <div className="flex items-center justify-between mb-4">
+        <div className="card mb-8 bg-gradient-to-r from-primary-500 to-primary-600 text-white animate-fade-in-up">
+          <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-2 mb-4">
             <div>
-              <h2 className="text-2xl font-bold">Votre Progression</h2>
+              <h2 className="text-xl sm:text-2xl font-bold">Votre Progression</h2>
               <p className="text-primary-100 mt-1">
                 {completedLessons} / {totalLessons} leçons complétées
               </p>
             </div>
-            <div className="text-4xl font-bold">
+            <div className="text-3xl sm:text-4xl font-bold counter-animate">
               {overallProgress.toFixed(0)}%
             </div>
           </div>
-          <div className="w-full bg-white bg-opacity-30 rounded-full h-3">
+          <div className="w-full bg-white bg-opacity-30 rounded-full h-3 overflow-hidden">
             <div
-              className="bg-white h-3 rounded-full transition-all duration-500"
+              className="bg-white h-3 rounded-full transition-all duration-1000 ease-out"
               style={{ width: `${overallProgress}%` }}
             ></div>
           </div>
@@ -93,12 +93,12 @@ const Modules = () => {
 
         {/* Liste des modules */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-          {modules.map((module) => (
+          {modules.map((module, index) => (
             <div
               key={module.id}
-              className={`card module-card ${
+              className={`card module-card animate-fade-in-up ${
                 module.is_unlocked
-                  ? 'cursor-pointer hover:border-primary-500'
+                  ? 'cursor-pointer card-glow'
                   : 'opacity-60 cursor-not-allowed'
               } border-2 ${
                 module.is_completed
@@ -107,6 +107,7 @@ const Modules = () => {
                   ? 'border-primary-300'
                   : 'border-gray-200'
               }`}
+              style={{ animationDelay: `${0.1 + index * 0.1}s` }}
               onClick={() => handleModuleClick(module)}
             >
               {/* En-tête du module */}
@@ -149,7 +150,7 @@ const Modules = () => {
                 <>
                   <div className="progress-bar mb-2">
                     <div
-                      className="progress-fill"
+                      className="progress-fill-animated"
                       style={{
                         width: `${module.lessons_progress?.percentage || 0}%`,
                       }}
@@ -187,102 +188,35 @@ const Modules = () => {
         </div>
 
         {/* Instructions */}
-        <div className="mt-12 card bg-primary-50 border-2 border-primary-200">
+        <div className="mt-12 card bg-primary-50 border-2 border-primary-200 animate-fade-in-up" style={{ animationDelay: '0.8s' }}>
           <h3 className="text-xl font-bold text-primary-900 mb-4">
             Comment ça marche ?
           </h3>
           <ul className="space-y-3 text-gray-700">
-            <li className="flex items-start">
-              <svg
-                className="w-6 h-6 text-primary-600 mr-3 flex-shrink-0 mt-0.5"
-                fill="none"
-                stroke="currentColor"
-                viewBox="0 0 24 24"
-              >
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth={2}
-                  d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"
-                />
-              </svg>
-              <span>
-                Commencez par le Module 1, seul module débloqué au départ
-              </span>
-            </li>
-            <li className="flex items-start">
-              <svg
-                className="w-6 h-6 text-primary-600 mr-3 flex-shrink-0 mt-0.5"
-                fill="none"
-                stroke="currentColor"
-                viewBox="0 0 24 24"
-              >
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth={2}
-                  d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"
-                />
-              </svg>
-              <span>
-                Complétez toutes les leçons d'un module pour le valider
-              </span>
-            </li>
-            <li className="flex items-start">
-              <svg
-                className="w-6 h-6 text-primary-600 mr-3 flex-shrink-0 mt-0.5"
-                fill="none"
-                stroke="currentColor"
-                viewBox="0 0 24 24"
-              >
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth={2}
-                  d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"
-                />
-              </svg>
-              <span>
-                Pour valider une leçon, obtenez au moins 50/100 aux quiz et
-                exercices
-              </span>
-            </li>
-            <li className="flex items-start">
-              <svg
-                className="w-6 h-6 text-primary-600 mr-3 flex-shrink-0 mt-0.5"
-                fill="none"
-                stroke="currentColor"
-                viewBox="0 0 24 24"
-              >
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth={2}
-                  d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"
-                />
-              </svg>
-              <span>
-                Débloquez le module suivant en complétant le module actuel
-              </span>
-            </li>
-            <li className="flex items-start">
-              <svg
-                className="w-6 h-6 text-primary-600 mr-3 flex-shrink-0 mt-0.5"
-                fill="none"
-                stroke="currentColor"
-                viewBox="0 0 24 24"
-              >
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth={2}
-                  d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"
-                />
-              </svg>
-              <span>
-                Vous pouvez toujours revoir les modules déjà terminés
-              </span>
-            </li>
+            {[
+              'Commencez par le Module 1, seul module débloqué au départ',
+              'Complétez toutes les leçons d\'un module pour le valider',
+              'Pour valider une leçon, obtenez au moins 50/100 aux quiz et exercices',
+              'Débloquez le module suivant en complétant le module actuel',
+              'Vous pouvez toujours revoir les modules déjà terminés',
+            ].map((text, i) => (
+              <li key={i} className="flex items-start animate-fade-in-up" style={{ animationDelay: `${0.9 + i * 0.1}s` }}>
+                <svg
+                  className="w-6 h-6 text-primary-600 mr-3 flex-shrink-0 mt-0.5"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth={2}
+                    d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"
+                  />
+                </svg>
+                <span>{text}</span>
+              </li>
+            ))}
           </ul>
         </div>
       </main>

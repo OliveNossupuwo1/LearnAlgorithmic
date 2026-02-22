@@ -37,13 +37,13 @@ const Login = () => {
   };
 
   return (
-    <div className="min-h-screen flex items-center justify-center bg-gradient-to-br from-primary-50 to-primary-100 py-12 px-4 sm:px-6 lg:px-8">
+    <div className="min-h-screen flex items-center justify-center bg-gradient-animated py-12 px-4 sm:px-6 lg:px-8">
       <div className="max-w-md w-full space-y-8">
         {/* Bouton retour à l'accueil */}
-        <div className="text-left">
+        <div className="text-left animate-fade-in-up">
           <Link
             to="/"
-            className="inline-flex items-center text-primary-600 hover:text-primary-700 font-medium"
+            className="inline-flex items-center text-primary-600 hover:text-primary-700 font-medium transition-all duration-300 hover:-translate-x-1"
           >
             <svg
               className="w-5 h-5 mr-2"
@@ -62,28 +62,28 @@ const Login = () => {
           </Link>
         </div>
 
-        <div className="text-center">
-          <h1 className="text-5xl font-bold text-primary-700 mb-2">
+        <div className="text-center animate-fade-in-up" style={{ animationDelay: '0.1s' }}>
+          <h1 className="text-3xl sm:text-5xl font-bold text-primary-700 mb-2 gradient-text-animated">
             LearnAlgorithmic
           </h1>
-          <h2 className="text-3xl font-extrabold text-gray-900">
+          <h2 className="text-2xl sm:text-3xl font-extrabold text-gray-900">
             Connexion
           </h2>
           <p className="mt-2 text-sm text-gray-600">
             Ou{' '}
             <Link
               to="/register"
-              className="font-medium text-primary-600 hover:text-primary-500"
+              className="font-medium text-primary-600 hover:text-primary-500 transition-colors"
             >
               créez un nouveau compte
             </Link>
           </p>
         </div>
 
-        <div className="card">
+        <div className="card animate-fade-in-scale" style={{ animationDelay: '0.2s' }}>
           <form className="space-y-6" onSubmit={handleSubmit}>
             {error && (
-              <div className="bg-red-50 border border-red-400 text-red-700 px-4 py-3 rounded">
+              <div className="bg-red-50 border border-red-400 text-red-700 px-4 py-3 rounded animate-shake">
                 {error}
               </div>
             )}
@@ -100,7 +100,7 @@ const Login = () => {
                 name="username"
                 type="text"
                 required
-                className="input-field"
+                className="input-field focus-glow"
                 placeholder="Entrez votre nom d'utilisateur"
                 value={formData.username}
                 onChange={handleChange}
@@ -117,7 +117,7 @@ const Login = () => {
                 </label>
                 <Link
                   to="/forgot-password"
-                  className="text-sm font-medium text-primary-600 hover:text-primary-500"
+                  className="text-sm font-medium text-primary-600 hover:text-primary-500 transition-colors"
                 >
                   Mot de passe oublié ?
                 </Link>
@@ -127,7 +127,7 @@ const Login = () => {
                 name="password"
                 type="password"
                 required
-                className="input-field"
+                className="input-field focus-glow"
                 placeholder="Entrez votre mot de passe"
                 value={formData.password}
                 onChange={handleChange}
@@ -172,7 +172,7 @@ const Login = () => {
           </form>
         </div>
 
-        <div className="text-center text-sm text-gray-600">
+        <div className="text-center text-sm text-gray-600 animate-fade-in-up" style={{ animationDelay: '0.4s' }}>
           <p>
             En vous connectant, vous acceptez nos conditions d'utilisation
           </p>

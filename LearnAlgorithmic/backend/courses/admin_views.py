@@ -256,6 +256,7 @@ def exercise_list_create(request):
             description=data['description'],
             problem_statement=data['problem_statement'],
             expected_output=data.get('expected_output', ''),
+            solution_code=data.get('solution_code', ''),
             hints=data.get('hints', ''),
             difficulty=data.get('difficulty', 'beginner'),
             points=data.get('points', 100),
@@ -285,6 +286,8 @@ def exercise_detail(request, pk):
             'title': exercise.title,
             'description': exercise.description,
             'problem_statement': exercise.problem_statement,
+            'expected_output': exercise.expected_output,
+            'solution_code': exercise.solution_code or '',
             'hints': exercise.hints,
             'difficulty': exercise.difficulty,
             'points': exercise.points,
@@ -297,6 +300,8 @@ def exercise_detail(request, pk):
         exercise.title = data.get('title', exercise.title)
         exercise.description = data.get('description', exercise.description)
         exercise.problem_statement = data.get('problem_statement', exercise.problem_statement)
+        exercise.expected_output = data.get('expected_output', exercise.expected_output)
+        exercise.solution_code = data.get('solution_code', exercise.solution_code)
         exercise.hints = data.get('hints', exercise.hints)
         exercise.difficulty = data.get('difficulty', exercise.difficulty)
         exercise.points = data.get('points', exercise.points)

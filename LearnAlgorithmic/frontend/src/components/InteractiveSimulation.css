@@ -1,0 +1,460 @@
+/* ==================== InteractiveSimulation Responsive Styles ==================== */
+
+/* Header layout */
+.sim-header-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+.sim-buttons-row {
+  display: flex;
+  gap: 0.75rem;
+  flex-wrap: wrap;
+}
+
+/* Action buttons base */
+.sim-action-btn {
+  padding: 0.6rem 1.25rem;
+  border-radius: 10px;
+  border: none;
+  color: #ffffff;
+  cursor: pointer;
+  font-size: 0.875rem;
+  font-weight: 600;
+  transition: all 0.3s ease;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.sim-action-btn:hover {
+  transform: translateY(-2px);
+}
+
+.sim-btn-purple {
+  background: linear-gradient(135deg, #8b5cf6 0%, #7c3aed 100%);
+  box-shadow: 0 4px 15px rgba(139, 92, 246, 0.3);
+}
+.sim-btn-purple:hover {
+  box-shadow: 0 6px 20px rgba(139, 92, 246, 0.4);
+}
+
+.sim-btn-green {
+  background: linear-gradient(135deg, #10b981 0%, #059669 100%);
+  box-shadow: 0 4px 15px rgba(16, 185, 129, 0.3);
+}
+.sim-btn-green:hover {
+  box-shadow: 0 6px 20px rgba(16, 185, 129, 0.4);
+}
+
+.sim-btn-blue {
+  background: linear-gradient(135deg, #3b82f6 0%, #2563eb 100%);
+  box-shadow: 0 4px 15px rgba(59, 130, 246, 0.3);
+}
+.sim-btn-blue:hover {
+  box-shadow: 0 6px 20px rgba(59, 130, 246, 0.4);
+}
+
+.sim-btn-orange {
+  background: linear-gradient(135deg, #f59e0b 0%, #d97706 100%);
+  box-shadow: 0 4px 15px rgba(245, 158, 11, 0.3);
+}
+.sim-btn-orange:hover {
+  box-shadow: 0 6px 20px rgba(245, 158, 11, 0.4);
+}
+
+.sim-btn-cyan {
+  background: linear-gradient(135deg, #06b6d4 0%, #0891b2 100%);
+  box-shadow: 0 4px 15px rgba(6, 182, 212, 0.3);
+}
+.sim-btn-cyan:hover {
+  box-shadow: 0 6px 20px rgba(6, 182, 212, 0.4);
+}
+
+/* Info bar (input/output) */
+.sim-info-bar {
+  margin-top: 1rem;
+  padding: 0.75rem 1rem;
+  background-color: #f8fafc;
+  border: 1px solid #e2e8f0;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+  flex-wrap: wrap;
+}
+
+.sim-info-item {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.sim-info-icon {
+  font-size: 1.1rem;
+}
+
+.sim-info-label {
+  font-weight: 500;
+  color: #64748b;
+}
+
+.sim-info-value-blue {
+  background-color: #dbeafe;
+  padding: 0.25rem 0.5rem;
+  border-radius: 4px;
+  font-family: monospace;
+  font-weight: 700;
+  color: #1d4ed8;
+}
+
+.sim-info-value-green {
+  background-color: #dcfce7;
+  padding: 0.25rem 0.5rem;
+  border-radius: 4px;
+  font-family: monospace;
+  font-weight: 700;
+  color: #16a34a;
+}
+
+.sim-info-arrow {
+  color: #94a3b8;
+  font-size: 1.25rem;
+}
+
+/* Score bar */
+.sim-score-bar {
+  margin-top: 0.75rem;
+  padding: 0.75rem 1rem;
+  background-color: #f0fdf4;
+  border-radius: 8px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.sim-score-text {
+  font-weight: 600;
+  color: #065f46;
+}
+
+.sim-score-percent {
+  color: #047857;
+  font-size: 0.875rem;
+}
+
+/* Code highlighting */
+.sim-code-line-highlighted {
+  background-color: #fef3c7;
+  border-left: 4px solid #f59e0b;
+  margin-left: -4px;
+  padding-left: 4px;
+  font-weight: 600;
+  transition: all 0.3s ease;
+}
+
+.sim-code-line-normal {
+  transition: all 0.3s ease;
+}
+
+/* Dialog components */
+.sim-dialog-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.3);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+  padding: 1rem;
+}
+
+.sim-dialog-box {
+  background-color: #fff;
+  border-radius: 12px;
+  max-width: 450px;
+  width: 90%;
+  max-height: 80vh;
+  overflow: auto;
+  box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1);
+}
+
+.sim-dialog-header {
+  padding: 1rem 1.25rem;
+  border-bottom: 1px solid #e5e7eb;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.sim-dialog-title {
+  margin: 0;
+  font-size: 1.25rem;
+  font-weight: 600;
+}
+
+.sim-dialog-close {
+  background: none;
+  border: none;
+  font-size: 1.5rem;
+  cursor: pointer;
+  color: #9ca3af;
+  padding: 0.25rem;
+  line-height: 1;
+  border-radius: 4px;
+  transition: all 0.2s;
+}
+
+.sim-dialog-close:hover {
+  color: #ef4444;
+  background-color: #fee2e2;
+}
+
+.sim-dialog-content {
+  padding: 1.25rem;
+}
+
+.sim-dialog-footer {
+  padding: 1rem 1.25rem;
+  border-top: 1px solid #e5e7eb;
+  display: flex;
+  justify-content: flex-end;
+  gap: 0.75rem;
+}
+
+.sim-question-text {
+  font-size: 1.1rem;
+  line-height: 1.6;
+  margin-bottom: 1.5rem;
+  color: #1f2937;
+}
+
+.sim-choices-list {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.sim-choice-btn {
+  padding: 1rem;
+  border: 2px solid #e5e7eb;
+  border-radius: 8px;
+  background-color: #fff;
+  cursor: pointer;
+  text-align: left;
+  font-size: 1rem;
+  transition: all 0.2s;
+  font-weight: normal;
+}
+
+.sim-choice-btn:hover {
+  background-color: #f9fafb;
+}
+
+.sim-choice-btn.selected {
+  border-color: #3b82f6;
+  background-color: #eff6ff;
+  font-weight: 500;
+}
+
+.sim-choice-letter {
+  margin-right: 0.5rem;
+  font-weight: 600;
+}
+
+.sim-btn-skip {
+  padding: 0.75rem 1.5rem;
+  background-color: #fff;
+  color: #6b7280;
+  border: 1px solid #d1d5db;
+  border-radius: 6px;
+  font-size: 1rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.sim-btn-skip:hover {
+  background-color: #f3f4f6;
+}
+
+.sim-btn-validate {
+  padding: 0.75rem 2rem;
+  background-color: #3b82f6;
+  color: #fff;
+  border: none;
+  border-radius: 6px;
+  font-size: 1rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.sim-btn-validate:hover {
+  background-color: #2563eb;
+}
+
+.sim-btn-validate:disabled {
+  background-color: #d1d5db;
+  cursor: not-allowed;
+}
+
+.sim-btn-continue {
+  padding: 0.75rem 2rem;
+  color: #fff;
+  border: none;
+  border-radius: 6px;
+  font-size: 1rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.sim-btn-continue.correct {
+  background-color: #10b981;
+}
+.sim-btn-continue.correct:hover {
+  background-color: #059669;
+}
+
+.sim-btn-continue.incorrect {
+  background-color: #ef4444;
+}
+.sim-btn-continue.incorrect:hover {
+  background-color: #dc2626;
+}
+
+/* Feedback dialog */
+.sim-feedback-header-correct {
+  background-color: #d1fae5;
+  border-bottom: 2px solid #10b981;
+}
+
+.sim-feedback-header-incorrect {
+  background-color: #fee2e2;
+  border-bottom: 2px solid #ef4444;
+}
+
+.sim-feedback-title-correct {
+  color: #065f46;
+}
+
+.sim-feedback-title-incorrect {
+  color: #991b1b;
+}
+
+.sim-feedback-text {
+  font-size: 1.05rem;
+  line-height: 1.6;
+  color: #374151;
+  margin-bottom: 1rem;
+}
+
+.sim-correct-answer-box {
+  padding: 1rem;
+  background-color: #fef3c7;
+  border-left: 4px solid #f59e0b;
+  border-radius: 4px;
+  margin-top: 1rem;
+}
+
+.sim-correct-answer-text {
+  margin: 0;
+  font-size: 0.95rem;
+  color: #92400e;
+}
+
+/* ==================== RESPONSIVE ==================== */
+
+@media (max-width: 768px) {
+  .sim-header-row {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .sim-buttons-row {
+    width: 100%;
+  }
+
+  .sim-action-btn {
+    padding: 0.5rem 0.9rem;
+    font-size: 0.8rem;
+  }
+
+  .sim-info-bar {
+    flex-direction: column;
+    gap: 0.5rem;
+    align-items: flex-start;
+  }
+
+  .sim-info-arrow {
+    display: none;
+  }
+
+  .sim-dialog-box {
+    width: 95%;
+    max-height: 85vh;
+  }
+
+  .sim-choice-btn {
+    padding: 0.75rem;
+    font-size: 0.9rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .sim-action-btn {
+    padding: 0.45rem 0.7rem;
+    font-size: 0.75rem;
+    gap: 0.3rem;
+  }
+
+  .sim-info-bar {
+    padding: 0.5rem 0.75rem;
+  }
+
+  .sim-info-label {
+    font-size: 0.85rem;
+  }
+
+  .sim-score-bar {
+    flex-direction: column;
+    gap: 0.25rem;
+    text-align: center;
+  }
+
+  .sim-dialog-header {
+    padding: 0.75rem 1rem;
+  }
+
+  .sim-dialog-content {
+    padding: 1rem;
+  }
+
+  .sim-dialog-footer {
+    padding: 0.75rem 1rem;
+    flex-direction: column;
+  }
+
+  .sim-btn-skip,
+  .sim-btn-validate,
+  .sim-btn-continue {
+    width: 100%;
+    text-align: center;
+  }
+
+  .sim-question-text {
+    font-size: 1rem;
+  }
+
+  .sim-choice-btn {
+    padding: 0.6rem;
+    font-size: 0.85rem;
+  }
+}

@@ -154,6 +154,7 @@ class Exercise(models.Model):
     description = models.TextField()
     problem_statement = models.TextField()
     expected_output = models.TextField()
+    solution_code = models.TextField(blank=True, null=True, help_text="Pseudo-code de la solution correcte")
     test_cases = models.JSONField(help_text="Cas de test pour validation automatique")
     points = models.IntegerField(default=20)
     order = models.IntegerField()

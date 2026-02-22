@@ -1,5 +1,6 @@
 import { useState, useEffect, useRef } from 'react';
 import './AlgorithmSimulation.css';
+import './InteractiveSimulation.css';
 import CartoonVisualization from './CartoonVisualization';
 import VariablesVisualization from './VariablesVisualization';
 
@@ -3209,41 +3210,19 @@ const InteractiveSimulation = ({ simulation }) => {
     <div className="simulation-container">
       {/* Header */}
       <div className="simulation-header">
-        <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', flexWrap: 'wrap', gap: '1rem' }}>
+        <div className="sim-header-row">
           <div>
             <h3 className="simulation-title">
               🎬 {simulation.title}
             </h3>
             <p className="simulation-description">{simulation.description}</p>
           </div>
-          <div style={{ display: 'flex', gap: '0.75rem', flexWrap: 'wrap' }}>
+          <div className="sim-buttons-row">
             {/* Bouton "Nouvelle simulation" pour générer un nouveau code aléatoire */}
             {simulationWithUserValue && (
               <button
                 onClick={regenerateRandomSimulation}
-                style={{
-                  padding: '0.6rem 1.25rem',
-                  borderRadius: '10px',
-                  border: 'none',
-                  background: 'linear-gradient(135deg, #8b5cf6 0%, #7c3aed 100%)',
-                  color: '#ffffff',
-                  cursor: 'pointer',
-                  fontSize: '0.875rem',
-                  fontWeight: '600',
-                  transition: 'all 0.3s ease',
-                  boxShadow: '0 4px 15px rgba(139, 92, 246, 0.3)',
-                  display: 'flex',
-                  alignItems: 'center',
-                  gap: '0.5rem'
-                }}
-                onMouseEnter={(e) => {
-                  e.currentTarget.style.transform = 'translateY(-2px)';
-                  e.currentTarget.style.boxShadow = '0 6px 20px rgba(139, 92, 246, 0.4)';
-                }}
-                onMouseLeave={(e) => {
-                  e.currentTarget.style.transform = 'translateY(0)';
-                  e.currentTarget.style.boxShadow = '0 4px 15px rgba(139, 92, 246, 0.3)';
-                }}
+                className="sim-action-btn sim-btn-purple"
               >
                 🔀 Nouvelle simulation
               </button>
@@ -3252,29 +3231,7 @@ const InteractiveSimulation = ({ simulation }) => {
             {!useDbData && !simulationWithUserValue && (
               <button
                 onClick={() => { regenerateSimulation(); }}
-                style={{
-                  padding: '0.6rem 1.25rem',
-                  borderRadius: '10px',
-                  border: 'none',
-                  background: 'linear-gradient(135deg, #10b981 0%, #059669 100%)',
-                  color: '#ffffff',
-                  cursor: 'pointer',
-                  fontSize: '0.875rem',
-                  fontWeight: '600',
-                  transition: 'all 0.3s ease',
-                  boxShadow: '0 4px 15px rgba(16, 185, 129, 0.3)',
-                  display: 'flex',
-                  alignItems: 'center',
-                  gap: '0.5rem'
-                }}
-                onMouseEnter={(e) => {
-                  e.currentTarget.style.transform = 'translateY(-2px)';
-                  e.currentTarget.style.boxShadow = '0 6px 20px rgba(16, 185, 129, 0.4)';
-                }}
-                onMouseLeave={(e) => {
-                  e.currentTarget.style.transform = 'translateY(0)';
-                  e.currentTarget.style.boxShadow = '0 4px 15px rgba(16, 185, 129, 0.3)';
-                }}
+                className="sim-action-btn sim-btn-green"
               >
                 🔄 Nouvelle simulation
               </button>
@@ -3283,29 +3240,7 @@ const InteractiveSimulation = ({ simulation }) => {
             {(useDbData || simulationWithUserValue) && (
               <button
                 onClick={() => { setCurrentStep(0); setScore(0); setAnsweredQuestions(new Set()); }}
-                style={{
-                  padding: '0.6rem 1.25rem',
-                  borderRadius: '10px',
-                  border: 'none',
-                  background: 'linear-gradient(135deg, #3b82f6 0%, #2563eb 100%)',
-                  color: '#ffffff',
-                  cursor: 'pointer',
-                  fontSize: '0.875rem',
-                  fontWeight: '600',
-                  transition: 'all 0.3s ease',
-                  boxShadow: '0 4px 15px rgba(59, 130, 246, 0.3)',
-                  display: 'flex',
-                  alignItems: 'center',
-                  gap: '0.5rem'
-                }}
-                onMouseEnter={(e) => {
-                  e.currentTarget.style.transform = 'translateY(-2px)';
-                  e.currentTarget.style.boxShadow = '0 6px 20px rgba(59, 130, 246, 0.4)';
-                }}
-                onMouseLeave={(e) => {
-                  e.currentTarget.style.transform = 'translateY(0)';
-                  e.currentTarget.style.boxShadow = '0 4px 15px rgba(59, 130, 246, 0.3)';
-                }}
+                className="sim-action-btn sim-btn-blue"
               >
                 🔄 Recommencer
               </button>
@@ -3313,37 +3248,7 @@ const InteractiveSimulation = ({ simulation }) => {
             {/* Bouton de basculement de mode */}
             <button
               onClick={handleToggleMode}
-              style={{
-                padding: '0.6rem 1.25rem',
-                borderRadius: '10px',
-                border: 'none',
-                background: mode === 'observer'
-                  ? 'linear-gradient(135deg, #f59e0b 0%, #d97706 100%)'
-                  : 'linear-gradient(135deg, #06b6d4 0%, #0891b2 100%)',
-                color: '#ffffff',
-                cursor: 'pointer',
-                fontSize: '0.875rem',
-                fontWeight: '600',
-                transition: 'all 0.3s ease',
-                boxShadow: mode === 'observer'
-                  ? '0 4px 15px rgba(245, 158, 11, 0.3)'
-                  : '0 4px 15px rgba(6, 182, 212, 0.3)',
-                display: 'flex',
-                alignItems: 'center',
-                gap: '0.5rem'
-              }}
-              onMouseEnter={(e) => {
-                e.currentTarget.style.transform = 'translateY(-2px)';
-                e.currentTarget.style.boxShadow = mode === 'observer'
-                  ? '0 6px 20px rgba(245, 158, 11, 0.4)'
-                  : '0 6px 20px rgba(6, 182, 212, 0.4)';
-              }}
-              onMouseLeave={(e) => {
-                e.currentTarget.style.transform = 'translateY(0)';
-                e.currentTarget.style.boxShadow = mode === 'observer'
-                  ? '0 4px 15px rgba(245, 158, 11, 0.3)'
-                  : '0 4px 15px rgba(6, 182, 212, 0.3)';
-              }}
+              className={`sim-action-btn ${mode === 'observer' ? 'sim-btn-orange' : 'sim-btn-cyan'}`}
             >
               {mode === 'observer' ? '✋ Mode Interactif' : '👀 Mode Observateur'}
             </button>
@@ -3352,48 +3257,24 @@ const InteractiveSimulation = ({ simulation }) => {
 
         {/* Affichage de la valeur de test et du message de sortie - Un seul cadre */}
         {simulationWithUserValue && (
-          <div style={{
-            marginTop: '1rem',
-            padding: '0.75rem 1rem',
-            backgroundColor: '#f8fafc',
-            border: '1px solid #e2e8f0',
-            borderRadius: '8px',
-            display: 'flex',
-            alignItems: 'center',
-            gap: '1.5rem',
-            flexWrap: 'wrap'
-          }}>
+          <div className="sim-info-bar">
             {/* Valeur d'entrée */}
-            <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
-              <span style={{ fontSize: '1.1rem' }}>📥</span>
-              <span style={{ fontWeight: '500', color: '#64748b' }}>Entrée:</span>
-              <span style={{
-                backgroundColor: '#dbeafe',
-                padding: '0.25rem 0.5rem',
-                borderRadius: '4px',
-                fontFamily: 'monospace',
-                fontWeight: '700',
-                color: '#1d4ed8'
-              }}>
+            <div className="sim-info-item">
+              <span className="sim-info-icon">📥</span>
+              <span className="sim-info-label">Entrée:</span>
+              <span className="sim-info-value-blue">
                 {simulationWithUserValue.inputValue}
               </span>
             </div>
 
             {/* Flèche */}
-            <span style={{ color: '#94a3b8', fontSize: '1.25rem' }}>→</span>
+            <span className="sim-info-arrow">→</span>
 
             {/* Message de sortie */}
-            <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
-              <span style={{ fontSize: '1.1rem' }}>📤</span>
-              <span style={{ fontWeight: '500', color: '#64748b' }}>Sortie:</span>
-              <span style={{
-                backgroundColor: '#dcfce7',
-                padding: '0.25rem 0.5rem',
-                borderRadius: '4px',
-                fontFamily: 'monospace',
-                fontWeight: '700',
-                color: '#16a34a'
-              }}>
+            <div className="sim-info-item">
+              <span className="sim-info-icon">📤</span>
+              <span className="sim-info-label">Sortie:</span>
+              <span className="sim-info-value-green">
                 "{simulationWithUserValue.outputMessage || '...'}"
               </span>
             </div>
@@ -3402,19 +3283,11 @@ const InteractiveSimulation = ({ simulation }) => {
 
         {/* Score en mode interactif */}
         {mode === 'interactive' && totalQuestions > 0 && (
-          <div style={{
-            marginTop: '0.75rem',
-            padding: '0.75rem 1rem',
-            backgroundColor: '#f0fdf4',
-            borderRadius: '8px',
-            display: 'flex',
-            justifyContent: 'space-between',
-            alignItems: 'center'
-          }}>
-            <span style={{ fontWeight: '600', color: '#065f46' }}>
+          <div className="sim-score-bar">
+            <span className="sim-score-text">
               Score: {score} / {totalQuestions}
             </span>
-            <span style={{ color: '#047857', fontSize: '0.875rem' }}>
+            <span className="sim-score-percent">
               {totalQuestions > 0 ? Math.round((score / totalQuestions) * 100) : 0}%
             </span>
           </div>
@@ -3626,31 +3499,13 @@ const InteractiveSimulation = ({ simulation }) => {
       {showQuestionDialog && currentQuestion && (
         <DialogOverlay onClick={() => {}}>
           <DialogBox onClick={(e) => e.stopPropagation()}>
-            <DialogHeader style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
-              <h3 style={{ margin: 0, fontSize: '1.25rem', fontWeight: '600' }}>
+            <DialogHeader className="sim-dialog-header">
+              <h3 className="sim-dialog-title">
                 ❓ Question
               </h3>
               <button
                 onClick={handleSkipQuestion}
-                style={{
-                  background: 'none',
-                  border: 'none',
-                  fontSize: '1.5rem',
-                  cursor: 'pointer',
-                  color: '#9ca3af',
-                  padding: '0.25rem',
-                  lineHeight: 1,
-                  borderRadius: '4px',
-                  transition: 'all 0.2s'
-                }}
-                onMouseEnter={(e) => {
-                  e.currentTarget.style.color = '#ef4444';
-                  e.currentTarget.style.backgroundColor = '#fee2e2';
-                }}
-                onMouseLeave={(e) => {
-                  e.currentTarget.style.color = '#9ca3af';
-                  e.currentTarget.style.backgroundColor = 'transparent';
-                }}
+                className="sim-dialog-close"
                 title="Fermer"
               >
                 ×
@@ -3658,43 +3513,18 @@ const InteractiveSimulation = ({ simulation }) => {
             </DialogHeader>
 
             <DialogContent>
-              <p style={{
-                fontSize: '1.1rem',
-                lineHeight: '1.6',
-                marginBottom: '1.5rem',
-                color: '#1f2937'
-              }}>
+              <p className="sim-question-text">
                 {currentQuestion.question}
               </p>
 
-              <div style={{ display: 'flex', flexDirection: 'column', gap: '0.75rem' }}>
+              <div className="sim-choices-list">
                 {currentQuestion.choices.map((choice, index) => (
                   <button
                     key={index}
                     onClick={() => handleAnswerSelect(index)}
-                    style={{
-                      padding: '1rem',
-                      border: `2px solid ${selectedAnswer === index ? '#3b82f6' : '#e5e7eb'}`,
-                      borderRadius: '8px',
-                      backgroundColor: selectedAnswer === index ? '#eff6ff' : '#fff',
-                      cursor: 'pointer',
-                      textAlign: 'left',
-                      fontSize: '1rem',
-                      transition: 'all 0.2s',
-                      fontWeight: selectedAnswer === index ? '500' : 'normal'
-                    }}
-                    onMouseEnter={(e) => {
-                      if (selectedAnswer !== index) {
-                        e.currentTarget.style.backgroundColor = '#f9fafb';
-                      }
-                    }}
-                    onMouseLeave={(e) => {
-                      if (selectedAnswer !== index) {
-                        e.currentTarget.style.backgroundColor = '#fff';
-                      }
-                    }}
+                    className={`sim-choice-btn ${selectedAnswer === index ? 'selected' : ''}`}
                   >
-                    <span style={{ marginRight: '0.5rem', fontWeight: '600' }}>
+                    <span className="sim-choice-letter">
                       {String.fromCharCode(65 + index)}.
                     </span>
                     {choice}
@@ -3706,50 +3536,14 @@ const InteractiveSimulation = ({ simulation }) => {
             <DialogFooter>
               <button
                 onClick={handleSkipQuestion}
-                style={{
-                  padding: '0.75rem 1.5rem',
-                  backgroundColor: '#fff',
-                  color: '#6b7280',
-                  border: '1px solid #d1d5db',
-                  borderRadius: '6px',
-                  fontSize: '1rem',
-                  fontWeight: '500',
-                  cursor: 'pointer',
-                  transition: 'all 0.2s'
-                }}
-                onMouseEnter={(e) => {
-                  e.currentTarget.style.backgroundColor = '#f3f4f6';
-                }}
-                onMouseLeave={(e) => {
-                  e.currentTarget.style.backgroundColor = '#fff';
-                }}
+                className="sim-btn-skip"
               >
                 Passer
               </button>
               <button
                 onClick={handleSubmitAnswer}
                 disabled={selectedAnswer === null}
-                style={{
-                  padding: '0.75rem 2rem',
-                  backgroundColor: selectedAnswer === null ? '#d1d5db' : '#3b82f6',
-                  color: '#fff',
-                  border: 'none',
-                  borderRadius: '6px',
-                  fontSize: '1rem',
-                  fontWeight: '500',
-                  cursor: selectedAnswer === null ? 'not-allowed' : 'pointer',
-                  transition: 'all 0.2s'
-                }}
-                onMouseEnter={(e) => {
-                  if (selectedAnswer !== null) {
-                    e.currentTarget.style.backgroundColor = '#2563eb';
-                  }
-                }}
-                onMouseLeave={(e) => {
-                  if (selectedAnswer !== null) {
-                    e.currentTarget.style.backgroundColor = '#3b82f6';
-                  }
-                }}
+                className="sim-btn-validate"
               >
                 Valider
               </button>
@@ -3762,39 +3556,20 @@ const InteractiveSimulation = ({ simulation }) => {
       {showFeedbackDialog && currentQuestion && (
         <DialogOverlay onClick={handleCloseFeedback}>
           <DialogBox onClick={(e) => e.stopPropagation()}>
-            <DialogHeader style={{
-              backgroundColor: isCorrect ? '#d1fae5' : '#fee2e2',
-              borderBottom: `2px solid ${isCorrect ? '#10b981' : '#ef4444'}`
-            }}>
-              <h3 style={{
-                margin: 0,
-                fontSize: '1.25rem',
-                fontWeight: '600',
-                color: isCorrect ? '#065f46' : '#991b1b'
-              }}>
+            <DialogHeader className={isCorrect ? 'sim-feedback-header-correct' : 'sim-feedback-header-incorrect'}>
+              <h3 className={`sim-dialog-title ${isCorrect ? 'sim-feedback-title-correct' : 'sim-feedback-title-incorrect'}`}>
                 {isCorrect ? '✅ Correct!' : '❌ Incorrect'}
               </h3>
             </DialogHeader>
 
             <DialogContent>
-              <p style={{
-                fontSize: '1.05rem',
-                lineHeight: '1.6',
-                color: '#374151',
-                marginBottom: '1rem'
-              }}>
+              <p className="sim-feedback-text">
                 {currentQuestion.explanation}
               </p>
 
               {!isCorrect && (
-                <div style={{
-                  padding: '1rem',
-                  backgroundColor: '#fef3c7',
-                  borderLeft: '4px solid #f59e0b',
-                  borderRadius: '4px',
-                  marginTop: '1rem'
-                }}>
-                  <p style={{ margin: 0, fontSize: '0.95rem', color: '#92400e' }}>
+                <div className="sim-correct-answer-box">
+                  <p className="sim-correct-answer-text">
                     <strong>Bonne réponse:</strong> {currentQuestion.choices[currentQuestion.correct_index]}
                   </p>
                 </div>
@@ -3804,23 +3579,7 @@ const InteractiveSimulation = ({ simulation }) => {
             <DialogFooter>
               <button
                 onClick={handleCloseFeedback}
-                style={{
-                  padding: '0.75rem 2rem',
-                  backgroundColor: isCorrect ? '#10b981' : '#ef4444',
-                  color: '#fff',
-                  border: 'none',
-                  borderRadius: '6px',
-                  fontSize: '1rem',
-                  fontWeight: '500',
-                  cursor: 'pointer',
-                  transition: 'all 0.2s'
-                }}
-                onMouseEnter={(e) => {
-                  e.currentTarget.style.backgroundColor = isCorrect ? '#059669' : '#dc2626';
-                }}
-                onMouseLeave={(e) => {
-                  e.currentTarget.style.backgroundColor = isCorrect ? '#10b981' : '#ef4444';
-                }}
+                className={`sim-btn-continue ${isCorrect ? 'correct' : 'incorrect'}`}
               >
                 Continuer
               </button>

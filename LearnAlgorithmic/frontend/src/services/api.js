@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-const API_BASE_URL = 'http://localhost:8000/api';
+const API_BASE_URL = `http://${window.location.hostname}:8000/api`;
 
 const api = axios.create({
   baseURL: API_BASE_URL,
@@ -159,6 +159,26 @@ export const exerciseService = {
       exercise_id: exerciseId,
       code: code,
     });
+    return response.data;
+  },
+
+  resetAttempts: async (exerciseId) => {
+    const response = await api.post('/exercise/reset/', {
+      exercise_id: exerciseId,
+    });
+    return response.data;
+  },
+
+  getAttempts: async (exerciseId) => {
+    const response = await api.get(`/exercise/${exerciseId}/attempts/`);
+    return response.data;
+  },
+};
+
+// Services pour l'interpréteur de pseudo-code
+export const interpreterService = {
+  execute: async (code, inputs = []) => {
+    const response = await api.post('/interpreter/execute/', { code, inputs });
     return response.data;
   },
 };

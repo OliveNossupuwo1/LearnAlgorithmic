@@ -1,9 +1,39 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { dashboardService } from '../services/api';
 import { useAuth } from '../context/AuthContext';
 import Header from '../components/Header';
 import Footer from '../components/Footer';
+
+const AnimatedCounter = ({ end, duration = 1200, suffix = '' }) => {
+  const [count, setCount] = useState(0);
+  const ref = useRef(null);
+  const started = useRef(false);
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting && !started.current) {
+          started.current = true;
+          const startTime = performance.now();
+          const animate = (now) => {
+            const elapsed = now - startTime;
+            const progress = Math.min(elapsed / duration, 1);
+            const eased = 1 - Math.pow(1 - progress, 3);
+            setCount(Math.round(eased * end));
+            if (progress < 1) requestAnimationFrame(animate);
+          };
+          requestAnimationFrame(animate);
+        }
+      },
+      { threshold: 0.3 }
+    );
+    if (ref.current) observer.observe(ref.current);
+    return () => observer.disconnect();
+  }, [end, duration]);
+
+  return <span ref={ref}>{count}{suffix}</span>;
+};
 
 const Dashboard = () => {
   const [stats, setStats] = useState(null);
@@ -41,7 +71,7 @@ const Dashboard = () => {
           {user?.is_staff && (
             <button
               onClick={() => navigate('/admin')}
-              className="bg-purple-600 text-white px-4 py-1.5 rounded-lg text-sm font-semibold hover:bg-purple-700 flex items-center"
+              className="bg-purple-600 text-white px-4 py-1.5 rounded-lg text-sm font-semibold hover:bg-purple-700 flex items-center transition-all duration-300 hover:shadow-lg hover:-translate-y-0.5"
             >
               <svg className="w-4 h-4 mr-1.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z" />
@@ -51,8 +81,17 @@ const Dashboard = () => {
             </button>
           )}
           <button
+            onClick={() => navigate('/interpreter')}
+            className="bg-teal-600 text-white px-4 py-1.5 rounded-lg text-sm font-semibold hover:bg-teal-700 flex items-center transition-all duration-300 hover:shadow-lg hover:-translate-y-0.5"
+          >
+            <svg className="w-4 h-4 mr-1.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8 9l3 3-3 3m5 0h3M5 20h14a2 2 0 002-2V6a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
+            </svg>
+            Interpreteur
+          </button>
+          <button
             onClick={() => navigate('/modules')}
-            className="bg-primary-600 text-white px-4 py-1.5 rounded-lg text-sm font-semibold hover:bg-primary-700 transition-colors duration-200"
+            className="bg-primary-600 text-white px-4 py-1.5 rounded-lg text-sm font-semibold hover:bg-primary-700 transition-all duration-300 hover:shadow-lg hover:-translate-y-0.5"
           >
             Mes Modules
           </button>
@@ -61,15 +100,15 @@ const Dashboard = () => {
 
       <main className="w-full px-4 sm:px-6 lg:px-8 py-6">
         {/* Statistiques principales */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8">
-          <div className="card bg-gradient-to-br from-primary-500 to-primary-600 text-white">
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6 mb-8">
+          <div className="card bg-gradient-to-br from-primary-500 to-primary-600 text-white hover-lift animate-fade-in-up" style={{ animationDelay: '0.1s' }}>
             <div className="flex items-center justify-between">
               <div>
                 <p className="text-primary-100 text-sm font-medium">
                   Modules complétés
                 </p>
-                <p className="text-4xl font-bold mt-2">
-                  {stats?.completed_modules || 0} / {stats?.total_modules || 6}
+                <p className="text-3xl sm:text-4xl font-bold mt-2">
+                  <AnimatedCounter end={stats?.completed_modules || 0} /> / {stats?.total_modules || 6}
                 </p>
               </div>
               <div className="bg-white bg-opacity-20 rounded-full p-4">
@@ -90,14 +129,14 @@ const Dashboard = () => {
             </div>
           </div>
 
-          <div className="card bg-gradient-to-br from-green-500 to-green-600 text-white">
+          <div className="card bg-gradient-to-br from-green-500 to-green-600 text-white hover-lift animate-fade-in-up" style={{ animationDelay: '0.2s' }}>
             <div className="flex items-center justify-between">
               <div>
                 <p className="text-green-100 text-sm font-medium">
                   Modules débloqués
                 </p>
-                <p className="text-4xl font-bold mt-2">
-                  {stats?.unlocked_modules || 1}
+                <p className="text-3xl sm:text-4xl font-bold mt-2">
+                  <AnimatedCounter end={stats?.unlocked_modules || 1} />
                 </p>
               </div>
               <div className="bg-white bg-opacity-20 rounded-full p-4">
@@ -118,14 +157,14 @@ const Dashboard = () => {
             </div>
           </div>
 
-          <div className="card bg-gradient-to-br from-yellow-500 to-yellow-600 text-white">
+          <div className="card bg-gradient-to-br from-yellow-500 to-yellow-600 text-white hover-lift animate-fade-in-up" style={{ animationDelay: '0.3s' }}>
             <div className="flex items-center justify-between">
               <div>
                 <p className="text-yellow-100 text-sm font-medium">
                   Progression globale
                 </p>
-                <p className="text-4xl font-bold mt-2">
-                  {stats?.overall_progress?.toFixed(0) || 0}%
+                <p className="text-3xl sm:text-4xl font-bold mt-2">
+                  <AnimatedCounter end={Math.round(stats?.overall_progress || 0)} suffix="%" />
                 </p>
               </div>
               <div className="bg-white bg-opacity-20 rounded-full p-4">
@@ -149,12 +188,12 @@ const Dashboard = () => {
 
         {/* Module actuel */}
         {stats?.current_module && (
-          <div className="card mb-8 border-2 border-primary-500">
+          <div className="card mb-8 border-2 border-primary-500 animate-fade-in-up" style={{ animationDelay: '0.4s' }}>
             <h2 className="text-2xl font-bold text-gray-900 mb-4">
               Module en cours
             </h2>
             <div className="bg-primary-50 rounded-lg p-6">
-              <div className="flex justify-between items-start mb-4">
+              <div className="flex flex-col sm:flex-row justify-between items-start gap-3 mb-4">
                 <div>
                   <h3 className="text-xl font-semibold text-primary-900">
                     Module {stats.current_module.order}:{' '}
@@ -177,7 +216,7 @@ const Dashboard = () => {
 
               <div className="progress-bar">
                 <div
-                  className="progress-fill"
+                  className="progress-fill-animated"
                   style={{
                     width: `${stats.current_module.progress_percentage}%`,
                   }}
@@ -192,7 +231,7 @@ const Dashboard = () => {
 
         {/* Activités récentes */}
         {stats?.recent_activities && stats.recent_activities.length > 0 && (
-          <div className="card">
+          <div className="card animate-fade-in-up" style={{ animationDelay: '0.5s' }}>
             <h2 className="text-2xl font-bold text-gray-900 mb-6">
               Activités récentes
             </h2>
@@ -200,11 +239,12 @@ const Dashboard = () => {
               {stats.recent_activities.slice(0, 5).map((activity, index) => (
                 <div
                   key={index}
-                  className="flex items-center justify-between p-4 bg-gray-50 rounded-lg hover:bg-gray-100 transition-colors"
+                  className="flex items-center justify-between p-4 bg-gray-50 rounded-lg hover:bg-gray-100 hover:shadow-md transition-all duration-300 animate-fade-in-up"
+                  style={{ animationDelay: `${0.6 + index * 0.1}s` }}
                 >
                   <div className="flex items-center space-x-4">
                     <div
-                      className={`p-3 rounded-full ${
+                      className={`p-3 rounded-full transition-transform duration-300 hover:scale-110 ${
                         activity.type === 'quiz'
                           ? 'bg-blue-100'
                           : 'bg-purple-100'

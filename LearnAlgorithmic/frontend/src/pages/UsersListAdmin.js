@@ -139,7 +139,7 @@ const UsersListAdmin = () => {
         </div>
 
         {/* Statistiques globales */}
-        <div className="grid grid-cols-1 md:grid-cols-4 gap-6 mb-8">
+        <div className="grid grid-cols-2 md:grid-cols-4 gap-4 sm:gap-6 mb-8">
           <div className="card">
             <div className="text-sm text-gray-600 mb-1">Progression Moyenne</div>
             <div className="text-3xl font-bold text-primary-600">
@@ -201,7 +201,7 @@ const UsersListAdmin = () => {
                       )}
                     </div>
                   </th>
-                  <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                  <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider hidden md:table-cell">
                     Modules
                   </th>
                   <th
@@ -219,7 +219,7 @@ const UsersListAdmin = () => {
                   </th>
                   <th
                     onClick={() => handleSort('average_exercise_score')}
-                    className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider cursor-pointer hover:bg-gray-100"
+                    className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider cursor-pointer hover:bg-gray-100 hidden lg:table-cell"
                   >
                     <div className="flex items-center">
                       Exercices
@@ -232,7 +232,7 @@ const UsersListAdmin = () => {
                   </th>
                   <th
                     onClick={() => handleSort('last_activity')}
-                    className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider cursor-pointer hover:bg-gray-100"
+                    className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider cursor-pointer hover:bg-gray-100 hidden lg:table-cell"
                   >
                     <div className="flex items-center">
                       Dernière Activité
@@ -287,7 +287,7 @@ const UsersListAdmin = () => {
                         {user.lessons_completed}/{user.lessons_total} leçons
                       </div>
                     </td>
-                    <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-900">
+                    <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-900 hidden md:table-cell">
                       <div>{user.modules_completed}/{user.modules_total}</div>
                       <div className="text-xs text-gray-500">complétés</div>
                     </td>
@@ -299,7 +299,7 @@ const UsersListAdmin = () => {
                         {user.quiz_attempts} tentatives
                       </div>
                     </td>
-                    <td className="px-6 py-4 whitespace-nowrap">
+                    <td className="px-6 py-4 whitespace-nowrap hidden lg:table-cell">
                       <div className="text-sm font-medium text-blue-600">
                         {user.average_exercise_score.toFixed(1)}%
                       </div>
@@ -307,7 +307,7 @@ const UsersListAdmin = () => {
                         {user.exercise_submissions} soumissions
                       </div>
                     </td>
-                    <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
+                    <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500 hidden lg:table-cell">
                       {formatDate(user.last_activity)}
                     </td>
                     <td className="px-6 py-4 whitespace-nowrap text-right text-sm font-medium">
