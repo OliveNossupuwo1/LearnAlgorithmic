@@ -143,23 +143,28 @@ const ExerciseEditor = () => {
 
   return (
     <div className="min-h-screen bg-gray-50 flex flex-col">
-      <Header>
-        <div className="flex items-center space-x-3">
+      <Header dashboardButtons={
+        <>
+          <button
+            onClick={() => navigate('/dashboard')}
+            className="bg-primary-600 text-white px-3 sm:px-4 py-1.5 rounded-lg text-sm font-semibold hover:bg-primary-700 transition-all duration-300"
+          >
+            Dashboard
+          </button>
           <button
             onClick={() => navigate('/admin')}
-            className="flex items-center text-primary-600 hover:text-primary-700 text-sm font-medium"
+            className="bg-purple-600 text-white px-3 sm:px-4 py-1.5 rounded-lg text-sm font-semibold hover:bg-purple-700 transition-all duration-300"
           >
-            <svg className="w-4 h-4 mr-1.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
-            </svg>
             Admin
           </button>
-          <div className="border-l border-gray-300 h-4"></div>
-          <h1 className="text-sm font-bold text-gray-900">
-            {exerciseId === 'new' ? '➕ Nouvel Exercice' : '✏️ Modifier l\'Exercice'}
-          </h1>
-        </div>
-      </Header>
+          <button
+            onClick={() => navigate('/interpreter')}
+            className="bg-teal-600 text-white px-3 sm:px-4 py-1.5 rounded-lg text-sm font-semibold hover:bg-teal-700 transition-all duration-300"
+          >
+            Interpréteur
+          </button>
+        </>
+      } />
 
       <main className="w-full px-4 sm:px-6 lg:px-8 py-6">
         <form onSubmit={handleSubmit} className="card">

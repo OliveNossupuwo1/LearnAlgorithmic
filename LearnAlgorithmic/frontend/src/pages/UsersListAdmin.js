@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
-import { Link, useNavigate } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import api from '../services/api';
+import Header from '../components/Header';
 
 const UsersListAdmin = () => {
   const navigate = useNavigate();
@@ -84,20 +85,33 @@ const UsersListAdmin = () => {
   }
 
   return (
-    <div className="min-h-screen bg-gray-50 py-8">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div className="min-h-screen bg-gray-50 flex flex-col">
+      <Header dashboardButtons={
+        <>
+          <button
+            onClick={() => navigate('/dashboard')}
+            className="bg-primary-600 text-white px-3 sm:px-4 py-1.5 rounded-lg text-sm font-semibold hover:bg-primary-700 transition-all duration-300"
+          >
+            Dashboard
+          </button>
+          <button
+            onClick={() => navigate('/admin')}
+            className="bg-purple-600 text-white px-3 sm:px-4 py-1.5 rounded-lg text-sm font-semibold hover:bg-purple-700 transition-all duration-300"
+          >
+            Admin
+          </button>
+          <button
+            onClick={() => navigate('/interpreter')}
+            className="bg-teal-600 text-white px-3 sm:px-4 py-1.5 rounded-lg text-sm font-semibold hover:bg-teal-700 transition-all duration-300"
+          >
+            Interpréteur
+          </button>
+        </>
+      } />
+
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 w-full">
         {/* Header */}
         <div className="mb-8">
-          <Link
-            to="/admin"
-            className="inline-flex items-center text-primary-600 hover:text-primary-700 font-medium mb-4"
-          >
-            <svg className="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
-            </svg>
-            Retour au tableau de bord
-          </Link>
-
           <div className="flex items-center justify-between">
             <h1 className="text-3xl font-bold text-gray-900">
               Statistiques des Utilisateurs

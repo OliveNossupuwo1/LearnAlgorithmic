@@ -142,17 +142,28 @@ const ModuleDetail = () => {
         />
       )}
 
-      <Header>
-        <button
-          onClick={() => navigate('/modules')}
-          className="flex items-center text-primary-600 hover:text-primary-700 text-sm font-medium transition-all duration-300 hover:-translate-x-1"
-        >
-          <svg className="w-4 h-4 mr-1.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
-          </svg>
-          Retour aux modules
-        </button>
-      </Header>
+      <Header dashboardButtons={
+        <>
+          <button
+            onClick={() => navigate('/dashboard')}
+            className="bg-primary-600 text-white px-3 sm:px-4 py-1.5 rounded-lg text-sm font-semibold hover:bg-primary-700 transition-all duration-300"
+          >
+            Dashboard
+          </button>
+          <button
+            onClick={() => navigate('/modules')}
+            className="bg-gray-600 text-white px-3 sm:px-4 py-1.5 rounded-lg text-sm font-semibold hover:bg-gray-700 transition-all duration-300"
+          >
+            Modules
+          </button>
+          <button
+            onClick={() => navigate('/interpreter')}
+            className="bg-teal-600 text-white px-3 sm:px-4 py-1.5 rounded-lg text-sm font-semibold hover:bg-teal-700 transition-all duration-300"
+          >
+            Interpréteur
+          </button>
+        </>
+      } />
 
       <main className="w-full px-4 sm:px-6 lg:px-8 py-6">
         {/* En-tête du module */}

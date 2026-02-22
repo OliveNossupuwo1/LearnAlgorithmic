@@ -102,19 +102,22 @@ const AdminDashboard = () => {
 
   return (
     <div className="min-h-screen bg-gray-50 flex flex-col">
-      <Header>
-        <div className="flex items-center space-x-3">
-          <div className="bg-purple-100 text-purple-800 px-2.5 py-1 rounded-lg font-bold text-xs badge-pulse">
-            👑 ADMIN
-          </div>
+      <Header dashboardButtons={
+        <>
           <button
             onClick={() => navigate('/dashboard')}
-            className="bg-white text-primary-600 px-4 py-1.5 rounded-lg text-sm font-semibold hover:bg-primary-50 transition-all duration-300 hover:shadow-md hover:-translate-y-0.5"
+            className="bg-primary-600 text-white px-3 sm:px-4 py-1.5 rounded-lg text-sm font-semibold hover:bg-primary-700 transition-all duration-300"
           >
-            Retour au site
+            Dashboard
           </button>
-        </div>
-      </Header>
+          <button
+            onClick={() => navigate('/interpreter')}
+            className="bg-teal-600 text-white px-3 sm:px-4 py-1.5 rounded-lg text-sm font-semibold hover:bg-teal-700 transition-all duration-300"
+          >
+            Interpréteur
+          </button>
+        </>
+      } />
 
       <main className="w-full px-4 sm:px-6 lg:px-8 py-6">
         {/* Statistiques */}

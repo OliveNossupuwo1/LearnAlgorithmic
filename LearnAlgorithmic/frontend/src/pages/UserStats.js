@@ -1,9 +1,11 @@
 import React, { useState, useEffect } from 'react';
-import { Link, useParams } from 'react-router-dom';
+import { useParams, useNavigate } from 'react-router-dom';
 import api from '../services/api';
+import Header from '../components/Header';
 
 const UserStats = () => {
   const { userId } = useParams();
+  const navigate = useNavigate();
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState('');
   const [stats, setStats] = useState(null);
@@ -81,20 +83,39 @@ const UserStats = () => {
   ) || 0;
 
   return (
-    <div className="min-h-screen bg-gray-50 py-8">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div className="min-h-screen bg-gray-50 flex flex-col">
+      <Header dashboardButtons={
+        <>
+          <button
+            onClick={() => navigate('/dashboard')}
+            className="bg-primary-600 text-white px-3 sm:px-4 py-1.5 rounded-lg text-sm font-semibold hover:bg-primary-700 transition-all duration-300"
+          >
+            Dashboard
+          </button>
+          <button
+            onClick={() => navigate('/admin')}
+            className="bg-purple-600 text-white px-3 sm:px-4 py-1.5 rounded-lg text-sm font-semibold hover:bg-purple-700 transition-all duration-300"
+          >
+            Admin
+          </button>
+          <button
+            onClick={() => navigate('/admin/users')}
+            className="bg-gray-600 text-white px-3 sm:px-4 py-1.5 rounded-lg text-sm font-semibold hover:bg-gray-700 transition-all duration-300"
+          >
+            Utilisateurs
+          </button>
+          <button
+            onClick={() => navigate('/interpreter')}
+            className="bg-teal-600 text-white px-3 sm:px-4 py-1.5 rounded-lg text-sm font-semibold hover:bg-teal-700 transition-all duration-300"
+          >
+            Interpréteur
+          </button>
+        </>
+      } />
+
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 w-full">
         {/* Header */}
         <div className="mb-8">
-          <Link
-            to="/admin/users"
-            className="inline-flex items-center text-primary-600 hover:text-primary-700 font-medium mb-4"
-          >
-            <svg className="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
-            </svg>
-            Retour aux utilisateurs
-          </Link>
-
           <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3">
             <div>
               <h1 className="text-2xl sm:text-3xl font-bold text-gray-900">
