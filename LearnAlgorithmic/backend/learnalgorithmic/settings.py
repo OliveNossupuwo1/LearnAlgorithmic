@@ -8,11 +8,11 @@ load_dotenv()
 
 BASE_DIR = Path(__file__).resolve().parent.parent
 
-SECRET_KEY = 'django-insecure-your-secret-key-change-this-in-production'
+SECRET_KEY = os.environ.get('SECRET_KEY', 'django-insecure-your-secret-key-change-this-in-production')
 
-DEBUG = True
+DEBUG = os.environ.get('DEBUG', 'True') == 'True'
 
-ALLOWED_HOSTS = ['localhost', '127.0.0.1', '172.20.10.2', '*']
+ALLOWED_HOSTS = ['localhost', '127.0.0.1', '172.20.10.2', '.onrender.com', '*']
 
 INSTALLED_APPS = [
     'django.contrib.admin',
@@ -29,6 +29,7 @@ INSTALLED_APPS = [
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
+    'whitenoise.middleware.WhiteNoiseMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'corsheaders.middleware.CorsMiddleware',
     'django.middleware.common.CommonMiddleware',
@@ -40,10 +41,13 @@ MIDDLEWARE = [
 
 ROOT_URLCONF = 'learnalgorithmic.urls'
 
+# Chemin vers le build React
+REACT_BUILD_DIR = os.path.join(BASE_DIR, '..', 'frontend', 'build')
+
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': [REACT_BUILD_DIR],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -58,12 +62,23 @@ TEMPLATES = [
 
 WSGI_APPLICATION = 'learnalgorithmic.wsgi.application'
 
-DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+# Database
+# En production (Render) : PostgreSQL via DATABASE_URL
+# En local : SQLite
+import dj_database_url
+
+DATABASE_URL = os.environ.get('DATABASE_URL')
+if DATABASE_URL:
+    DATABASES = {
+        'default': dj_database_url.config(default=DATABASE_URL, conn_max_age=600)
     }
-}
+else:
+    DATABASES = {
+        'default': {
+            'ENGINE': 'django.db.backends.sqlite3',
+            'NAME': BASE_DIR / 'db.sqlite3',
+        }
+    }
 
 AUTH_PASSWORD_VALIDATORS = [
     {
@@ -88,8 +103,18 @@ USE_I18N = True
 
 USE_TZ = True
 
+# Static files
 STATIC_URL = 'static/'
 STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
+
+# Inclure les fichiers statiques du build React
+STATICFILES_DIRS = []
+react_static = os.path.join(REACT_BUILD_DIR, 'static')
+if os.path.exists(react_static):
+    STATICFILES_DIRS.append(react_static)
+
+# WhiteNoise pour servir les fichiers statiques en production
+STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 
 MEDIA_URL = 'media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
@@ -136,26 +161,15 @@ SIMPLE_JWT = {
 }
 
 # Email Configuration
-# En développement: affiche les emails dans la console
-# EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
-
-# Pour envoyer de vrais emails, utilisez SMTP:
 EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
 EMAIL_HOST = 'smtp.gmail.com'
 EMAIL_PORT = 587
 EMAIL_USE_TLS = True
-EMAIL_HOST_USER = os.environ.get('EMAIL_HOST_USER', '')  # Votre email Gmail
-EMAIL_HOST_PASSWORD = os.environ.get('EMAIL_HOST_PASSWORD', '')  # Mot de passe d'application Gmail
+EMAIL_HOST_USER = os.environ.get('EMAIL_HOST_USER', '')
+EMAIL_HOST_PASSWORD = os.environ.get('EMAIL_HOST_PASSWORD', '')
 DEFAULT_FROM_EMAIL = os.environ.get('EMAIL_HOST_USER', 'noreply@learnalgorithmic.com')
 
-# IMPORTANT: Pour Gmail, vous devez:
-# 1. Activer la validation en 2 étapes sur votre compte Gmail
-# 2. Générer un "mot de passe d'application" depuis https://myaccount.google.com/apppasswords
-# 3. Définir les variables d'environnement:
-#    - EMAIL_HOST_USER=votre-email@gmail.com
-#    - EMAIL_HOST_PASSWORD=votre-mot-de-passe-application
-
-# Configuration du logging pour afficher les logs dans la console
+# Configuration du logging
 LOGGING = {
     'version': 1,
     'disable_existing_loggers': False,

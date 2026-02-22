@@ -1,0 +1,6332 @@
+[
+{
+  "model": "auth.user",
+  "fields": {
+    "password": "pbkdf2_sha256$1200000$LtcgX3seb3S74BkIW7WXuH$6Ht9OXV1WeMogiHuXiZovrR8DvJCOiL3gw87YE54OLM=",
+    "last_login": "2025-12-17T13:23:44.591Z",
+    "is_superuser": true,
+    "username": "olivenossupuwo",
+    "first_name": "",
+    "last_name": "",
+    "email": "olivenossupuwo@gmail.com",
+    "is_staff": true,
+    "is_active": true,
+    "date_joined": "2025-12-13T21:19:03.715Z",
+    "groups": [],
+    "user_permissions": []
+  }
+},
+{
+  "model": "auth.user",
+  "fields": {
+    "password": "pbkdf2_sha256$1200000$tlSUMQmfSfg2srRn9cZqvx$AqTS7H3Lhu6Az8cWbl4L9ZlCtUDYlxB7wIvhS2vNuqE=",
+    "last_login": null,
+    "is_superuser": true,
+    "username": "admin",
+    "first_name": "",
+    "last_name": "",
+    "email": "admin@learnalgorithmic.com",
+    "is_staff": true,
+    "is_active": true,
+    "date_joined": "2025-12-13T21:21:50.781Z",
+    "groups": [],
+    "user_permissions": []
+  }
+},
+{
+  "model": "auth.user",
+  "fields": {
+    "password": "pbkdf2_sha256$1200000$MxM4WDfu5g31yn3sHemCOC$dpxaNcCij8BOOTM9BowBST+q6osq43dfnle9Sghzz+I=",
+    "last_login": "2025-12-16T21:28:12.571Z",
+    "is_superuser": false,
+    "username": "OLIVE",
+    "first_name": "Olive",
+    "last_name": "Nossupuwo",
+    "email": "olivenossupuwo@gmail.com",
+    "is_staff": false,
+    "is_active": true,
+    "date_joined": "2025-12-13T21:33:17.628Z",
+    "groups": [],
+    "user_permissions": []
+  }
+},
+{
+  "model": "auth.user",
+  "fields": {
+    "password": "pbkdf2_sha256$1000000$h9YwQ3VQifkqSTDfP6yEuU$WVv83KTcHstlW79pEx7l70r7fzcHpPY4PiZogYp4RM8=",
+    "last_login": "2025-12-16T21:25:46.196Z",
+    "is_superuser": false,
+    "username": "TRACY",
+    "first_name": "Olive",
+    "last_name": "Nossupuwo",
+    "email": "olivenossupuwo@gmail.com",
+    "is_staff": false,
+    "is_active": true,
+    "date_joined": "2025-12-15T12:01:44.713Z",
+    "groups": [],
+    "user_permissions": []
+  }
+},
+{
+  "model": "auth.user",
+  "fields": {
+    "password": "pbkdf2_sha256$1000000$gD9RfpHargNeAqaVyLtBMu$lN/aqetvFO8DYEf7ocC90y7J6jRX0aBty3xaHbnG68Q=",
+    "last_login": null,
+    "is_superuser": false,
+    "username": "PENELOPE",
+    "first_name": "Penelope",
+    "last_name": "Ndam",
+    "email": "penelopendam2002@gmail.com",
+    "is_staff": false,
+    "is_active": true,
+    "date_joined": "2025-12-17T12:43:28.991Z",
+    "groups": [],
+    "user_permissions": []
+  }
+},
+{
+  "model": "auth.user",
+  "fields": {
+    "password": "pbkdf2_sha256$1200000$VuppLSRZoyW9d5wlbmh1aK$qBO5NyviWu2ubZ/jxeut0LWMtHYB/lN2si5wsSTTi3Q=",
+    "last_login": null,
+    "is_superuser": false,
+    "username": "Olive",
+    "first_name": "Olive",
+    "last_name": "Nossupuwo",
+    "email": "olivenossupuwo@gmail.com",
+    "is_staff": false,
+    "is_active": true,
+    "date_joined": "2026-01-04T08:13:15.809Z",
+    "groups": [],
+    "user_permissions": []
+  }
+},
+{
+  "model": "auth.user",
+  "fields": {
+    "password": "pbkdf2_sha256$1200000$KfuKQ36wwOAOTomqChVmJ5$yTF//qaJyS+G8Hyj/gjZgaroxaYpEjYKXsBIyY9aJJo=",
+    "last_login": null,
+    "is_superuser": false,
+    "username": "Zeynab_souleymane",
+    "first_name": "Zeynabou",
+    "last_name": "Souleymanou",
+    "email": "zainabsouleymane2001@gmail.com",
+    "is_staff": false,
+    "is_active": true,
+    "date_joined": "2026-02-05T13:06:27.612Z",
+    "groups": [],
+    "user_permissions": []
+  }
+},
+{
+  "model": "auth.user",
+  "fields": {
+    "password": "pbkdf2_sha256$1200000$aHazJbJxkEO3N5g1EZjlR0$RoxKWhuQXbr4vMEc0E4dc67UQK9W205yMoGD7GEEskc=",
+    "last_login": null,
+    "is_superuser": false,
+    "username": "ATONLEU",
+    "first_name": "CARINE",
+    "last_name": "ATONLEU",
+    "email": "atonleucarine@gmail.com",
+    "is_staff": false,
+    "is_active": true,
+    "date_joined": "2026-02-06T07:36:49.608Z",
+    "groups": [],
+    "user_permissions": []
+  }
+},
+{
+  "model": "sessions.session",
+  "pk": "1rv90xfbhj8bifbkow7k6ya2qqsy8nt3",
+  "fields": {
+    "session_data": ".eJxVjMsOwiAQAP9lz4awlIWlR-9-A-EpVdMmpT0Z_9006UGvM5N5gw_71vzey-qnDCMgXH5ZDOlZ5kPkR5jvi0jLvK1TFEciTtvFbcnldT3bv0ELvcEIklkaW4gRTaGEg9WJLDpKjjKycoRJxTooYmltyEbpUiOxY6ysTYDPF6HlNnA:1vVrVI:YwflXYVRNqztN2hBbO9XTV1DO9xm0hPCyx0o_KaNUxU",
+    "expire_date": "2025-12-31T13:23:44.597Z"
+  }
+},
+{
+  "model": "sessions.session",
+  "pk": "boblf2dwk6190gkb8cdmwfjosh8xb8sb",
+  "fields": {
+    "session_data": ".eJxVjEEOwiAQAP-yZ0OgQhd69N43NLuw2KqBpLQn499Nkx70OjOZN0y0b_O0N1mnJcEABi6_jCk-pRwiPajcq4q1bOvC6kjUaZsaa5LX7Wz_BjO1GQYgFNSBnAvJdwFjduyFjM7cW99n9qQNoSEmh1Y4dxl7jJS06ay_isDnC_GUOGc:1vUXMk:Rbv7Vo9q9ELJ8qgU5IpV5xOXz6AqI0XhsXThvAKkL34",
+    "expire_date": "2025-12-27T21:41:26.680Z"
+  }
+},
+{
+  "model": "courses.module",
+  "pk": 1,
+  "fields": {
+    "title": "Introduction à l'algorithmique",
+    "description": "Découvrez les fondamentaux de l'algorithmique et son importance en informatique",
+    "order": 1
+  }
+},
+{
+  "model": "courses.module",
+  "pk": 2,
+  "fields": {
+    "title": "Variables et constantes",
+    "description": "Comprendre et utiliser les variables et constantes en algorithmique",
+    "order": 2
+  }
+},
+{
+  "model": "courses.module",
+  "pk": 3,
+  "fields": {
+    "title": "Structures conditionnelles",
+    "description": "Maitriser les structures de décision en algorithmique",
+    "order": 3
+  }
+},
+{
+  "model": "courses.module",
+  "pk": 4,
+  "fields": {
+    "title": "Boucles et itérations",
+    "description": "Maitriser les structures répétitives",
+    "order": 4
+  }
+},
+{
+  "model": "courses.module",
+  "pk": 5,
+  "fields": {
+    "title": "Fonctions et procédures",
+    "description": "Découvrir la modularité avec les fonctions et procédures",
+    "order": 5
+  }
+},
+{
+  "model": "courses.module",
+  "pk": 6,
+  "fields": {
+    "title": "Tableaux et listes",
+    "description": "Manipuler des collections de données",
+    "order": 6
+  }
+},
+{
+  "model": "courses.lesson",
+  "pk": 1,
+  "fields": {
+    "module": 1,
+    "title": "Introduction à la notion d'algorithmique",
+    "description": "Comprendre la notion d'algorithme en informatique",
+    "order": 1,
+    "video_url": "https://www.youtube.com/watch?v=OS_TVKWDJos",
+    "video_embed_code": "<iframe width=\"560\" height=\"315\" src=\"https://www.youtube.com/embed/6hfOvs8pY1k\" frameborder=\"0\" allowfullscreen></iframe>"
+  }
+},
+{
+  "model": "courses.lesson",
+  "pk": 2,
+  "fields": {
+    "module": 2,
+    "title": "Variables",
+    "description": "Découvrir les variables, leur déclaration et leur utilisation",
+    "order": 1,
+    "video_url": "https://www.youtube.com/watch?v=ckP-MPyGhow",
+    "video_embed_code": "<iframe width=\"560\" height=\"315\" src=\"https://www.youtube.com/embed/j-d6t0ZqVWM\" frameborder=\"0\" allowfullscreen></iframe>"
+  }
+},
+{
+  "model": "courses.lesson",
+  "pk": 3,
+  "fields": {
+    "module": 2,
+    "title": "Constantes",
+    "description": "Comprendre la notion de constantes et leur utilité",
+    "order": 2,
+    "video_url": "https://www.youtube.com/watch?v=TQk1wCgdtjE",
+    "video_embed_code": null
+  }
+},
+{
+  "model": "courses.lesson",
+  "pk": 4,
+  "fields": {
+    "module": 3,
+    "title": "Structures conditionnelles simples",
+    "description": "Utiliser la structure SI...ALORS",
+    "order": 1,
+    "video_url": "",
+    "video_embed_code": null
+  }
+},
+{
+  "model": "courses.lesson",
+  "pk": 5,
+  "fields": {
+    "module": 3,
+    "title": "Les structures alternatives",
+    "description": "Utiliser SI...ALORS...SINON",
+    "order": 2,
+    "video_url": "",
+    "video_embed_code": null
+  }
+},
+{
+  "model": "courses.lesson",
+  "pk": 6,
+  "fields": {
+    "module": 3,
+    "title": "Structures conditionnelles compl??tes",
+    "description": "Utiliser SI...ALORS...SINON SI...SINON",
+    "order": 3,
+    "video_url": null,
+    "video_embed_code": null
+  }
+},
+{
+  "model": "courses.lesson",
+  "pk": 7,
+  "fields": {
+    "module": 4,
+    "title": "Structure POUR",
+    "description": "Utiliser la boucle POUR",
+    "order": 1,
+    "video_url": null,
+    "video_embed_code": null
+  }
+},
+{
+  "model": "courses.lesson",
+  "pk": 8,
+  "fields": {
+    "module": 4,
+    "title": "Structure TANT QUE",
+    "description": "Utiliser la boucle TANT QUE",
+    "order": 2,
+    "video_url": "",
+    "video_embed_code": null
+  }
+},
+{
+  "model": "courses.lesson",
+  "pk": 9,
+  "fields": {
+    "module": 4,
+    "title": "Structure REPETER...JUSQU'A",
+    "description": "Utiliser la boucle REPETER...JUSQU'A",
+    "order": 3,
+    "video_url": null,
+    "video_embed_code": null
+  }
+},
+{
+  "model": "courses.lesson",
+  "pk": 10,
+  "fields": {
+    "module": 5,
+    "title": "Fonctions",
+    "description": "Cr??er et utiliser des fonctions",
+    "order": 1,
+    "video_url": null,
+    "video_embed_code": null
+  }
+},
+{
+  "model": "courses.lesson",
+  "pk": 11,
+  "fields": {
+    "module": 5,
+    "title": "Proc??dures",
+    "description": "Cr??er et utiliser des proc??dures",
+    "order": 2,
+    "video_url": null,
+    "video_embed_code": null
+  }
+},
+{
+  "model": "courses.lesson",
+  "pk": 12,
+  "fields": {
+    "module": 6,
+    "title": "Op??rations de manipulation d'un tableau",
+    "description": "Cr??er, parcourir et modifier des tableaux",
+    "order": 1,
+    "video_url": null,
+    "video_embed_code": null
+  }
+},
+{
+  "model": "courses.concept",
+  "pk": 8,
+  "fields": {
+    "lesson": 6,
+    "title": "Structure SI...SINON SI",
+    "definition": "Permet de tester plusieurs conditions successivement.",
+    "syntax": "SI condition1 ALORS\n    instructions1\nSINON SI condition2 ALORS\n    instructions2\nSINON\n    instructions3\nFIN SI",
+    "order": 1
+  }
+},
+{
+  "model": "courses.concept",
+  "pk": 9,
+  "fields": {
+    "lesson": 7,
+    "title": "Boucle POUR",
+    "definition": "Permet de r??p??ter un bloc d'instructions un nombre d??termin?? de fois.",
+    "syntax": "POUR variable DE debut A fin FAIRE\n    instructions\nFIN POUR\n\nOu avec un pas:\nPOUR variable DE debut A fin PAR PAS increment FAIRE\n    instructions\nFIN POUR",
+    "order": 1
+  }
+},
+{
+  "model": "courses.concept",
+  "pk": 11,
+  "fields": {
+    "lesson": 9,
+    "title": "Boucle REPETER...JUSQU'A",
+    "definition": "R??p??te un bloc jusqu'?? ce qu'une condition devienne vraie. Le test se fait apr??s l'ex??cution (au moins 1 it??ration).",
+    "syntax": "REPETER\n    instructions\nJUSQU'A condition",
+    "order": 1
+  }
+},
+{
+  "model": "courses.concept",
+  "pk": 12,
+  "fields": {
+    "lesson": 10,
+    "title": "Fonction",
+    "definition": "Une fonction est un sous-programme qui retourne une valeur. Elle prend des param??tres en entr??e.",
+    "syntax": "FONCTION nom_fonction(param1: TYPE1, param2: TYPE2): TYPE_RETOUR\nVARIABLES\n    variables locales\nDEBUT\n    instructions\n    RETOURNER valeur\nFIN\n\nAppel:\nresultat ??? nom_fonction(arg1, arg2)",
+    "order": 1
+  }
+},
+{
+  "model": "courses.concept",
+  "pk": 13,
+  "fields": {
+    "lesson": 11,
+    "title": "Proc??dure",
+    "definition": "Une proc??dure est un sous-programme qui ne retourne pas de valeur. Elle effectue une action.",
+    "syntax": "PROCEDURE nom_procedure(param1: TYPE1, param2: TYPE2)\nVARIABLES\n    variables locales\nDEBUT\n    instructions\nFIN\n\nAppel:\nnom_procedure(arg1, arg2)",
+    "order": 1
+  }
+},
+{
+  "model": "courses.concept",
+  "pk": 14,
+  "fields": {
+    "lesson": 12,
+    "title": "Tableau",
+    "definition": "Un tableau est une structure de donn??es qui stocke plusieurs valeurs du m??me type, accessibles par un indice.",
+    "syntax": "D??claration:\nVARIABLES\n    notes: TABLEAU[1..10] DE REEL\n\nAcc??s:\nnotes[1] ??? 15.5\nx ??? notes[3]\n\nParcours:\nPOUR i DE 1 A 10 FAIRE\n    AFFICHER notes[i]\nFIN POUR",
+    "order": 1
+  }
+},
+{
+  "model": "courses.concept",
+  "pk": 24,
+  "fields": {
+    "lesson": 1,
+    "title": "Algorithme",
+    "definition": "Un algorithme est une suite finie, non ambiguë et ordonnée d'instructions qui, à partir de données d'entrée, produit des résultats après un nombre fini d'étapes, permettant de résoudre un problème donné.",
+    "syntax": "Structure de Base d'un Algorithme\n\nALGORITHME Nom_Algorithmique\nVARIABLES\n    var1, var2 : Type1\n    var3 : Type2\n    ...\nCONSTANTES\n    PI = 3.14159\n    TAUX_TVA = 0.20\n    ...\nDÉBUT\nCorps de l’algo\n …\nFIN",
+    "order": 1
+  }
+},
+{
+  "model": "courses.concept",
+  "pk": 25,
+  "fields": {
+    "lesson": 1,
+    "title": "Instructions élémentaires",
+    "definition": "Ensemble d'opérations élémentaires qui permettent d'écrire un algorithme. On distingue: l'affectation, la lecture(saisie) et l'ecriture(affichage)",
+    "syntax": "Affectation : variable ← valeur ou variable = valeur\nLecture : Lire(nom_variable);\nEcriture : Écrire(\"Message\", variable); //lorsqu'on souhaite afficher un message avec une variabe\n\n    Écrire(\"Message\"); // Lorsqu'on souhaite afficher un message sans variable.",
+    "order": 2
+  }
+},
+{
+  "model": "courses.concept",
+  "pk": 26,
+  "fields": {
+    "lesson": 1,
+    "title": "Les caractéristiques Fondamentales d'un Algorithme",
+    "definition": "Caractéristiques d'un algorithme:\n- Séquence d'étapes bien définies\n- Données en entrée\n- Résultats en sortie\n- Finitude (se termine toujours)\n- Efficacité",
+    "syntax": "NB: Notation d'un commentaire : // je suis un commentaire",
+    "order": 3
+  }
+},
+{
+  "model": "courses.concept",
+  "pk": 27,
+  "fields": {
+    "lesson": 1,
+    "title": "Opérateurs fondamentaux",
+    "definition": "On distingue les opérateurs arithmétiques, de comparaison et logiques.",
+    "syntax": "Arithmétiques : + - * / MOD (modulo)\nComparaison :\t= ≠ < > ≤ ≥\nLogiques\t: ET, OU, NON",
+    "order": 4
+  }
+},
+{
+  "model": "courses.concept",
+  "pk": 35,
+  "fields": {
+    "lesson": 2,
+    "title": "Variable",
+    "definition": "Une variable est un espace mémoire nommé qui peut contenir une valeur susceptible de changer pendant l'exécution de l'algorithme.",
+    "syntax": "Déclaration:\nVARIABLES\n    nom_variable: TYPE\n\nTypes courants:\n- ENTIER: nombres entiers exemple : -5, 0, 42, 1000\n- REEL: nombres décimaux exemple : 3.14, -2.5, 0.0\n- CARACTERE: un caractère exemple : 'A', '5', '$'\n- CHAINE: texte exemple : \"Bonjour\", \"A123\"\n- BOOLEEN: vrai/faux",
+    "order": 1
+  }
+},
+{
+  "model": "courses.concept",
+  "pk": 36,
+  "fields": {
+    "lesson": 2,
+    "title": "Règles de nommage",
+    "definition": "Ensemble de règles à respecter pour nommer une variable.",
+    "syntax": "1.\tCommence par une lettre (pas un chiffre)\n2.\tPas d'espaces (utiliser _)\n3.\tPas de caractères spéciaux (sauf _)\n4.\tSensible à la casse : Age ≠ age\n5.\tNom significatif (pas a, b, c)",
+    "order": 2
+  }
+},
+{
+  "model": "courses.concept",
+  "pk": 37,
+  "fields": {
+    "lesson": 2,
+    "title": "Quelques restrictions",
+    "definition": "Quelques règles à connaitre :",
+    "syntax": "-Les opérations ne sont possibles qu'entre variables de même type\n-Pour manipuler une variable il faut la déclarer\n-Il n'est pas possible d'attribuer une valeur de type différent à une variable\n\nL'affectation est une opération qui consiste à attribuer une valeur à une variable",
+    "order": 3
+  }
+},
+{
+  "model": "courses.concept",
+  "pk": 39,
+  "fields": {
+    "lesson": 3,
+    "title": "Constante",
+    "definition": "Une constante est une case mémoire nommée qui stocke une valeur qui ne change jamais pendant l'exécution de l'algorithme.",
+    "syntax": "CONSTANTES\n    PI = 3.14159\n    TVA = 0.20\n    MAX_ETUDIANTS = 30",
+    "order": 1
+  }
+},
+{
+  "model": "courses.concept",
+  "pk": 40,
+  "fields": {
+    "lesson": 3,
+    "title": "Déclaration d'une Constante",
+    "definition": "Comment déclarer une constante?",
+    "syntax": "Syntaxes Acceptables\n Style 1 : Avec affectation directe\nPI ← 3.1415926535\nTAUX_TVA ← 0.20\nNOM_SITE ← \"MonApp\"\n\n Style 2 : Avec type explicite\nPI : Réel ← 3.14159\nAGE_MAJORITE : Entier ← 18",
+    "order": 2
+  }
+},
+{
+  "model": "courses.concept",
+  "pk": 41,
+  "fields": {
+    "lesson": 3,
+    "title": "Règles de Nommage des Constantes",
+    "definition": ".",
+    "syntax": "Convention Standard\n1.\tTOUT EN MAJUSCULES : PI, TAUX_TVA\n2.\tSéparateur _ pour les mots : AGE_MINIMUM\n3.\tNoms significatifs : Pas C1, C2\n4.\tValeur explicite dans le nom si possible : MOIS_PAR_AN",
+    "order": 3
+  }
+},
+{
+  "model": "courses.concept",
+  "pk": 48,
+  "fields": {
+    "lesson": 5,
+    "title": "Structure SI...ALORS...SINON",
+    "definition": "Une structure alternative permet à un algorithme de choisir entre deux actions selon que la condition est vraie ou fausse.\n–\t Si la condition est vraie, on exécute le bloc ALORS\n–\tSi la condition est fausse, on exécute le bloc SINON",
+    "syntax": "SI condition ALORS\n    instructions_si_vrai\nSINON\n    instructions_si_faux\nFIN SI",
+    "order": 1
+  }
+},
+{
+  "model": "courses.concept",
+  "pk": 49,
+  "fields": {
+    "lesson": 4,
+    "title": "Les structures conditionnelles simples SI...ALORS",
+    "definition": "Une structure conditionnelle permet à un algorithme de prendre une décision en fonction d’une condition.\n–\tSi la condition est vraie, une action est exécutée.\n–\tSi elle est fausse, l’action n’est pas exécutée (dans le cas simple).",
+    "syntax": "SI condition ALORS\n   instruction(s)\nFINSI",
+    "order": 1
+  }
+},
+{
+  "model": "courses.concept",
+  "pk": 50,
+  "fields": {
+    "lesson": 4,
+    "title": "Condition simple",
+    "definition": "Une condition simple est une expression logique qui peut être :                                                                                                                                                           - Vraie\n- Fausse",
+    "syntax": "Exemples de conditions :\n•\tâge >= 18\n•\tnote < 10\n•\tnombre == 0",
+    "order": 2
+  }
+},
+{
+  "model": "courses.concept",
+  "pk": 51,
+  "fields": {
+    "lesson": 8,
+    "title": "Boucle TANT QUE",
+    "definition": "Répète un bloc tant qu'une condition est vraie. Le test se fait avant l'exécution.",
+    "syntax": "TANT QUE condition FAIRE\n    instructions\nFIN TANT QUE",
+    "order": 1
+  }
+},
+{
+  "model": "courses.example",
+  "pk": 7,
+  "fields": {
+    "lesson": 6,
+    "title": "Mention d'un ??tudiant",
+    "description": "Plusieurs conditions",
+    "code": "ALGORITHME Mention\nVARIABLES\n    moyenne: REEL\nDEBUT\n    LIRE moyenne\n    SI moyenne >= 16 ALORS\n        AFFICHER \"Tr??s bien\"\n    SINON SI moyenne >= 14 ALORS\n        AFFICHER \"Bien\"\n    SINON SI moyenne >= 12 ALORS\n        AFFICHER \"Assez bien\"\n    SINON SI moyenne >= 10 ALORS\n        AFFICHER \"Passable\"\n    SINON\n        AFFICHER \"Insuffisant\"\n    FIN SI\nFIN",
+    "explanation": "Les conditions sont test??es dans l'ordre jusqu'?? en trouver une vraie.",
+    "order": 1
+  }
+},
+{
+  "model": "courses.example",
+  "pk": 8,
+  "fields": {
+    "lesson": 7,
+    "title": "Afficher les nombres de 1 ?? 10",
+    "description": "Boucle simple",
+    "code": "ALGORITHME AfficherNombres\nVARIABLES\n    i: ENTIER\nDEBUT\n    POUR i DE 1 A 10 FAIRE\n        AFFICHER i\n    FIN POUR\nFIN",
+    "explanation": "La variable i prend successivement les valeurs de 1 ?? 10.",
+    "order": 1
+  }
+},
+{
+  "model": "courses.example",
+  "pk": 10,
+  "fields": {
+    "lesson": 9,
+    "title": "Menu avec validation",
+    "description": "Validation d'entr??e",
+    "code": "ALGORITHME Menu\nVARIABLES\n    choix: ENTIER\nDEBUT\n    REPETER\n        AFFICHER \"1. Option 1\"\n        AFFICHER \"2. Option 2\"\n        AFFICHER \"3. Quitter\"\n        LIRE choix\n    JUSQU'A choix >= 1 ET choix <= 3\n    AFFICHER \"Choix valide:\", choix\nFIN",
+    "explanation": "Le menu s'affiche au moins une fois et se r??p??te tant que le choix est invalide.",
+    "order": 1
+  }
+},
+{
+  "model": "courses.example",
+  "pk": 11,
+  "fields": {
+    "lesson": 10,
+    "title": "Fonction carr??",
+    "description": "Fonction simple",
+    "code": "FONCTION Carre(nombre: REEL): REEL\nDEBUT\n    RETOURNER nombre * nombre\nFIN\n\nALGORITHME Principal\nVARIABLES\n    x, resultat: REEL\nDEBUT\n    x ??? 5\n    resultat ??? Carre(x)\n    AFFICHER \"Le carr?? de\", x, \"est\", resultat\nFIN",
+    "explanation": "La fonction Carre prend un nombre et retourne son carr??.",
+    "order": 1
+  }
+},
+{
+  "model": "courses.example",
+  "pk": 12,
+  "fields": {
+    "lesson": 11,
+    "title": "Proc??dure d'affichage",
+    "description": "Proc??dure simple",
+    "code": "PROCEDURE AfficherInfo(nom: CHAINE, age: ENTIER)\nDEBUT\n    AFFICHER \"Nom:\", nom\n    AFFICHER \"Age:\", age\n    AFFICHER \"---\"\nFIN\n\nALGORITHME Principal\nDEBUT\n    AfficherInfo(\"Alice\", 25)\n    AfficherInfo(\"Bob\", 30)\nFIN",
+    "explanation": "La proc??dure AfficherInfo affiche les informations sans retourner de valeur.",
+    "order": 1
+  }
+},
+{
+  "model": "courses.example",
+  "pk": 13,
+  "fields": {
+    "lesson": 12,
+    "title": "Moyenne d'un tableau",
+    "description": "Calcul de moyenne",
+    "code": "ALGORITHME MoyenneNotes\nVARIABLES\n    notes: TABLEAU[1..5] DE REEL\n    i: ENTIER\n    somme, moyenne: REEL\nDEBUT\n    // Saisie\n    POUR i DE 1 A 5 FAIRE\n        LIRE notes[i]\n    FIN POUR\n    \n    // Calcul\n    somme ??? 0\n    POUR i DE 1 A 5 FAIRE\n        somme ??? somme + notes[i]\n    FIN POUR\n    \n    moyenne ??? somme / 5\n    AFFICHER \"Moyenne:\", moyenne\nFIN",
+    "explanation": "On parcourt le tableau deux fois: une pour la saisie, une pour le calcul.",
+    "order": 1
+  }
+},
+{
+  "model": "courses.example",
+  "pk": 14,
+  "fields": {
+    "lesson": 12,
+    "title": "Recherche dans un tableau",
+    "description": "Recherche lin??aire",
+    "code": "ALGORITHME RechercherElement\nVARIABLES\n    tab: TABLEAU[1..10] DE ENTIER\n    recherche, i: ENTIER\n    trouve: BOOLEEN\nDEBUT\n    // Remplir le tableau\n    POUR i DE 1 A 10 FAIRE\n        LIRE tab[i]\n    FIN POUR\n    \n    LIRE recherche\n    \n    trouve ??? FAUX\n    i ??? 1\n    TANT QUE (i <= 10) ET (NON trouve) FAIRE\n        SI tab[i] = recherche ALORS\n            trouve ??? VRAI\n        SINON\n            i ??? i + 1\n        FIN SI\n    FIN TANT QUE\n    \n    SI trouve ALORS\n        AFFICHER \"Trouv?? ?? la position\", i\n    SINON\n        AFFICHER \"Non trouv??\"\n    FIN SI\nFIN",
+    "explanation": "On parcourt le tableau jusqu'?? trouver l'??l??ment ou atteindre la fin.",
+    "order": 2
+  }
+},
+{
+  "model": "courses.example",
+  "pk": 23,
+  "fields": {
+    "lesson": 1,
+    "title": "Algorithme de préparation de café",
+    "description": "Un exemple simple d'algorithme de la vie quotidienne",
+    "code": "ALGORITHME FaireDuCafe\nDEBUT\n\n    1. Prendre une tasse\n    2. Mettre du café dans la tasse\n    3. Faire bouillir de l'eau\n    4. Verser l'eau dans la tasse\n    5. Ajouter du sucre (optionnel)\n    6. Mélanger\nFIN",
+    "explanation": "Cet algorithme montre comment même des taches quotidiennes peuvent être décrites comme une séquence d'étapes. Chaque étape est claire, et l'ordre est important.",
+    "order": 1
+  }
+},
+{
+  "model": "courses.example",
+  "pk": 24,
+  "fields": {
+    "lesson": 1,
+    "title": "Algorithme de calcul de moyenne",
+    "description": "Calculer la moyenne de trois nombres",
+    "code": "ALGORITHME CalculMoyenne\nVARIABLES\n    note1, note2, note3: REEL\n    moyenne: REEL\nDEBUT\n    LIRE(note1);\n    LIRE(note2);\n    LIRE(note3);\n    moyenne ←  (note1 + note2 + note3) / 3\n    ECRIRE(\"La moyenne est:\", moyenne);\nFIN",
+    "explanation": "Cet algorithme prend trois notes en entrée, calcule leur moyenne et affiche le résultat. L'opérateur ←  représente l'affectation.",
+    "order": 2
+  }
+},
+{
+  "model": "courses.example",
+  "pk": 25,
+  "fields": {
+    "lesson": 1,
+    "title": "Addition",
+    "description": "Additionner deux nombres",
+    "code": "ALGORITHME Addition\nVARIABLES\n    a, b, somme : Entiers\nDÉBUT\n    // Saisie des deux nombres\n    Écrire(\"Premier nombre : \");\n    Lire(a);\n    \n    Écrire(\"Deuxième nombre : \");\n    Lire(b);\n    \n    // Calcul\n    somme ← a + b;\n    \n    // Affichage\n    Écrire(\"La somme de \", a, \" et \", b, \" est \", somme);\nFIN",
+    "explanation": "L'algorithme demande à l'utilisateur d'entrer deux nombres, calcule la somme et affiche le résultat.",
+    "order": 3
+  }
+},
+{
+  "model": "courses.example",
+  "pk": 29,
+  "fields": {
+    "lesson": 2,
+    "title": "Déclaration et utilisation de variables",
+    "description": "Exemple complet avec différents types de variables",
+    "code": "ALGORITHME ExempleVariables\nVARIABLES\n    nom: CHAINE\n    age: ENTIER\n    taille: REEL\n    estEtudiant: BOOLEEN\nDEBUT\n    nom  ←  \"Marie\";\n    age  ←  20;\n    taille  ←  1.65;\n    estEtudiant  ←  VRAI;\n    age ←  20 + 5;\n    \n    ECRIRE(\"Nom:\", nom);\n    ECRIRE(\"Age dans 5 ans:\", age);\n    ECRIRE(\"Taille:\", taille);\n    ECRIRE(\"Etudiant:\", estEtudiant);\nFIN",
+    "explanation": "Cet algorithme démontre l'utilisation de quatre types de variables différents: chaine, entier, réel et booléen.\nRéflexion : Qu'affiche cet algorithme ?",
+    "order": 1
+  }
+},
+{
+  "model": "courses.example",
+  "pk": 31,
+  "fields": {
+    "lesson": 3,
+    "title": "Calcul avec constantes",
+    "description": "Utiliser des constantes dans un calcul",
+    "code": "ALGORITHME AireCircle\nCONSTANTES\n    PI = 3.14159\nVARIABLES\n    rayon, aire: REEL\nDEBUT\n    LIRE(rayon);\n    aire  ←  PI * rayon * rayon\n    ECRIRE(\"Aire:\", aire);\nFIN",
+    "explanation": "PI est une constante car sa valeur ne change jamais.",
+    "order": 1
+  }
+},
+{
+  "model": "courses.example",
+  "pk": 37,
+  "fields": {
+    "lesson": 5,
+    "title": "Pair ou impair",
+    "description": "V??rifier parit??",
+    "code": "ALGORITHME PairOuImpair\nVARIABLES\n    nombre: ENTIER\nDEBUT\n    LIRE nombre\n    SI nombre MOD 2 = 0 ALORS\n        AFFICHER \"Pair\"\n    SINON\n        AFFICHER \"Impair\"\n    FIN SI\nFIN",
+    "explanation": "MOD donne le reste de la division. Si reste = 0, le nombre est pair.",
+    "order": 1
+  }
+},
+{
+  "model": "courses.example",
+  "pk": 38,
+  "fields": {
+    "lesson": 4,
+    "title": "Vérifier si majeur",
+    "description": "Exemple de condition simple",
+    "code": "ALGORITHME VerifierMajeur\nVARIABLES\n    age: ENTIER\nDEBUT\n    LIRE age\n    SI age >= 18 ALORS\n        AFFICHER \"Vous etes majeur\"\n    FIN SI\nFIN",
+    "explanation": "Le message s'affiche uniquement si l'age est >= 18.",
+    "order": 1
+  }
+},
+{
+  "model": "courses.example",
+  "pk": 39,
+  "fields": {
+    "lesson": 4,
+    "title": "Vérifier si un nombre est positif",
+    "description": "Exemple de condition simple",
+    "code": "Algorithme Nombre_Positif\nDébut\n   Lire nombre\n   SI nombre > 0 ALORS\n      Afficher \"Le nombre est positif\"\n   FINSI\nFin",
+    "explanation": "Le message s'affiche uniquement si le nombre entré est positif",
+    "order": 2
+  }
+},
+{
+  "model": "courses.example",
+  "pk": 40,
+  "fields": {
+    "lesson": 8,
+    "title": "Deviner un nombre",
+    "description": "Jeu de devinette",
+    "code": "ALGORITHME DevinerNombre\nCONSTANTES\n    NOMBRE_SECRET = 42\nVARIABLES\n    nombre: ENTIER\nDEBUT\n    nombre ??? 0\n    TANT QUE nombre ??? NOMBRE_SECRET FAIRE\n        LIRE nombre\n        SI nombre < NOMBRE_SECRET ALORS\n            AFFICHER \"Trop petit\"\n        SINON SI nombre > NOMBRE_SECRET ALORS\n            AFFICHER \"Trop grand\"\n        FIN SI\n    FIN TANT QUE\n    AFFICHER \"Bravo!\"\nFIN",
+    "explanation": "La boucle continue tant que le nombre n'est pas trouv??.",
+    "order": 1
+  }
+},
+{
+  "model": "courses.simulation",
+  "pk": 26,
+  "fields": {
+    "lesson": 1,
+    "title": "Calcul de la somme de deux nombres",
+    "description": "Présentation de la mémoire d'execution.",
+    "algorithm_code": "ALGORITHME Somme\nVARIABLES\n    a, b, resultat: ENTIER\nDEBUT\n    a ← 5\n    b ← 3\n    resultat ← a + b\n    Ecrire resultat\nFIN",
+    "order": 1
+  }
+},
+{
+  "model": "courses.simulation",
+  "pk": 43,
+  "fields": {
+    "lesson": 4,
+    "title": "Structure SI...ALORS...FIN SI (Observateur)",
+    "description": "Observez pas a pas comment fonctionne la structure conditionnelle simple SI...ALORS...FIN SI",
+    "algorithm_code": "Algorithme VerificationAge\nVariables: age : Entier\nDebut\n    Ecrire(\"Entrez votre age:\")\n    Lire(age)\n    Si age >= 18 Alors\n        Ecrire(\"Vous pouvez voter!\")\n    Fin Si\n    Ecrire(\"Fin du programme\")\nFin",
+    "order": 1
+  }
+},
+{
+  "model": "courses.simulation",
+  "pk": 44,
+  "fields": {
+    "lesson": 4,
+    "title": "Quiz: Structure SI...ALORS...FIN SI",
+    "description": "Testez vos connaissances sur la structure conditionnelle simple avec des questions interactives.",
+    "algorithm_code": "Algorithme TestAdmission\nVariables: note : Entier\nDebut\n    Ecrire(\"Entrez la note:\")\n    Lire(note)\n    Si note >= 10 Alors\n        Ecrire(\"Admis\")\n    Fin Si\n    Ecrire(\"Fin\")\nFin",
+    "order": 2
+  }
+},
+{
+  "model": "courses.simulation",
+  "pk": 45,
+  "fields": {
+    "lesson": 5,
+    "title": "Structure SI...ALORS...SINON...FIN SI (Observateur)",
+    "description": "Observez pas a pas comment fonctionne la structure conditionnelle alternative avec SINON.",
+    "algorithm_code": "Algorithme VerificationMajorite\nVariables: age : Entier\nDebut\n    Ecrire(\"Entrez votre age:\")\n    Lire(age)\n    Si age >= 18 Alors\n        Ecrire(\"Vous etes majeur\")\n    Sinon\n        Ecrire(\"Vous etes mineur\")\n    Fin Si\n    Ecrire(\"Fin du programme\")\nFin",
+    "order": 1
+  }
+},
+{
+  "model": "courses.simulation",
+  "pk": 46,
+  "fields": {
+    "lesson": 5,
+    "title": "Quiz: Structure SI...ALORS...SINON...FIN SI",
+    "description": "Testez vos connaissances sur la structure conditionnelle alternative.",
+    "algorithm_code": "Algorithme PariteNombre\nVariables: nombre : Entier\nDebut\n    Lire(nombre)\n    Si nombre MOD 2 = 0 Alors\n        Ecrire(\"pair\")\n    Sinon\n        Ecrire(\"impair\")\n    Fin Si\nFin",
+    "order": 2
+  }
+},
+{
+  "model": "courses.simulation",
+  "pk": 51,
+  "fields": {
+    "lesson": 6,
+    "title": "Structure SI...SINON SI...SINON (Observateur)",
+    "description": "Observez comment fonctionne la structure conditionnelle complète avec plusieurs branches.",
+    "algorithm_code": "Algorithme ClassificationNote\nVariables: note : Entier\nDebut\n    Ecrire(\"Entrez la note:\")\n    Lire(note)\n    Si note >= 16 Alors\n        Ecrire(\"Très Bien\")\n    Sinon Si note >= 14 Alors\n        Ecrire(\"Bien\")\n    Sinon Si note >= 12 Alors\n        Ecrire(\"Assez Bien\")\n    Sinon Si note >= 10 Alors\n        Ecrire(\"Passable\")\n    Sinon\n        Ecrire(\"Insuffisant\")\n    Fin Si\nFin",
+    "order": 1
+  }
+},
+{
+  "model": "courses.simulation",
+  "pk": 52,
+  "fields": {
+    "lesson": 6,
+    "title": "Quiz: Structure SI...SINON SI...SINON",
+    "description": "Testez vos connaissances sur la structure conditionnelle complète.",
+    "algorithm_code": "Algorithme ClassificationNote\nVariables: note : Entier\nDebut\n    Ecrire(\"Entrez la note:\")\n    Lire(note)\n    Si note >= 16 Alors\n        Ecrire(\"Très Bien\")\n    Sinon Si note >= 14 Alors\n        Ecrire(\"Bien\")\n    Sinon Si note >= 12 Alors\n        Ecrire(\"Assez Bien\")\n    Sinon Si note >= 10 Alors\n        Ecrire(\"Passable\")\n    Sinon\n        Ecrire(\"Insuffisant\")\n    Fin Si\nFin",
+    "order": 2
+  }
+},
+{
+  "model": "courses.simulation",
+  "pk": 53,
+  "fields": {
+    "lesson": 7,
+    "title": "Simulation Boucle POUR",
+    "description": "Visualisez l'exécution pas à pas d'une boucle POUR avec calcul de somme",
+    "algorithm_code": "Algorithme SommeEntiers\nVariables: i, somme, N : Entier\nDebut\n    N <- 5\n    somme <- 0\n    Pour i De 1 A N Faire\n        somme <- somme + i\n    Fin Pour\n    Ecrire(\"Somme = \", somme)\nFin",
+    "order": 1
+  }
+},
+{
+  "model": "courses.simulation",
+  "pk": 54,
+  "fields": {
+    "lesson": 8,
+    "title": "Simulation Boucle TANT QUE",
+    "description": "Visualisez l'exécution pas à pas d'une boucle TANT QUE avec calcul de factorielle",
+    "algorithm_code": "Algorithme Factorielle\nVariables: N, fact, i : Entier\nDebut\n    N <- 5\n    fact <- 1\n    i <- 1\n    Tant Que i <= N Faire\n        fact <- fact * i\n        i <- i + 1\n    Fin Tant Que\n    Ecrire(N, \"! = \", fact)\nFin",
+    "order": 1
+  }
+},
+{
+  "model": "courses.simulation",
+  "pk": 55,
+  "fields": {
+    "lesson": 9,
+    "title": "Simulation Boucle REPETER...JUSQU'A",
+    "description": "Visualisez l'exécution pas à pas d'une boucle REPETER...JUSQU'A avec validation",
+    "algorithm_code": "Algorithme ValidationMotDePasse\nVariables: motDePasse : Chaine\nDebut\n    Repeter\n        Ecrire(\"Entrez le mot de passe:\")\n        Lire(motDePasse)\n    Jusqu'a motDePasse = \"secret\"\n    Ecrire(\"Acces autorise!\")\nFin",
+    "order": 1
+  }
+},
+{
+  "model": "courses.simulation",
+  "pk": 56,
+  "fields": {
+    "lesson": 10,
+    "title": "Simulation Fonction",
+    "description": "Visualisez l'execution pas a pas d'une fonction avec retour de valeur",
+    "algorithm_code": "Algorithme TestCarre\nVariables: resultat : Entier\nDebut\n    resultat <- Carre(5)\n    Ecrire(\"Resultat = \", resultat)\nFin\n\nFonction Carre(n : Entier) : Entier\nDebut\n    Retourner n * n\nFin Fonction",
+    "order": 1
+  }
+},
+{
+  "model": "courses.simulation",
+  "pk": 57,
+  "fields": {
+    "lesson": 11,
+    "title": "Simulation Procedure",
+    "description": "Visualisez l'execution pas a pas d'une procedure sans retour de valeur",
+    "algorithm_code": "Algorithme TestAfficherMessage\nDebut\n    AfficherMessage(\"Alice\")\n    Ecrire(\"Procedure terminee\")\nFin\n\nProcedure AfficherMessage(nom : Chaine)\nDebut\n    Ecrire(\"Bonjour \", nom, \"!\")\nFin Procedure",
+    "order": 1
+  }
+},
+{
+  "model": "courses.simulation",
+  "pk": 58,
+  "fields": {
+    "lesson": 2,
+    "title": "Simulation VARIABLE",
+    "description": "Visualisez l'execution pas a pas d'algorithmes avec variables",
+    "algorithm_code": "Algorithme TestVariables\nVariables: x, y, somme : Entier\nDebut\n    x <- 5\n    y <- 3\n    somme <- x + y\n    Ecrire(\"La somme est: \", somme)\nFin",
+    "order": 1
+  }
+},
+{
+  "model": "courses.simulation",
+  "pk": 59,
+  "fields": {
+    "lesson": 3,
+    "title": "Simulation CONSTANTE",
+    "description": "Visualisez la difference entre variables et constantes",
+    "algorithm_code": "Algorithme TestConstante\nConstante PI = 3.14\nVariables: rayon, perimetre : Reel\nDebut\n    rayon <- 5\n    perimetre <- 2 * PI * rayon\n    Ecrire(\"Perimetre: \", perimetre)\nFin",
+    "order": 1
+  }
+},
+{
+  "model": "courses.simulationstep",
+  "pk": 290,
+  "fields": {
+    "simulation": 26,
+    "step_number": 1,
+    "description": "Initialisation des variables",
+    "state_data": {},
+    "visual_data": {
+      "type": "variables",
+      "variables": []
+    }
+  }
+},
+{
+  "model": "courses.simulationstep",
+  "pk": 291,
+  "fields": {
+    "simulation": 26,
+    "step_number": 2,
+    "description": "Déclaration: entier a",
+    "state_data": {
+      "a": null
+    },
+    "visual_data": {
+      "type": "variables",
+      "variables": [
+        {
+          "name": "a",
+          "type": "entier",
+          "value": null,
+          "status": "new"
+        }
+      ]
+    }
+  }
+},
+{
+  "model": "courses.simulationstep",
+  "pk": 292,
+  "fields": {
+    "simulation": 26,
+    "step_number": 3,
+    "description": "Déclaration: entier b",
+    "state_data": {
+      "a": null,
+      "b": null
+    },
+    "visual_data": {
+      "type": "variables",
+      "variables": [
+        {
+          "name": "a",
+          "type": "entier",
+          "value": null
+        },
+        {
+          "name": "b",
+          "type": "entier",
+          "value": null,
+          "status": "new"
+        }
+      ]
+    }
+  }
+},
+{
+  "model": "courses.simulationstep",
+  "pk": 293,
+  "fields": {
+    "simulation": 26,
+    "step_number": 4,
+    "description": "Déclaration: entier somme",
+    "state_data": {
+      "a": null,
+      "b": null,
+      "somme": null
+    },
+    "visual_data": {
+      "type": "variables",
+      "variables": [
+        {
+          "name": "a",
+          "type": "entier",
+          "value": null
+        },
+        {
+          "name": "b",
+          "type": "entier",
+          "value": null
+        },
+        {
+          "name": "somme",
+          "type": "entier",
+          "value": null,
+          "status": "new"
+        }
+      ]
+    }
+  }
+},
+{
+  "model": "courses.simulationstep",
+  "pk": 294,
+  "fields": {
+    "simulation": 26,
+    "step_number": 5,
+    "description": "Affectation: a ← 5",
+    "state_data": {
+      "a": 5,
+      "b": null,
+      "somme": null
+    },
+    "visual_data": {
+      "type": "variables",
+      "variables": [
+        {
+          "name": "a",
+          "type": "entier",
+          "value": 5,
+          "status": "modified"
+        },
+        {
+          "name": "b",
+          "type": "entier",
+          "value": null
+        },
+        {
+          "name": "somme",
+          "type": "entier",
+          "value": null
+        }
+      ]
+    }
+  }
+},
+{
+  "model": "courses.simulationstep",
+  "pk": 295,
+  "fields": {
+    "simulation": 26,
+    "step_number": 6,
+    "description": "Affectation: b ← 3",
+    "state_data": {
+      "a": 5,
+      "b": 3,
+      "somme": null
+    },
+    "visual_data": {
+      "type": "variables",
+      "variables": [
+        {
+          "name": "a",
+          "type": "entier",
+          "value": 5
+        },
+        {
+          "name": "b",
+          "type": "entier",
+          "value": 3,
+          "status": "modified"
+        },
+        {
+          "name": "somme",
+          "type": "entier",
+          "value": null
+        }
+      ]
+    }
+  }
+},
+{
+  "model": "courses.simulationstep",
+  "pk": 296,
+  "fields": {
+    "simulation": 26,
+    "step_number": 7,
+    "description": "Calcul: somme ← a + b",
+    "state_data": {
+      "a": 5,
+      "b": 3,
+      "somme": 8
+    },
+    "visual_data": {
+      "type": "variables",
+      "variables": [
+        {
+          "name": "a",
+          "type": "entier",
+          "value": 5
+        },
+        {
+          "name": "b",
+          "type": "entier",
+          "value": 3
+        },
+        {
+          "name": "somme",
+          "type": "entier",
+          "value": 8,
+          "status": "modified"
+        }
+      ],
+      "operation": "5 + 3 = 8"
+    }
+  }
+},
+{
+  "model": "courses.simulationstep",
+  "pk": 297,
+  "fields": {
+    "simulation": 26,
+    "step_number": 8,
+    "description": "Affichage du résultat",
+    "state_data": {
+      "a": 5,
+      "b": 3,
+      "somme": 8
+    },
+    "visual_data": {
+      "type": "variables",
+      "variables": [
+        {
+          "name": "a",
+          "type": "entier",
+          "value": 5
+        },
+        {
+          "name": "b",
+          "type": "entier",
+          "value": 3
+        },
+        {
+          "name": "somme",
+          "type": "entier",
+          "value": 8,
+          "status": "highlighted"
+        }
+      ],
+      "operation": "Ecrire: La somme est 8"
+    }
+  }
+},
+{
+  "model": "courses.simulationstep",
+  "pk": 441,
+  "fields": {
+    "simulation": 43,
+    "step_number": 1,
+    "description": "Introduction a la structure SI...ALORS...FIN SI",
+    "state_data": {
+      "current_line": 0,
+      "phase": "intro"
+    },
+    "visual_data": {
+      "title": "La structure conditionnelle simple",
+      "explanation": "La structure SI...ALORS...FIN SI permet d'executer des instructions UNIQUEMENT si une condition est vraie.",
+      "syntax": "Si <condition> Alors\n    <instructions>\nFin Si",
+      "highlight": "Si age >= 18 Alors\n    Ecrire(\"Vous pouvez voter!\")\nFin Si"
+    }
+  }
+},
+{
+  "model": "courses.simulationstep",
+  "pk": 442,
+  "fields": {
+    "simulation": 43,
+    "step_number": 2,
+    "description": "Declaration et saisie de la variable",
+    "state_data": {
+      "current_line": 5,
+      "variables": {
+        "age": null
+      }
+    },
+    "visual_data": {
+      "title": "Etape 1: Lecture de la variable",
+      "input_prompt": "Entrez votre age:",
+      "user_input": "20",
+      "explanation": "L'utilisateur saisit la valeur 20. Cette valeur est stockee dans la variable age.",
+      "variables_after": {
+        "age": 20
+      }
+    }
+  }
+},
+{
+  "model": "courses.simulationstep",
+  "pk": 443,
+  "fields": {
+    "simulation": 43,
+    "step_number": 3,
+    "description": "Evaluation de la condition (cas VRAI)",
+    "state_data": {
+      "current_line": 6,
+      "variables": {
+        "age": 20
+      }
+    },
+    "visual_data": {
+      "title": "Etape 2: Evaluation de la condition",
+      "condition": "age >= 18",
+      "evaluation": "20 >= 18",
+      "result": true,
+      "result_text": "VRAI",
+      "explanation": "On evalue la condition: Est-ce que 20 est superieur ou egal a 18? OUI! La condition est VRAIE.",
+      "arrow": "Le programme entre dans le bloc SI"
+    }
+  }
+},
+{
+  "model": "courses.simulationstep",
+  "pk": 444,
+  "fields": {
+    "simulation": 43,
+    "step_number": 4,
+    "description": "Execution du bloc SI",
+    "state_data": {
+      "current_line": 7,
+      "variables": {
+        "age": 20
+      },
+      "inside_si": true
+    },
+    "visual_data": {
+      "title": "Etape 3: Execution du bloc SI",
+      "output": "Vous pouvez voter!",
+      "explanation": "Comme la condition est VRAIE, les instructions entre ALORS et FIN SI sont executees.",
+      "highlight": "Ecrire(\"Vous pouvez voter!\")"
+    }
+  }
+},
+{
+  "model": "courses.simulationstep",
+  "pk": 445,
+  "fields": {
+    "simulation": 43,
+    "step_number": 5,
+    "description": "Sortie du bloc SI et fin",
+    "state_data": {
+      "current_line": 9,
+      "variables": {
+        "age": 20
+      }
+    },
+    "visual_data": {
+      "title": "Etape 4: Apres le FIN SI",
+      "output": "Fin du programme",
+      "explanation": "Apres FIN SI, le programme continue normalement avec les instructions suivantes.",
+      "summary": "Sortie complete: \"Vous pouvez voter!\" puis \"Fin du programme\""
+    }
+  }
+},
+{
+  "model": "courses.simulationstep",
+  "pk": 446,
+  "fields": {
+    "simulation": 43,
+    "step_number": 6,
+    "description": "Nouveau cas: condition FAUSSE (age=15)",
+    "state_data": {
+      "current_line": 5,
+      "variables": {
+        "age": null
+      },
+      "new_scenario": true
+    },
+    "visual_data": {
+      "title": "Nouveau scenario: age = 15",
+      "input_prompt": "Entrez votre age:",
+      "user_input": "15",
+      "explanation": "Voyons maintenant ce qui se passe si l'utilisateur entre 15.",
+      "variables_after": {
+        "age": 15
+      }
+    }
+  }
+},
+{
+  "model": "courses.simulationstep",
+  "pk": 447,
+  "fields": {
+    "simulation": 43,
+    "step_number": 7,
+    "description": "Evaluation de la condition (cas FAUX)",
+    "state_data": {
+      "current_line": 6,
+      "variables": {
+        "age": 15
+      }
+    },
+    "visual_data": {
+      "title": "Evaluation de la condition",
+      "condition": "age >= 18",
+      "evaluation": "15 >= 18",
+      "result": false,
+      "result_text": "FAUX",
+      "explanation": "Est-ce que 15 est superieur ou egal a 18? NON! La condition est FAUSSE.",
+      "arrow": "Le programme SAUTE le bloc SI"
+    }
+  }
+},
+{
+  "model": "courses.simulationstep",
+  "pk": 448,
+  "fields": {
+    "simulation": 43,
+    "step_number": 8,
+    "description": "Le bloc SI est ignore",
+    "state_data": {
+      "current_line": 9,
+      "variables": {
+        "age": 15
+      },
+      "skipped": true
+    },
+    "visual_data": {
+      "title": "Le bloc SI est ignore",
+      "skipped_code": "Ecrire(\"Vous pouvez voter!\")",
+      "output": "Fin du programme",
+      "explanation": "Quand la condition est FAUSSE, tout le bloc entre ALORS et FIN SI est IGNORE. Le message \"Vous pouvez voter!\" n'est PAS affiche.",
+      "summary": "Sortie: seulement \"Fin du programme\""
+    }
+  }
+},
+{
+  "model": "courses.simulationstep",
+  "pk": 449,
+  "fields": {
+    "simulation": 43,
+    "step_number": 9,
+    "description": "Resume de la structure SI...ALORS...FIN SI",
+    "state_data": {
+      "phase": "summary"
+    },
+    "visual_data": {
+      "title": "Resume: SI...ALORS...FIN SI",
+      "key_points": [
+        "SI evalue une condition (VRAI ou FAUX)",
+        "Si VRAI: les instructions du bloc sont executees",
+        "Si FAUX: le bloc est ignore completement",
+        "FIN SI marque la fin du bloc conditionnel",
+        "Le programme continue apres FIN SI dans tous les cas"
+      ],
+      "syntax_reminder": "Si <condition> Alors\n    <instructions si vrai>\nFin Si"
+    }
+  }
+},
+{
+  "model": "courses.simulationstep",
+  "pk": 450,
+  "fields": {
+    "simulation": 44,
+    "step_number": 1,
+    "description": "Question sur la syntaxe de SI",
+    "state_data": {
+      "mode": "quiz",
+      "topic": "syntax"
+    },
+    "visual_data": {
+      "question": "Dans la structure SI...ALORS...FIN SI, quel mot-cle introduit les instructions a executer si la condition est vraie?",
+      "options": [
+        "Si",
+        "Alors",
+        "Fin Si",
+        "Debut"
+      ],
+      "correct_answer": 1,
+      "explanation": "Le mot-cle ALORS introduit le bloc d'instructions qui sera execute si la condition est vraie. La syntaxe est: Si <condition> ALORS <instructions> Fin Si"
+    }
+  }
+},
+{
+  "model": "courses.simulationstep",
+  "pk": 451,
+  "fields": {
+    "simulation": 44,
+    "step_number": 2,
+    "description": "Question sur la condition",
+    "state_data": {
+      "mode": "quiz",
+      "topic": "condition",
+      "code_context": "Si note >= 10 Alors"
+    },
+    "visual_data": {
+      "question": "Dans \"Si note >= 10 Alors\", que represente \"note >= 10\"?",
+      "options": [
+        "Une affectation",
+        "Une condition booleenne",
+        "Une declaration",
+        "Une boucle"
+      ],
+      "correct_answer": 1,
+      "explanation": "\"note >= 10\" est une CONDITION BOOLEENNE qui sera evaluee comme VRAIE ou FAUSSE. C'est cette evaluation qui determine si le bloc SI sera execute ou non."
+    }
+  }
+},
+{
+  "model": "courses.simulationstep",
+  "pk": 452,
+  "fields": {
+    "simulation": 44,
+    "step_number": 3,
+    "description": "Question sur l'execution (cas vrai)",
+    "state_data": {
+      "mode": "quiz",
+      "topic": "execution_true",
+      "variables": {
+        "note": 15
+      }
+    },
+    "visual_data": {
+      "question": "Si note = 15, que se passe-t-il avec \"Si note >= 10 Alors Ecrire(Admis) Fin Si\"?",
+      "options": [
+        "Rien ne s'affiche",
+        "\"Admis\" s'affiche",
+        "Erreur",
+        "\"15\" s'affiche"
+      ],
+      "correct_answer": 1,
+      "explanation": "Avec note = 15, la condition \"15 >= 10\" est VRAIE. Donc le bloc SI est execute et \"Admis\" s'affiche."
+    }
+  }
+},
+{
+  "model": "courses.simulationstep",
+  "pk": 453,
+  "fields": {
+    "simulation": 44,
+    "step_number": 4,
+    "description": "Question sur l'execution (cas faux)",
+    "state_data": {
+      "mode": "quiz",
+      "topic": "execution_false",
+      "variables": {
+        "note": 8
+      }
+    },
+    "visual_data": {
+      "question": "Si note = 8, que se passe-t-il avec \"Si note >= 10 Alors Ecrire(Admis) Fin Si\"?",
+      "options": [
+        "\"Admis\" s'affiche",
+        "Le bloc SI est ignore (rien ne s'affiche)",
+        "Erreur de syntaxe",
+        "\"Non admis\" s'affiche"
+      ],
+      "correct_answer": 1,
+      "explanation": "Avec note = 8, la condition \"8 >= 10\" est FAUSSE. Le bloc SI est completement IGNORE. Aucun message n'est affiche par cette instruction."
+    }
+  }
+},
+{
+  "model": "courses.simulationstep",
+  "pk": 454,
+  "fields": {
+    "simulation": 44,
+    "step_number": 5,
+    "description": "Question sur le cas limite",
+    "state_data": {
+      "mode": "quiz",
+      "topic": "edge_case",
+      "variables": {
+        "note": 10
+      }
+    },
+    "visual_data": {
+      "question": "Si note = 10, la condition \"note >= 10\" est-elle vraie ou fausse?",
+      "options": [
+        "FAUSSE (10 n'est pas strictement superieur a 10)",
+        "VRAIE (10 est egal a 10, et >= inclut l'egalite)",
+        "Indeterminee",
+        "Provoque une erreur"
+      ],
+      "correct_answer": 1,
+      "explanation": "L'operateur >= signifie \"superieur OU EGAL\". Donc 10 >= 10 est VRAI car 10 est EGAL a 10. Le bloc SI sera execute."
+    }
+  }
+},
+{
+  "model": "courses.simulationstep",
+  "pk": 455,
+  "fields": {
+    "simulation": 44,
+    "step_number": 6,
+    "description": "Question sur la terminaison",
+    "state_data": {
+      "mode": "quiz",
+      "topic": "termination"
+    },
+    "visual_data": {
+      "question": "Pourquoi est-il obligatoire d'ecrire \"Fin Si\" a la fin du bloc conditionnel?",
+      "options": [
+        "Pour marquer la fin du programme",
+        "Pour delimiter la fin du bloc d'instructions conditionnelles",
+        "Pour reinitialiser les variables",
+        "Ce n'est pas obligatoire"
+      ],
+      "correct_answer": 1,
+      "explanation": "\"Fin Si\" est OBLIGATOIRE car il delimite la fin du bloc d'instructions qui dependent de la condition. Sans lui, l'algorithme ne sait pas ou s'arrete le bloc SI."
+    }
+  }
+},
+{
+  "model": "courses.simulationstep",
+  "pk": 456,
+  "fields": {
+    "simulation": 44,
+    "step_number": 7,
+    "description": "Question sur le flux d'execution",
+    "state_data": {
+      "mode": "quiz",
+      "topic": "flow"
+    },
+    "visual_data": {
+      "question": "Apres \"Fin Si\", que fait le programme?",
+      "options": [
+        "Il s'arrete",
+        "Il recommence depuis le debut",
+        "Il continue avec l'instruction suivante",
+        "Il attend une nouvelle saisie"
+      ],
+      "correct_answer": 2,
+      "explanation": "Apres \"Fin Si\", le programme continue NORMALEMENT avec l'instruction qui suit. Le bloc SI est termine (execute ou ignore), mais le programme continue."
+    }
+  }
+},
+{
+  "model": "courses.simulationstep",
+  "pk": 457,
+  "fields": {
+    "simulation": 44,
+    "step_number": 8,
+    "description": "Question pratique sur les operateurs",
+    "state_data": {
+      "mode": "quiz",
+      "topic": "operators"
+    },
+    "visual_data": {
+      "question": "Pour verifier si un nombre est strictement positif (> 0), quelle condition ecrire?",
+      "options": [
+        "Si nombre = 0 Alors",
+        "Si nombre >= 0 Alors",
+        "Si nombre > 0 Alors",
+        "Si nombre <> 0 Alors"
+      ],
+      "correct_answer": 2,
+      "explanation": "Pour \"strictement positif\", il faut utiliser > (superieur strict). \"nombre > 0\" est vrai pour 1, 2, 100... mais FAUX pour 0. \">= 0\" inclurait 0 qui n'est pas positif."
+    }
+  }
+},
+{
+  "model": "courses.simulationstep",
+  "pk": 458,
+  "fields": {
+    "simulation": 45,
+    "step_number": 1,
+    "description": "Introduction a la structure SI...ALORS...SINON...FIN SI",
+    "state_data": {
+      "phase": "intro"
+    },
+    "visual_data": {
+      "title": "La structure conditionnelle alternative",
+      "explanation": "La structure SI...ALORS...SINON...FIN SI permet d'executer des instructions differentes selon que la condition est VRAIE ou FAUSSE.",
+      "syntax": "Si <condition> Alors\n    <instructions si vrai>\nSinon\n    <instructions si faux>\nFin Si",
+      "highlight": "Si age >= 18 Alors\n    Ecrire(\"Majeur\")\nSinon\n    Ecrire(\"Mineur\")\nFin Si"
+    }
+  }
+},
+{
+  "model": "courses.simulationstep",
+  "pk": 459,
+  "fields": {
+    "simulation": 45,
+    "step_number": 2,
+    "description": "Saisie de la variable age (cas majeur)",
+    "state_data": {
+      "variables": {
+        "age": null
+      }
+    },
+    "visual_data": {
+      "title": "Scenario 1: age = 25",
+      "input_prompt": "Entrez votre age:",
+      "user_input": "25",
+      "explanation": "L'utilisateur saisit 25. Voyons ce qui se passe avec cette valeur.",
+      "variables_after": {
+        "age": 25
+      }
+    }
+  }
+},
+{
+  "model": "courses.simulationstep",
+  "pk": 460,
+  "fields": {
+    "simulation": 45,
+    "step_number": 3,
+    "description": "Evaluation de la condition (cas VRAI)",
+    "state_data": {
+      "variables": {
+        "age": 25
+      }
+    },
+    "visual_data": {
+      "title": "Evaluation: age >= 18",
+      "condition": "age >= 18",
+      "evaluation": "25 >= 18",
+      "result": true,
+      "result_text": "VRAI",
+      "explanation": "25 est superieur a 18, donc la condition est VRAIE. Le programme execute le bloc ALORS.",
+      "arrow": "Execution du bloc ALORS"
+    }
+  }
+},
+{
+  "model": "courses.simulationstep",
+  "pk": 461,
+  "fields": {
+    "simulation": 45,
+    "step_number": 4,
+    "description": "Execution du bloc ALORS (condition vraie)",
+    "state_data": {
+      "variables": {
+        "age": 25
+      },
+      "branch": "alors"
+    },
+    "visual_data": {
+      "title": "Bloc ALORS execute",
+      "highlight": "Ecrire(\"Vous etes majeur\")",
+      "output": "Vous etes majeur",
+      "skipped_code": "Ecrire(\"Vous etes mineur\")",
+      "explanation": "Le bloc ALORS est execute. Le bloc SINON est IGNORE car la condition etait vraie."
+    }
+  }
+},
+{
+  "model": "courses.simulationstep",
+  "pk": 462,
+  "fields": {
+    "simulation": 45,
+    "step_number": 5,
+    "description": "Nouveau scenario: age = 15 (cas mineur)",
+    "state_data": {
+      "variables": {
+        "age": null
+      },
+      "new_scenario": true
+    },
+    "visual_data": {
+      "title": "Scenario 2: age = 15",
+      "input_prompt": "Entrez votre age:",
+      "user_input": "15",
+      "explanation": "Voyons maintenant ce qui se passe si l'utilisateur entre 15.",
+      "variables_after": {
+        "age": 15
+      }
+    }
+  }
+},
+{
+  "model": "courses.simulationstep",
+  "pk": 463,
+  "fields": {
+    "simulation": 45,
+    "step_number": 6,
+    "description": "Evaluation de la condition (cas FAUX)",
+    "state_data": {
+      "variables": {
+        "age": 15
+      }
+    },
+    "visual_data": {
+      "title": "Evaluation: age >= 18",
+      "condition": "age >= 18",
+      "evaluation": "15 >= 18",
+      "result": false,
+      "result_text": "FAUX",
+      "explanation": "15 n'est PAS superieur ou egal a 18, donc la condition est FAUSSE. Le programme execute le bloc SINON.",
+      "arrow": "Execution du bloc SINON"
+    }
+  }
+},
+{
+  "model": "courses.simulationstep",
+  "pk": 464,
+  "fields": {
+    "simulation": 45,
+    "step_number": 7,
+    "description": "Execution du bloc SINON (condition fausse)",
+    "state_data": {
+      "variables": {
+        "age": 15
+      },
+      "branch": "sinon"
+    },
+    "visual_data": {
+      "title": "Bloc SINON execute",
+      "highlight": "Ecrire(\"Vous etes mineur\")",
+      "output": "Vous etes mineur",
+      "skipped_code": "Ecrire(\"Vous etes majeur\")",
+      "explanation": "Le bloc SINON est execute car la condition etait fausse. Le bloc ALORS est IGNORE."
+    }
+  }
+},
+{
+  "model": "courses.simulationstep",
+  "pk": 465,
+  "fields": {
+    "simulation": 45,
+    "step_number": 8,
+    "description": "Difference avec SI simple",
+    "state_data": {
+      "phase": "comparison"
+    },
+    "visual_data": {
+      "title": "SI simple vs SI...SINON",
+      "explanation": "Avec SI simple: si la condition est fausse, RIEN ne se passe.\nAvec SI...SINON: il y a TOUJOURS une action, soit le bloc ALORS, soit le bloc SINON.",
+      "key_points": [
+        "SI simple: action uniquement si condition vraie",
+        "SI...SINON: action dans TOUS les cas",
+        "Un seul des deux blocs est execute, jamais les deux"
+      ]
+    }
+  }
+},
+{
+  "model": "courses.simulationstep",
+  "pk": 466,
+  "fields": {
+    "simulation": 45,
+    "step_number": 9,
+    "description": "Resume de la structure SI...SINON",
+    "state_data": {
+      "phase": "summary"
+    },
+    "visual_data": {
+      "title": "Resume: SI...ALORS...SINON...FIN SI",
+      "key_points": [
+        "SI evalue une condition (VRAI ou FAUX)",
+        "Si VRAI: execute le bloc ALORS",
+        "Si FAUX: execute le bloc SINON",
+        "Un seul bloc est execute, jamais les deux",
+        "Apres FIN SI, le programme continue normalement"
+      ],
+      "syntax_reminder": "Si <condition> Alors\n    <si vrai>\nSinon\n    <si faux>\nFin Si"
+    }
+  }
+},
+{
+  "model": "courses.simulationstep",
+  "pk": 467,
+  "fields": {
+    "simulation": 46,
+    "step_number": 1,
+    "description": "Role du mot-cle SINON",
+    "state_data": {
+      "mode": "quiz"
+    },
+    "visual_data": {
+      "question": "A quoi sert le mot-cle SINON dans une structure conditionnelle?",
+      "options": [
+        "A terminer le bloc SI",
+        "A introduire les instructions executees si la condition est FAUSSE",
+        "A evaluer une deuxieme condition",
+        "A repeter les instructions"
+      ],
+      "correct_answer": 1,
+      "explanation": "SINON introduit le bloc qui sera execute uniquement si la condition du SI est FAUSSE."
+    }
+  }
+},
+{
+  "model": "courses.simulationstep",
+  "pk": 468,
+  "fields": {
+    "simulation": 46,
+    "step_number": 2,
+    "description": "Execution avec condition vraie",
+    "state_data": {
+      "mode": "quiz",
+      "variables": {
+        "nombre": 8
+      }
+    },
+    "visual_data": {
+      "question": "Si nombre = 8, et la condition est \"nombre MOD 2 = 0\", quel bloc est execute?",
+      "options": [
+        "Le bloc ALORS (pair)",
+        "Le bloc SINON (impair)",
+        "Les deux blocs",
+        "Aucun bloc"
+      ],
+      "correct_answer": 0,
+      "explanation": "8 MOD 2 = 0, donc la condition est VRAIE. Le bloc ALORS affiche \"pair\"."
+    }
+  }
+},
+{
+  "model": "courses.simulationstep",
+  "pk": 469,
+  "fields": {
+    "simulation": 46,
+    "step_number": 3,
+    "description": "Execution avec condition fausse",
+    "state_data": {
+      "mode": "quiz",
+      "variables": {
+        "nombre": 7
+      }
+    },
+    "visual_data": {
+      "question": "Si nombre = 7, et la condition est \"nombre MOD 2 = 0\", quel bloc est execute?",
+      "options": [
+        "Le bloc ALORS (pair)",
+        "Le bloc SINON (impair)",
+        "Les deux blocs",
+        "Aucun bloc"
+      ],
+      "correct_answer": 1,
+      "explanation": "7 MOD 2 = 1 (pas 0), donc la condition est FAUSSE. Le bloc SINON affiche \"impair\"."
+    }
+  }
+},
+{
+  "model": "courses.simulationstep",
+  "pk": 470,
+  "fields": {
+    "simulation": 46,
+    "step_number": 4,
+    "description": "Difference SI simple vs SI...SINON",
+    "state_data": {
+      "mode": "quiz"
+    },
+    "visual_data": {
+      "question": "Quelle est la principale difference entre SI simple et SI...SINON?",
+      "options": [
+        "SI...SINON est plus rapide",
+        "SI simple ne peut pas utiliser de variables",
+        "SI...SINON garantit une action dans tous les cas",
+        "Il n y a pas de difference"
+      ],
+      "correct_answer": 2,
+      "explanation": "Avec SI...SINON, il y a TOUJOURS une action: soit ALORS (si vrai), soit SINON (si faux)."
+    }
+  }
+},
+{
+  "model": "courses.simulationstep",
+  "pk": 471,
+  "fields": {
+    "simulation": 46,
+    "step_number": 5,
+    "description": "Combien de blocs executes?",
+    "state_data": {
+      "mode": "quiz"
+    },
+    "visual_data": {
+      "question": "Dans une structure SI...SINON, combien de blocs sont executes?",
+      "options": [
+        "Les deux blocs",
+        "Aucun bloc",
+        "Un seul bloc (ALORS ou SINON)",
+        "Ca depend"
+      ],
+      "correct_answer": 2,
+      "explanation": "Exactement UN SEUL bloc est execute: ALORS si vrai, SINON si faux. Jamais les deux."
+    }
+  }
+},
+{
+  "model": "courses.simulationstep",
+  "pk": 472,
+  "fields": {
+    "simulation": 46,
+    "step_number": 6,
+    "description": "Syntaxe correcte",
+    "state_data": {
+      "mode": "quiz"
+    },
+    "visual_data": {
+      "question": "Quelle est la syntaxe correcte?",
+      "options": [
+        "Si condition Sinon instructions Fin Si",
+        "Si condition Alors instructions Sinon autres Fin Si",
+        "Sinon condition Alors instructions Fin Si",
+        "Si condition Alors instructions Fin Sinon"
+      ],
+      "correct_answer": 1,
+      "explanation": "Syntaxe: Si <condition> Alors <instructions> Sinon <autres> Fin Si. ALORS avant SINON."
+    }
+  }
+},
+{
+  "model": "courses.simulationstep",
+  "pk": 473,
+  "fields": {
+    "simulation": 46,
+    "step_number": 7,
+    "description": "Application pratique",
+    "state_data": {
+      "mode": "quiz"
+    },
+    "visual_data": {
+      "question": "Pour afficher \"Admis\" si note >= 10, sinon \"Refuse\", quelle structure?",
+      "options": [
+        "Si note >= 10 Alors Ecrire(Admis) Fin Si",
+        "Si note >= 10 Alors Ecrire(Admis) Sinon Ecrire(Refuse) Fin Si",
+        "Si note < 10 Alors Ecrire(Refuse) Fin Si",
+        "Sinon note >= 10 Alors Ecrire(Admis) Fin Si"
+      ],
+      "correct_answer": 1,
+      "explanation": "Pour deux messages differents selon la condition, on utilise SI...SINON."
+    }
+  }
+},
+{
+  "model": "courses.simulationstep",
+  "pk": 474,
+  "fields": {
+    "simulation": 46,
+    "step_number": 8,
+    "description": "Cas limite x = 0",
+    "state_data": {
+      "mode": "quiz",
+      "variables": {
+        "x": 0
+      }
+    },
+    "visual_data": {
+      "question": "Si x = 0 avec \"Si x > 0 Alors Ecrire(positif) Sinon Ecrire(negatif ou nul) Fin Si\", qu affiche-t-on?",
+      "options": [
+        "positif",
+        "negatif ou nul",
+        "Les deux",
+        "Erreur"
+      ],
+      "correct_answer": 1,
+      "explanation": "0 > 0 est FAUX. Le bloc SINON affiche \"negatif ou nul\"."
+    }
+  }
+},
+{
+  "model": "courses.simulationstep",
+  "pk": 497,
+  "fields": {
+    "simulation": 51,
+    "step_number": 1,
+    "description": "Introduction à SI...SINON SI...SINON",
+    "state_data": {
+      "phase": "introduction"
+    },
+    "visual_data": {
+      "title": "Structure conditionnelle complète",
+      "explanation": "La structure SI...SINON SI...SINON permet de tester plusieurs conditions en cascade. Dès qu'une condition est vraie, son bloc est exécuté et les autres sont ignorés.",
+      "syntax": "Si condition1 Alors\n    instructions1\nSinon Si condition2 Alors\n    instructions2\nSinon\n    instructionsDefaut\nFin Si",
+      "highlight": "structure"
+    }
+  }
+},
+{
+  "model": "courses.simulationstep",
+  "pk": 498,
+  "fields": {
+    "simulation": 51,
+    "step_number": 2,
+    "description": "Déclaration et lecture de la note",
+    "state_data": {
+      "variables": {
+        "note": null
+      }
+    },
+    "visual_data": {
+      "title": "Lecture de la variable",
+      "explanation": "On déclare la variable note et on demande à l'utilisateur de saisir une valeur.",
+      "code_highlight": "Variables: note : Entier\nLire(note)",
+      "highlight": "declaration"
+    }
+  }
+},
+{
+  "model": "courses.simulationstep",
+  "pk": 499,
+  "fields": {
+    "simulation": 51,
+    "step_number": 3,
+    "description": "Test avec note = 17",
+    "state_data": {
+      "variables": {
+        "note": 17
+      }
+    },
+    "visual_data": {
+      "title": "Première condition: note >= 16",
+      "explanation": "Avec note = 17, on teste la première condition: 17 >= 16 est VRAI. Le bloc \"Très Bien\" est exécuté.",
+      "condition": "note >= 16",
+      "evaluation": "17 >= 16 = VRAI",
+      "result": true,
+      "output": "Très Bien",
+      "highlight": "condition1"
+    }
+  }
+},
+{
+  "model": "courses.simulationstep",
+  "pk": 500,
+  "fields": {
+    "simulation": 51,
+    "step_number": 4,
+    "description": "Test avec note = 15",
+    "state_data": {
+      "variables": {
+        "note": 15
+      }
+    },
+    "visual_data": {
+      "title": "Deuxième condition: note >= 14",
+      "explanation": "Avec note = 15: 15 >= 16 est FAUX, donc on passe au Sinon Si. 15 >= 14 est VRAI, \"Bien\" est affiché.",
+      "conditions": [
+        "note >= 16 → FAUX",
+        "note >= 14 → VRAI"
+      ],
+      "result": true,
+      "output": "Bien",
+      "highlight": "condition2"
+    }
+  }
+},
+{
+  "model": "courses.simulationstep",
+  "pk": 501,
+  "fields": {
+    "simulation": 51,
+    "step_number": 5,
+    "description": "Test avec note = 13",
+    "state_data": {
+      "variables": {
+        "note": 13
+      }
+    },
+    "visual_data": {
+      "title": "Troisième condition: note >= 12",
+      "explanation": "Avec note = 13: les deux premières conditions sont fausses. 13 >= 12 est VRAI, \"Assez Bien\" est affiché.",
+      "conditions": [
+        "note >= 16 → FAUX",
+        "note >= 14 → FAUX",
+        "note >= 12 → VRAI"
+      ],
+      "result": true,
+      "output": "Assez Bien",
+      "highlight": "condition3"
+    }
+  }
+},
+{
+  "model": "courses.simulationstep",
+  "pk": 502,
+  "fields": {
+    "simulation": 51,
+    "step_number": 6,
+    "description": "Test avec note = 11",
+    "state_data": {
+      "variables": {
+        "note": 11
+      }
+    },
+    "visual_data": {
+      "title": "Quatrième condition: note >= 10",
+      "explanation": "Avec note = 11: les trois premières conditions sont fausses. 11 >= 10 est VRAI, \"Passable\" est affiché.",
+      "conditions": [
+        "note >= 16 → FAUX",
+        "note >= 14 → FAUX",
+        "note >= 12 → FAUX",
+        "note >= 10 → VRAI"
+      ],
+      "result": true,
+      "output": "Passable",
+      "highlight": "condition4"
+    }
+  }
+},
+{
+  "model": "courses.simulationstep",
+  "pk": 503,
+  "fields": {
+    "simulation": 51,
+    "step_number": 7,
+    "description": "Test avec note = 8",
+    "state_data": {
+      "variables": {
+        "note": 8
+      }
+    },
+    "visual_data": {
+      "title": "Bloc SINON (par défaut)",
+      "explanation": "Avec note = 8: TOUTES les conditions sont fausses. On exécute le bloc SINON, \"Insuffisant\" est affiché.",
+      "conditions": [
+        "note >= 16 → FAUX",
+        "note >= 14 → FAUX",
+        "note >= 12 → FAUX",
+        "note >= 10 → FAUX"
+      ],
+      "result": false,
+      "output": "Insuffisant",
+      "highlight": "sinon"
+    }
+  }
+},
+{
+  "model": "courses.simulationstep",
+  "pk": 504,
+  "fields": {
+    "simulation": 51,
+    "step_number": 8,
+    "description": "Importance de l'ordre des conditions",
+    "state_data": {
+      "phase": "order"
+    },
+    "visual_data": {
+      "title": "L'ordre compte!",
+      "explanation": "Les conditions sont testées dans l'ordre. Si on écrivait \"Si note >= 10\" en premier, une note de 17 afficherait \"Passable\" car 17 >= 10 est vrai! Il faut tester les conditions les plus restrictives en premier.",
+      "warning": "Toujours mettre les conditions les plus restrictives en premier",
+      "highlight": "order"
+    }
+  }
+},
+{
+  "model": "courses.simulationstep",
+  "pk": 505,
+  "fields": {
+    "simulation": 51,
+    "step_number": 9,
+    "description": "Résumé de la structure",
+    "state_data": {
+      "phase": "summary"
+    },
+    "visual_data": {
+      "title": "Résumé",
+      "explanation": "La structure SI...SINON SI...SINON permet de gérer plusieurs cas exclusifs. Une seule branche est exécutée: la première dont la condition est vraie, ou le SINON si aucune condition n'est vraie.",
+      "key_points": [
+        "Les conditions sont testées dans l'ordre",
+        "Dès qu'une condition est vraie, les autres sont ignorées",
+        "Le bloc SINON s'exécute si aucune condition n'est vraie",
+        "Le SINON est optionnel"
+      ],
+      "highlight": "summary"
+    }
+  }
+},
+{
+  "model": "courses.simulationstep",
+  "pk": 506,
+  "fields": {
+    "simulation": 52,
+    "step_number": 1,
+    "description": "Comprendre la structure",
+    "state_data": {
+      "variables": {}
+    },
+    "visual_data": {
+      "question": "Dans une structure SI...SINON SI...SINON, combien de blocs peuvent être exécutés ?",
+      "options": [
+        "Tous les blocs",
+        "Un seul bloc",
+        "Deux blocs maximum",
+        "Aucun bloc"
+      ],
+      "correct_answer": 1,
+      "explanation": "Dans cette structure, UN SEUL bloc est exécuté: celui dont la condition est vraie en premier, ou le SINON si aucune condition n'est vraie."
+    }
+  }
+},
+{
+  "model": "courses.simulationstep",
+  "pk": 507,
+  "fields": {
+    "simulation": 52,
+    "step_number": 2,
+    "description": "Évaluation avec note = 17",
+    "state_data": {
+      "variables": {
+        "note": 17
+      }
+    },
+    "visual_data": {
+      "question": "Si note = 17, qu'affiche le programme ?",
+      "options": [
+        "Bien",
+        "Très Bien",
+        "Passable",
+        "Insuffisant"
+      ],
+      "correct_answer": 1,
+      "explanation": "Avec note = 17, la première condition (note >= 16) est vraie (17 >= 16), donc \"Très Bien\" est affiché."
+    }
+  }
+},
+{
+  "model": "courses.simulationstep",
+  "pk": 508,
+  "fields": {
+    "simulation": 52,
+    "step_number": 3,
+    "description": "Évaluation avec note = 14",
+    "state_data": {
+      "variables": {
+        "note": 14
+      }
+    },
+    "visual_data": {
+      "question": "Si note = 14, qu'affiche le programme ?",
+      "options": [
+        "Très Bien",
+        "Bien",
+        "Assez Bien",
+        "Passable"
+      ],
+      "correct_answer": 1,
+      "explanation": "14 >= 16 est FAUX, mais 14 >= 14 est VRAI. Donc \"Bien\" est affiché."
+    }
+  }
+},
+{
+  "model": "courses.simulationstep",
+  "pk": 509,
+  "fields": {
+    "simulation": 52,
+    "step_number": 4,
+    "description": "Évaluation avec note = 9",
+    "state_data": {
+      "variables": {
+        "note": 9
+      }
+    },
+    "visual_data": {
+      "question": "Si note = 9, qu'affiche le programme ?",
+      "options": [
+        "Passable",
+        "Assez Bien",
+        "Insuffisant",
+        "Rien"
+      ],
+      "correct_answer": 2,
+      "explanation": "Avec note = 9, aucune condition n'est vraie (9 < 10). Le bloc SINON s'exécute et affiche \"Insuffisant\"."
+    }
+  }
+},
+{
+  "model": "courses.simulationstep",
+  "pk": 510,
+  "fields": {
+    "simulation": 52,
+    "step_number": 5,
+    "description": "Cas limite",
+    "state_data": {
+      "variables": {
+        "note": 16
+      }
+    },
+    "visual_data": {
+      "question": "Si note = 16, qu'affiche le programme ?",
+      "options": [
+        "Bien",
+        "Très Bien",
+        "Assez Bien",
+        "Passable"
+      ],
+      "correct_answer": 1,
+      "explanation": "16 >= 16 est VRAI (égalité), donc \"Très Bien\" est affiché."
+    }
+  }
+},
+{
+  "model": "courses.simulationstep",
+  "pk": 511,
+  "fields": {
+    "simulation": 52,
+    "step_number": 6,
+    "description": "Importance de l'ordre",
+    "state_data": {
+      "phase": "order"
+    },
+    "visual_data": {
+      "question": "Pourquoi teste-t-on \"note >= 16\" AVANT \"note >= 10\" ?",
+      "options": [
+        "C'est plus rapide",
+        "Parce que 16 > 10",
+        "Pour éviter qu'une note de 17 soit classée \"Passable\"",
+        "C'est obligatoire en algorithmique"
+      ],
+      "correct_answer": 2,
+      "explanation": "Si on testait \"note >= 10\" en premier, toute note >= 10 (même 17) serait classée \"Passable\" car 17 >= 10 est vrai!"
+    }
+  }
+},
+{
+  "model": "courses.simulationstep",
+  "pk": 512,
+  "fields": {
+    "simulation": 52,
+    "step_number": 7,
+    "description": "Le bloc SINON",
+    "state_data": {
+      "phase": "sinon"
+    },
+    "visual_data": {
+      "question": "Le bloc SINON s'exécute quand ?",
+      "options": [
+        "Toujours",
+        "Quand la première condition est fausse",
+        "Quand TOUTES les conditions SI et SINON SI sont fausses",
+        "Jamais"
+      ],
+      "correct_answer": 2,
+      "explanation": "Le bloc SINON est le \"cas par défaut\". Il s'exécute uniquement si AUCUNE des conditions précédentes n'est vraie."
+    }
+  }
+},
+{
+  "model": "courses.simulationstep",
+  "pk": 513,
+  "fields": {
+    "simulation": 52,
+    "step_number": 8,
+    "description": "Syntaxe correcte",
+    "state_data": {
+      "phase": "syntax"
+    },
+    "visual_data": {
+      "question": "Quelle est la syntaxe correcte pour ajouter une condition alternative ?",
+      "options": [
+        "Sinon Si condition Alors",
+        "Ou Si condition Alors",
+        "Si Sinon condition Alors",
+        "Elif condition Alors"
+      ],
+      "correct_answer": 0,
+      "explanation": "En algorithmique, on utilise \"Sinon Si condition Alors\" pour ajouter une condition alternative."
+    }
+  }
+},
+{
+  "model": "courses.quiz",
+  "pk": 1,
+  "fields": {
+    "lesson": 1,
+    "title": "Quiz: Introduction à l'algorithmique",
+    "order": 1,
+    "passing_score": 50
+  }
+},
+{
+  "model": "courses.quiz",
+  "pk": 2,
+  "fields": {
+    "lesson": 2,
+    "title": "Quiz: Variables",
+    "order": 1,
+    "passing_score": 50
+  }
+},
+{
+  "model": "courses.quiz",
+  "pk": 3,
+  "fields": {
+    "lesson": 3,
+    "title": "Quiz: Constantes",
+    "order": 1,
+    "passing_score": 50
+  }
+},
+{
+  "model": "courses.quiz",
+  "pk": 4,
+  "fields": {
+    "lesson": 4,
+    "title": "Quiz: Conditions simples",
+    "order": 1,
+    "passing_score": 50
+  }
+},
+{
+  "model": "courses.quiz",
+  "pk": 5,
+  "fields": {
+    "lesson": 5,
+    "title": "Quiz: Alternatives",
+    "order": 1,
+    "passing_score": 50
+  }
+},
+{
+  "model": "courses.quiz",
+  "pk": 6,
+  "fields": {
+    "lesson": 6,
+    "title": "Quiz: Structures compl??tes",
+    "order": 1,
+    "passing_score": 50
+  }
+},
+{
+  "model": "courses.quiz",
+  "pk": 7,
+  "fields": {
+    "lesson": 7,
+    "title": "Quiz: Boucle POUR",
+    "order": 1,
+    "passing_score": 50
+  }
+},
+{
+  "model": "courses.quiz",
+  "pk": 8,
+  "fields": {
+    "lesson": 8,
+    "title": "Quiz: TANT QUE",
+    "order": 1,
+    "passing_score": 50
+  }
+},
+{
+  "model": "courses.quiz",
+  "pk": 9,
+  "fields": {
+    "lesson": 9,
+    "title": "Quiz: REPETER",
+    "order": 1,
+    "passing_score": 50
+  }
+},
+{
+  "model": "courses.quiz",
+  "pk": 10,
+  "fields": {
+    "lesson": 10,
+    "title": "Quiz: Fonctions",
+    "order": 1,
+    "passing_score": 50
+  }
+},
+{
+  "model": "courses.quiz",
+  "pk": 11,
+  "fields": {
+    "lesson": 11,
+    "title": "Quiz: Proc??dures",
+    "order": 1,
+    "passing_score": 50
+  }
+},
+{
+  "model": "courses.quiz",
+  "pk": 12,
+  "fields": {
+    "lesson": 12,
+    "title": "Quiz: Tableaux",
+    "order": 1,
+    "passing_score": 50
+  }
+},
+{
+  "model": "courses.quizquestion",
+  "pk": 8,
+  "fields": {
+    "quiz": 12,
+    "question_text": "Un tableau peut contenir des ??l??ments de types diff??rents.",
+    "question_type": "true_false",
+    "points": 20,
+    "order": 1,
+    "explanation": "Faux. Un tableau contient des ??l??ments du m??me type."
+  }
+},
+{
+  "model": "courses.quizquestion",
+  "pk": 9,
+  "fields": {
+    "quiz": 12,
+    "question_text": "Quel est l'indice du premier ??l??ment d'un tableau en algorithmique ?",
+    "question_type": "single",
+    "points": 25,
+    "order": 2,
+    "explanation": "Par convention, les tableaux commencent ?? l'indice 1 (ou parfois 0 selon le langage)."
+  }
+},
+{
+  "model": "courses.quizquestion",
+  "pk": 10,
+  "fields": {
+    "quiz": 12,
+    "question_text": "Quelles op??rations sont courantes sur un tableau ?",
+    "question_type": "multiple",
+    "points": 30,
+    "order": 3,
+    "explanation": "On peut parcourir, rechercher, trier et modifier les ??l??ments d'un tableau."
+  }
+},
+{
+  "model": "courses.quizquestion",
+  "pk": 11,
+  "fields": {
+    "quiz": 12,
+    "question_text": "Pour parcourir un tableau, quelle structure de boucle est la plus adapt??e ?",
+    "question_type": "single",
+    "points": 25,
+    "order": 4,
+    "explanation": "La boucle POUR est id??ale car on conna??t la taille du tableau."
+  }
+},
+{
+  "model": "courses.quizquestion",
+  "pk": 15,
+  "fields": {
+    "quiz": 1,
+    "question_text": "Qu'est-ce qu'un algorithme ?",
+    "question_type": "single",
+    "points": 10,
+    "order": 1,
+    "explanation": "C'est la définition exacte : suite finie, ordonnée, non ambiguë d'instructions."
+  }
+},
+{
+  "model": "courses.quizquestion",
+  "pk": 16,
+  "fields": {
+    "quiz": 1,
+    "question_text": "Quelles sont les caractéristiques d'un bon algorithme ?",
+    "question_type": "multiple",
+    "points": 30,
+    "order": 1,
+    "explanation": "Un bon algorithme doit être fini (se terminer), correct (résoudre le problème) et efficace (utiliser peu de ressources)."
+  }
+},
+{
+  "model": "courses.quizquestion",
+  "pk": 17,
+  "fields": {
+    "quiz": 1,
+    "question_text": "Un algorithme doit toujours se terminer.",
+    "question_type": "true_false",
+    "points": 15,
+    "order": 1,
+    "explanation": "Vrai. La finitude est une caractéristique essentielle d'un algorithme."
+  }
+},
+{
+  "model": "courses.quizquestion",
+  "pk": 18,
+  "fields": {
+    "quiz": 1,
+    "question_text": "Que fait l'instruction Lire(nombre) ?",
+    "question_type": "single",
+    "points": 20,
+    "order": 1,
+    "explanation": "Instruction de saisie depuis le clavier."
+  }
+},
+{
+  "model": "courses.quizquestion",
+  "pk": 19,
+  "fields": {
+    "quiz": 1,
+    "question_text": "Le pseudo-code est un langage de programmation.",
+    "question_type": "true_false",
+    "points": 15,
+    "order": 1,
+    "explanation": "Faux. Le pseudo-code est une description informelle, pas un vrai langage de programmation."
+  }
+},
+{
+  "model": "courses.quizquestion",
+  "pk": 20,
+  "fields": {
+    "quiz": 1,
+    "question_text": "Quelle instruction permet d'afficher \"Résultat :\" suivi de la valeur de la variable x ?",
+    "question_type": "single",
+    "points": 5,
+    "order": 1,
+    "explanation": "Syntaxe correcte en pseudocode avec séparation par virgule"
+  }
+},
+{
+  "model": "courses.quizquestion",
+  "pk": 21,
+  "fields": {
+    "quiz": 1,
+    "question_text": "Lequel de ces problèmes illustre le mieux un algorithme ?",
+    "question_type": "single",
+    "points": 5,
+    "order": 1,
+    "explanation": "Seule la résolution d'équation suit un processus précis et déterministe."
+  }
+},
+{
+  "model": "courses.quizquestion",
+  "pk": 30,
+  "fields": {
+    "quiz": 2,
+    "question_text": "Qu'est-ce qu'une variable en algorithmique ?",
+    "question_type": "single",
+    "points": 10,
+    "order": 1,
+    "explanation": "Une variable est un espace mémoire nommé contenant une valeur qui peut changer."
+  }
+},
+{
+  "model": "courses.quizquestion",
+  "pk": 31,
+  "fields": {
+    "quiz": 2,
+    "question_text": "Quelle analogie décrit le mieux une variable ?",
+    "question_type": "single",
+    "points": 10,
+    "order": 1,
+    "explanation": "L'étiquette = nom de la variable, le contenu = valeur, la boîte = type"
+  }
+},
+{
+  "model": "courses.quizquestion",
+  "pk": 32,
+  "fields": {
+    "quiz": 2,
+    "question_text": "Lequel de ces noms de variable est INVALIDE ?",
+    "question_type": "single",
+    "points": 10,
+    "order": 1,
+    "explanation": ""
+  }
+},
+{
+  "model": "courses.quizquestion",
+  "pk": 33,
+  "fields": {
+    "quiz": 2,
+    "question_text": "Quel type utiliser pour stocker un prix comme 150 FCFA?",
+    "question_type": "single",
+    "points": 13,
+    "order": 1,
+    "explanation": "Les prix ont des décimales, donc type Réel."
+  }
+},
+{
+  "model": "courses.quizquestion",
+  "pk": 34,
+  "fields": {
+    "quiz": 2,
+    "question_text": "Quelle instruction affecte la valeur 10 à la variable x ?",
+    "question_type": "single",
+    "points": 15,
+    "order": 1,
+    "explanation": "En algorithmique, l'affectation se fait avec ←."
+  }
+},
+{
+  "model": "courses.quizquestion",
+  "pk": 35,
+  "fields": {
+    "quiz": 2,
+    "question_text": "Quel type utiliser pour stocker si un utilisateur est connecté ?  ",
+    "question_type": "single",
+    "points": 15,
+    "order": 1,
+    "explanation": " \"Connecté\" ou \"Non connecté\" = VRAI ou FAUX = Booléen."
+  }
+},
+{
+  "model": "courses.quizquestion",
+  "pk": 36,
+  "fields": {
+    "quiz": 2,
+    "question_text": " Si a = 5 et b = 2, que vaut a * b ?",
+    "question_type": "single",
+    "points": 15,
+    "order": 1,
+    "explanation": "Multiplication : 5 × 2 = 10"
+  }
+},
+{
+  "model": "courses.quizquestion",
+  "pk": 37,
+  "fields": {
+    "quiz": 2,
+    "question_text": "Quel type utiliser pour stocker une seule lettre comme initiale ?  ",
+    "question_type": "single",
+    "points": 10,
+    "order": 1,
+    "explanation": "Un seul caractère = type Caractère."
+  }
+},
+{
+  "model": "courses.quizquestion",
+  "pk": 38,
+  "fields": {
+    "quiz": 3,
+    "question_text": "Une constante peut changer de valeur pendant l'exécution.",
+    "question_type": "true_false",
+    "points": 10,
+    "order": 1,
+    "explanation": "Faux. Une constante garde toujours la même valeur."
+  }
+},
+{
+  "model": "courses.quizquestion",
+  "pk": 39,
+  "fields": {
+    "quiz": 3,
+    "question_text": "Comment doit-on nommer une constante ?",
+    "question_type": "single",
+    "points": 10,
+    "order": 1,
+    "explanation": "La convention veut qu'on utilise des MAJUSCULES pour différencier les constantes des variables"
+  }
+},
+{
+  "model": "courses.quizquestion",
+  "pk": 40,
+  "fields": {
+    "quiz": 3,
+    "question_text": "Où déclare-t-on habituellement les constantes dans un algorithme ?",
+    "question_type": "single",
+    "points": 10,
+    "order": 1,
+    "explanation": "On les déclare au début, dans une section dédiée ou avec les variables pour une meilleure organisation"
+  }
+},
+{
+  "model": "courses.quizquestion",
+  "pk": 41,
+  "fields": {
+    "quiz": 3,
+    "question_text": "Laquelle de ces déclarations est correcte pour une constante ?  ",
+    "question_type": "single",
+    "points": 9,
+    "order": 1,
+    "explanation": "En algorithmique, on utilise ← pour l'affectation, même pour les constantes"
+  }
+},
+{
+  "model": "courses.quizquestion",
+  "pk": 42,
+  "fields": {
+    "quiz": 3,
+    "question_text": "Quand doit-on utiliser une constante plutôt qu'une variable ? ",
+    "question_type": "single",
+    "points": 15,
+    "order": 1,
+    "explanation": "Les constantes sont pour les valeurs fixes, les variables pour les valeurs qui changent."
+  }
+},
+{
+  "model": "courses.quizquestion",
+  "pk": 43,
+  "fields": {
+    "quiz": 3,
+    "question_text": "Que se passe-t-il si on essaie de modifier une constante ? ",
+    "question_type": "single",
+    "points": 15,
+    "order": 1,
+    "explanation": "Modifier une constante viole son principe fondamental et génère une erreur."
+  }
+},
+{
+  "model": "courses.quizquestion",
+  "pk": 44,
+  "fields": {
+    "quiz": 3,
+    "question_text": "Quelle syntaxe montre une constante bien déclarée ? ",
+    "question_type": "single",
+    "points": 15,
+    "order": 1,
+    "explanation": "MAJUSCULES avec underscores est la convention pour les constantes"
+  }
+},
+{
+  "model": "courses.quizquestion",
+  "pk": 45,
+  "fields": {
+    "quiz": 3,
+    "question_text": "Si on a SEUIL ← 10 comme constante, peut-on écrire SI note > SEUIL ALORS ? ",
+    "question_type": "single",
+    "points": 15,
+    "order": 1,
+    "explanation": "On utilise le nom de la constante partout où on aurait utilisé sa valeur."
+  }
+},
+{
+  "model": "courses.quizquestion",
+  "pk": 46,
+  "fields": {
+    "quiz": 4,
+    "question_text": "Quel est le rôle d’une structure conditionnelle ? ",
+    "question_type": "single",
+    "points": 10,
+    "order": 1,
+    "explanation": "Une structure conditionnelle sert à prendre une décision en fonction d’une condition. Selon que la condition est vraie ou fausse, certaines instructions sont exécutées ou non."
+  }
+},
+{
+  "model": "courses.quizquestion",
+  "pk": 47,
+  "fields": {
+    "quiz": 4,
+    "question_text": "Quelle est la bonne syntaxe d’une condition simple ?  ",
+    "question_type": "single",
+    "points": 10,
+    "order": 1,
+    "explanation": "Une condition simple doit contenir :\n •\tle mot-clé SI \n•\tune condition\n •\tle mot-clé ALORS\n •\tdes instructions à exécuter si la condition est vraie \nLes autres propositions ne respectent pas cette structure."
+  }
+},
+{
+  "model": "courses.quizquestion",
+  "pk": 48,
+  "fields": {
+    "quiz": 4,
+    "question_text": "Quel opérateur signifie « différent de » ? ",
+    "question_type": "single",
+    "points": 14,
+    "order": 1,
+    "explanation": "L’opérateur != signifie différent de. Il permet de vérifier que deux valeurs ne sont pas égales."
+  }
+},
+{
+  "model": "courses.quizquestion",
+  "pk": 49,
+  "fields": {
+    "quiz": 4,
+    "question_text": "Que fait cet algorithme si âge = 20 ? SI âge >= 18 ALORS Afficher \"Majeur\" FINSI ",
+    "question_type": "single",
+    "points": 15,
+    "order": 1,
+    "explanation": "La condition âge >= 18 est vraie lorsque l’âge est 20. Donc l’instruction Afficher \"Majeur\" est exécutée."
+  }
+},
+{
+  "model": "courses.quizquestion",
+  "pk": 50,
+  "fields": {
+    "quiz": 4,
+    "question_text": "Quelle valeur peut prendre une condition logique ?  ",
+    "question_type": "single",
+    "points": 15,
+    "order": 1,
+    "explanation": "Une condition logique ne peut avoir que deux valeurs possibles : \n•\tVrai \n•\tFaux \nC’est ce résultat qui permet à l’algorithme de décider quoi faire."
+  }
+},
+{
+  "model": "courses.quizquestion",
+  "pk": 51,
+  "fields": {
+    "quiz": 4,
+    "question_text": "Quel mot-clé marque la fin d’une condition simple ? ",
+    "question_type": "single",
+    "points": 10,
+    "order": 1,
+    "explanation": "Le mot-clé FINSI indique la fin du bloc conditionnel commencé par SI. Il est obligatoire pour bien structurer l’algorithme."
+  }
+},
+{
+  "model": "courses.quizquestion",
+  "pk": 52,
+  "fields": {
+    "quiz": 4,
+    "question_text": "Quelle condition permet de vérifier si un nombre est pair ? ",
+    "question_type": "single",
+    "points": 15,
+    "order": 1,
+    "explanation": " Un nombre est pair si le reste de la division par 2 est égal à 0. L’opérateur % permet de calculer ce reste."
+  }
+},
+{
+  "model": "courses.quizquestion",
+  "pk": 53,
+  "fields": {
+    "quiz": 4,
+    "question_text": "Que se passe-t-il si la condition est fausse dans une condition simple ?  ",
+    "question_type": "single",
+    "points": 10,
+    "order": 1,
+    "explanation": "Dans une condition simple (SI sans SINON), si la condition est fausse, les instructions à l’intérieur du SI ne sont pas exécutées, mais le programme continue normalement."
+  }
+},
+{
+  "model": "courses.quizquestion",
+  "pk": 59,
+  "fields": {
+    "quiz": 5,
+    "question_text": "À quoi sert le mot-clé SINON ?",
+    "question_type": "single",
+    "points": 10,
+    "order": 1,
+    "explanation": "Le mot-clé SINON permet d’exécuter un bloc d’instructions uniquement si la condition du SI est fausse."
+  }
+},
+{
+  "model": "courses.quizquestion",
+  "pk": 60,
+  "fields": {
+    "quiz": 5,
+    "question_text": "Quelle est la bonne structure d’une condition alternative ? ",
+    "question_type": "single",
+    "points": 10,
+    "order": 1,
+    "explanation": " La structure correcte doit inclure : \n•\tSI condition ALORS pour le bloc vrai \n•\tSINON pour le bloc faux \n•\tFINSI pour clôturer la condition"
+  }
+},
+{
+  "model": "courses.quizquestion",
+  "pk": 61,
+  "fields": {
+    "quiz": 5,
+    "question_text": "Que fait cet algorithme si note = 8 ? SI note >= 10 ALORS     Afficher \"Admis\" SINON     Afficher \"Ajourné\" FINSI",
+    "question_type": "single",
+    "points": 15,
+    "order": 1,
+    "explanation": "La condition note >= 10 est fausse, donc c’est le bloc SINON qui est exécuté."
+  }
+},
+{
+  "model": "courses.quizquestion",
+  "pk": 62,
+  "fields": {
+    "quiz": 5,
+    "question_text": "Quelle condition permet de vérifier qu’un nombre est impair ? ",
+    "question_type": "single",
+    "points": 15,
+    "order": 1,
+    "explanation": "Un nombre est impair si le reste de sa division par 2 est différent de 0 (!= 0)."
+  }
+},
+{
+  "model": "courses.quizquestion",
+  "pk": 63,
+  "fields": {
+    "quiz": 5,
+    "question_text": "Quelle est la valeur possible d’une condition logique ? ",
+    "question_type": "single",
+    "points": 10,
+    "order": 1,
+    "explanation": "Une condition est soit VRAI soit FAUX, ce qui permet au programme de choisir le bloc à exécuter."
+  }
+},
+{
+  "model": "courses.quizquestion",
+  "pk": 64,
+  "fields": {
+    "quiz": 5,
+    "question_text": "Quelle est la valeur possible d’une condition logique ? ",
+    "question_type": "single",
+    "points": 10,
+    "order": 1,
+    "explanation": "Une condition est soit VRAI soit FAUX, ce qui permet au programme de choisir le bloc à exécuter."
+  }
+},
+{
+  "model": "courses.quizquestion",
+  "pk": 65,
+  "fields": {
+    "quiz": 5,
+    "question_text": "Quel mot-clé termine toujours un bloc conditionnel ? ",
+    "question_type": "single",
+    "points": 10,
+    "order": 1,
+    "explanation": "Le mot-clé FINSI clôture toujours un bloc conditionnel SI … SINON SI … SINON."
+  }
+},
+{
+  "model": "courses.quizquestion",
+  "pk": 66,
+  "fields": {
+    "quiz": 5,
+    "question_text": "Que se passe-t-il si aucune condition n’est vraie et qu’il n’y a pas de SINON ?  ",
+    "question_type": "single",
+    "points": 10,
+    "order": 1,
+    "explanation": "Si toutes les conditions sont fausses et qu’il n’y a pas de SINON, aucun bloc n’est exécuté, mais le programme continue."
+  }
+},
+{
+  "model": "courses.quizquestion",
+  "pk": 67,
+  "fields": {
+    "quiz": 5,
+    "question_text": "Dans un SI … SINON SI … SINON, pourquoi l’ordre des conditions est important ? ",
+    "question_type": "single",
+    "points": 10,
+    "order": 1,
+    "explanation": "Les conditions sont testées une par une dans l’ordre. Dès qu’une condition est vraie, les suivantes sont ignorées. L’ordre est donc essentiel"
+  }
+},
+{
+  "model": "courses.quizchoice",
+  "pk": 22,
+  "fields": {
+    "question": 8,
+    "choice_text": "Vrai",
+    "is_correct": false,
+    "order": 1
+  }
+},
+{
+  "model": "courses.quizchoice",
+  "pk": 23,
+  "fields": {
+    "question": 8,
+    "choice_text": "Faux",
+    "is_correct": true,
+    "order": 2
+  }
+},
+{
+  "model": "courses.quizchoice",
+  "pk": 24,
+  "fields": {
+    "question": 9,
+    "choice_text": "0",
+    "is_correct": false,
+    "order": 1
+  }
+},
+{
+  "model": "courses.quizchoice",
+  "pk": 25,
+  "fields": {
+    "question": 9,
+    "choice_text": "1",
+    "is_correct": true,
+    "order": 2
+  }
+},
+{
+  "model": "courses.quizchoice",
+  "pk": 26,
+  "fields": {
+    "question": 9,
+    "choice_text": "-1",
+    "is_correct": false,
+    "order": 3
+  }
+},
+{
+  "model": "courses.quizchoice",
+  "pk": 27,
+  "fields": {
+    "question": 10,
+    "choice_text": "Parcours",
+    "is_correct": true,
+    "order": 1
+  }
+},
+{
+  "model": "courses.quizchoice",
+  "pk": 28,
+  "fields": {
+    "question": 10,
+    "choice_text": "Recherche",
+    "is_correct": true,
+    "order": 2
+  }
+},
+{
+  "model": "courses.quizchoice",
+  "pk": 29,
+  "fields": {
+    "question": 10,
+    "choice_text": "Tri",
+    "is_correct": true,
+    "order": 3
+  }
+},
+{
+  "model": "courses.quizchoice",
+  "pk": 30,
+  "fields": {
+    "question": 10,
+    "choice_text": "Compilation",
+    "is_correct": false,
+    "order": 4
+  }
+},
+{
+  "model": "courses.quizchoice",
+  "pk": 31,
+  "fields": {
+    "question": 11,
+    "choice_text": "POUR",
+    "is_correct": true,
+    "order": 1
+  }
+},
+{
+  "model": "courses.quizchoice",
+  "pk": 32,
+  "fields": {
+    "question": 11,
+    "choice_text": "SI",
+    "is_correct": false,
+    "order": 2
+  }
+},
+{
+  "model": "courses.quizchoice",
+  "pk": 33,
+  "fields": {
+    "question": 11,
+    "choice_text": "REPETER",
+    "is_correct": false,
+    "order": 3
+  }
+},
+{
+  "model": "courses.quizchoice",
+  "pk": 40,
+  "fields": {
+    "question": 15,
+    "choice_text": "Un langage de programmation",
+    "is_correct": false,
+    "order": 1
+  }
+},
+{
+  "model": "courses.quizchoice",
+  "pk": 41,
+  "fields": {
+    "question": 15,
+    "choice_text": "Une suite finie d'instructions ordonnées pour résoudre un problème",
+    "is_correct": true,
+    "order": 2
+  }
+},
+{
+  "model": "courses.quizchoice",
+  "pk": 42,
+  "fields": {
+    "question": 15,
+    "choice_text": "Un logiciel informatique",
+    "is_correct": false,
+    "order": 3
+  }
+},
+{
+  "model": "courses.quizchoice",
+  "pk": 43,
+  "fields": {
+    "question": 15,
+    "choice_text": "Un type de données",
+    "is_correct": false,
+    "order": 4
+  }
+},
+{
+  "model": "courses.quizchoice",
+  "pk": 44,
+  "fields": {
+    "question": 16,
+    "choice_text": "Finitude",
+    "is_correct": true,
+    "order": 1
+  }
+},
+{
+  "model": "courses.quizchoice",
+  "pk": 45,
+  "fields": {
+    "question": 16,
+    "choice_text": "Correction",
+    "is_correct": true,
+    "order": 2
+  }
+},
+{
+  "model": "courses.quizchoice",
+  "pk": 46,
+  "fields": {
+    "question": 16,
+    "choice_text": "Complexité infinie",
+    "is_correct": false,
+    "order": 3
+  }
+},
+{
+  "model": "courses.quizchoice",
+  "pk": 47,
+  "fields": {
+    "question": 16,
+    "choice_text": "Efficacité",
+    "is_correct": true,
+    "order": 4
+  }
+},
+{
+  "model": "courses.quizchoice",
+  "pk": 48,
+  "fields": {
+    "question": 17,
+    "choice_text": "Vrai",
+    "is_correct": true,
+    "order": 1
+  }
+},
+{
+  "model": "courses.quizchoice",
+  "pk": 49,
+  "fields": {
+    "question": 17,
+    "choice_text": "Faux",
+    "is_correct": false,
+    "order": 2
+  }
+},
+{
+  "model": "courses.quizchoice",
+  "pk": 50,
+  "fields": {
+    "question": 18,
+    "choice_text": "Affiche la valeur de la variable nombre",
+    "is_correct": false,
+    "order": 1
+  }
+},
+{
+  "model": "courses.quizchoice",
+  "pk": 51,
+  "fields": {
+    "question": 18,
+    "choice_text": "Demande à l'utilisateur de saisir une valeur",
+    "is_correct": true,
+    "order": 2
+  }
+},
+{
+  "model": "courses.quizchoice",
+  "pk": 52,
+  "fields": {
+    "question": 18,
+    "choice_text": "Lit le contenu d'un fichier",
+    "is_correct": false,
+    "order": 3
+  }
+},
+{
+  "model": "courses.quizchoice",
+  "pk": 53,
+  "fields": {
+    "question": 18,
+    "choice_text": "Vérifie si la variable existe",
+    "is_correct": false,
+    "order": 4
+  }
+},
+{
+  "model": "courses.quizchoice",
+  "pk": 54,
+  "fields": {
+    "question": 19,
+    "choice_text": "Vrai",
+    "is_correct": false,
+    "order": 1
+  }
+},
+{
+  "model": "courses.quizchoice",
+  "pk": 55,
+  "fields": {
+    "question": 19,
+    "choice_text": "Faux",
+    "is_correct": true,
+    "order": 2
+  }
+},
+{
+  "model": "courses.quizchoice",
+  "pk": 56,
+  "fields": {
+    "question": 20,
+    "choice_text": "Écrire(\"Résultat : \" + x)",
+    "is_correct": false,
+    "order": 1
+  }
+},
+{
+  "model": "courses.quizchoice",
+  "pk": 57,
+  "fields": {
+    "question": 20,
+    "choice_text": "Écrire(\"Résultat : \", x)",
+    "is_correct": true,
+    "order": 2
+  }
+},
+{
+  "model": "courses.quizchoice",
+  "pk": 58,
+  "fields": {
+    "question": 20,
+    "choice_text": "Afficher \"Résultat : x\"",
+    "is_correct": false,
+    "order": 3
+  }
+},
+{
+  "model": "courses.quizchoice",
+  "pk": 59,
+  "fields": {
+    "question": 21,
+    "choice_text": "Écrire un poème",
+    "is_correct": false,
+    "order": 1
+  }
+},
+{
+  "model": "courses.quizchoice",
+  "pk": 60,
+  "fields": {
+    "question": 21,
+    "choice_text": "Résoudre une équation du second degré",
+    "is_correct": true,
+    "order": 2
+  }
+},
+{
+  "model": "courses.quizchoice",
+  "pk": 61,
+  "fields": {
+    "question": 21,
+    "choice_text": "Dessiner un paysage",
+    "is_correct": false,
+    "order": 3
+  }
+},
+{
+  "model": "courses.quizchoice",
+  "pk": 62,
+  "fields": {
+    "question": 21,
+    "choice_text": "Composer une musique",
+    "is_correct": false,
+    "order": 4
+  }
+},
+{
+  "model": "courses.quizchoice",
+  "pk": 92,
+  "fields": {
+    "question": 30,
+    "choice_text": "Une valeur fixe",
+    "is_correct": false,
+    "order": 1
+  }
+},
+{
+  "model": "courses.quizchoice",
+  "pk": 93,
+  "fields": {
+    "question": 30,
+    "choice_text": "Un espace mémoire nommé contenant une valeur qui peut changer au cours de l'exécution de l'algorithme",
+    "is_correct": true,
+    "order": 2
+  }
+},
+{
+  "model": "courses.quizchoice",
+  "pk": 94,
+  "fields": {
+    "question": 30,
+    "choice_text": "Un algorithme",
+    "is_correct": false,
+    "order": 3
+  }
+},
+{
+  "model": "courses.quizchoice",
+  "pk": 95,
+  "fields": {
+    "question": 31,
+    "choice_text": "Une boîte étiquetée avec un contenu",
+    "is_correct": true,
+    "order": 1
+  }
+},
+{
+  "model": "courses.quizchoice",
+  "pk": 96,
+  "fields": {
+    "question": 31,
+    "choice_text": "Un livre dans une bibliothèque",
+    "is_correct": false,
+    "order": 2
+  }
+},
+{
+  "model": "courses.quizchoice",
+  "pk": 97,
+  "fields": {
+    "question": 31,
+    "choice_text": "Une route avec des panneaux",
+    "is_correct": false,
+    "order": 3
+  }
+},
+{
+  "model": "courses.quizchoice",
+  "pk": 98,
+  "fields": {
+    "question": 31,
+    "choice_text": "Une recette de cuisine",
+    "is_correct": false,
+    "order": 4
+  }
+},
+{
+  "model": "courses.quizchoice",
+  "pk": 99,
+  "fields": {
+    "question": 32,
+    "choice_text": "total_prix",
+    "is_correct": false,
+    "order": 1
+  }
+},
+{
+  "model": "courses.quizchoice",
+  "pk": 100,
+  "fields": {
+    "question": 32,
+    "choice_text": "age_utilisateur",
+    "is_correct": false,
+    "order": 2
+  }
+},
+{
+  "model": "courses.quizchoice",
+  "pk": 101,
+  "fields": {
+    "question": 32,
+    "choice_text": " 2nom",
+    "is_correct": true,
+    "order": 3
+  }
+},
+{
+  "model": "courses.quizchoice",
+  "pk": 102,
+  "fields": {
+    "question": 32,
+    "choice_text": "est_valide",
+    "is_correct": false,
+    "order": 4
+  }
+},
+{
+  "model": "courses.quizchoice",
+  "pk": 103,
+  "fields": {
+    "question": 33,
+    "choice_text": "Booléen",
+    "is_correct": false,
+    "order": 1
+  }
+},
+{
+  "model": "courses.quizchoice",
+  "pk": 104,
+  "fields": {
+    "question": 33,
+    "choice_text": "Caractère",
+    "is_correct": false,
+    "order": 2
+  }
+},
+{
+  "model": "courses.quizchoice",
+  "pk": 105,
+  "fields": {
+    "question": 33,
+    "choice_text": "Entier",
+    "is_correct": false,
+    "order": 3
+  }
+},
+{
+  "model": "courses.quizchoice",
+  "pk": 106,
+  "fields": {
+    "question": 33,
+    "choice_text": "Réel",
+    "is_correct": true,
+    "order": 4
+  }
+},
+{
+  "model": "courses.quizchoice",
+  "pk": 107,
+  "fields": {
+    "question": 34,
+    "choice_text": "x + 10",
+    "is_correct": false,
+    "order": 1
+  }
+},
+{
+  "model": "courses.quizchoice",
+  "pk": 108,
+  "fields": {
+    "question": 34,
+    "choice_text": "x ← 10",
+    "is_correct": true,
+    "order": 2
+  }
+},
+{
+  "model": "courses.quizchoice",
+  "pk": 109,
+  "fields": {
+    "question": 34,
+    "choice_text": "10 → x",
+    "is_correct": false,
+    "order": 3
+  }
+},
+{
+  "model": "courses.quizchoice",
+  "pk": 110,
+  "fields": {
+    "question": 34,
+    "choice_text": "x := 10",
+    "is_correct": false,
+    "order": 4
+  }
+},
+{
+  "model": "courses.quizchoice",
+  "pk": 111,
+  "fields": {
+    "question": 35,
+    "choice_text": "Entier ",
+    "is_correct": false,
+    "order": 1
+  }
+},
+{
+  "model": "courses.quizchoice",
+  "pk": 112,
+  "fields": {
+    "question": 35,
+    "choice_text": " Chaîne ",
+    "is_correct": false,
+    "order": 2
+  }
+},
+{
+  "model": "courses.quizchoice",
+  "pk": 113,
+  "fields": {
+    "question": 35,
+    "choice_text": "Booléen ",
+    "is_correct": true,
+    "order": 3
+  }
+},
+{
+  "model": "courses.quizchoice",
+  "pk": 114,
+  "fields": {
+    "question": 35,
+    "choice_text": " Réel",
+    "is_correct": false,
+    "order": 4
+  }
+},
+{
+  "model": "courses.quizchoice",
+  "pk": 115,
+  "fields": {
+    "question": 36,
+    "choice_text": "7 ",
+    "is_correct": false,
+    "order": 1
+  }
+},
+{
+  "model": "courses.quizchoice",
+  "pk": 116,
+  "fields": {
+    "question": 36,
+    "choice_text": "3",
+    "is_correct": false,
+    "order": 2
+  }
+},
+{
+  "model": "courses.quizchoice",
+  "pk": 117,
+  "fields": {
+    "question": 36,
+    "choice_text": "10",
+    "is_correct": true,
+    "order": 3
+  }
+},
+{
+  "model": "courses.quizchoice",
+  "pk": 118,
+  "fields": {
+    "question": 36,
+    "choice_text": "2.5",
+    "is_correct": false,
+    "order": 4
+  }
+},
+{
+  "model": "courses.quizchoice",
+  "pk": 119,
+  "fields": {
+    "question": 37,
+    "choice_text": " Caractère ",
+    "is_correct": true,
+    "order": 1
+  }
+},
+{
+  "model": "courses.quizchoice",
+  "pk": 120,
+  "fields": {
+    "question": 37,
+    "choice_text": " Chaîne ",
+    "is_correct": false,
+    "order": 2
+  }
+},
+{
+  "model": "courses.quizchoice",
+  "pk": 121,
+  "fields": {
+    "question": 37,
+    "choice_text": " Entier",
+    "is_correct": false,
+    "order": 3
+  }
+},
+{
+  "model": "courses.quizchoice",
+  "pk": 122,
+  "fields": {
+    "question": 37,
+    "choice_text": "  Réel",
+    "is_correct": false,
+    "order": 4
+  }
+},
+{
+  "model": "courses.quizchoice",
+  "pk": 123,
+  "fields": {
+    "question": 38,
+    "choice_text": "Vrai",
+    "is_correct": false,
+    "order": 1
+  }
+},
+{
+  "model": "courses.quizchoice",
+  "pk": 124,
+  "fields": {
+    "question": 38,
+    "choice_text": "Faux",
+    "is_correct": true,
+    "order": 2
+  }
+},
+{
+  "model": "courses.quizchoice",
+  "pk": 125,
+  "fields": {
+    "question": 39,
+    "choice_text": "En minuscules",
+    "is_correct": false,
+    "order": 1
+  }
+},
+{
+  "model": "courses.quizchoice",
+  "pk": 126,
+  "fields": {
+    "question": 39,
+    "choice_text": "Avec des chiffres seulement",
+    "is_correct": false,
+    "order": 2
+  }
+},
+{
+  "model": "courses.quizchoice",
+  "pk": 127,
+  "fields": {
+    "question": 39,
+    "choice_text": "En MAJUSCULES",
+    "is_correct": true,
+    "order": 3
+  }
+},
+{
+  "model": "courses.quizchoice",
+  "pk": 128,
+  "fields": {
+    "question": 39,
+    "choice_text": "Sans règles particulières",
+    "is_correct": false,
+    "order": 4
+  }
+},
+{
+  "model": "courses.quizchoice",
+  "pk": 129,
+  "fields": {
+    "question": 40,
+    "choice_text": "Dans une section CONSTANTES ou avec les VARIABLES",
+    "is_correct": true,
+    "order": 1
+  }
+},
+{
+  "model": "courses.quizchoice",
+  "pk": 130,
+  "fields": {
+    "question": 40,
+    "choice_text": "Seulement à la fin",
+    "is_correct": false,
+    "order": 2
+  }
+},
+{
+  "model": "courses.quizchoice",
+  "pk": 131,
+  "fields": {
+    "question": 40,
+    "choice_text": "Dans des commentaires",
+    "is_correct": false,
+    "order": 3
+  }
+},
+{
+  "model": "courses.quizchoice",
+  "pk": 132,
+  "fields": {
+    "question": 40,
+    "choice_text": "N'importe où dans le code",
+    "is_correct": false,
+    "order": 4
+  }
+},
+{
+  "model": "courses.quizchoice",
+  "pk": 133,
+  "fields": {
+    "question": 41,
+    "choice_text": "PI = 3.14",
+    "is_correct": false,
+    "order": 1
+  }
+},
+{
+  "model": "courses.quizchoice",
+  "pk": 134,
+  "fields": {
+    "question": 41,
+    "choice_text": " PI ← 3.14",
+    "is_correct": true,
+    "order": 2
+  }
+},
+{
+  "model": "courses.quizchoice",
+  "pk": 135,
+  "fields": {
+    "question": 41,
+    "choice_text": " PI : 3.14 ",
+    "is_correct": false,
+    "order": 3
+  }
+},
+{
+  "model": "courses.quizchoice",
+  "pk": 136,
+  "fields": {
+    "question": 41,
+    "choice_text": " PI → 3.14",
+    "is_correct": false,
+    "order": 4
+  }
+},
+{
+  "model": "courses.quizchoice",
+  "pk": 137,
+  "fields": {
+    "question": 42,
+    "choice_text": "Quand la valeur vient de l'utilisateur",
+    "is_correct": false,
+    "order": 1
+  }
+},
+{
+  "model": "courses.quizchoice",
+  "pk": 138,
+  "fields": {
+    "question": 42,
+    "choice_text": "Quand la valeur change pendant l'exécution ",
+    "is_correct": false,
+    "order": 2
+  }
+},
+{
+  "model": "courses.quizchoice",
+  "pk": 139,
+  "fields": {
+    "question": 42,
+    "choice_text": "Quand la valeur est fixe et connue à l'avance",
+    "is_correct": true,
+    "order": 3
+  }
+},
+{
+  "model": "courses.quizchoice",
+  "pk": 140,
+  "fields": {
+    "question": 42,
+    "choice_text": "Quand on ne connaît pas la valeur",
+    "is_correct": false,
+    "order": 4
+  }
+},
+{
+  "model": "courses.quizchoice",
+  "pk": 141,
+  "fields": {
+    "question": 43,
+    "choice_text": "L'algorithme fonctionne normalement",
+    "is_correct": false,
+    "order": 1
+  }
+},
+{
+  "model": "courses.quizchoice",
+  "pk": 142,
+  "fields": {
+    "question": 43,
+    "choice_text": "L'algorithme crée une nouvelle variable",
+    "is_correct": false,
+    "order": 2
+  }
+},
+{
+  "model": "courses.quizchoice",
+  "pk": 143,
+  "fields": {
+    "question": 43,
+    "choice_text": "L'algorithme génère une erreur",
+    "is_correct": true,
+    "order": 3
+  }
+},
+{
+  "model": "courses.quizchoice",
+  "pk": 144,
+  "fields": {
+    "question": 43,
+    "choice_text": "La constante change temporairement",
+    "is_correct": false,
+    "order": 4
+  }
+},
+{
+  "model": "courses.quizchoice",
+  "pk": 145,
+  "fields": {
+    "question": 44,
+    "choice_text": "taux ← 0.20",
+    "is_correct": false,
+    "order": 1
+  }
+},
+{
+  "model": "courses.quizchoice",
+  "pk": 146,
+  "fields": {
+    "question": 44,
+    "choice_text": "TAUX_TVA ← 0.20",
+    "is_correct": true,
+    "order": 2
+  }
+},
+{
+  "model": "courses.quizchoice",
+  "pk": 147,
+  "fields": {
+    "question": 44,
+    "choice_text": "TauxTva ← 0.20",
+    "is_correct": false,
+    "order": 3
+  }
+},
+{
+  "model": "courses.quizchoice",
+  "pk": 148,
+  "fields": {
+    "question": 44,
+    "choice_text": "taux_tva ← 0.20",
+    "is_correct": false,
+    "order": 4
+  }
+},
+{
+  "model": "courses.quizchoice",
+  "pk": 149,
+  "fields": {
+    "question": 45,
+    "choice_text": "Non, on doit utiliser la valeur directement",
+    "is_correct": false,
+    "order": 1
+  }
+},
+{
+  "model": "courses.quizchoice",
+  "pk": 150,
+  "fields": {
+    "question": 45,
+    "choice_text": "Oui, on utilise le nom de la constante",
+    "is_correct": true,
+    "order": 2
+  }
+},
+{
+  "model": "courses.quizchoice",
+  "pk": 151,
+  "fields": {
+    "question": 45,
+    "choice_text": "Non, les constantes ne peuvent pas être dans des conditions",
+    "is_correct": false,
+    "order": 3
+  }
+},
+{
+  "model": "courses.quizchoice",
+  "pk": 152,
+  "fields": {
+    "question": 45,
+    "choice_text": "Oui, mais seulement avec = ",
+    "is_correct": false,
+    "order": 4
+  }
+},
+{
+  "model": "courses.quizchoice",
+  "pk": 153,
+  "fields": {
+    "question": 46,
+    "choice_text": "Répéter des instructions",
+    "is_correct": false,
+    "order": 1
+  }
+},
+{
+  "model": "courses.quizchoice",
+  "pk": 154,
+  "fields": {
+    "question": 46,
+    "choice_text": "Déclarer une variable",
+    "is_correct": true,
+    "order": 2
+  }
+},
+{
+  "model": "courses.quizchoice",
+  "pk": 155,
+  "fields": {
+    "question": 46,
+    "choice_text": "Prendre une décision",
+    "is_correct": false,
+    "order": 3
+  }
+},
+{
+  "model": "courses.quizchoice",
+  "pk": 156,
+  "fields": {
+    "question": 46,
+    "choice_text": "Arrêter un programme",
+    "is_correct": false,
+    "order": 4
+  }
+},
+{
+  "model": "courses.quizchoice",
+  "pk": 157,
+  "fields": {
+    "question": 47,
+    "choice_text": "SI condition",
+    "is_correct": false,
+    "order": 1
+  }
+},
+{
+  "model": "courses.quizchoice",
+  "pk": 158,
+  "fields": {
+    "question": 47,
+    "choice_text": "SI condition ALORS instructions",
+    "is_correct": true,
+    "order": 2
+  }
+},
+{
+  "model": "courses.quizchoice",
+  "pk": 159,
+  "fields": {
+    "question": 47,
+    "choice_text": "condition SI ALORS",
+    "is_correct": false,
+    "order": 3
+  }
+},
+{
+  "model": "courses.quizchoice",
+  "pk": 160,
+  "fields": {
+    "question": 47,
+    "choice_text": "ALORS condition ",
+    "is_correct": false,
+    "order": 4
+  }
+},
+{
+  "model": "courses.quizchoice",
+  "pk": 161,
+  "fields": {
+    "question": 48,
+    "choice_text": "==",
+    "is_correct": false,
+    "order": 1
+  }
+},
+{
+  "model": "courses.quizchoice",
+  "pk": 162,
+  "fields": {
+    "question": 48,
+    "choice_text": ">=",
+    "is_correct": false,
+    "order": 2
+  }
+},
+{
+  "model": "courses.quizchoice",
+  "pk": 163,
+  "fields": {
+    "question": 48,
+    "choice_text": "!=",
+    "is_correct": true,
+    "order": 3
+  }
+},
+{
+  "model": "courses.quizchoice",
+  "pk": 164,
+  "fields": {
+    "question": 48,
+    "choice_text": "< ",
+    "is_correct": false,
+    "order": 4
+  }
+},
+{
+  "model": "courses.quizchoice",
+  "pk": 165,
+  "fields": {
+    "question": 49,
+    "choice_text": "Affiche « Mineur »",
+    "is_correct": false,
+    "order": 1
+  }
+},
+{
+  "model": "courses.quizchoice",
+  "pk": 166,
+  "fields": {
+    "question": 49,
+    "choice_text": "Affiche « Majeur » ",
+    "is_correct": true,
+    "order": 2
+  }
+},
+{
+  "model": "courses.quizchoice",
+  "pk": 167,
+  "fields": {
+    "question": 49,
+    "choice_text": " N’affiche rien",
+    "is_correct": false,
+    "order": 3
+  }
+},
+{
+  "model": "courses.quizchoice",
+  "pk": 168,
+  "fields": {
+    "question": 49,
+    "choice_text": "Provoque une erreur ",
+    "is_correct": false,
+    "order": 4
+  }
+},
+{
+  "model": "courses.quizchoice",
+  "pk": 169,
+  "fields": {
+    "question": 50,
+    "choice_text": "Un nombre",
+    "is_correct": false,
+    "order": 1
+  }
+},
+{
+  "model": "courses.quizchoice",
+  "pk": 170,
+  "fields": {
+    "question": 50,
+    "choice_text": "Un texte",
+    "is_correct": false,
+    "order": 2
+  }
+},
+{
+  "model": "courses.quizchoice",
+  "pk": 171,
+  "fields": {
+    "question": 50,
+    "choice_text": "Vrai ou Faux",
+    "is_correct": true,
+    "order": 3
+  }
+},
+{
+  "model": "courses.quizchoice",
+  "pk": 172,
+  "fields": {
+    "question": 50,
+    "choice_text": "Une variable",
+    "is_correct": false,
+    "order": 4
+  }
+},
+{
+  "model": "courses.quizchoice",
+  "pk": 173,
+  "fields": {
+    "question": 51,
+    "choice_text": "FIN ",
+    "is_correct": false,
+    "order": 1
+  }
+},
+{
+  "model": "courses.quizchoice",
+  "pk": 174,
+  "fields": {
+    "question": 51,
+    "choice_text": "ALORS ",
+    "is_correct": false,
+    "order": 2
+  }
+},
+{
+  "model": "courses.quizchoice",
+  "pk": 175,
+  "fields": {
+    "question": 51,
+    "choice_text": "FINSI",
+    "is_correct": true,
+    "order": 3
+  }
+},
+{
+  "model": "courses.quizchoice",
+  "pk": 176,
+  "fields": {
+    "question": 51,
+    "choice_text": " STOP",
+    "is_correct": false,
+    "order": 4
+  }
+},
+{
+  "model": "courses.quizchoice",
+  "pk": 177,
+  "fields": {
+    "question": 52,
+    "choice_text": " nombre / 2 == 0",
+    "is_correct": false,
+    "order": 1
+  }
+},
+{
+  "model": "courses.quizchoice",
+  "pk": 178,
+  "fields": {
+    "question": 52,
+    "choice_text": "nombre % 2 == 1",
+    "is_correct": false,
+    "order": 2
+  }
+},
+{
+  "model": "courses.quizchoice",
+  "pk": 179,
+  "fields": {
+    "question": 52,
+    "choice_text": "nombre % 2 == 0",
+    "is_correct": true,
+    "order": 3
+  }
+},
+{
+  "model": "courses.quizchoice",
+  "pk": 180,
+  "fields": {
+    "question": 52,
+    "choice_text": "nombre == 2",
+    "is_correct": false,
+    "order": 4
+  }
+},
+{
+  "model": "courses.quizchoice",
+  "pk": 181,
+  "fields": {
+    "question": 53,
+    "choice_text": "Le programme s’arrête",
+    "is_correct": false,
+    "order": 1
+  }
+},
+{
+  "model": "courses.quizchoice",
+  "pk": 182,
+  "fields": {
+    "question": 53,
+    "choice_text": " L’instruction est répétée",
+    "is_correct": false,
+    "order": 2
+  }
+},
+{
+  "model": "courses.quizchoice",
+  "pk": 183,
+  "fields": {
+    "question": 53,
+    "choice_text": "Les instructions sont ignorées",
+    "is_correct": true,
+    "order": 3
+  }
+},
+{
+  "model": "courses.quizchoice",
+  "pk": 184,
+  "fields": {
+    "question": 53,
+    "choice_text": "Une erreur apparaît",
+    "is_correct": false,
+    "order": 4
+  }
+},
+{
+  "model": "courses.quizchoice",
+  "pk": 205,
+  "fields": {
+    "question": 59,
+    "choice_text": " Répéter une instruction",
+    "is_correct": false,
+    "order": 1
+  }
+},
+{
+  "model": "courses.quizchoice",
+  "pk": 206,
+  "fields": {
+    "question": 59,
+    "choice_text": "Tester une condition",
+    "is_correct": false,
+    "order": 2
+  }
+},
+{
+  "model": "courses.quizchoice",
+  "pk": 207,
+  "fields": {
+    "question": 59,
+    "choice_text": "Exécuter une action si la condition est fausse",
+    "is_correct": true,
+    "order": 3
+  }
+},
+{
+  "model": "courses.quizchoice",
+  "pk": 208,
+  "fields": {
+    "question": 59,
+    "choice_text": "Arrêter l’algorithme",
+    "is_correct": false,
+    "order": 4
+  }
+},
+{
+  "model": "courses.quizchoice",
+  "pk": 209,
+  "fields": {
+    "question": 60,
+    "choice_text": "SI condition     ALORS SINON FINSI",
+    "is_correct": false,
+    "order": 1
+  }
+},
+{
+  "model": "courses.quizchoice",
+  "pk": 210,
+  "fields": {
+    "question": 60,
+    "choice_text": "SI condition ALORS     instructions SINON     instructions FINSI",
+    "is_correct": true,
+    "order": 2
+  }
+},
+{
+  "model": "courses.quizchoice",
+  "pk": 211,
+  "fields": {
+    "question": 60,
+    "choice_text": "condition SI ALORS SINON",
+    "is_correct": false,
+    "order": 3
+  }
+},
+{
+  "model": "courses.quizchoice",
+  "pk": 212,
+  "fields": {
+    "question": 60,
+    "choice_text": "SI condition SINON ALORS",
+    "is_correct": false,
+    "order": 4
+  }
+},
+{
+  "model": "courses.quizchoice",
+  "pk": 213,
+  "fields": {
+    "question": 61,
+    "choice_text": "Affiche \"Admis\"",
+    "is_correct": false,
+    "order": 1
+  }
+},
+{
+  "model": "courses.quizchoice",
+  "pk": 214,
+  "fields": {
+    "question": 61,
+    "choice_text": "Affiche \"Ajourné\"",
+    "is_correct": true,
+    "order": 2
+  }
+},
+{
+  "model": "courses.quizchoice",
+  "pk": 215,
+  "fields": {
+    "question": 61,
+    "choice_text": "N’affiche rieN+n",
+    "is_correct": false,
+    "order": 3
+  }
+},
+{
+  "model": "courses.quizchoice",
+  "pk": 216,
+  "fields": {
+    "question": 61,
+    "choice_text": "Erreur ",
+    "is_correct": false,
+    "order": 4
+  }
+},
+{
+  "model": "courses.quizchoice",
+  "pk": 217,
+  "fields": {
+    "question": 62,
+    "choice_text": "nombre % 2 == 0 ",
+    "is_correct": false,
+    "order": 1
+  }
+},
+{
+  "model": "courses.quizchoice",
+  "pk": 218,
+  "fields": {
+    "question": 62,
+    "choice_text": "nombre / 2 == 0 ",
+    "is_correct": false,
+    "order": 2
+  }
+},
+{
+  "model": "courses.quizchoice",
+  "pk": 219,
+  "fields": {
+    "question": 62,
+    "choice_text": "nombre % 2 != 0",
+    "is_correct": true,
+    "order": 3
+  }
+},
+{
+  "model": "courses.quizchoice",
+  "pk": 220,
+  "fields": {
+    "question": 62,
+    "choice_text": "nombre == 2 ",
+    "is_correct": false,
+    "order": 4
+  }
+},
+{
+  "model": "courses.quizchoice",
+  "pk": 221,
+  "fields": {
+    "question": 63,
+    "choice_text": "Un nombre ",
+    "is_correct": false,
+    "order": 1
+  }
+},
+{
+  "model": "courses.quizchoice",
+  "pk": 222,
+  "fields": {
+    "question": 63,
+    "choice_text": "Un texte",
+    "is_correct": false,
+    "order": 2
+  }
+},
+{
+  "model": "courses.quizchoice",
+  "pk": 223,
+  "fields": {
+    "question": 63,
+    "choice_text": "Vrai ou Faux",
+    "is_correct": true,
+    "order": 3
+  }
+},
+{
+  "model": "courses.quizchoice",
+  "pk": 224,
+  "fields": {
+    "question": 63,
+    "choice_text": "Une variable",
+    "is_correct": false,
+    "order": 4
+  }
+},
+{
+  "model": "courses.quizchoice",
+  "pk": 225,
+  "fields": {
+    "question": 64,
+    "choice_text": "Un nombre",
+    "is_correct": false,
+    "order": 1
+  }
+},
+{
+  "model": "courses.quizchoice",
+  "pk": 226,
+  "fields": {
+    "question": 64,
+    "choice_text": "Un texte",
+    "is_correct": false,
+    "order": 2
+  }
+},
+{
+  "model": "courses.quizchoice",
+  "pk": 227,
+  "fields": {
+    "question": 64,
+    "choice_text": "Vrai ou Faux ",
+    "is_correct": true,
+    "order": 3
+  }
+},
+{
+  "model": "courses.quizchoice",
+  "pk": 228,
+  "fields": {
+    "question": 64,
+    "choice_text": "Une variable",
+    "is_correct": false,
+    "order": 4
+  }
+},
+{
+  "model": "courses.quizchoice",
+  "pk": 229,
+  "fields": {
+    "question": 65,
+    "choice_text": "FIN",
+    "is_correct": false,
+    "order": 1
+  }
+},
+{
+  "model": "courses.quizchoice",
+  "pk": 230,
+  "fields": {
+    "question": 65,
+    "choice_text": "FINSI",
+    "is_correct": true,
+    "order": 2
+  }
+},
+{
+  "model": "courses.quizchoice",
+  "pk": 231,
+  "fields": {
+    "question": 65,
+    "choice_text": "FINPOUR",
+    "is_correct": false,
+    "order": 3
+  }
+},
+{
+  "model": "courses.quizchoice",
+  "pk": 232,
+  "fields": {
+    "question": 65,
+    "choice_text": " STOP ",
+    "is_correct": false,
+    "order": 4
+  }
+},
+{
+  "model": "courses.quizchoice",
+  "pk": 233,
+  "fields": {
+    "question": 66,
+    "choice_text": "Le programme s’arrête",
+    "is_correct": false,
+    "order": 1
+  }
+},
+{
+  "model": "courses.quizchoice",
+  "pk": 234,
+  "fields": {
+    "question": 66,
+    "choice_text": "Les instructions sont ignorées",
+    "is_correct": true,
+    "order": 2
+  }
+},
+{
+  "model": "courses.quizchoice",
+  "pk": 235,
+  "fields": {
+    "question": 66,
+    "choice_text": "Une erreur apparaît ",
+    "is_correct": false,
+    "order": 3
+  }
+},
+{
+  "model": "courses.quizchoice",
+  "pk": 236,
+  "fields": {
+    "question": 66,
+    "choice_text": "Une répétition automatique se déclenche",
+    "is_correct": false,
+    "order": 4
+  }
+},
+{
+  "model": "courses.quizchoice",
+  "pk": 237,
+  "fields": {
+    "question": 67,
+    "choice_text": "Pour la lisibilité seulement",
+    "is_correct": false,
+    "order": 1
+  }
+},
+{
+  "model": "courses.quizchoice",
+  "pk": 238,
+  "fields": {
+    "question": 67,
+    "choice_text": "Parce que les conditions sont testées dans l’ordre",
+    "is_correct": true,
+    "order": 2
+  }
+},
+{
+  "model": "courses.quizchoice",
+  "pk": 239,
+  "fields": {
+    "question": 67,
+    "choice_text": "Pour éviter les erreurs de syntaxe",
+    "is_correct": false,
+    "order": 3
+  }
+},
+{
+  "model": "courses.quizchoice",
+  "pk": 240,
+  "fields": {
+    "question": 67,
+    "choice_text": "Ce n’est pas important",
+    "is_correct": false,
+    "order": 4
+  }
+},
+{
+  "model": "courses.exercise",
+  "pk": 1,
+  "fields": {
+    "lesson": 1,
+    "title": "Ecrire un algorithme simple",
+    "description": "Ecrivez un algorithme qui calcule le périmètre d'un rectangle",
+    "problem_statement": "Ecrivez un algorithme nommé 'PerimetreRectangle' qui:\n1. Lit la longueur et la largeur d'un rectangle\n2. Calcule le périmètre (périmètre = 2 * (longueur + largeur))\n3. Affiche le résultat\n\nUtilisez la structure de base:\nALGORITHME PerimetreRectangle\nVARIABLES\n    ...\nDEBUT\n    ...\nFIN",
+    "expected_output": "Le p??rim??tre est: 20 (pour longueur=6 et largeur=4)",
+    "solution_code": null,
+    "test_cases": {
+      "required_keywords": [
+        "ALGORITHME",
+        "VARIABLES",
+        "DEBUT",
+        "FIN",
+        "LIRE",
+        "AFFICHER",
+        "périmètre",
+        "longueur",
+        "largeur"
+      ],
+      "forbidden_keywords": []
+    },
+    "points": 20,
+    "order": 1,
+    "hints": "N'oubliez pas de déclarer vos variables avant de les utiliser. Le périmètre d'un rectangle = 2 * (longueur + largeur)",
+    "difficulty": "beginner"
+  }
+},
+{
+  "model": "courses.exercise",
+  "pk": 2,
+  "fields": {
+    "lesson": 2,
+    "title": "Calculer l'age",
+    "description": "Ecrivez un algorithme qui calcule l'âge d'une personne",
+    "problem_statement": "Ecrivez un algorithme qui:\n1. Lit l'année de naissance\n2. Lit l'année actuelle\n3. Calcule l'âge (année actuelle - année naissance)\n4. Affiche l'âge",
+    "expected_output": "Ex: 24 (pour un calcul d'age avec 2002 comme annee de naissance et 2026 comme annee actuelle",
+    "solution_code": "Algorithme CalculAge\nVariables: annee_naissance, annee_actuelle, age : Entier\nDebut\n    Ecrire(\"Entrer l'année de naissance\")\n    Lire(annee_naissance)\n    Ecrire(\"Entrer l'année actuelle\")\n    Lire(annee_actuelle)\n    age ← annee_actuelle - annee_naissance\n    Ecrire(\"Votre âge est \", age)\nFin",
+    "test_cases": {
+      "required_keywords": [
+        "VARIABLES",
+        "annee",
+        "age",
+        "LIRE",
+        "ECRIRE"
+      ],
+      "forbidden_keywords": []
+    },
+    "points": 20,
+    "order": 1,
+    "hints": "Utiliser comme noms de variables annee, age",
+    "difficulty": "beginner"
+  }
+},
+{
+  "model": "courses.exercise",
+  "pk": 3,
+  "fields": {
+    "lesson": 3,
+    "title": "Calcul TTC",
+    "description": "Calculer le prix TTC avec une constante TVA",
+    "problem_statement": "Créez un algorithme qui:\n1. Définit une constante TVA = 0.20\n2. Lit le prix HT\n3. Calcule le prix TTC (HT + HT * TVA)\n4. Affiche le prix TTC",
+    "expected_output": "Prix TTC: 120",
+    "solution_code": null,
+    "test_cases": {
+      "required_keywords": [
+        "CONSTANTES",
+        "TVA",
+        "VARIABLES",
+        "priceTTC",
+        "priceHT"
+      ],
+      "forbidden_keywords": []
+    },
+    "points": 20,
+    "order": 1,
+    "hints": null,
+    "difficulty": "beginner"
+  }
+},
+{
+  "model": "courses.exercise",
+  "pk": 4,
+  "fields": {
+    "lesson": 4,
+    "title": "Nombre positif",
+    "description": "Vérifier si un nombre est positif",
+    "problem_statement": "Créez un algorithme qui lit un nombre et affiche 'Positif' s'il est > 0",
+    "expected_output": "Positif",
+    "solution_code": "",
+    "test_cases": {
+      "required_keywords": [
+        "SI",
+        "ALORS",
+        "FIN SI",
+        ">"
+      ],
+      "forbidden_keywords": []
+    },
+    "points": 20,
+    "order": 1,
+    "hints": null,
+    "difficulty": "beginner"
+  }
+},
+{
+  "model": "courses.exercise",
+  "pk": 5,
+  "fields": {
+    "lesson": 5,
+    "title": "Comparer deux nombres",
+    "description": "Comparer deux nombres",
+    "problem_statement": "Cr??ez un algorithme qui lit deux nombres et affiche lequel est le plus grand",
+    "expected_output": "Le plus grand est: 15",
+    "solution_code": null,
+    "test_cases": {
+      "required_keywords": [
+        "SI",
+        "ALORS",
+        "SINON",
+        ">"
+      ],
+      "forbidden_keywords": []
+    },
+    "points": 20,
+    "order": 1,
+    "hints": null,
+    "difficulty": "beginner"
+  }
+},
+{
+  "model": "courses.exercise",
+  "pk": 6,
+  "fields": {
+    "lesson": 6,
+    "title": "Catégorie d'age",
+    "description": "Déterminer la catégorie d'age",
+    "problem_statement": "Créez un algorithme qui affiche: Enfant (<12), Ado (12-17), Adulte (18-64), Senior (65+)",
+    "expected_output": "Adulte",
+    "solution_code": "",
+    "test_cases": {
+      "required_keywords": [
+        "SI",
+        "SINON SI",
+        "ALORS"
+      ],
+      "forbidden_keywords": []
+    },
+    "points": 20,
+    "order": 1,
+    "hints": null,
+    "difficulty": "beginner"
+  }
+},
+{
+  "model": "courses.exercise",
+  "pk": 7,
+  "fields": {
+    "lesson": 7,
+    "title": "Somme des N premiers nombres",
+    "description": "Calculer la somme 1+2+3+...+N",
+    "problem_statement": "Cr??ez un algorithme qui calcule la somme des N premiers entiers naturels",
+    "expected_output": "La somme est: 55 (pour N=10)",
+    "solution_code": null,
+    "test_cases": {
+      "required_keywords": [
+        "POUR",
+        "DE",
+        "A",
+        "FAIRE",
+        "somme"
+      ],
+      "forbidden_keywords": []
+    },
+    "points": 20,
+    "order": 1,
+    "hints": null,
+    "difficulty": "beginner"
+  }
+},
+{
+  "model": "courses.exercise",
+  "pk": 8,
+  "fields": {
+    "lesson": 8,
+    "title": "Factorielle",
+    "description": "Calculer la factorielle d'un nombre",
+    "problem_statement": "Cr??ez un algorithme qui calcule N! avec une boucle TANT QUE",
+    "expected_output": "5! = 120",
+    "solution_code": null,
+    "test_cases": {
+      "required_keywords": [
+        "TANT QUE",
+        "FAIRE",
+        "factorielle"
+      ],
+      "forbidden_keywords": []
+    },
+    "points": 20,
+    "order": 1,
+    "hints": null,
+    "difficulty": "beginner"
+  }
+},
+{
+  "model": "courses.exercise",
+  "pk": 9,
+  "fields": {
+    "lesson": 9,
+    "title": "Validation de mot de passe",
+    "description": "Demander un mot de passe jusqu'?? ce qu'il soit correct",
+    "problem_statement": "Cr??ez un algorithme qui demande un mot de passe jusqu'?? obtenir 'secret123'",
+    "expected_output": "Acc??s autoris??",
+    "solution_code": null,
+    "test_cases": {
+      "required_keywords": [
+        "REPETER",
+        "JUSQU'A",
+        "motdepasse"
+      ],
+      "forbidden_keywords": []
+    },
+    "points": 20,
+    "order": 1,
+    "hints": null,
+    "difficulty": "beginner"
+  }
+},
+{
+  "model": "courses.exercise",
+  "pk": 10,
+  "fields": {
+    "lesson": 10,
+    "title": "Fonction maximum",
+    "description": "Cr??er une fonction qui retourne le plus grand de deux nombres",
+    "problem_statement": "Cr??ez une fonction Maximum(a, b) qui retourne le plus grand des deux nombres",
+    "expected_output": "Le maximum est: 15",
+    "solution_code": null,
+    "test_cases": {
+      "required_keywords": [
+        "FONCTION",
+        "Maximum",
+        "RETOURNER"
+      ],
+      "forbidden_keywords": []
+    },
+    "points": 20,
+    "order": 1,
+    "hints": null,
+    "difficulty": "beginner"
+  }
+},
+{
+  "model": "courses.exercise",
+  "pk": 11,
+  "fields": {
+    "lesson": 11,
+    "title": "Proc??dure table de multiplication",
+    "description": "Cr??er une proc??dure qui affiche la table de multiplication d'un nombre",
+    "problem_statement": "Cr??ez une proc??dure TableMultiplication(n) qui affiche la table de n de 1 ?? 10",
+    "expected_output": "Table de 5: 5, 10, 15, ..., 50",
+    "solution_code": null,
+    "test_cases": {
+      "required_keywords": [
+        "PROCEDURE",
+        "TableMultiplication",
+        "POUR"
+      ],
+      "forbidden_keywords": []
+    },
+    "points": 20,
+    "order": 1,
+    "hints": null,
+    "difficulty": "beginner"
+  }
+},
+{
+  "model": "courses.exercise",
+  "pk": 12,
+  "fields": {
+    "lesson": 12,
+    "title": "Trouver le maximum",
+    "description": "Trouver le plus grand ??l??ment d'un tableau",
+    "problem_statement": "Cr??ez un algorithme qui:\n1. Remplit un tableau de 10 entiers\n2. Trouve et affiche le plus grand ??l??ment",
+    "expected_output": "Le maximum est: 95",
+    "solution_code": null,
+    "test_cases": {
+      "required_keywords": [
+        "TABLEAU",
+        "POUR",
+        "maximum",
+        "SI"
+      ],
+      "forbidden_keywords": []
+    },
+    "points": 20,
+    "order": 1,
+    "hints": "Initialisez le maximum avec le premier ??l??ment, puis parcourez le tableau en comparant.",
+    "difficulty": "beginner"
+  }
+},
+{
+  "model": "courses.exercise",
+  "pk": 13,
+  "fields": {
+    "lesson": 12,
+    "title": "Inverser un tableau",
+    "description": "Inverser l'ordre des ??l??ments d'un tableau",
+    "problem_statement": "Cr??ez un algorithme qui inverse un tableau:\nExemple: [1, 2, 3, 4, 5] devient [5, 4, 3, 2, 1]",
+    "expected_output": "Tableau invers??",
+    "solution_code": null,
+    "test_cases": {
+      "required_keywords": [
+        "TABLEAU",
+        "POUR",
+        "temp"
+      ],
+      "forbidden_keywords": []
+    },
+    "points": 20,
+    "order": 2,
+    "hints": "??changez les ??l??ments sym??triques: premier avec dernier, deuxi??me avec avant-dernier, etc.",
+    "difficulty": "beginner"
+  }
+},
+{
+  "model": "courses.exercise",
+  "pk": 14,
+  "fields": {
+    "lesson": 1,
+    "title": "Que fait l'algorithme?",
+    "description": "Lis l'algorithme et détermine son but.",
+    "problem_statement": "Considérez cet algorithme :\n\nALGORITHME Calcul\nVARIABLES x, y : Réels\nDÉBUT\n    Lire(x)\n    y ← x * 2\n    Écrire(y)\nFIN\nSi l'utilisateur entre 4.5, que sera affiché ?\n",
+    "expected_output": "9",
+    "solution_code": null,
+    "test_cases": {
+      "required_keywords": [
+        "9"
+      ],
+      "forbidden_keywords": []
+    },
+    "points": 20,
+    "order": 2,
+    "hints": "Donnez juste la valeur en chiffres.",
+    "difficulty": "intermediate"
+  }
+},
+{
+  "model": "courses.exercise",
+  "pk": 15,
+  "fields": {
+    "lesson": 4,
+    "title": "Nombre pair",
+    "description": "Écrire un algorithme qui :\n•\tLit un nombre\n•\tAffiche \"Nombre pair\" si le nombre est pair\n\n",
+    "problem_statement": "Un nombre est pair si le reste de la division par 2 est 0.",
+    "expected_output": "\"Nombre pair\"",
+    "solution_code": "Algorithme Nombre_Pair\nDébut\n  Lire nombre\n  SI nombre % 2 == 0 ALORS\n    Afficher \"Nombre pair\"\n  FINSI\nFin\n",
+    "test_cases": {
+      "required_keywords": [
+        "Algorithme",
+        "Début",
+        "Fin",
+        "Lire",
+        "nombre",
+        "SI",
+        "%",
+        "MOD",
+        "== 0",
+        "ALORS",
+        "FINSI",
+        "Afficher",
+        "\"Nombre pair\""
+      ],
+      "forbidden_keywords": []
+    },
+    "points": 50,
+    "order": 2,
+    "hints": "Un nombre est pair si le reste de la division par 2 est 0.",
+    "difficulty": "intermediate"
+  }
+},
+{
+  "model": "courses.userprogress",
+  "pk": 1,
+  "fields": {
+    "user": [
+      "OLIVE"
+    ],
+    "module": 1,
+    "is_unlocked": true,
+    "is_completed": true,
+    "completion_date": "2025-12-20T10:40:32.598Z"
+  }
+},
+{
+  "model": "courses.userprogress",
+  "pk": 2,
+  "fields": {
+    "user": [
+      "olivenossupuwo"
+    ],
+    "module": 1,
+    "is_unlocked": true,
+    "is_completed": true,
+    "completion_date": "2026-01-05T08:35:44.848Z"
+  }
+},
+{
+  "model": "courses.userprogress",
+  "pk": 3,
+  "fields": {
+    "user": [
+      "TRACY"
+    ],
+    "module": 1,
+    "is_unlocked": true,
+    "is_completed": true,
+    "completion_date": "2025-12-19T16:05:35.852Z"
+  }
+},
+{
+  "model": "courses.userprogress",
+  "pk": 4,
+  "fields": {
+    "user": [
+      "PENELOPE"
+    ],
+    "module": 1,
+    "is_unlocked": true,
+    "is_completed": false,
+    "completion_date": null
+  }
+},
+{
+  "model": "courses.userprogress",
+  "pk": 5,
+  "fields": {
+    "user": [
+      "olivenossupuwo"
+    ],
+    "module": 2,
+    "is_unlocked": true,
+    "is_completed": false,
+    "completion_date": null
+  }
+},
+{
+  "model": "courses.userprogress",
+  "pk": 6,
+  "fields": {
+    "user": [
+      "TRACY"
+    ],
+    "module": 2,
+    "is_unlocked": true,
+    "is_completed": false,
+    "completion_date": null
+  }
+},
+{
+  "model": "courses.userprogress",
+  "pk": 7,
+  "fields": {
+    "user": [
+      "OLIVE"
+    ],
+    "module": 2,
+    "is_unlocked": true,
+    "is_completed": false,
+    "completion_date": null
+  }
+},
+{
+  "model": "courses.userprogress",
+  "pk": 8,
+  "fields": {
+    "user": [
+      "Olive"
+    ],
+    "module": 1,
+    "is_unlocked": true,
+    "is_completed": false,
+    "completion_date": null
+  }
+},
+{
+  "model": "courses.userprogress",
+  "pk": 9,
+  "fields": {
+    "user": [
+      "Zeynab_souleymane"
+    ],
+    "module": 1,
+    "is_unlocked": true,
+    "is_completed": true,
+    "completion_date": "2026-02-05T13:36:32.261Z"
+  }
+},
+{
+  "model": "courses.userprogress",
+  "pk": 10,
+  "fields": {
+    "user": [
+      "Zeynab_souleymane"
+    ],
+    "module": 2,
+    "is_unlocked": true,
+    "is_completed": false,
+    "completion_date": null
+  }
+},
+{
+  "model": "courses.userprogress",
+  "pk": 11,
+  "fields": {
+    "user": [
+      "ATONLEU"
+    ],
+    "module": 1,
+    "is_unlocked": true,
+    "is_completed": true,
+    "completion_date": "2026-02-06T08:11:37.332Z"
+  }
+},
+{
+  "model": "courses.userprogress",
+  "pk": 12,
+  "fields": {
+    "user": [
+      "ATONLEU"
+    ],
+    "module": 2,
+    "is_unlocked": true,
+    "is_completed": false,
+    "completion_date": null
+  }
+},
+{
+  "model": "courses.lessonprogress",
+  "pk": 1,
+  "fields": {
+    "user": [
+      "OLIVE"
+    ],
+    "lesson": 1,
+    "is_completed": true,
+    "quiz_score": 100,
+    "exercise_score": 66,
+    "combined_score": 83,
+    "completion_date": "2025-12-14T19:45:06.468Z"
+  }
+},
+{
+  "model": "courses.lessonprogress",
+  "pk": 2,
+  "fields": {
+    "user": [
+      "PENELOPE"
+    ],
+    "lesson": 1,
+    "is_completed": false,
+    "quiz_score": 35,
+    "exercise_score": 0,
+    "combined_score": 17,
+    "completion_date": null
+  }
+},
+{
+  "model": "courses.lessonprogress",
+  "pk": 3,
+  "fields": {
+    "user": [
+      "TRACY"
+    ],
+    "lesson": 1,
+    "is_completed": true,
+    "quiz_score": 100,
+    "exercise_score": 100,
+    "combined_score": 100,
+    "completion_date": "2025-12-19T15:24:24.896Z"
+  }
+},
+{
+  "model": "courses.lessonprogress",
+  "pk": 4,
+  "fields": {
+    "user": [
+      "olivenossupuwo"
+    ],
+    "lesson": 1,
+    "is_completed": true,
+    "quiz_score": 100,
+    "exercise_score": 77,
+    "combined_score": 88,
+    "completion_date": "2025-12-19T15:54:59.669Z"
+  }
+},
+{
+  "model": "courses.lessonprogress",
+  "pk": 5,
+  "fields": {
+    "user": [
+      "olivenossupuwo"
+    ],
+    "lesson": 2,
+    "is_completed": false,
+    "quiz_score": 10,
+    "exercise_score": 60,
+    "combined_score": 35,
+    "completion_date": null
+  }
+},
+{
+  "model": "courses.lessonprogress",
+  "pk": 6,
+  "fields": {
+    "user": [
+      "TRACY"
+    ],
+    "lesson": 2,
+    "is_completed": false,
+    "quiz_score": 0,
+    "exercise_score": 60,
+    "combined_score": 30,
+    "completion_date": null
+  }
+},
+{
+  "model": "courses.lessonprogress",
+  "pk": 7,
+  "fields": {
+    "user": [
+      "Zeynab_souleymane"
+    ],
+    "lesson": 1,
+    "is_completed": true,
+    "quiz_score": 55,
+    "exercise_score": 100,
+    "combined_score": 77,
+    "completion_date": "2026-02-05T13:36:04.805Z"
+  }
+},
+{
+  "model": "courses.lessonprogress",
+  "pk": 8,
+  "fields": {
+    "user": [
+      "ATONLEU"
+    ],
+    "lesson": 1,
+    "is_completed": true,
+    "quiz_score": 70,
+    "exercise_score": 100,
+    "combined_score": 85,
+    "completion_date": "2026-02-06T08:10:44.013Z"
+  }
+},
+{
+  "model": "courses.lessonprogress",
+  "pk": 9,
+  "fields": {
+    "user": [
+      "ATONLEU"
+    ],
+    "lesson": 2,
+    "is_completed": true,
+    "quiz_score": 86,
+    "exercise_score": 32,
+    "combined_score": 59,
+    "completion_date": "2026-02-06T08:36:19.669Z"
+  }
+},
+{
+  "model": "courses.quizattempt",
+  "pk": 1,
+  "fields": {
+    "user": [
+      "OLIVE"
+    ],
+    "quiz": 1,
+    "score": 70,
+    "total_points": 100,
+    "percentage": 70,
+    "answers": {
+      "1": [
+        2
+      ],
+      "2": [
+        5,
+        8
+      ],
+      "3": [
+        9
+      ],
+      "4": [
+        12
+      ],
+      "5": [
+        16
+      ]
+    },
+    "completed_at": "2025-12-13T22:20:22.794Z"
+  }
+},
+{
+  "model": "courses.quizattempt",
+  "pk": 2,
+  "fields": {
+    "user": [
+      "OLIVE"
+    ],
+    "quiz": 1,
+    "score": 70,
+    "total_points": 100,
+    "percentage": 70,
+    "answers": {
+      "1": [
+        2
+      ],
+      "2": [
+        5,
+        8
+      ],
+      "3": [
+        9
+      ],
+      "4": [
+        12
+      ],
+      "5": [
+        16
+      ]
+    },
+    "completed_at": "2025-12-14T19:46:45.843Z"
+  }
+},
+{
+  "model": "courses.quizattempt",
+  "pk": 3,
+  "fields": {
+    "user": [
+      "OLIVE"
+    ],
+    "quiz": 1,
+    "score": 70,
+    "total_points": 100,
+    "percentage": 70,
+    "answers": {
+      "1": [
+        2
+      ],
+      "2": [
+        6,
+        5
+      ],
+      "3": [
+        9
+      ],
+      "4": [
+        12
+      ],
+      "5": [
+        16
+      ]
+    },
+    "completed_at": "2025-12-14T19:47:25.949Z"
+  }
+},
+{
+  "model": "courses.quizattempt",
+  "pk": 4,
+  "fields": {
+    "user": [
+      "OLIVE"
+    ],
+    "quiz": 1,
+    "score": 100,
+    "total_points": 100,
+    "percentage": 100,
+    "answers": {
+      "1": [
+        2
+      ],
+      "2": [
+        6,
+        5,
+        8
+      ],
+      "3": [
+        9
+      ],
+      "4": [
+        12
+      ],
+      "5": [
+        16
+      ]
+    },
+    "completed_at": "2025-12-14T19:47:43.517Z"
+  }
+},
+{
+  "model": "courses.quizattempt",
+  "pk": 5,
+  "fields": {
+    "user": [
+      "PENELOPE"
+    ],
+    "quiz": 1,
+    "score": 35,
+    "total_points": 100,
+    "percentage": 35,
+    "answers": {
+      "1": [
+        3
+      ],
+      "2": [
+        8,
+        7,
+        5
+      ],
+      "3": [
+        10
+      ],
+      "4": [
+        12
+      ],
+      "5": [
+        16
+      ]
+    },
+    "completed_at": "2025-12-17T12:47:46.145Z"
+  }
+},
+{
+  "model": "courses.quizattempt",
+  "pk": 6,
+  "fields": {
+    "user": [
+      "TRACY"
+    ],
+    "quiz": 1,
+    "score": 100,
+    "total_points": 100,
+    "percentage": 100,
+    "answers": {
+      "1": [
+        2
+      ],
+      "2": [
+        5,
+        6,
+        8
+      ],
+      "3": [
+        9
+      ],
+      "4": [
+        12
+      ],
+      "5": [
+        16
+      ]
+    },
+    "completed_at": "2025-12-19T15:24:24.877Z"
+  }
+},
+{
+  "model": "courses.quizattempt",
+  "pk": 7,
+  "fields": {
+    "user": [
+      "Zeynab_souleymane"
+    ],
+    "quiz": 1,
+    "score": 55,
+    "total_points": 100,
+    "percentage": 55,
+    "answers": {
+      "15": [
+        41
+      ],
+      "16": [
+        47
+      ],
+      "17": [
+        48
+      ],
+      "18": [
+        51
+      ],
+      "19": [
+        54
+      ],
+      "20": [
+        57
+      ],
+      "21": [
+        60
+      ]
+    },
+    "completed_at": "2026-02-05T13:18:29.692Z"
+  }
+},
+{
+  "model": "courses.quizattempt",
+  "pk": 8,
+  "fields": {
+    "user": [
+      "ATONLEU"
+    ],
+    "quiz": 1,
+    "score": 30,
+    "total_points": 100,
+    "percentage": 30,
+    "answers": {
+      "15": [
+        41
+      ],
+      "16": [
+        46,
+        47
+      ],
+      "17": [
+        48
+      ],
+      "18": [
+        50
+      ],
+      "19": [
+        54
+      ],
+      "20": [
+        58
+      ],
+      "21": [
+        60
+      ]
+    },
+    "completed_at": "2026-02-06T07:52:19.081Z"
+  }
+},
+{
+  "model": "courses.quizattempt",
+  "pk": 9,
+  "fields": {
+    "user": [
+      "ATONLEU"
+    ],
+    "quiz": 1,
+    "score": 70,
+    "total_points": 100,
+    "percentage": 70,
+    "answers": {
+      "15": [
+        41
+      ],
+      "16": [
+        45,
+        44
+      ],
+      "17": [
+        48
+      ],
+      "18": [
+        51
+      ],
+      "19": [
+        55
+      ],
+      "20": [
+        57
+      ],
+      "21": [
+        60
+      ]
+    },
+    "completed_at": "2026-02-06T07:53:47.244Z"
+  }
+},
+{
+  "model": "courses.quizattempt",
+  "pk": 10,
+  "fields": {
+    "user": [
+      "ATONLEU"
+    ],
+    "quiz": 2,
+    "score": 85,
+    "total_points": 98,
+    "percentage": 86,
+    "answers": {
+      "30": [
+        93
+      ],
+      "31": [
+        95
+      ],
+      "32": [
+        101
+      ],
+      "33": [
+        105
+      ],
+      "34": [
+        108
+      ],
+      "35": [
+        113
+      ],
+      "36": [
+        117
+      ],
+      "37": [
+        119
+      ]
+    },
+    "completed_at": "2026-02-06T08:24:44.027Z"
+  }
+},
+{
+  "model": "courses.quizattempt",
+  "pk": 11,
+  "fields": {
+    "user": [
+      "ATONLEU"
+    ],
+    "quiz": 2,
+    "score": 85,
+    "total_points": 98,
+    "percentage": 86,
+    "answers": {
+      "30": [
+        93
+      ],
+      "31": [
+        95
+      ],
+      "32": [
+        101
+      ],
+      "33": [
+        103
+      ],
+      "34": [
+        108
+      ],
+      "35": [
+        113
+      ],
+      "36": [
+        117
+      ],
+      "37": [
+        119
+      ]
+    },
+    "completed_at": "2026-02-06T08:25:25.062Z"
+  }
+},
+{
+  "model": "courses.quizattempt",
+  "pk": 12,
+  "fields": {
+    "user": [
+      "TRACY"
+    ],
+    "quiz": 2,
+    "score": 0,
+    "total_points": 98,
+    "percentage": 0,
+    "answers": {
+      "30": [
+        92
+      ]
+    },
+    "completed_at": "2026-02-20T08:29:03.616Z"
+  }
+},
+{
+  "model": "courses.quizattempt",
+  "pk": 13,
+  "fields": {
+    "user": [
+      "olivenossupuwo"
+    ],
+    "quiz": 2,
+    "score": 10,
+    "total_points": 98,
+    "percentage": 10,
+    "answers": {
+      "30": [
+        92
+      ],
+      "31": [
+        97
+      ],
+      "32": [
+        100
+      ],
+      "33": [
+        104
+      ],
+      "34": [
+        110
+      ],
+      "35": [
+        111
+      ],
+      "36": [
+        118
+      ],
+      "37": [
+        119
+      ]
+    },
+    "completed_at": "2026-02-20T08:52:37.868Z"
+  }
+},
+{
+  "model": "courses.exercisesubmission",
+  "pk": 1,
+  "fields": {
+    "user": [
+      "OLIVE"
+    ],
+    "exercise": 1,
+    "code_submitted": "Algorithme : PerimetreRectangle\nDebut\n ecrire(\"Entrer la longueur et la largeur\");\n lire(Longueur);\n lire(Largeur);\n perimetre = 2*(Longueur+Largeur);\n ecrire(\"Le perimetre est :\", perimetre);\nFin\n",
+    "is_correct": true,
+    "score": 66,
+    "feedback": "✓ Utilise correctement 'ALGORITHME'\n✗ Devrait utiliser 'VARIABLES'\n✓ Utilise correctement 'DEBUT'\n✓ Utilise correctement 'FIN'\n✓ Utilise correctement 'LIRE'\n✗ Devrait utiliser 'AFFICHER'\n✗ Devrait utiliser 'p??rim??tre'\n✓ Utilise correctement 'longueur'\n✓ Utilise correctement 'largeur'\n\n✅ Exercice réussi !",
+    "submitted_at": "2025-12-14T19:45:06.455Z"
+  }
+},
+{
+  "model": "courses.exercisesubmission",
+  "pk": 2,
+  "fields": {
+    "user": [
+      "TRACY"
+    ],
+    "exercise": 1,
+    "code_submitted": "ALGORITHME PerimetreRectangle\nVARIABLES \n     longueur, largeur, perimetre : reels\nDEBUT \n      ECRIRE(\"Entrer la longueur et la largeur\");\n      LIRE(longueur, largeur);\n      perimetre = 2*(longueur+largeur);\n      ECRIRE(\"Le perimetre est\", perimetre);\nFIN\n",
+    "is_correct": true,
+    "score": 77,
+    "feedback": "✓ Utilise correctement 'ALGORITHME'\n✓ Utilise correctement 'VARIABLES'\n✓ Utilise correctement 'DEBUT'\n✓ Utilise correctement 'FIN'\n✓ Utilise correctement 'LIRE'\n✗ Devrait utiliser 'AFFICHER'\n✗ Devrait utiliser 'p??rim??tre'\n✓ Utilise correctement 'longueur'\n✓ Utilise correctement 'largeur'\n\n✅ Exercice réussi !",
+    "submitted_at": "2025-12-19T15:28:19.175Z"
+  }
+},
+{
+  "model": "courses.exercisesubmission",
+  "pk": 3,
+  "fields": {
+    "user": [
+      "olivenossupuwo"
+    ],
+    "exercise": 2,
+    "code_submitted": "algorithme:CalculAge\nvariables:annee, age, anneeac : entier\ndebut\necrire(\"entrer année de naissance\");\nlire(annee);\necrire(\"entrer année actuelle\");\nlire(anneeac);\nage=anneeac-annee;\necrire(\"votre age est\", annee);\nfin\n",
+    "is_correct": true,
+    "score": 60,
+    "feedback": "✓ Utilise correctement 'VARIABLES'\n✓ Utilise correctement 'annee'\n✓ Utilise correctement 'age'\n✓ Utilise correctement 'LIRE'\n✓ Utilise correctement 'ECRIRE'\n\n⚠ Erreur d'exécution: Ligne 5: Pas assez de valeurs d'entrée pour LIRE(annee)\n\n✅ Exercice réussi ! Score: 60/100",
+    "submitted_at": "2026-01-22T03:26:51.812Z"
+  }
+},
+{
+  "model": "courses.exercisesubmission",
+  "pk": 4,
+  "fields": {
+    "user": [
+      "olivenossupuwo"
+    ],
+    "exercise": 2,
+    "code_submitted": "algorithme:CalculAge\nvariables:annee, age, anneeac : entier\ndebut\necrire(\"entrer année de naissance\");\nlire(annee);\necrire(\"entrer année actuelle\");\nlire(anneeac);\nage=anneeac-annee;\necrire(\"votre age est\", annee);\nfin\n",
+    "is_correct": true,
+    "score": 60,
+    "feedback": "[OK] Mot-cle 'VARIABLES' present\n[OK] Mot-cle 'annee' present\n[OK] Mot-cle 'age' present\n[OK] Mot-cle 'LIRE' present\n[OK] Mot-cle 'ECRIRE' present\n\n[X] Erreur de syntaxe: Ligne 5: Pas assez de valeurs d'entrée pour LIRE(annee)\n\n========================================\nEXERCICE REUSSI ! Score: 60/100\n========================================",
+    "submitted_at": "2026-01-22T03:40:50.660Z"
+  }
+},
+{
+  "model": "courses.exercisesubmission",
+  "pk": 5,
+  "fields": {
+    "user": [
+      "olivenossupuwo"
+    ],
+    "exercise": 2,
+    "code_submitted": "algorithme:CalculAge\nvariables:annee, age, anneeac : entier\ndebut\necrire(\"entrer année de naissance\");\nlire(annee);\necrire(\"entrer année actuelle\");\nlire(anneeac);\nage=anneeac-annee;\necrire(\"votre age est\", annee);\nfin\n",
+    "is_correct": true,
+    "score": 60,
+    "feedback": "[OK] Mot-cle 'VARIABLES' present\n[OK] Mot-cle 'annee' present\n[OK] Mot-cle 'age' present\n[OK] Mot-cle 'LIRE' present\n[OK] Mot-cle 'ECRIRE' present\n\n[X] Erreur de syntaxe: Erreur inattendue: unsupported operand type(s) for -: 'str' and 'str'\n\n========================================\nEXERCICE REUSSI ! Score: 60/100\n========================================",
+    "submitted_at": "2026-01-22T03:43:24.837Z"
+  }
+},
+{
+  "model": "courses.exercisesubmission",
+  "pk": 6,
+  "fields": {
+    "user": [
+      "olivenossupuwo"
+    ],
+    "exercise": 2,
+    "code_submitted": "algorithme:CalculAge\nvariables:annee, age, anneeac : entier\ndebut\necrire(\"entrer année de naissance\");\nlire(annee);\necrire(\"entrer année actuelle\");\nlire(anneeac);\nage=anneeac-annee;\necrire(\"votre age est\", annee);\nfin\n",
+    "is_correct": true,
+    "score": 60,
+    "feedback": "[OK] Mot-cle 'VARIABLES' present\n[OK] Mot-cle 'annee' present\n[OK] Mot-cle 'age' present\n[OK] Mot-cle 'LIRE' present\n[OK] Mot-cle 'ECRIRE' present\n\n--- Test avec valeurs simulees: 2024, 2000 ---\n\n[X] Erreur d'execution: Ligne 8: Impossible de soustraire: 'anneea' et 'annee;' doivent etre des nombres\n\n========================================\nEXERCICE REUSSI ! Score: 60/100\n========================================",
+    "submitted_at": "2026-01-22T03:48:41.868Z"
+  }
+},
+{
+  "model": "courses.exercisesubmission",
+  "pk": 10,
+  "fields": {
+    "user": [
+      "TRACY"
+    ],
+    "exercise": 14,
+    "code_submitted": "9",
+    "is_correct": true,
+    "score": 100,
+    "feedback": "[OK] Mot-cle '9' present\n\n[OK] Code execute sans erreur\n\n========================================\nEXERCICE REUSSI ! Score: 100/100\n========================================",
+    "submitted_at": "2026-01-22T03:59:29.898Z"
+  }
+},
+{
+  "model": "courses.exercisesubmission",
+  "pk": 11,
+  "fields": {
+    "user": [
+      "olivenossupuwo"
+    ],
+    "exercise": 2,
+    "code_submitted": "algi",
+    "is_correct": true,
+    "score": 60,
+    "feedback": "[X] Mot-cle 'VARIABLES' absent\n[X] Mot-cle 'annee' absent\n[X] Mot-cle 'age' absent\n[X] Mot-cle 'LIRE' absent\n[X] Mot-cle 'ECRIRE' absent\n\n[OK] Code execute sans erreur\n\n========================================\nEXERCICE REUSSI ! Score: 60/100\n========================================",
+    "submitted_at": "2026-01-22T08:58:00.278Z"
+  }
+},
+{
+  "model": "courses.exercisesubmission",
+  "pk": 12,
+  "fields": {
+    "user": [
+      "olivenossupuwo"
+    ],
+    "exercise": 2,
+    "code_submitted": "algorithme",
+    "is_correct": true,
+    "score": 60,
+    "feedback": "[X] Mot-cle 'VARIABLES' absent\n[X] Mot-cle 'annee' absent\n[X] Mot-cle 'age' absent\n[X] Mot-cle 'LIRE' absent\n[X] Mot-cle 'ECRIRE' absent\n\n[OK] Code execute sans erreur\n\n========================================\nEXERCICE REUSSI ! Score: 60/100\n========================================",
+    "submitted_at": "2026-01-22T08:58:17.248Z"
+  }
+},
+{
+  "model": "courses.exercisesubmission",
+  "pk": 18,
+  "fields": {
+    "user": [
+      "olivenossupuwo"
+    ],
+    "exercise": 2,
+    "code_submitted": "aalg",
+    "is_correct": true,
+    "score": 60,
+    "feedback": "========================================\nEXERCICE REUSSI ! Score: 60/100\n========================================\n\nCORRECTION - PSEUDO-CODE ATTENDU:\n\nAlgorithme CalculAge\nVariables: annee_naissance, annee_actuelle, age : Entier\nDebut\n    Ecrire(\"Entrer l'année de naissance\")\n    Lire(annee_naissance)\n    Ecrire(\"Entrer l'année actuelle\")\n    Lire(annee_actuelle)\n    age ← annee_actuelle - annee_naissance\n    Ecrire(\"Votre âge est \", age)\nFin\n\nSORTIE ATTENDUE:\nEx: 24 (pour un calcul d'age avec 2002 comme annee de naissance et 2026 comme annee actuelle",
+    "submitted_at": "2026-01-22T09:26:44.451Z"
+  }
+},
+{
+  "model": "courses.exercisesubmission",
+  "pk": 19,
+  "fields": {
+    "user": [
+      "olivenossupuwo"
+    ],
+    "exercise": 2,
+    "code_submitted": "aalg",
+    "is_correct": true,
+    "score": 60,
+    "feedback": "========================================\nEXERCICE REUSSI ! Score: 60/100\n========================================\n\nCORRECTION - PSEUDO-CODE ATTENDU:\n\nAlgorithme CalculAge\nVariables: annee_naissance, annee_actuelle, age : Entier\nDebut\n    Ecrire(\"Entrer l'année de naissance\")\n    Lire(annee_naissance)\n    Ecrire(\"Entrer l'année actuelle\")\n    Lire(annee_actuelle)\n    age ← annee_actuelle - annee_naissance\n    Ecrire(\"Votre âge est \", age)\nFin\n\nSORTIE ATTENDUE:\nEx: 24 (pour un calcul d'age avec 2002 comme annee de naissance et 2026 comme annee actuelle",
+    "submitted_at": "2026-01-22T09:26:53.593Z"
+  }
+},
+{
+  "model": "courses.exercisesubmission",
+  "pk": 20,
+  "fields": {
+    "user": [
+      "TRACY"
+    ],
+    "exercise": 2,
+    "code_submitted": "algo",
+    "is_correct": true,
+    "score": 60,
+    "feedback": "========================================\nEXERCICE REUSSI ! Score: 60/100\n========================================\n\nCORRECTION - PSEUDO-CODE ATTENDU:\n\nAlgorithme CalculAge\nVariables: annee_naissance, annee_actuelle, age : Entier\nDebut\n    Ecrire(\"Entrer l'année de naissance\")\n    Lire(annee_naissance)\n    Ecrire(\"Entrer l'année actuelle\")\n    Lire(annee_actuelle)\n    age ← annee_actuelle - annee_naissance\n    Ecrire(\"Votre âge est \", age)\nFin\n\nSORTIE ATTENDUE:\nEx: 24 (pour un calcul d'age avec 2002 comme annee de naissance et 2026 comme annee actuelle",
+    "submitted_at": "2026-01-22T09:28:02.181Z"
+  }
+},
+{
+  "model": "courses.exercisesubmission",
+  "pk": 21,
+  "fields": {
+    "user": [
+      "olivenossupuwo"
+    ],
+    "exercise": 2,
+    "code_submitted": "Algo",
+    "is_correct": true,
+    "score": 60,
+    "feedback": "========================================\nEXERCICE REUSSI ! Score: 60/100\n========================================\n\nCORRECTION - PSEUDO-CODE ATTENDU:\n\nAlgorithme CalculAge\nVariables: annee_naissance, annee_actuelle, age : Entier\nDebut\n    Ecrire(\"Entrer l'année de naissance\")\n    Lire(annee_naissance)\n    Ecrire(\"Entrer l'année actuelle\")\n    Lire(annee_actuelle)\n    age ← annee_actuelle - annee_naissance\n    Ecrire(\"Votre âge est \", age)\nFin\n\nSORTIE ATTENDUE:\nEx: 24 (pour un calcul d'age avec 2002 comme annee de naissance et 2026 comme annee actuelle",
+    "submitted_at": "2026-01-23T03:51:27.583Z"
+  }
+},
+{
+  "model": "courses.exercisesubmission",
+  "pk": 22,
+  "fields": {
+    "user": [
+      "olivenossupuwo"
+    ],
+    "exercise": 2,
+    "code_submitted": "algo",
+    "is_correct": true,
+    "score": 60,
+    "feedback": "========================================\nEXERCICE REUSSI ! Score: 60/100\n========================================\n\nCORRECTION - PSEUDO-CODE ATTENDU:\n\nAlgorithme CalculAge\nVariables: annee_naissance, annee_actuelle, age : Entier\nDebut\n    Ecrire(\"Entrer l'année de naissance\")\n    Lire(annee_naissance)\n    Ecrire(\"Entrer l'année actuelle\")\n    Lire(annee_actuelle)\n    age ← annee_actuelle - annee_naissance\n    Ecrire(\"Votre âge est \", age)\nFin\n\nSORTIE ATTENDUE:\nEx: 24 (pour un calcul d'age avec 2002 comme annee de naissance et 2026 comme annee actuelle",
+    "submitted_at": "2026-01-23T03:51:39.890Z"
+  }
+},
+{
+  "model": "courses.exercisesubmission",
+  "pk": 23,
+  "fields": {
+    "user": [
+      "olivenossupuwo"
+    ],
+    "exercise": 2,
+    "code_submitted": "algo",
+    "is_correct": true,
+    "score": 60,
+    "feedback": "========================================\nEXERCICE REUSSI ! Score: 60/100\n========================================\n\nCORRECTION - PSEUDO-CODE ATTENDU:\n\nAlgorithme CalculAge\nVariables: annee_naissance, annee_actuelle, age : Entier\nDebut\n    Ecrire(\"Entrer l'année de naissance\")\n    Lire(annee_naissance)\n    Ecrire(\"Entrer l'année actuelle\")\n    Lire(annee_actuelle)\n    age ← annee_actuelle - annee_naissance\n    Ecrire(\"Votre âge est \", age)\nFin\n\nSORTIE ATTENDUE:\nEx: 24 (pour un calcul d'age avec 2002 comme annee de naissance et 2026 comme annee actuelle",
+    "submitted_at": "2026-01-23T03:53:43.912Z"
+  }
+},
+{
+  "model": "courses.exercisesubmission",
+  "pk": 25,
+  "fields": {
+    "user": [
+      "olivenossupuwo"
+    ],
+    "exercise": 2,
+    "code_submitted": "Algo",
+    "is_correct": true,
+    "score": 60,
+    "feedback": "========================================\nEXERCICE REUSSI ! Score: 60/100\n========================================\n\nCORRECTION - PSEUDO-CODE ATTENDU:\n\nAlgorithme CalculAge\nVariables: annee_naissance, annee_actuelle, age : Entier\nDebut\n    Ecrire(\"Entrer l'année de naissance\")\n    Lire(annee_naissance)\n    Ecrire(\"Entrer l'année actuelle\")\n    Lire(annee_actuelle)\n    age ← annee_actuelle - annee_naissance\n    Ecrire(\"Votre âge est \", age)\nFin\n\nSORTIE ATTENDUE:\nEx: 24 (pour un calcul d'age avec 2002 comme annee de naissance et 2026 comme annee actuelle",
+    "submitted_at": "2026-01-23T03:54:33.159Z"
+  }
+},
+{
+  "model": "courses.exercisesubmission",
+  "pk": 32,
+  "fields": {
+    "user": [
+      "olivenossupuwo"
+    ],
+    "exercise": 2,
+    "code_submitted": "hbyu",
+    "is_correct": true,
+    "score": 60,
+    "feedback": "========================================\nEXERCICE REUSSI ! Score: 60/100\n========================================\n\nCORRECTION - PSEUDO-CODE ATTENDU:\n\nAlgorithme CalculAge\nVariables: annee_naissance, annee_actuelle, age : Entier\nDebut\n    Ecrire(\"Entrer l'année de naissance\")\n    Lire(annee_naissance)\n    Ecrire(\"Entrer l'année actuelle\")\n    Lire(annee_actuelle)\n    age ← annee_actuelle - annee_naissance\n    Ecrire(\"Votre âge est \", age)\nFin\n\nSORTIE ATTENDUE:\nEx: 24 (pour un calcul d'age avec 2002 comme annee de naissance et 2026 comme annee actuelle",
+    "submitted_at": "2026-01-23T04:03:34.254Z"
+  }
+},
+{
+  "model": "courses.exercisesubmission",
+  "pk": 33,
+  "fields": {
+    "user": [
+      "olivenossupuwo"
+    ],
+    "exercise": 2,
+    "code_submitted": "hbyu",
+    "is_correct": true,
+    "score": 60,
+    "feedback": "========================================\nEXERCICE REUSSI ! Score: 60/100\n========================================\n\nCORRECTION - PSEUDO-CODE ATTENDU:\n\nAlgorithme CalculAge\nVariables: annee_naissance, annee_actuelle, age : Entier\nDebut\n    Ecrire(\"Entrer l'année de naissance\")\n    Lire(annee_naissance)\n    Ecrire(\"Entrer l'année actuelle\")\n    Lire(annee_actuelle)\n    age ← annee_actuelle - annee_naissance\n    Ecrire(\"Votre âge est \", age)\nFin\n\nSORTIE ATTENDUE:\nEx: 24 (pour un calcul d'age avec 2002 comme annee de naissance et 2026 comme annee actuelle",
+    "submitted_at": "2026-01-23T04:03:41.116Z"
+  }
+},
+{
+  "model": "courses.exercisesubmission",
+  "pk": 35,
+  "fields": {
+    "user": [
+      "olivenossupuwo"
+    ],
+    "exercise": 2,
+    "code_submitted": "algoti",
+    "is_correct": true,
+    "score": 60,
+    "feedback": "========================================\nEXERCICE REUSSI ! Score: 60/100\n========================================\n\nCORRECTION - PSEUDO-CODE ATTENDU:\n\nAlgorithme CalculAge\nVariables: annee_naissance, annee_actuelle, age : Entier\nDebut\n    Ecrire(\"Entrer l'année de naissance\")\n    Lire(annee_naissance)\n    Ecrire(\"Entrer l'année actuelle\")\n    Lire(annee_actuelle)\n    age ← annee_actuelle - annee_naissance\n    Ecrire(\"Votre âge est \", age)\nFin\n\nSORTIE ATTENDUE:\nEx: 24 (pour un calcul d'age avec 2002 comme annee de naissance et 2026 comme annee actuelle",
+    "submitted_at": "2026-01-23T04:08:16.136Z"
+  }
+},
+{
+  "model": "courses.exercisesubmission",
+  "pk": 36,
+  "fields": {
+    "user": [
+      "TRACY"
+    ],
+    "exercise": 2,
+    "code_submitted": "ALGO",
+    "is_correct": true,
+    "score": 60,
+    "feedback": "========================================\nEXERCICE REUSSI ! Score: 60/100\n========================================\n\nCORRECTION - PSEUDO-CODE ATTENDU:\n\nAlgorithme CalculAge\nVariables: annee_naissance, annee_actuelle, age : Entier\nDebut\n    Ecrire(\"Entrer l'année de naissance\")\n    Lire(annee_naissance)\n    Ecrire(\"Entrer l'année actuelle\")\n    Lire(annee_actuelle)\n    age ← annee_actuelle - annee_naissance\n    Ecrire(\"Votre âge est \", age)\nFin\n\nSORTIE ATTENDUE:\nEx: 24 (pour un calcul d'age avec 2002 comme annee de naissance et 2026 comme annee actuelle",
+    "submitted_at": "2026-01-23T04:09:05.730Z"
+  }
+},
+{
+  "model": "courses.exercisesubmission",
+  "pk": 37,
+  "fields": {
+    "user": [
+      "TRACY"
+    ],
+    "exercise": 2,
+    "code_submitted": "ALGO",
+    "is_correct": true,
+    "score": 60,
+    "feedback": "========================================\nEXERCICE REUSSI ! Score: 60/100\n========================================\n\nCORRECTION - PSEUDO-CODE ATTENDU:\n\nAlgorithme CalculAge\nVariables: annee_naissance, annee_actuelle, age : Entier\nDebut\n    Ecrire(\"Entrer l'année de naissance\")\n    Lire(annee_naissance)\n    Ecrire(\"Entrer l'année actuelle\")\n    Lire(annee_actuelle)\n    age ← annee_actuelle - annee_naissance\n    Ecrire(\"Votre âge est \", age)\nFin\n\nSORTIE ATTENDUE:\nEx: 24 (pour un calcul d'age avec 2002 comme annee de naissance et 2026 comme annee actuelle",
+    "submitted_at": "2026-01-23T04:09:11.672Z"
+  }
+},
+{
+  "model": "courses.exercisesubmission",
+  "pk": 38,
+  "fields": {
+    "user": [
+      "TRACY"
+    ],
+    "exercise": 2,
+    "code_submitted": "hbi",
+    "is_correct": true,
+    "score": 60,
+    "feedback": "========================================\nEXERCICE REUSSI ! Score: 60/100\n========================================\n\nCORRECTION - PSEUDO-CODE ATTENDU:\n\nAlgorithme CalculAge\nVariables: annee_naissance, annee_actuelle, age : Entier\nDebut\n    Ecrire(\"Entrer l'année de naissance\")\n    Lire(annee_naissance)\n    Ecrire(\"Entrer l'année actuelle\")\n    Lire(annee_actuelle)\n    age ← annee_actuelle - annee_naissance\n    Ecrire(\"Votre âge est \", age)\nFin\n\nSORTIE ATTENDUE:\nEx: 24 (pour un calcul d'age avec 2002 comme annee de naissance et 2026 comme annee actuelle",
+    "submitted_at": "2026-01-23T04:21:51.129Z"
+  }
+},
+{
+  "model": "courses.exercisesubmission",
+  "pk": 39,
+  "fields": {
+    "user": [
+      "TRACY"
+    ],
+    "exercise": 2,
+    "code_submitted": "hbi",
+    "is_correct": true,
+    "score": 60,
+    "feedback": "========================================\nEXERCICE REUSSI ! Score: 60/100\n========================================\n\nCORRECTION - PSEUDO-CODE ATTENDU:\n\nAlgorithme CalculAge\nVariables: annee_naissance, annee_actuelle, age : Entier\nDebut\n    Ecrire(\"Entrer l'année de naissance\")\n    Lire(annee_naissance)\n    Ecrire(\"Entrer l'année actuelle\")\n    Lire(annee_actuelle)\n    age ← annee_actuelle - annee_naissance\n    Ecrire(\"Votre âge est \", age)\nFin\n\nSORTIE ATTENDUE:\nEx: 24 (pour un calcul d'age avec 2002 comme annee de naissance et 2026 comme annee actuelle",
+    "submitted_at": "2026-01-23T04:22:07.118Z"
+  }
+},
+{
+  "model": "courses.exercisesubmission",
+  "pk": 40,
+  "fields": {
+    "user": [
+      "TRACY"
+    ],
+    "exercise": 2,
+    "code_submitted": "",
+    "is_correct": false,
+    "score": 0,
+    "feedback": "Le code soumis est vide.",
+    "submitted_at": "2026-01-23T04:22:44.498Z"
+  }
+},
+{
+  "model": "courses.exercisesubmission",
+  "pk": 41,
+  "fields": {
+    "user": [
+      "TRACY"
+    ],
+    "exercise": 2,
+    "code_submitted": "gvy",
+    "is_correct": true,
+    "score": 60,
+    "feedback": "========================================\nEXERCICE REUSSI ! Score: 60/100\n========================================\n\nCORRECTION - PSEUDO-CODE ATTENDU:\n\nAlgorithme CalculAge\nVariables: annee_naissance, annee_actuelle, age : Entier\nDebut\n    Ecrire(\"Entrer l'année de naissance\")\n    Lire(annee_naissance)\n    Ecrire(\"Entrer l'année actuelle\")\n    Lire(annee_actuelle)\n    age ← annee_actuelle - annee_naissance\n    Ecrire(\"Votre âge est \", age)\nFin\n\nSORTIE ATTENDUE:\nEx: 24 (pour un calcul d'age avec 2002 comme annee de naissance et 2026 comme annee actuelle",
+    "submitted_at": "2026-01-23T04:22:50.216Z"
+  }
+},
+{
+  "model": "courses.exercisesubmission",
+  "pk": 42,
+  "fields": {
+    "user": [
+      "TRACY"
+    ],
+    "exercise": 2,
+    "code_submitted": "gvy",
+    "is_correct": false,
+    "score": 0,
+    "feedback": "========================================\nEXERCICE NON REUSSI - Score: 0/100\n(Minimum requis: 50/100)\n========================================\n\nERREURS DETECTEES:\n  1. Structure algorithmique invalide - le code doit contenir ALGORITHME, DEBUT, FIN, etc.\n\n>>> REESSAYEZ ! (Tentative 2/3) <<<\n\nEncore 1 tentative(s) avant d'obtenir la correction.\n\nConseils supplementaires:\n- Verifiez que vous utilisez les bonnes variables\n- Assurez-vous d'afficher le bon resultat avec ECRIRE",
+    "submitted_at": "2026-01-23T04:25:30.031Z"
+  }
+},
+{
+  "model": "courses.exercisesubmission",
+  "pk": 48,
+  "fields": {
+    "user": [
+      "TRACY"
+    ],
+    "exercise": 1,
+    "code_submitted": "9",
+    "is_correct": false,
+    "score": 0,
+    "feedback": "========================================\nEXERCICE NON REUSSI - Score: 0/100\n(Minimum requis: 50/100)\n========================================\n\nERREURS DETECTEES:\n  1. Structure algorithmique invalide - le code doit contenir ALGORITHME, DEBUT, FIN, etc.\n\n>>> REESSAYEZ ! (Tentative 1/3) <<<\n\nEncore 2 tentative(s) avant d'obtenir la correction.\n\nConseils:\n- Relisez attentivement l'enonce de l'exercice\n- Verifiez la syntaxe de votre pseudo-code",
+    "submitted_at": "2026-01-23T09:16:29.294Z"
+  }
+},
+{
+  "model": "courses.exercisesubmission",
+  "pk": 50,
+  "fields": {
+    "user": [
+      "TRACY"
+    ],
+    "exercise": 14,
+    "code_submitted": "9",
+    "is_correct": true,
+    "score": 100,
+    "feedback": "========================================\nEXERCICE REUSSI ! Score: 100/100\n========================================\n\nVotre réponse '9' est correcte !",
+    "submitted_at": "2026-01-23T09:20:48.895Z"
+  }
+},
+{
+  "model": "courses.exercisesubmission",
+  "pk": 54,
+  "fields": {
+    "user": [
+      "Zeynab_souleymane"
+    ],
+    "exercise": 1,
+    "code_submitted": "",
+    "is_correct": false,
+    "score": 0,
+    "feedback": "Le code soumis est vide.",
+    "submitted_at": "2026-02-05T13:34:41.641Z"
+  }
+},
+{
+  "model": "courses.exercisesubmission",
+  "pk": 55,
+  "fields": {
+    "user": [
+      "Zeynab_souleymane"
+    ],
+    "exercise": 1,
+    "code_submitted": "",
+    "is_correct": false,
+    "score": 0,
+    "feedback": "Le code soumis est vide.",
+    "submitted_at": "2026-02-05T13:34:44.729Z"
+  }
+},
+{
+  "model": "courses.exercisesubmission",
+  "pk": 56,
+  "fields": {
+    "user": [
+      "Zeynab_souleymane"
+    ],
+    "exercise": 1,
+    "code_submitted": "",
+    "is_correct": false,
+    "score": 0,
+    "feedback": "Le code soumis est vide.",
+    "submitted_at": "2026-02-05T13:34:47.415Z"
+  }
+},
+{
+  "model": "courses.exercisesubmission",
+  "pk": 57,
+  "fields": {
+    "user": [
+      "Zeynab_souleymane"
+    ],
+    "exercise": 14,
+    "code_submitted": "9",
+    "is_correct": true,
+    "score": 100,
+    "feedback": "========================================\nEXERCICE REUSSI ! Score: 100/100\n========================================\n\nVotre réponse '9' est correcte !",
+    "submitted_at": "2026-02-05T13:36:04.792Z"
+  }
+},
+{
+  "model": "courses.exercisesubmission",
+  "pk": 58,
+  "fields": {
+    "user": [
+      "ATONLEU"
+    ],
+    "exercise": 1,
+    "code_submitted": "ALAGORITHME :PERIMETRERECTANGLE\nVar longeur; largeur; p reel\nDEbut\necrire (\"entre la longeur\")\nlire( longeur)\necrire (\"entre la largeur\")\nlire(largeur)\np=( longeur +Largeur) *2\necrire (\"premertre est\" p)\nfin",
+    "is_correct": false,
+    "score": 16,
+    "feedback": "========================================\nEXERCICE NON REUSSI - Score: 16/100\n(Minimum requis: 50/100)\n========================================\n\nERREURS DETECTEES:\n  1. Sortie incorrecte. Attendu: Le p??rim??tre est: 20 (pour longueur=6 et largeur=4)\n\n>>> REESSAYEZ ! (Tentative 1/3) <<<\n\nEncore 2 tentative(s) avant d'obtenir la correction.\n\nConseils:\n- Relisez attentivement l'enonce de l'exercice\n- Verifiez la syntaxe de votre pseudo-code",
+    "submitted_at": "2026-02-06T08:05:27.293Z"
+  }
+},
+{
+  "model": "courses.exercisesubmission",
+  "pk": 59,
+  "fields": {
+    "user": [
+      "ATONLEU"
+    ],
+    "exercise": 14,
+    "code_submitted": "9",
+    "is_correct": true,
+    "score": 100,
+    "feedback": "========================================\nEXERCICE REUSSI ! Score: 100/100\n========================================\n\nVotre réponse '9' est correcte !",
+    "submitted_at": "2026-02-06T08:10:43.996Z"
+  }
+},
+{
+  "model": "courses.exercisesubmission",
+  "pk": 63,
+  "fields": {
+    "user": [
+      "ATONLEU"
+    ],
+    "exercise": 2,
+    "code_submitted": "ALGORITHME AGE\nVAR annee de naissance; annee actuelle; age entier\nDEBUT\necrire(\"entre l annee  de naissance\")\nlire ( annee de naissane)\necrire (\" entre l anne actuelle\")\nlire ( annee actuelle)\nage = annee actuelle -annee de naissance\necrire ( age )\nfin",
+    "is_correct": false,
+    "score": 32,
+    "feedback": "========================================\nEXERCICE NON REUSSI - Score: 32/100\n(Minimum requis: 50/100)\n========================================\n\nERREURS DETECTEES:\n  1. Erreur d'execution: Ligne 8: Impossible de soustraire: 'annee actuelle' et 'annee de naissance' doivent etre des nombres\n\n>>> REESSAYEZ ! (Tentative 1/3) <<<\n\nEncore 2 tentative(s) avant d'obtenir la correction.\n\nConseils:\n- Relisez attentivement l'enonce de l'exercice\n- Verifiez la syntaxe de votre pseudo-code",
+    "submitted_at": "2026-02-06T08:41:48.142Z"
+  }
+},
+{
+  "model": "courses.passwordresetcode",
+  "pk": 1,
+  "fields": {
+    "user": [
+      "olivenossupuwo"
+    ],
+    "code": "967105",
+    "created_at": "2026-01-04T18:16:34.828Z",
+    "expires_at": "2026-01-04T18:31:34.827Z",
+    "is_used": true
+  }
+},
+{
+  "model": "courses.passwordresetcode",
+  "pk": 2,
+  "fields": {
+    "user": [
+      "olivenossupuwo"
+    ],
+    "code": "337826",
+    "created_at": "2026-01-04T18:33:43.755Z",
+    "expires_at": "2026-01-04T18:48:43.754Z",
+    "is_used": true
+  }
+},
+{
+  "model": "courses.passwordresetcode",
+  "pk": 3,
+  "fields": {
+    "user": [
+      "PENELOPE"
+    ],
+    "code": "519435",
+    "created_at": "2026-01-04T18:38:10.674Z",
+    "expires_at": "2026-01-04T18:53:10.674Z",
+    "is_used": false
+  }
+}
+]

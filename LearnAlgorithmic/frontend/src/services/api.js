@@ -1,6 +1,10 @@
 import axios from 'axios';
 
-const API_BASE_URL = `http://${window.location.hostname}:8000/api`;
+// En dev (React sur port 3000) → appelle Django sur port 8000
+// En prod (React servi par Django) → utilise /api relatif
+const API_BASE_URL = window.location.port === '3000'
+  ? `http://${window.location.hostname}:8000/api`
+  : '/api';
 
 const api = axios.create({
   baseURL: API_BASE_URL,
