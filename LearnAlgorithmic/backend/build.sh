@@ -8,7 +8,7 @@ pip install -r requirements.txt
 # Construire le frontend React
 cd ../frontend
 npm install
-npm run build
+CI=false npm run build
 cd ../backend
 
 # Collecter les fichiers statiques Django

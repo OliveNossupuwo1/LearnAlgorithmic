@@ -1,30 +1,28 @@
 import React, { useState, useEffect } from 'react';
-import { Link, useParams, useNavigate } from 'react-router-dom';
+import { Link, useParams } from 'react-router-dom';
 import api from '../services/api';
 
 const UserStats = () => {
   const { userId } = useParams();
-  const navigate = useNavigate();
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState('');
   const [stats, setStats] = useState(null);
 
   useEffect(() => {
+    const fetchUserStats = async () => {
+      try {
+        setLoading(true);
+        const response = await api.get(`/admin/users/${userId}/stats/`);
+        setStats(response.data);
+      } catch (err) {
+        setError('Erreur lors du chargement des statistiques');
+        console.error(err);
+      } finally {
+        setLoading(false);
+      }
+    };
     fetchUserStats();
   }, [userId]);
-
-  const fetchUserStats = async () => {
-    try {
-      setLoading(true);
-      const response = await api.get(`/admin/users/${userId}/stats/`);
-      setStats(response.data);
-    } catch (err) {
-      setError('Erreur lors du chargement des statistiques');
-      console.error(err);
-    } finally {
-      setLoading(false);
-    }
-  };
 
   const formatDate = (dateString) => {
     if (!dateString) return 'Jamais';
