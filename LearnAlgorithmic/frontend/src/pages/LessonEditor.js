@@ -273,10 +273,10 @@ const LessonEditor = () => {
                   : 'border-transparent text-gray-600 hover:text-gray-900'
               }`}
             >
-              {tab === 'general' && '📝 Général'}
-              {tab === 'concepts' && '📖 Concepts'}
-              {tab === 'examples' && '💡 Exemples'}
-              {tab === 'simulations' && '🎬 Simulations'}
+              {tab === 'general' && <span className="flex items-center"><svg className="w-4 h-4 mr-1.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z" /></svg>General</span>}
+              {tab === 'concepts' && <span className="flex items-center"><svg className="w-4 h-4 mr-1.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253" /></svg>Concepts</span>}
+              {tab === 'examples' && <span className="flex items-center"><svg className="w-4 h-4 mr-1.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z" /></svg>Exemples</span>}
+              {tab === 'simulations' && <span className="flex items-center"><svg className="w-4 h-4 mr-1.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M14.752 11.168l-3.197-2.132A1 1 0 0010 9.87v4.263a1 1 0 001.555.832l3.197-2.132a1 1 0 000-1.664z" /><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M21 12a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>Simulations</span>}
             </button>
           ))}
         </div>
@@ -387,7 +387,7 @@ const LessonEditor = () => {
                   onClick={addConcept}
                   className="btn-primary"
                 >
-                  ➕ Ajouter un concept
+                  <svg className="w-4 h-4 mr-1 inline" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 6v6m0 0v6m0-6h6m-6 0H6" /></svg>Ajouter un concept
                 </button>
               </div>
 
@@ -406,7 +406,7 @@ const LessonEditor = () => {
                           onClick={() => removeConcept(index)}
                           className="text-red-600 hover:text-red-700"
                         >
-                          🗑️ Supprimer
+                          <svg className="w-4 h-4 mr-1 inline" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16" /></svg>Supprimer
                         </button>
                       </div>
 
@@ -470,7 +470,7 @@ const LessonEditor = () => {
                   onClick={addExample}
                   className="btn-primary"
                 >
-                  ➕ Ajouter un exemple
+                  <svg className="w-4 h-4 mr-1 inline" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 6v6m0 0v6m0-6h6m-6 0H6" /></svg>Ajouter un exemple
                 </button>
               </div>
 
@@ -489,7 +489,7 @@ const LessonEditor = () => {
                           onClick={() => removeExample(index)}
                           className="text-red-600 hover:text-red-700"
                         >
-                          🗑️ Supprimer
+                          <svg className="w-4 h-4 mr-1 inline" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16" /></svg>Supprimer
                         </button>
                       </div>
 
@@ -567,13 +567,13 @@ const LessonEditor = () => {
                   onClick={addSimulation}
                   className="btn-primary"
                 >
-                  ➕ Ajouter une simulation
+                  <svg className="w-4 h-4 mr-1 inline" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 6v6m0 0v6m0-6h6m-6 0H6" /></svg>Ajouter une simulation
                 </button>
               </div>
 
               <div className="bg-yellow-50 border-2 border-yellow-200 rounded-lg p-4 mb-6">
                 <p className="text-yellow-800 text-sm">
-                  <strong>⚠️ Note :</strong> Les simulations créées ici sont des structures de base. 
+                  <strong><svg className="w-4 h-4 mr-1 inline text-yellow-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z" /></svg>Note :</strong> Les simulations créées ici sont des structures de base. 
                   Pour créer les étapes détaillées de simulation (avec animations), 
                   vous devrez utiliser Django shell ou créer une interface dédiée.
                 </p>
@@ -594,7 +594,7 @@ const LessonEditor = () => {
                           onClick={() => removeSimulation(index)}
                           className="text-red-600 hover:text-red-700"
                         >
-                          🗑️ Supprimer
+                          <svg className="w-4 h-4 mr-1 inline" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16" /></svg>Supprimer
                         </button>
                       </div>
 
@@ -657,7 +657,7 @@ const LessonEditor = () => {
                   onClick={handleDelete}
                   className="bg-red-600 text-white px-6 py-2 rounded-lg hover:bg-red-700"
                 >
-                  🗑️ Supprimer
+                  <svg className="w-4 h-4 mr-1 inline" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16" /></svg>Supprimer
                 </button>
               )}
             </div>
@@ -677,8 +677,8 @@ const LessonEditor = () => {
                 {loading
                   ? 'Enregistrement...'
                   : lessonId === 'new'
-                  ? '✅ Créer la Leçon'
-                  : '💾 Enregistrer'}
+                  ? <span className="flex items-center"><svg className="w-4 h-4 mr-1.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>Creer la Lecon</span>
+                  : <span className="flex items-center"><svg className="w-4 h-4 mr-1.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8 7H5a2 2 0 00-2 2v9a2 2 0 002 2h14a2 2 0 002-2V9a2 2 0 00-2-2h-3m-1 4l-3 3m0 0l-3-3m3 3V4" /></svg>Enregistrer</span>}
               </button>
             </div>
           </div>

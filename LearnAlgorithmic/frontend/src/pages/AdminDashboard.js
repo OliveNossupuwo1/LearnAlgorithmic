@@ -148,7 +148,7 @@ const AdminDashboard = () => {
         {/* Activités récentes détaillées */}
         {stats?.recent_activities && stats.recent_activities.length > 0 && (
           <div className="card mb-8 animate-fade-in-up" style={{ animationDelay: '0.4s' }}>
-            <h2 className="text-2xl font-bold mb-4">📊 Activités Récentes</h2>
+            <h2 className="text-2xl font-bold mb-4 flex items-center"><svg className="w-6 h-6 mr-2 text-primary-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z" /></svg>Activites Recentes</h2>
             <div className="space-y-3">
               {stats.recent_activities.slice(0, 10).map((activity, index) => (
                 <div
@@ -160,7 +160,7 @@ const AdminDashboard = () => {
                     <div className={`w-10 h-10 rounded-full flex items-center justify-center transition-transform duration-300 hover:scale-110 ${
                       activity.type === 'quiz' ? 'bg-blue-100 text-blue-600' : 'bg-green-100 text-green-600'
                     }`}>
-                      {activity.type === 'quiz' ? '📝' : '💻'}
+                      {activity.type === 'quiz' ? <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2" /></svg> : <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4" /></svg>}
                     </div>
                     <div>
                       <p className="font-medium">
@@ -224,7 +224,7 @@ const AdminDashboard = () => {
         <div className="card animate-fade-in-up" style={{ animationDelay: '0.6s' }}>
           <div className="flex justify-between items-center mb-6">
             <h2 className="text-2xl font-bold text-gray-900">
-              📚 Tous les Modules
+              <svg className="w-6 h-6 mr-2 inline text-primary-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253" /></svg>Tous les Modules
             </h2>
           </div>
 
@@ -252,8 +252,8 @@ const AdminDashboard = () => {
                       </div>
                       <p className="text-gray-600 mb-3 text-sm sm:text-base">{module.description}</p>
                       <div className="flex flex-wrap items-center gap-2 sm:space-x-4 text-sm text-gray-500">
-                        <span>📖 {module.lessons?.length || 0} leçons</span>
-                        <span>🆔 ID: {module.id}</span>
+                        <span className="flex items-center"><svg className="w-4 h-4 mr-1" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253" /></svg>{module.lessons?.length || 0} lecons</span>
+                        <span className="flex items-center"><svg className="w-4 h-4 mr-1" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M7 20l4-16m2 16l4-16M6 9h14M4 15h14" /></svg>ID: {module.id}</span>
                       </div>
                     </div>
 
@@ -262,14 +262,14 @@ const AdminDashboard = () => {
                         onClick={() => navigate(`/admin/modules/${module.id}`)}
                         className="bg-blue-500 text-white px-4 py-2 rounded-lg hover:bg-blue-600 transition-all duration-300 hover:shadow-md hover:-translate-y-0.5"
                       >
-                        ✏️ Éditer
+                        <svg className="w-4 h-4 mr-1 inline" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z" /></svg>Editer
                       </button>
 
                       <button
                         onClick={() => navigate(`/modules/${module.id}`)}
                         className="bg-green-500 text-white px-4 py-2 rounded-lg hover:bg-green-600 transition-all duration-300 hover:shadow-md hover:-translate-y-0.5"
                       >
-                        👁️ Voir
+                        <svg className="w-4 h-4 mr-1 inline" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" /><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z" /></svg>Voir
                       </button>
                     </div>
                   </div>
@@ -283,7 +283,7 @@ const AdminDashboard = () => {
         <div className="card mt-8 animate-fade-in-up" style={{ animationDelay: '0.8s' }}>
           <div className="flex justify-between items-center mb-6">
             <h2 className="text-2xl font-bold text-gray-900">
-              📖 Toutes les Leçons
+              <svg className="w-6 h-6 mr-2 inline text-primary-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253" /></svg>Toutes les Lecons
             </h2>
             <button
               onClick={() => navigate('/admin/lessons/new')}
@@ -315,7 +315,7 @@ const AdminDashboard = () => {
                         onClick={() => navigate(`/admin/lessons/${lesson.id}`)}
                         className="bg-blue-500 text-white px-4 py-2 rounded-lg hover:bg-blue-600 transition-all duration-300 hover:shadow-md hover:-translate-y-0.5"
                       >
-                        ✏️ Éditer
+                        <svg className="w-4 h-4 mr-1 inline" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z" /></svg>Editer
                       </button>
                     </div>
                   ))
@@ -331,7 +331,7 @@ const AdminDashboard = () => {
         <div className="card mt-8 animate-fade-in-up" style={{ animationDelay: '0.9s' }}>
           <div className="flex justify-between items-center mb-6">
             <h2 className="text-2xl font-bold text-gray-900">
-              📝 Tous les Quiz
+              <svg className="w-6 h-6 mr-2 inline text-primary-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2" /></svg>Tous les Quiz
             </h2>
             <button
               onClick={() => navigate('/admin/quizzes/new')}
@@ -381,7 +381,7 @@ const AdminDashboard = () => {
         <div className="card mt-8 animate-fade-in-up" style={{ animationDelay: '1s' }}>
           <div className="flex justify-between items-center mb-6">
             <h2 className="text-2xl font-bold text-gray-900">
-              💻 Tous les Exercices
+              <svg className="w-6 h-6 mr-2 inline text-primary-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4" /></svg>Tous les Exercices
             </h2>
             <button
               onClick={() => navigate('/admin/exercises/new')}

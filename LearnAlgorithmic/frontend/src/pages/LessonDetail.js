@@ -189,9 +189,9 @@ const LessonDetail = () => {
                   : 'border-transparent text-gray-600 hover:text-gray-900 hover:border-gray-300'
               }`}
             >
-              {tab === 'content' && '📚 Contenu'}
-              {tab === 'quiz' && '📝 Quiz'}
-              {tab === 'exercises' && '💻 Exercices'}
+              {tab === 'content' && <span className="flex items-center"><svg className="w-4 h-4 mr-1.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253" /></svg>Contenu</span>}
+              {tab === 'quiz' && <span className="flex items-center"><svg className="w-4 h-4 mr-1.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2" /></svg>Quiz</span>}
+              {tab === 'exercises' && <span className="flex items-center"><svg className="w-4 h-4 mr-1.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4" /></svg>Exercices</span>}
             </button>
           ))}
         </div>
@@ -202,7 +202,7 @@ const LessonDetail = () => {
             {/* Vidéo */}
             {lesson?.video_url && getYouTubeEmbedUrl(lesson.video_url) && (
               <div className="card animate-fade-in-up">
-                <h2 className="text-2xl font-bold mb-4">🎥 Vidéo explicative</h2>
+                <h2 className="text-2xl font-bold mb-4 flex items-center"><svg className="w-6 h-6 mr-2 text-primary-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 10l4.553-2.276A1 1 0 0121 8.618v6.764a1 1 0 01-1.447.894L15 14M5 18h8a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v8a2 2 0 002 2z" /></svg>Video explicative</h2>
                 <div className="aspect-w-16 aspect-h-9">
                   <iframe
                     src={getYouTubeEmbedUrl(lesson.video_url)}
@@ -219,7 +219,7 @@ const LessonDetail = () => {
             {/* Concepts */}
             {lesson?.concepts?.length > 0 && (
               <div className="card animate-fade-in-up" style={{ animationDelay: '0.1s' }}>
-                <h2 className="text-2xl font-bold mb-4">📖 Concepts clés</h2>
+                <h2 className="text-2xl font-bold mb-4 flex items-center"><svg className="w-6 h-6 mr-2 text-primary-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253" /></svg>Concepts cles</h2>
                 <div className="space-y-4">
                   {lesson.concepts.map((concept, i) => (
                     <div key={concept.id} className="border-l-4 border-primary-500 pl-4 animate-fade-in-up" style={{ animationDelay: `${0.2 + i * 0.1}s` }}>
@@ -237,7 +237,7 @@ const LessonDetail = () => {
             {/* Exemples */}
             {lesson?.examples?.length > 0 && (
               <div className="card animate-fade-in-up" style={{ animationDelay: '0.3s' }}>
-                <h2 className="text-2xl font-bold mb-4">💡 Exemples</h2>
+                <h2 className="text-2xl font-bold mb-4 flex items-center"><svg className="w-6 h-6 mr-2 text-yellow-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z" /></svg>Exemples</h2>
                 <div className="space-y-6">
                   {lesson.examples.map((example, i) => (
                     <div key={example.id} className="animate-fade-in-up" style={{ animationDelay: `${0.4 + i * 0.1}s` }}>
@@ -255,7 +255,7 @@ const LessonDetail = () => {
             {lesson?.simulations && lesson.simulations.length > 0 && (
               <div className="mt-8 animate-fade-in-up overflow-hidden" style={{ animationDelay: '0.5s' }}>
                 <h2 className="text-2xl font-bold text-gray-900 mb-4">
-                  🎬 Simulations Interactives
+                  <svg className="w-6 h-6 mr-2 inline text-primary-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M14.752 11.168l-3.197-2.132A1 1 0 0010 9.87v4.263a1 1 0 001.555.832l3.197-2.132a1 1 0 000-1.664z" /><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M21 12a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>Simulations Interactives
                 </h2>
                 {/* Filtrer pour n'afficher qu'une seule simulation par type */}
                 {(() => {
@@ -387,8 +387,8 @@ const LessonDetail = () => {
                         }`}>
                           <p className="font-medium">
                             {quizResults.detailed_results.find((r) => r.question_id === question.id).is_correct
-                              ? '✅ Correct !'
-                              : '❌ Incorrect'}
+                              ? <span className="flex items-center"><svg className="w-5 h-5 mr-1.5 text-green-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>Correct !</span>
+                              : <span className="flex items-center"><svg className="w-5 h-5 mr-1.5 text-red-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 14l2-2m0 0l2-2m-2 2l-2-2m2 2l2 2m7-2a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>Incorrect</span>}
                           </p>
                           <p className="text-sm mt-1">
                             {quizResults.detailed_results.find((r) => r.question_id === question.id).explanation}
@@ -439,7 +439,7 @@ const LessonDetail = () => {
                 </div>
                 {exercise.hints && (
                   <div className="bg-yellow-50 p-4 rounded-lg mb-4 animate-fade-in-up" style={{ animationDelay: '0.2s' }}>
-                    <p className="text-sm font-medium text-yellow-800">💡 Indice:</p>
+                    <p className="text-sm font-medium text-yellow-800 flex items-center"><svg className="w-4 h-4 mr-1.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z" /></svg>Indice:</p>
                     <p className="text-yellow-700">{exercise.hints}</p>
                   </div>
                 )}
@@ -452,9 +452,9 @@ const LessonDetail = () => {
                     'bg-red-100 text-red-800'
                   }`}>
                     {(attemptsRemaining[exercise.id] ?? 3) > 0 ? (
-                      <>🎯 Tentative <span className="font-bold">{3 - (attemptsRemaining[exercise.id] ?? 3)}/{3}</span> — Il vous reste <span className="font-bold">{attemptsRemaining[exercise.id] ?? 3}</span> essai{(attemptsRemaining[exercise.id] ?? 3) > 1 ? 's' : ''}</>
+                      <span className="flex items-center"><svg className="w-4 h-4 mr-1.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>Tentative <span className="font-bold ml-1">{3 - (attemptsRemaining[exercise.id] ?? 3)}/{3}</span><span className="mx-1">—</span>Il vous reste <span className="font-bold mx-1">{attemptsRemaining[exercise.id] ?? 3}</span> essai{(attemptsRemaining[exercise.id] ?? 3) > 1 ? 's' : ''}</span>
                     ) : (
-                      <>❌ Plus d'essais disponibles (3/3 utilisés)</>
+                      <span className="flex items-center"><svg className="w-4 h-4 mr-1.5 text-red-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 14l2-2m0 0l2-2m-2 2l-2-2m2 2l2 2m7-2a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>Plus d'essais disponibles (3/3 utilises)</span>
                     )}
                   </div>
                   {(exerciseResults[exercise.id] || (attemptsRemaining[exercise.id] ?? 3) < 3) && (
@@ -462,7 +462,7 @@ const LessonDetail = () => {
                       onClick={() => resetExercise(exercise.id)}
                       className="px-4 py-2 bg-gray-200 hover:bg-gray-300 text-gray-700 rounded-lg font-medium transition-all duration-300 hover:shadow-md hover:-translate-y-0.5"
                     >
-                      🔄 Recommencer
+                      <svg className="w-4 h-4 mr-1.5 inline" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15" /></svg>Recommencer
                     </button>
                   )}
                 </div>
