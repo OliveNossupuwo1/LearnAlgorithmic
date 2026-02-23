@@ -722,26 +722,77 @@ def validate_exercise_code(code, exercise, failed_attempts=0):
     if not code or len(code.strip()) == 0:
         return False, "Le code soumis est vide.", 0
 
-    # Verifier que le code est du pseudo-code (pas juste une reponse directe)
+    test_cases = exercise.test_cases or {}
     code_lines = [line.strip() for line in code.split('\n') if line.strip()]
     code_upper = code.upper()
 
-    # Si le code fait moins de 3 lignes et ne contient pas de mots-cles algorithmiques,
-    # c'est probablement une reponse directe, pas du pseudo-code
-    structure_keywords = ['ALGORITHME', 'DEBUT', 'FIN', 'VARIABLES', 'ENTIER', 'REEL', 'CHAINE',
-                         'ECRIRE', 'LIRE', 'SI', 'POUR', 'TANT QUE', 'REPETER', 'BOOLEEN']
+    # ===== Detecter si c'est un exercice a reponse directe =====
+    # Un exercice est a "reponse directe" si ses required_keywords ne contiennent
+    # aucun mot-cle de structure algorithmique (ALGORITHME, DEBUT, FIN, etc.)
+    algo_structure_keywords = ['ALGORITHME', 'DEBUT', 'FIN', 'VARIABLES', 'ENTIER', 'REEL', 'CHAINE',
+                               'ECRIRE', 'LIRE', 'SI', 'POUR', 'TANT QUE', 'REPETER', 'BOOLEEN']
+    required_keywords = test_cases.get('required_keywords', [])
+    execution_tests = test_cases.get('execution_tests', [])
+
+    has_algo_keywords_required = any(
+        kw.upper() in algo_structure_keywords for kw in required_keywords
+    )
+    is_direct_answer = not has_algo_keywords_required and not execution_tests
+
+    if is_direct_answer:
+        # --- Mode reponse directe: comparer directement la reponse ---
+        answer = code.strip()
+        expected = (exercise.expected_output or '').strip()
+
+        # Verification par required_keywords (la reponse doit contenir ces valeurs)
+        if required_keywords:
+            all_match = all(kw.lower() in answer.lower() for kw in required_keywords)
+        else:
+            all_match = False
+
+        # Verification par expected_output
+        output_match = False
+        if expected:
+            output_match = answer.lower() == expected.lower()
+            # Comparaison numerique tolerante
+            if not output_match:
+                try:
+                    if abs(float(answer) - float(expected)) < 0.01:
+                        output_match = True
+                except (ValueError, TypeError):
+                    pass
+
+        if all_match or output_match:
+            score = 100
+            feedback = f"{'='*40}\nEXERCICE REUSSI ! Score: 100/100\n{'='*40}"
+            feedback += f"\n\nReponse correcte: {expected}"
+            return True, feedback, score
+        else:
+            feedback = f"{'='*40}\nREPONSE INCORRECTE - Score: 0/100\n{'='*40}"
+            feedback += f"\n\nVotre reponse: {answer}"
+            if failed_attempts >= 2:
+                feedback += f"\n\n{'='*40}\nCORRECTION\n{'='*40}"
+                feedback += f"\nReponse attendue: {expected}"
+                if exercise.hints:
+                    feedback += f"\n\nIndice: {exercise.hints}"
+            else:
+                remaining = 2 - failed_attempts
+                feedback += f"\n\n>>> REESSAYEZ ! (Tentative {failed_attempts + 1}/3) <<<"
+                feedback += f"\nEncore {remaining} tentative(s) avant la correction."
+                if exercise.hints:
+                    feedback += f"\nIndice: {exercise.hints}"
+            return False, feedback, 0
+
+    # ===== Mode algorithme: verifier la structure du pseudo-code =====
     structure_count = 0
-    for kw in structure_keywords:
+    for kw in algo_structure_keywords:
         if re.search(r'\b' + kw + r'\b', code_upper):
             structure_count += 1
 
     if len(code_lines) < 3 and structure_count < 2:
         return False, "Vous devez soumettre un algorithme en pseudo-code, pas une reponse directe.\n\nVotre code doit contenir au minimum: ALGORITHME, DEBUT, FIN, des declarations de variables, etc.", 0
 
-    test_cases = exercise.test_cases or {}
-
     # ===== PARTIE 1: Validation de la structure (25% du score max) =====
-    required_keywords = test_cases.get('required_keywords', [])
     forbidden_keywords = test_cases.get('forbidden_keywords', [])
 
     keyword_score = 0
@@ -785,7 +836,6 @@ def validate_exercise_code(code, exercise, failed_attempts=0):
     score += keyword_score
 
     # ===== PARTIE 2: Execution du pseudo-code (75% du score max) =====
-    execution_tests = test_cases.get('execution_tests', [])
     execution_max = 75
 
     if execution_tests:

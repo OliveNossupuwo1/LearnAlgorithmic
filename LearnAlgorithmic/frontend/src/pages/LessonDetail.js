@@ -452,9 +452,9 @@ const LessonDetail = () => {
                     'bg-red-100 text-red-800'
                   }`}>
                     {(attemptsRemaining[exercise.id] ?? 3) > 0 ? (
-                      <>🎯 Essais restants: <span className="font-bold">{attemptsRemaining[exercise.id] ?? 3}/3</span></>
+                      <>🎯 Tentative <span className="font-bold">{3 - (attemptsRemaining[exercise.id] ?? 3)}/{3}</span> — Il vous reste <span className="font-bold">{attemptsRemaining[exercise.id] ?? 3}</span> essai{(attemptsRemaining[exercise.id] ?? 3) > 1 ? 's' : ''}</>
                     ) : (
-                      <>❌ Plus d'essais disponibles</>
+                      <>❌ Plus d'essais disponibles (3/3 utilisés)</>
                     )}
                   </div>
                   {(exerciseResults[exercise.id] || (attemptsRemaining[exercise.id] ?? 3) < 3) && (
