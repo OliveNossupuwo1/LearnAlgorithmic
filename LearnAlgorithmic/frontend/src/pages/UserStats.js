@@ -53,9 +53,9 @@ const UserStats = () => {
           <div className="bg-red-50 border border-red-400 text-red-700 px-4 py-3 rounded">
             {error || 'Utilisateur non trouvé'}
           </div>
-          <Link to="/admin/users" className="text-primary-600 hover:text-primary-700 mt-4 inline-block">
-            ← Retour à la liste
-          </Link>
+          <button onClick={() => navigate('/admin/users')} className="text-primary-600 hover:text-primary-700 mt-4 inline-block">
+            &larr; Retour a la liste
+          </button>
         </div>
       </div>
     );
